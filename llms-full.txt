@@ -1202,7 +1202,7 @@ Yes. The cost of a major-version upgrade grows with the gap, and so does the fea
 
 Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html. Published 2026-09-08.
 
-By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules your finance team would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this for their own company.
+By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules finance would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this in-house.
 
 ## What you need
 
@@ -1225,7 +1225,7 @@ The principle that holds it together: the pipeline creates draft records, it doe
 
 Three sources cover most companies: a dedicated mailbox read by IMAP or the Gmail API, a watched folder where the scanner drops PDFs, and the WhatsApp Business API webhook, because suppliers in some markets send bills as photographs from a phone and will not stop.
 
-Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before anything else. You need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said. Then compute a SHA-256 of the bytes and check it against your register, so a repeat costs nothing.
+Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before anything else; you need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said. Then compute a SHA-256 of the bytes and check it against your register, so a repeat costs nothing.
 
 ## 2. Extraction against a strict schema
 
@@ -1335,7 +1335,7 @@ def validate(doc: dict, vendors, register, today: date) -> list[Check]:
 
 The supplier match deserves care. Match on tax registration number first, then on a normalised name, and treat a weak name-only match as a fail. The vendor master is the only place the pipeline learns supplier names from; a spelling difference between the bill and the master is a matching problem to solve in code, not a reason to create a vendor.
 
-Invoice number uniqueness is per supplier, not global, because two suppliers can both issue "INV-1001". The register is a table of (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
+Invoice number uniqueness is per supplier, not global, because two suppliers can both issue "INV-1001". The register holds (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
 
 ## 4. Confidence and the review queue
 
@@ -1343,7 +1343,7 @@ Do not ask the model how confident it is and route on the answer. The number it 
 
 Anything that fails a rule or disagrees on a key field goes to the review queue, with the page images, the JSON and the failed checks side by side. Start with everything reviewed, including the passes, until the measurement in step 8 says the straight-through path is safe. Loosen from there, one supplier at a time.
 
-The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Record every correction. Corrections are evidence for your accuracy figure and the raw material for better rules.
+The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Record every correction; corrections are evidence for your accuracy figure and the raw material for better rules.
 
 ## 5. Idempotency and the audit log
 
@@ -1363,7 +1363,7 @@ Multi-page bills: line items run across pages, and a subtotal on page two gets r
 
 Stamps over numbers: a "RECEIVED" stamp across the total, or a signature through the invoice number. The model guesses at the hidden digits. The totals rule and the second extraction disagree, and it goes to review.
 
-Duplicates sent twice: covered above, but a supplier who reissues a corrected bill under the same number still needs a person. The register flags it and a reviewer decides, which is the right outcome.
+Duplicates sent twice: covered above, but a supplier who reissues a corrected bill under the same number still needs a person. The register flags it and a reviewer decides.
 
 Statements and pro formas: `document_type` and the `is_invoice` rule keep them out of accounts payable.
 
@@ -1373,7 +1373,7 @@ Foreign currency and thousands separators: give the model the supplier's country
 
 An accuracy figure from a demo is worthless. Measure on your own document mix. Each month, draw a random sample of processed bills (a hundred is a workable size), including ones that went straight through and ones that were reviewed. A finance person keys the fields from the original without seeing the pipeline's output. Compare field by field and report three numbers: accuracy per key field, the straight-through rate (bills that needed no human touch), and the rate at which straight-through bills were later found to be wrong. That third number is the one that matters and the one nobody publishes.
 
-Track it by supplier, because suppliers change their templates without telling anyone and accuracy drops one supplier at a time. Do not use the reviewers' corrected values as ground truth; a reviewer can accept a wrong value that looked right. The monthly re-check is what makes the number believable a year later.
+Track it by supplier, because suppliers change their templates without telling anyone and accuracy drops one supplier at a time. Do not use the reviewers' corrected values as ground truth; a reviewer can accept a wrong value that looked right.
 
 ## Common questions
 
@@ -2037,7 +2037,7 @@ Odoo ties a Google identity to a user by storing Google's subject identifier in 
 
 Two ways to create it. The user-driven way: send each user a password reset from Settings, Users, the Action menu. The page that email opens carries a signup token, and the Google button on that page links the account instead of creating one. This is the method I use for rollout because it needs nothing from IT beyond sending the email. The admin-driven way: set `oauth_uid` yourself from the user's ID in the Admin SDK Directory API, which is the same value as Google's subject.
 
-Keep the Odoo login equal to the Workspace email either way. Leave sign-up on invitation only under Settings, General Settings, Users; an internal ERP should never create a user because someone signed in.
+Keep the Odoo login equal to the Workspace email either way, and leave sign-up on invitation only under Settings, General Settings, Users. An internal ERP should never create a user because someone signed in.
 
 ## 4. Enforce 2-Step Verification in the Admin console
 
@@ -2045,7 +2045,7 @@ In the Admin console: Security, Authentication, 2-Step Verification. Do it per o
 
 1. Allow users to turn on 2-Step Verification, if it is not already allowed.
 2. Set Enforcement to "On from" a date, and set a new-user enrolment period so joiners get a grace window.
-3. Under Methods, choose "Any except verification codes via text, phone call" if your workforce can manage the Google prompt or an authenticator app; text messages are the weakest method and the one most often unavailable on a factory floor.
+3. Under Methods, choose "Any except verification codes via text, phone call" if your workforce can manage the Google prompt or an authenticator app. Text messages are the weakest method and the one most often unavailable on a factory floor.
 4. Allow users to trust a device, or the daily prompt will drive the shop floor to find a way round it.
 
 Before the date, open Users in the Admin console, filter on 2-Step Verification enrolment, and go and find the ones who have not enrolled. Two factor across a manufacturing workforce is a people problem before it is a technical one. Not everyone has a company handset, and the enrolment support is the project. The configuration takes an afternoon.
@@ -2082,7 +2082,7 @@ for user in sso_users:
 env.cr.commit()
 ```
 
-Run it after the users are linked, never before, and never on the break-glass account. Then turn off the password reset link on the login page (the Password Reset option under Settings, General Settings, Users) so nobody can give themselves a password back. Removing the password form from the login page altogether, for everyone but the break-glass admin, is a small inheritance of the `web.login` template and outside this guide.
+Run it after the users are linked, never before, and never on the break-glass account. Then turn off the password reset link on the login page (the Password Reset option under Settings, General Settings, Users) so nobody can give themselves a password back. Removing the password form from the login page altogether is a small inheritance of the `web.login` template and outside this guide.
 
 ## 8. Odoo's built-in two factor for local accounts
 
@@ -2118,11 +2118,11 @@ Nobody signs in through Google until it is back, and sessions already open keep 
 
 ### Can I use Google groups to assign Odoo groups automatically?
 
-Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets `groups_id` on `res.users` from your role matrix, and it is worth it above a few hundred users. Below that, the role matrix and a good joiner process do the same job with less to break.
+Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets `groups_id` on `res.users` from your role matrix, and it is worth it above a few hundred users; below that, the role matrix and a good joiner process do the same job with less to break.
 
 ### Does enforcing 2-Step Verification in Workspace protect Odoo?
 
-Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. Check both regularly: a user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses.
+Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. A user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses.
 
 # A WhatsApp AI sales agent that hands leads to your ERP: the architecture
 
@@ -2130,22 +2130,21 @@ Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales
 
 A webhook receives each WhatsApp message, a session store keyed by phone number holds the conversation, and a model with four tools answers from a catalogue it cannot contradict. Money, complaints and requests for a person go to a human. Qualified enquiries become leads in the ERP through its API.
 
-I built one of these for a manufacturing group, running several WhatsApp numbers and the group websites through one platform, and a smaller one for my own venture. The shape is the same in both. What follows is that shape in generic Python, not the production code. The chat is the easy part. The boundaries are the design.
+I built one for a manufacturing group, running several WhatsApp numbers and the group websites through one platform, and a smaller one for my own venture. What follows is that shared shape in generic Python, not production code. The chat is the easy part. The boundaries are the design.
 
 ## Step 1: the components
 
-- A WhatsApp Business Platform webhook. Meta delivers inbound messages to your URL and you reply through the Graph API.
-- A session store keyed by phone number: recent turns, state (open, human, closed), language, lead id, and the time of the last message.
-- A language model with four tools: look up a service, quote a price from the catalogue, create a lead, hand over to a human.
+- A WhatsApp Business Platform webhook: Meta delivers messages to your URL and you reply through the Graph API.
+- A session store keyed by phone number: recent turns, state (open, human, closed), language, lead id, last message time.
+- A language model with four tools: look up a service, quote a price, create a lead, hand over to a human.
 - The catalogue: one table of services, variants, prices and units, the only source of any number a customer sees.
 - The hand-off rule, enforced in code as well as in the prompt.
-- A review queue where a person reads every lead and every hand-off.
-- A log of every turn, and rate limits per phone number and overall.
+- A review queue, a log of every turn, and rate limits.
 - The ERP connection that creates the lead.
 
 ## Step 2: the webhook
 
-Meta verifies the endpoint once with a GET carrying `hub.mode`, `hub.verify_token` and `hub.challenge`. Messages then arrive as POSTs shaped `entry[].changes[].value.messages[]`. Return 200 within a few seconds or Meta retries, so do the work in the background. Check the `X-Hub-Signature-256` header against your app secret, otherwise anyone who finds the URL can feed your bot.
+Meta verifies the endpoint once with a GET carrying `hub.mode`, `hub.verify_token` and `hub.challenge`. Messages then arrive as POSTs shaped `entry[].changes[].value.messages[]`. Return 200 within a few seconds or Meta retries, so do the work in the background. Check the `X-Hub-Signature-256` header against your app secret, or anyone who finds the URL can feed your bot.
 
 ```python
 import hmac
@@ -2176,30 +2175,18 @@ async def receive(request: Request, background: BackgroundTasks):
     return {"status": "received"}
 ```
 
-Sending a reply is one POST to the Graph API.
-
-```python
-import requests
-
-def send_text(to: str, body: str) -> None:
-    requests.post(
-        f"https://graph.facebook.com/v20.0/{PHONE_NUMBER_ID}/messages",
-        headers={"Authorization": f"Bearer {ACCESS_TOKEN}"},
-        json={"messaging_product": "whatsapp", "to": to, "type": "text", "text": {"body": body}},
-        timeout=10,
-    )
-```
+A reply is one POST to the Graph API `messages` endpoint for your phone number id, with `messaging_product` set to `whatsapp`, the recipient in `to` and the message in `text.body`.
 
 ## Step 3: the turn handler
 
-This is where every rule lives, in this order: deduplicate, rate limit, load the session, respect a human owner, cap the input, run the model, act on tool calls, check the reply against the catalogue, log, send.
+Every rule lives here, in this order: deduplicate, rate limit, load the session, respect a human owner, cap the input, run the model, act on tool calls, check the reply against the catalogue, log, send.
 
 ```python
 def handle_turn(phone: str, message_id: str, text: str) -> None:
     if store.seen(message_id):
         return
     if store.over_limit(phone):
-        send_text(phone, "Thanks, we have your messages. A colleague will reply during working hours.")
+        send_text(phone, "A colleague will reply during working hours.")
         return
     session = store.load(phone)
     log_turn(phone, message_id, "in", text)
@@ -2211,7 +2198,6 @@ def handle_turn(phone: str, message_id: str, text: str) -> None:
         if call.name == "handover":
             session.state = "human"
             queue.add(phone, reason=call.args["reason"])
-            notify_staff(phone, call.args["reason"])
         elif call.name == "create_lead":
             session.lead_id = create_lead(**call.args)
             queue.add(phone, reason="new lead")
@@ -2222,28 +2208,28 @@ def handle_turn(phone: str, message_id: str, text: str) -> None:
     send_text(phone, reply)
 ```
 
-`enforce_catalogue` is the part people leave out. It finds every currency amount in the reply and checks it against the prices `quote_price` returned this turn. Any amount that did not come from the tool is replaced with a line saying a colleague will confirm, and the conversation is flagged. The model can be told a hundred times not to invent prices. Code is what makes it true.
+`enforce_catalogue` is the part people leave out. It finds every currency amount in the reply and checks it against what `quote_price` returned this turn. Any amount that did not come from the tool is replaced with a line saying a colleague will confirm, and the conversation is flagged. A prompt can say "never invent prices" a hundred times. Code is what makes it true.
 
 ## Step 4: the tools and the catalogue
 
 Four tools are enough. More tools means more ways to be wrong.
 
-- `lookup_service(query)` returns matching catalogue entries with descriptions, so the model can answer "do you do X".
+- `lookup_service(query)` returns matching catalogue entries, so the model can answer "do you do X".
 - `quote_price(service_id, variant, quantity)` returns the price and unit. The model never sees a price any other way.
 - `create_lead(contact_name, phone, summary)` runs once the model has a name and a clear enquiry.
 - `handover(reason)` ends the model's ownership of the conversation.
 
-The catalogue is a table in your own database: service, variant, price, unit, area, active flag. The system prompt carries the service names and descriptions so the model can converse, but not the prices. If a customer asks about something not in the catalogue, the correct answer is that a person will confirm, not a plausible guess.
+The catalogue is a table in your own database: service, variant, price, unit, area, active flag. The system prompt carries service names and descriptions, but not prices. If a customer asks about something not in the catalogue, the right answer is that a person will confirm, not a plausible guess.
 
 ## Step 5: the hand-off rule and the review queue
 
-The rule I use: anything about money beyond quoting a listed price (discounts, negotiation, payment terms, refunds), any complaint, any request for a person, anything the catalogue cannot answer twice in a row, and any language the agent was not configured for. On hand-off the agent tells the customer plainly that a person will take over and when, sets the session state, alerts a member of staff, and goes quiet on that number until a person releases it.
+The rule I use: anything about money beyond quoting a listed price (discounts, negotiation, payment terms, refunds), any complaint, any request for a person, anything the catalogue cannot answer twice in a row, and any language the agent was not configured for. On hand-off the agent tells the customer that a person will take over and when, sets the session state, alerts staff, and goes quiet on that number until a person releases it.
 
-The review queue holds every lead and every hand-off. A person reads the transcript, corrects the lead, and marks it reviewed. I also sample routine conversations that triggered neither. Those review notes are the best evaluation data you will get, and you cannot manufacture them.
+The review queue holds every lead and hand-off. A person reads the transcript, corrects the lead and marks it reviewed. I also sample routine conversations that triggered neither. Those notes are the best evaluation data you will get, and you cannot manufacture them.
 
 ## Step 6: create the lead in the ERP
 
-The lead goes into the pipeline the sales team already uses, so nothing new has to be checked. In Odoo that is the `crm.lead` model over XML-RPC. Use a dedicated user with an API key and CRM rights only.
+The lead goes into the pipeline the sales team already uses. In Odoo that is the `crm.lead` model over XML-RPC. Use a dedicated user with an API key and CRM rights only.
 
 ```python
 import xmlrpc.client
@@ -2268,19 +2254,19 @@ def create_lead(contact_name: str, phone: str, summary: str) -> int:
     return models.execute_kw(DB, uid, KEY, "crm.lead", "create", [values])
 ```
 
-`name` is the only required field. `contact_name`, `phone` and `description` are standard, and `source_id` links to a `utm.source` record so the pipeline can report where leads come from. If the Leads stage is switched off in CRM settings the record becomes an opportunity straight away, which is fine. Before creating, search `crm.lead` for the same phone number and add a note to the existing record with `message_post` instead. A customer who messages three times in a week should be one lead with three notes, not three leads.
+`name` is the only required field. `contact_name`, `phone` and `description` are standard, and `source_id` links to a `utm.source` record so the pipeline can report lead sources. If Leads are switched off in CRM settings the record becomes an opportunity, which is fine. Before creating, search `crm.lead` for the same phone number and add a note to the existing record with `message_post` instead: three messages in a week should be one lead, not three.
 
 ## Step 7: logging and rate limits
 
-Log every turn: phone number, message id, direction, text, the model's input and output, tool calls, latency and token counts, in the same database as the sessions. When a customer says the bot told them something, you need to read exactly what it said.
+Log every turn: phone number, message id, direction, text, model input and output, tool calls, latency and token counts, in the same database as the sessions. When a customer says the bot told them something, you need to read exactly what it said.
 
-Rate limits go in three places: messages per phone number per hour, messages overall per minute, and turns per conversation before a forced hand-off. WhatsApp also has a 24 hour customer service window. Free-form replies are only allowed within 24 hours of the customer's last message; after that only approved template messages go through, so a person picking up a hand-off the next day may need a template to reopen the conversation.
+Rate limits go in three places: messages per phone number per hour, messages overall per minute, and turns per conversation before a forced hand-off. WhatsApp also has a 24 hour customer service window: free-form replies are allowed only within 24 hours of the customer's last message, after which only approved templates go through. A person picking up a hand-off the next day may need one.
 
 ## Step 8: what goes wrong
 
-- The model invents prices. Even with the catalogue behind a tool, it rounds, bundles two services into one number, or offers a discount nobody authorised. The reply check in Step 3 is the only fix that held.
-- Loops. A customer's auto-reply answers the bot, the bot answers back, and the pair run until a rate limit stops them. Or the model asks the same clarifying question three times. Cap turns, detect a repeated reply, hand over.
-- Long pasted messages. Somebody pastes a tender, a spreadsheet or an entire earlier chat. Cap the input, ask for the key point, and hand over if it is clearly a document.
+- The model invents prices. Even with the catalogue behind a tool, it rounds, bundles two services into one number, or offers a discount nobody authorised. The reply check in Step 3 is the fix that held.
+- Loops. A customer's auto-reply answers the bot, the bot answers back, and they run until a rate limit stops them. Or the model repeats the same question. Cap turns, detect a repeated reply, hand over.
+- Long pasted messages. Somebody pastes a tender, a spreadsheet or an earlier chat. Cap the input, ask for the key point, and hand over if it is clearly a document.
 - Off-hours expectations. At two in the morning the customer wants a person now. The agent has to say when a person will reply, and the team has to keep that promise.
 - Duplicate deliveries. Meta resends webhooks it thinks you missed. Deduplicate on message id or you answer everything twice.
 - Connectivity. Sessions and tokens fail quietly. Alert on silence during working hours, not only on errors.
@@ -2289,21 +2275,21 @@ Rate limits go in three places: messages per phone number per hour, messages ove
 
 ### Why not let the model create the lead without a review queue?
 
-Because the model is confidently wrong in a way a form validation error never is. The queue costs a person a minute per lead and catches the wrong name, the wrong service and the enquiry that was actually a complaint. It also produces the notes you need to improve the prompt.
+Because the model is confidently wrong in a way a validation error never is. The queue costs a person a minute per lead and catches the wrong name, the wrong service and the enquiry that was really a complaint. It also produces the notes you need to improve the prompt.
 
 ### Which language model should I use?
 
-Any current model with reliable tool calling, and I have run this design on more than one. The architecture matters far more than the model, because the catalogue, the reply check and the hand-off rule are what stop bad answers reaching a customer.
+Any current model with reliable tool calling; I have run this design on more than one. The architecture matters more than the model: the catalogue, the reply check and the hand-off rule stop bad answers reaching a customer.
 
 ### Can the same design serve a website chat widget?
 
-Yes. Only the channel adapter changes: the webhook and the send function become a web endpoint and a response to the browser. The session store, tools, catalogue, hand-off rule, queue and ERP connection stay as they are, which is why I run both channels through one platform.
+Yes. Only the channel adapter changes: the webhook and send function become a web endpoint and a browser response. Everything else, from session store to ERP connection, stays as it is, which is why I run both channels through one platform.
 
 # A PostgreSQL major-version upgrade with no unplanned downtime: the checklist
 
 Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html. Published 2026-09-08.
 
-By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave behind a better recovery position than you started with. It is for engineers who own a production database.
+By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave a better recovery position behind you. It is for engineers who own a production database.
 
 ## What you need
 
@@ -2315,17 +2301,16 @@ By the end of this you will be able to plan and run a PostgreSQL major-version u
 
 ## Two ways to do it
 
-`pg_upgrade` rewrites the system catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. It needs a window with the application stopped, and once you start the new cluster after a link-mode upgrade the old one cannot be started again; the way back is a backup. Run `pg_upgrade --check` first, every time. Planner statistics are not carried over, so run `vacuumdb --all --analyze-in-stages` straight afterwards. On Debian and Ubuntu the `pg_upgradecluster` wrapper drives it, with a method option for link mode.
+`pg_upgrade` rewrites the system catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed and needs a window with the application stopped. Once you start the new cluster after a link-mode upgrade, the old one cannot be started again; the way back is a backup. Run `pg_upgrade --check` first, every time. Planner statistics are not carried over, so run `vacuumdb --all --analyze-in-stages` straight afterwards. On Debian and Ubuntu the `pg_upgradecluster` wrapper drives it, with a method option for link mode.
 
 Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is what it does not do. Every replicated table needs a primary key or a `REPLICA IDENTITY`, or updates and deletes on it fail on the publisher. It copies data, not schema. It does not replicate sequences, DDL or large objects, so sequences are copied by hand at cutover and schema changes are frozen for the whole window.
 
 | | pg_upgrade --link | Logical replication |
 |---|---|---|
-| Application outage | Minutes, in a planned window | Seconds at cutover |
+| Application outage | Minutes, planned | Seconds at cutover |
 | Change host or OS at the same time | No | Yes |
 | Rollback after cutover | Restore from backup | Old server kept read-only |
-| Primary key on every table | Not needed | Needed, or REPLICA IDENTITY |
-| Sequences and schema | Carried over | Copied by hand |
+| Primary keys, sequences, schema | Not your problem | Your problem |
 | Effort | Low | High |
 
 When the database is what the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.
@@ -2356,7 +2341,7 @@ SELECT extname, extversion FROM pg_extension;               -- old server
 SELECT name, default_version FROM pg_available_extensions;  -- new server
 ```
 
-Every extension in the first list must appear in the second before you go further. Collation is the quieter risk. Text sort order comes from the operating system's C library, and a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch; take the warning seriously.
+Every extension in the first list must appear in the second. Collation is the quieter risk: text sort order comes from the operating system's C library, and a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so nothing is corrupted, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch.
 
 ### 3. Prepare the publisher
 
@@ -2394,7 +2379,7 @@ Raise `max_sync_workers_per_subscription` on the subscriber first if the databas
 
 ### 5. Monitor the lag
 
-On the subscriber, watch the initial copy finish and the apply worker stay healthy:
+On the subscriber:
 
 ```sql
 SELECT srrelid::regclass, srsubstate
@@ -2419,7 +2404,7 @@ One warning from experience: a slot that nobody is consuming holds WAL forever, 
 
 ### 6. Rehearse on a clone
 
-Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it, not as a benchmark but through the real workflows: orders, manufacturing, invoices, the slowest reports. A heavily customised application is where major-version changes bite. Query plans move, deprecated behaviour disappears, and something that worked for years fails on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback too, then run the whole thing once more with someone else reading the steps aloud.
+Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it through the real workflows: orders, manufacturing, invoices, the slowest reports. A heavily customised application is where major-version changes bite. Query plans move, deprecated behaviour disappears, and something that worked for years fails on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback too.
 
 ### 7. Freeze the application
 
@@ -2478,7 +2463,7 @@ ALTER SYSTEM SET default_transaction_read_only = on;
 SELECT pg_reload_conf();
 ```
 
-Rolling back inside that window means pointing the application at the old server and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application. It is more work, and it is the only rollback that keeps the data.
+Rolling back inside that window means pointing the application at the old server and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application. It is the only rollback that keeps the data.
 
 ### 11. Rebuild backups, recovery and monitoring
 
@@ -2499,32 +2484,30 @@ pgbackrest --stanza=main --delta --type=time \
     "--target=2026-09-08 10:15:00+04" --target-action=promote restore
 ```
 
-With plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` into a safe directory does the same job, and recovery uses `restore_command` and `recovery_target_time` with a `recovery.signal` file. Either way, open the application against the restored copy before you call it done. A backup that has never been restored is a hope, not a position.
+With plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` does the same job, and recovery uses `restore_command` and `recovery_target_time` with a `recovery.signal` file. Either way, open the application against the restored copy before you call it done. A backup that has never been restored is a hope, not a position.
 
-Monitoring on the new server should alert on `pg_stat_archiver.failed_count` rising, backup age, any remaining slot lag, disk space on the data and WAL volumes, connections near `max_connections`, and transactions open for more than a few minutes.
+Monitoring on the new server should alert on `pg_stat_archiver.failed_count` rising, backup age, disk space on the data and WAL volumes, connections near `max_connections`, and transactions open for more than a few minutes.
 
 ## The checklist
 
 | Phase | Item | Done |
 |---|---|---|
 | Audit | Tables without primary keys resolved | |
-| Audit | Extensions available on the new binaries | |
-| Audit | Collation and glibc versions compared | |
+| Audit | Extensions available on the new binaries; collation compared | |
 | Audit | Every writer to the database listed | |
 | Prepare | `wal_level = logical`, restart done | |
 | Prepare | Role, `pg_hba.conf`, publication, schema, subscription | |
 | Prepare | Initial copy complete, error counts zero | |
 | Rehearse | Full runbook and rollback run on a clone, steps timed | |
 | Rehearse | Application tested against the clone | |
-| Cutover | Schema changes frozen, every writer stopped | |
-| Cutover | `pg_stat_activity` clean, lag zero and stable | |
-| Cutover | Sequences copied, subscription and slot dropped | |
-| Cutover | Statistics built, connection string switched, application checked | |
+| Cutover | Schema changes frozen, every writer stopped, `pg_stat_activity` clean | |
+| Cutover | Lag zero and stable, sequences copied | |
+| Cutover | Subscription and slot dropped, statistics built | |
+| Cutover | Connection string switched, application checked | |
 | Cutover | Old server read-only, application role locked | |
 | After | WAL archiving, `pgbackrest check` and a full backup passing | |
 | After | Restore and point in time recovery proven on another machine | |
-| After | Monitoring and alerts live | |
-| After | Old server decommissioned at the end of the window | |
+| After | Monitoring live; old server decommissioned at the end of the window | |
 
 ## Common questions
 
@@ -2534,7 +2517,7 @@ Use it when you can take the window and you are staying on the same host. It is 
 
 ### Can I skip the rehearsal if the database is small?
 
-No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.
+No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one, and the clone is where you time the steps that let you promise a window and keep it.
 
 ### What happens if someone changes the schema during replication?
 

@@ -8,7 +8,7 @@ tags: [postgresql, upgrade, logical-replication, backup]
 
 # A PostgreSQL major-version upgrade with no unplanned downtime: the checklist
 
-By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave behind a better recovery position than you started with. It is for engineers who own a production database.
+By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave a better recovery position behind you. It is for engineers who own a production database.
 
 ## What you need
 
@@ -20,17 +20,16 @@ By the end of this you will be able to plan and run a PostgreSQL major-version u
 
 ## Two ways to do it
 
-`pg_upgrade` rewrites the system catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. It needs a window with the application stopped, and once you start the new cluster after a link-mode upgrade the old one cannot be started again; the way back is a backup. Run `pg_upgrade --check` first, every time. Planner statistics are not carried over, so run `vacuumdb --all --analyze-in-stages` straight afterwards. On Debian and Ubuntu the `pg_upgradecluster` wrapper drives it, with a method option for link mode.
+`pg_upgrade` rewrites the system catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed and needs a window with the application stopped. Once you start the new cluster after a link-mode upgrade, the old one cannot be started again; the way back is a backup. Run `pg_upgrade --check` first, every time. Planner statistics are not carried over, so run `vacuumdb --all --analyze-in-stages` straight afterwards. On Debian and Ubuntu the `pg_upgradecluster` wrapper drives it, with a method option for link mode.
 
 Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is what it does not do. Every replicated table needs a primary key or a `REPLICA IDENTITY`, or updates and deletes on it fail on the publisher. It copies data, not schema. It does not replicate sequences, DDL or large objects, so sequences are copied by hand at cutover and schema changes are frozen for the whole window.
 
 | | pg_upgrade --link | Logical replication |
 |---|---|---|
-| Application outage | Minutes, in a planned window | Seconds at cutover |
+| Application outage | Minutes, planned | Seconds at cutover |
 | Change host or OS at the same time | No | Yes |
 | Rollback after cutover | Restore from backup | Old server kept read-only |
-| Primary key on every table | Not needed | Needed, or REPLICA IDENTITY |
-| Sequences and schema | Carried over | Copied by hand |
+| Primary keys, sequences, schema | Not your problem | Your problem |
 | Effort | Low | High |
 
 When the database is what the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.
@@ -61,7 +60,7 @@ SELECT extname, extversion FROM pg_extension;               -- old server
 SELECT name, default_version FROM pg_available_extensions;  -- new server
 ```
 
-Every extension in the first list must appear in the second before you go further. Collation is the quieter risk. Text sort order comes from the operating system's C library, and a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch; take the warning seriously.
+Every extension in the first list must appear in the second. Collation is the quieter risk: text sort order comes from the operating system's C library, and a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so nothing is corrupted, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch.
 
 ### 3. Prepare the publisher
 
@@ -99,7 +98,7 @@ Raise `max_sync_workers_per_subscription` on the subscriber first if the databas
 
 ### 5. Monitor the lag
 
-On the subscriber, watch the initial copy finish and the apply worker stay healthy:
+On the subscriber:
 
 ```sql
 SELECT srrelid::regclass, srsubstate
@@ -124,7 +123,7 @@ One warning from experience: a slot that nobody is consuming holds WAL forever, 
 
 ### 6. Rehearse on a clone
 
-Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it, not as a benchmark but through the real workflows: orders, manufacturing, invoices, the slowest reports. A heavily customised application is where major-version changes bite. Query plans move, deprecated behaviour disappears, and something that worked for years fails on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback too, then run the whole thing once more with someone else reading the steps aloud.
+Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it through the real workflows: orders, manufacturing, invoices, the slowest reports. A heavily customised application is where major-version changes bite. Query plans move, deprecated behaviour disappears, and something that worked for years fails on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback too.
 
 ### 7. Freeze the application
 
@@ -183,7 +182,7 @@ ALTER SYSTEM SET default_transaction_read_only = on;
 SELECT pg_reload_conf();
 ```
 
-Rolling back inside that window means pointing the application at the old server and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application. It is more work, and it is the only rollback that keeps the data.
+Rolling back inside that window means pointing the application at the old server and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application. It is the only rollback that keeps the data.
 
 ### 11. Rebuild backups, recovery and monitoring
 
@@ -204,32 +203,30 @@ pgbackrest --stanza=main --delta --type=time \
     "--target=2026-09-08 10:15:00+04" --target-action=promote restore
 ```
 
-With plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` into a safe directory does the same job, and recovery uses `restore_command` and `recovery_target_time` with a `recovery.signal` file. Either way, open the application against the restored copy before you call it done. A backup that has never been restored is a hope, not a position.
+With plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` does the same job, and recovery uses `restore_command` and `recovery_target_time` with a `recovery.signal` file. Either way, open the application against the restored copy before you call it done. A backup that has never been restored is a hope, not a position.
 
-Monitoring on the new server should alert on `pg_stat_archiver.failed_count` rising, backup age, any remaining slot lag, disk space on the data and WAL volumes, connections near `max_connections`, and transactions open for more than a few minutes.
+Monitoring on the new server should alert on `pg_stat_archiver.failed_count` rising, backup age, disk space on the data and WAL volumes, connections near `max_connections`, and transactions open for more than a few minutes.
 
 ## The checklist
 
 | Phase | Item | Done |
 |---|---|---|
 | Audit | Tables without primary keys resolved | |
-| Audit | Extensions available on the new binaries | |
-| Audit | Collation and glibc versions compared | |
+| Audit | Extensions available on the new binaries; collation compared | |
 | Audit | Every writer to the database listed | |
 | Prepare | `wal_level = logical`, restart done | |
 | Prepare | Role, `pg_hba.conf`, publication, schema, subscription | |
 | Prepare | Initial copy complete, error counts zero | |
 | Rehearse | Full runbook and rollback run on a clone, steps timed | |
 | Rehearse | Application tested against the clone | |
-| Cutover | Schema changes frozen, every writer stopped | |
-| Cutover | `pg_stat_activity` clean, lag zero and stable | |
-| Cutover | Sequences copied, subscription and slot dropped | |
-| Cutover | Statistics built, connection string switched, application checked | |
+| Cutover | Schema changes frozen, every writer stopped, `pg_stat_activity` clean | |
+| Cutover | Lag zero and stable, sequences copied | |
+| Cutover | Subscription and slot dropped, statistics built | |
+| Cutover | Connection string switched, application checked | |
 | Cutover | Old server read-only, application role locked | |
 | After | WAL archiving, `pgbackrest check` and a full backup passing | |
 | After | Restore and point in time recovery proven on another machine | |
-| After | Monitoring and alerts live | |
-| After | Old server decommissioned at the end of the window | |
+| After | Monitoring live; old server decommissioned at the end of the window | |
 
 ## Common questions
 
@@ -239,7 +236,7 @@ Use it when you can take the window and you are staying on the same host. It is 
 
 ### Can I skip the rehearsal if the database is small?
 
-No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.
+No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one, and the clone is where you time the steps that let you promise a window and keep it.
 
 ### What happens if someone changes the schema during replication?
 

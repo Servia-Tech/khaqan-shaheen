@@ -53,7 +53,7 @@ Odoo ties a Google identity to a user by storing Google's subject identifier in 
 
 Two ways to create it. The user-driven way: send each user a password reset from Settings, Users, the Action menu. The page that email opens carries a signup token, and the Google button on that page links the account instead of creating one. This is the method I use for rollout because it needs nothing from IT beyond sending the email. The admin-driven way: set `oauth_uid` yourself from the user's ID in the Admin SDK Directory API, which is the same value as Google's subject.
 
-Keep the Odoo login equal to the Workspace email either way. Leave sign-up on invitation only under Settings, General Settings, Users; an internal ERP should never create a user because someone signed in.
+Keep the Odoo login equal to the Workspace email either way, and leave sign-up on invitation only under Settings, General Settings, Users. An internal ERP should never create a user because someone signed in.
 
 ## 4. Enforce 2-Step Verification in the Admin console
 
@@ -61,7 +61,7 @@ In the Admin console: Security, Authentication, 2-Step Verification. Do it per o
 
 1. Allow users to turn on 2-Step Verification, if it is not already allowed.
 2. Set Enforcement to "On from" a date, and set a new-user enrolment period so joiners get a grace window.
-3. Under Methods, choose "Any except verification codes via text, phone call" if your workforce can manage the Google prompt or an authenticator app; text messages are the weakest method and the one most often unavailable on a factory floor.
+3. Under Methods, choose "Any except verification codes via text, phone call" if your workforce can manage the Google prompt or an authenticator app. Text messages are the weakest method and the one most often unavailable on a factory floor.
 4. Allow users to trust a device, or the daily prompt will drive the shop floor to find a way round it.
 
 Before the date, open Users in the Admin console, filter on 2-Step Verification enrolment, and go and find the ones who have not enrolled. Two factor across a manufacturing workforce is a people problem before it is a technical one. Not everyone has a company handset, and the enrolment support is the project. The configuration takes an afternoon.
@@ -98,7 +98,7 @@ for user in sso_users:
 env.cr.commit()
 ```
 
-Run it after the users are linked, never before, and never on the break-glass account. Then turn off the password reset link on the login page (the Password Reset option under Settings, General Settings, Users) so nobody can give themselves a password back. Removing the password form from the login page altogether, for everyone but the break-glass admin, is a small inheritance of the `web.login` template and outside this guide.
+Run it after the users are linked, never before, and never on the break-glass account. Then turn off the password reset link on the login page (the Password Reset option under Settings, General Settings, Users) so nobody can give themselves a password back. Removing the password form from the login page altogether is a small inheritance of the `web.login` template and outside this guide.
 
 ## 8. Odoo's built-in two factor for local accounts
 
@@ -134,8 +134,8 @@ Nobody signs in through Google until it is back, and sessions already open keep 
 
 ### Can I use Google groups to assign Odoo groups automatically?
 
-Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets `groups_id` on `res.users` from your role matrix, and it is worth it above a few hundred users. Below that, the role matrix and a good joiner process do the same job with less to break.
+Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets `groups_id` on `res.users` from your role matrix, and it is worth it above a few hundred users; below that, the role matrix and a good joiner process do the same job with less to break.
 
 ### Does enforcing 2-Step Verification in Workspace protect Odoo?
 
-Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. Check both regularly: a user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses.
+Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. A user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses.

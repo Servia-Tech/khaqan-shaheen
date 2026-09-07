@@ -8,7 +8,7 @@ tags: [ai, ocr, erp, accounts-payable]
 
 # Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production
 
-By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules your finance team would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this for their own company.
+By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules finance would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this in-house.
 
 ## What you need
 
@@ -31,7 +31,7 @@ The principle that holds it together: the pipeline creates draft records, it doe
 
 Three sources cover most companies: a dedicated mailbox read by IMAP or the Gmail API, a watched folder where the scanner drops PDFs, and the WhatsApp Business API webhook, because suppliers in some markets send bills as photographs from a phone and will not stop.
 
-Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before anything else. You need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said. Then compute a SHA-256 of the bytes and check it against your register, so a repeat costs nothing.
+Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before anything else; you need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said. Then compute a SHA-256 of the bytes and check it against your register, so a repeat costs nothing.
 
 ## 2. Extraction against a strict schema
 
@@ -141,7 +141,7 @@ def validate(doc: dict, vendors, register, today: date) -> list[Check]:
 
 The supplier match deserves care. Match on tax registration number first, then on a normalised name, and treat a weak name-only match as a fail. The vendor master is the only place the pipeline learns supplier names from; a spelling difference between the bill and the master is a matching problem to solve in code, not a reason to create a vendor.
 
-Invoice number uniqueness is per supplier, not global, because two suppliers can both issue "INV-1001". The register is a table of (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
+Invoice number uniqueness is per supplier, not global, because two suppliers can both issue "INV-1001". The register holds (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
 
 ## 4. Confidence and the review queue
 
@@ -149,7 +149,7 @@ Do not ask the model how confident it is and route on the answer. The number it 
 
 Anything that fails a rule or disagrees on a key field goes to the review queue, with the page images, the JSON and the failed checks side by side. Start with everything reviewed, including the passes, until the measurement in step 8 says the straight-through path is safe. Loosen from there, one supplier at a time.
 
-The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Record every correction. Corrections are evidence for your accuracy figure and the raw material for better rules.
+The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Record every correction; corrections are evidence for your accuracy figure and the raw material for better rules.
 
 ## 5. Idempotency and the audit log
 
@@ -169,7 +169,7 @@ Multi-page bills: line items run across pages, and a subtotal on page two gets r
 
 Stamps over numbers: a "RECEIVED" stamp across the total, or a signature through the invoice number. The model guesses at the hidden digits. The totals rule and the second extraction disagree, and it goes to review.
 
-Duplicates sent twice: covered above, but a supplier who reissues a corrected bill under the same number still needs a person. The register flags it and a reviewer decides, which is the right outcome.
+Duplicates sent twice: covered above, but a supplier who reissues a corrected bill under the same number still needs a person. The register flags it and a reviewer decides.
 
 Statements and pro formas: `document_type` and the `is_invoice` rule keep them out of accounts payable.
 
@@ -179,7 +179,7 @@ Foreign currency and thousands separators: give the model the supplier's country
 
 An accuracy figure from a demo is worthless. Measure on your own document mix. Each month, draw a random sample of processed bills (a hundred is a workable size), including ones that went straight through and ones that were reviewed. A finance person keys the fields from the original without seeing the pipeline's output. Compare field by field and report three numbers: accuracy per key field, the straight-through rate (bills that needed no human touch), and the rate at which straight-through bills were later found to be wrong. That third number is the one that matters and the one nobody publishes.
 
-Track it by supplier, because suppliers change their templates without telling anyone and accuracy drops one supplier at a time. Do not use the reviewers' corrected values as ground truth; a reviewer can accept a wrong value that looked right. The monthly re-check is what makes the number believable a year later.
+Track it by supplier, because suppliers change their templates without telling anyone and accuracy drops one supplier at a time. Do not use the reviewers' corrected values as ground truth; a reviewer can accept a wrong value that looked right.
 
 ## Common questions
 

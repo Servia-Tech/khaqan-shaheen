@@ -131,7 +131,7 @@
     <link>https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html</link>
     <guid>https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html</guid>
     <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
-    <description>A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo by XML-RPC.</description>
+    <description>A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo.</description>
     <category>Tutorial</category>
   </item>
   <item>
