@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An AI voice agent on the corporate phone system | Khaqan Shaheen</title>
+<meta name="description" content="A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An AI voice agent on the corporate phone system">
+<meta property="og:description" content="A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html#article", "headline": "An AI voice agent on the corporate phone system", "description": "A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "An AI voice agent on the corporate phone system", "item": "https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 6</div>
+<article class="article">
+<h1>An AI voice agent on the corporate phone system</h1>
+<p class="meta">Case study 6 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms. Telephony sits inside my IT function rather than with facilities or an outside supplier, which turns out to be the fact that made this project possible.</p>
+<h2>Business problem</h2>
+<p>Calls outside office hours went unanswered. In a business selling into five countries, "outside office hours" covers a large part of the working week somewhere. A caller who reaches a ring tone does not leave a voicemail. They call the next supplier. There was also no record the call had happened, so the loss was invisible: you cannot review a report of calls nobody answered and nobody logged. Chat had already been solved. Voice is where people still go when the enquiry is urgent, and voice was the gap.</p>
+<h2>My responsibility</h2>
+<p>I designed and built it, on a phone platform I already own and administer. It is one of five AI systems of my design in daily production at the group.</p>
+<h2>Solution</h2>
+<p>An AI agent that answers and handles inbound calls on the Grandstream platform. It picks up, holds a conversation, deals with what it can deal with, and takes what it cannot to the right place instead of dropping it.</p>
+<p>Most organisations that want this buy a hosted service and point their numbers at somebody else's cloud, which means a cost per minute, caller audio leaving the estate, and a dependency on a supplier's roadmap. Because the phone platform is mine and I administer it, I built the agent onto our own telephony rather than renting a service in front of it. Call handling stays inside the estate and the design stays under my control.</p>
+<h2>Technology</h2>
+<p>Grandstream telephony, VoIP, speech and large language model APIs, Python, Linux, integration with the group's systems of record.</p>
+<h2>Implementation</h2>
+<p>Built onto the existing VoIP estate rather than beside it, so numbers, extensions and routing carry on working as they did. Introduced first where an unanswered call was pure loss, with fallback behaviour defined before it went near a live number.</p>
+<h2>Challenges</h2>
+<p>Voice is much less forgiving than chat. A pause of a second that nobody notices when typing is an awkward silence on a call, so latency is a design constraint from the first line of code rather than a tuning exercise at the end. Callers to a manufacturer in this region speak in a wide range of accents and several languages, often on a poor connection. Handover has to be clean too, because an agent that traps a caller in a loop is worse than the ring tone it replaced.</p>
+<h2>Result</h2>
+<p>Calls that used to ring out are answered and handled, and voice stopped being the channel where enquiries disappeared.</p>
+<h2>Verified evidence</h2>
+<p>The agent runs in production on the group's Grandstream platform, and my ownership of both the Avaya and Grandstream estates is what the build depends on. I hold the platform call records and can produce the calls-handled figure on request. I do not quote a number I have not measured. No recordings, transcripts or caller details are used in any write-up or demonstration.</p>
+<h2>Skills demonstrated</h2>
+<p>VoIP and telephony administration, applied AI in production, speech interface design, latency-sensitive engineering, integration of AI with existing corporate infrastructure.</p>
+<nav class="pager" aria-label="Case studies"><a href="ai-sales-agent-whatsapp-and-web.html">&larr; A 24 hour AI sales agent on WhatsApp and the group websites</a><a href="identity-and-access-rebuild.html">Identity and access: from local passwords to single sign on with two factor &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

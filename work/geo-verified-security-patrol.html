@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geo-verified security patrol, integrated with the ERP | Khaqan Shaheen</title>
+<meta name="description" content="A manufacturing group with production and storage sites in five countries.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Geo-verified security patrol, integrated with the ERP">
+<meta property="og:description" content="A manufacturing group with production and storage sites in five countries.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html#article", "headline": "Geo-verified security patrol, integrated with the ERP", "description": "A manufacturing group with production and storage sites in five countries.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "Geo-verified security patrol, integrated with the ERP", "item": "https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 9</div>
+<article class="article">
+<h1>Geo-verified security patrol, integrated with the ERP</h1>
+<p class="meta">Case study 9 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A manufacturing group with production and storage sites in five countries. Physical security sits inside my IT function alongside IP CCTV and access control, because in a manufacturing group those are IT systems.</p>
+<h2>Business problem</h2>
+<p>Guard patrols were recorded as signatures on paper: a sheet on a clipboard, a time written next to a checkpoint, a signature at the end of the round. The problem is not that guards are dishonest. It is that the record is unverifiable in principle, because a sheet completed in a gatehouse at the end of a shift looks exactly like a sheet completed on the round. Nobody could show that a patrol had happened, so the control existed on paper and not in fact.</p>
+<h2>My responsibility</h2>
+<p>I proposed it, designed it and built it, and I own the physical security estate it belongs to.</p>
+<h2>Solution</h2>
+<p>A patrol application on a phone, where reaching a checkpoint is confirmed by location rather than by a signature, and the record goes straight into the ERP.</p>
+<p>The guard walks the round and records the checkpoint on the handset. The system verifies the checkpoint by location at the moment it is recorded, so the evidence is produced by the act itself rather than written down afterwards. The record then reaches management reporting the same way every other operational number does.</p>
+<p>I scoped it deliberately narrowly. The system verifies that a checkpoint was reached, which is the control the business actually needs. It is a patrol evidence system, not a tracking system aimed at individuals, and that is a distinction I would defend in any jurisdiction.</p>
+<h2>Technology</h2>
+<p>Android application development and packaging, device location services, Odoo, PostgreSQL, the group's mobile and PWA delivery stack.</p>
+<h2>Implementation</h2>
+<p>Built on the same mobile delivery approach as the group's other field applications, so it is packaged, distributed and integrated the same way. Introduced site by site, with the paper round kept running until the electronic record had proved itself.</p>
+<h2>Challenges</h2>
+<p>Location on a manufacturing site is not the clean signal it is in open ground. Steel-framed buildings, warehouses and plant rooms are exactly where accuracy degrades, and exactly where the checkpoints are. Designing for that, rather than assuming a perfect fix, is most of the engineering. Connectivity is the second problem: a patrol at the far end of a yard at three in the morning cannot depend on a live link. The third is adoption. A system introduced as a way of catching guards out gets defeated within a week. Introduced as the thing that proves they did their job, it gets used.</p>
+<h2>Result</h2>
+<p>Patrol evidence is verifiable rather than assumed, and it reaches management reporting directly instead of as collected paper.</p>
+<h2>Verified evidence</h2>
+<p>Android delivery is verified by build artefacts I hold, including a packaged field tracking application build alongside the group's ERP client. The system runs in production at the group. I do not publish the application build, checkpoint locations, patrol timings or coverage detail, for reasons that are obvious in a security system.</p>
+<h2>Skills demonstrated</h2>
+<p>Android application delivery, location-based system design, ERP integration, physical security operations, designing controls people will actually use.</p>
+<nav class="pager" aria-label="Case studies"><a href="multi-site-biometric-attendance.html">&larr; Multi-site biometric attendance, integrated with the ERP</a><a href="bringing-a-new-factory-online.html">Bringing a new factory online: the order of operations &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

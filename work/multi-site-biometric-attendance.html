@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-site biometric attendance, integrated with the ERP | Khaqan Shaheen</title>
+<meta name="description" content="A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multi-site biometric attendance, integrated with the ERP">
+<meta property="og:description" content="A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html#article", "headline": "Multi-site biometric attendance, integrated with the ERP", "description": "A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "Multi-site biometric attendance, integrated with the ERP", "item": "https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 8</div>
+<article class="article">
+<h1>Multi-site biometric attendance, integrated with the ERP</h1>
+<p class="meta">Case study 8 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks. Attendance drives payroll, and in a shift operation it also drives production planning.</p>
+<h2>Business problem</h2>
+<p>Attendance was captured locally and then retyped into payroll. Every site had its own way of recording who turned up, and at the end of the period somebody turned that into a payroll input by hand. Retyping is slow and error-prone, and payroll errors are the kind staff notice and remember. Management reporting lagged the month, and there was no group view.</p>
+<h2>My responsibility</h2>
+<p>I designed and delivered the system and I lead the team that runs it. As with everything in this function, I both specify it and build it.</p>
+<h2>Solution</h2>
+<p>Biometric attendance capture at each site, connected directly to the ERP, with the record reaching payroll and management reporting without anyone retyping it. This is device and systems integration: biometric readers at the sites feeding the system of record that already holds employees, contracts and payroll.</p>
+<p>Alongside the fixed readers, staff and supervisors reach the system from a phone. I built and packaged an Android client for the group's ERP and made the ERP backend responsive. That mobile layer is the same system rather than a separate app with its own data, which is what keeps the numbers consistent.</p>
+<h2>Technology</h2>
+<p>Biometric attendance devices, Odoo, PostgreSQL, Android application packaging, progressive web application delivery, Linux, site networking across five countries.</p>
+<h2>Implementation</h2>
+<p>One site first, proved against a payroll period run in parallel with the old method, then extended. Running both methods for a period is unglamorous and it is the only way anybody trusts a new payroll input.</p>
+<h2>Challenges</h2>
+<p>Five countries means five sets of local employment practice, and shift and overtime rules are not the same in each. Modelling that without forking the system into five variants took more thought than the device integration did. Sites also lose connectivity, and an attendance system that fails when the link drops is worse than a paper register.</p>
+<p>The most important constraint is not technical. Biometric data is sensitive personal data in every jurisdiction the group operates in and in every country I would work in next. The system exists to produce an attendance record, and I do not discuss or publish anything about how biometric data is handled or stored.</p>
+<h2>Result</h2>
+<p>Attendance reaches payroll and management reporting from the record itself rather than from a spreadsheet somebody typed, and a group-wide attendance position exists.</p>
+<h2>Verified evidence</h2>
+<p>Android delivery is verified by build artefacts I hold: packaged application builds for the group's ERP client and a field tracking application, plus signed releases from my own venture. The attendance estate exists as a live system with its own database in my care. I have separately specified and published an attendance register module commercially, which is the same problem solved in public. I publish nothing about biometric data handling and I do not distribute the employer's application builds.</p>
+<h2>Skills demonstrated</h2>
+<p>Device and systems integration, ERP and payroll integration, Android and PWA delivery, multi-country process modelling, handling of sensitive personal data, site networking.</p>
+<nav class="pager" aria-label="Case studies"><a href="identity-and-access-rebuild.html">&larr; Identity and access: from local passwords to single sign on with two factor</a><a href="geo-verified-security-patrol.html">Geo-verified security patrol, integrated with the ERP &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

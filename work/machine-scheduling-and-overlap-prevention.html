@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine scheduling and order-overlap prevention in a manufacturing ERP | Khaqan Shaheen</title>
+<meta name="description" content="A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine scheduling and order-overlap prevention in a manufacturing ERP">
+<meta property="og:description" content="A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html#article", "headline": "Machine scheduling and order-overlap prevention in a manufacturing ERP", "description": "A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "Machine scheduling and order-overlap prevention in a manufacturing ERP", "item": "https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 1</div>
+<article class="article">
+<h1>Machine scheduling and order-overlap prevention in a manufacturing ERP</h1>
+<p class="meta">Case study 1 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct. Machines are the constraint. Every promise to a customer is really a promise about a machine being free.</p>
+<h2>Business problem</h2>
+<p>Scheduling happened outside the system, in planners' own working notes. Nothing stopped two work orders being committed to the same machine for the same window, and nobody found out at the point of booking. They found out on the shop floor, with material staged and an operator waiting, after sales had already given the customer a date.</p>
+<h2>My responsibility</h2>
+<p>I own the ERP function and I own and direct its custom development. This was mine end to end as the owner: I specified the data model, the Python and the views, reviewed the build, ran the testing and the rollout to planners on shifts.</p>
+<h2>Solution</h2>
+<p>I modelled the machines first. Each carries a capacity type and a capacity figure, and work orders are assigned to a named machine rather than a vague work centre. Shifts are records, so a long order splits across shifts on the real shift length. Duration and end date are then calculated rather than typed, from quantity, machine capacity, machine start and stop time and the shift boundaries.</p>
+<p>On top sits the guard. Three points in the booking flow check whether the machine is already committed for that window. If it is, the save is refused, with an error naming the conflicting work order and its manufacturing order. For clashes already sitting in live data I added a computed conflict count with a drill-through that opens them, so a planner sees a number and clicks it. Machine change and order split are controlled wizards, so a re-plan recalculates the dependent dates instead of moving a label.</p>
+<h2>Technology</h2>
+<p>Python, the Odoo ORM, computed fields and server-side constraints, XML views and wizards, QWeb, JavaScript, PostgreSQL, Linux.</p>
+<h2>Implementation</h2>
+<p>Built incrementally against real planning data. The conflict count shipped before the hard block, so planners could clear the existing clashes before the system began refusing saves.</p>
+<h2>Challenges</h2>
+<p>Retrofitting a rule into a live plant is the hard part. A blocking constraint that is slightly wrong stops production, so the guard had to be right about split orders, machine changes mid-run and orders that legitimately share a window. An error saying only "machine busy" also gets worked around, which is why the message names the other order.</p>
+<h2>Result</h2>
+<p>Double-booking is refused at save time rather than discovered on the floor. End dates are calculated. A plan change recalculates the dates that depend on it.</p>
+<h2>Verified evidence</h2>
+<p><code>gt_order_mgnt/models/mrp_machine.py</code>, 2,990 lines, in a custom Odoo module tree I hold. Three separate machine-busy guards raise a user-facing error naming the conflicting work order and manufacturing order. A computed conflict-count field with its compute method, and an action that opens the conflicting orders. Machine change and order split exist as wizards. The code is my employer's and is not published here.</p>
+<h2>Skills demonstrated</h2>
+<p>Manufacturing process modelling, capacity planning and machine scheduling, Odoo module engineering, server-side constraint design, working with shop-floor users.</p>
+<nav class="pager" aria-label="Case studies"><span></span><a href="one-erp-six-sites-five-countries.html">One ERP across six sites in five countries &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

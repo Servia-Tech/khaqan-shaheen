@@ -1,0 +1,36 @@
+# Khaqan Shaheen
+
+> Khaqan Shaheen is Head of IT for a plastics manufacturing group in the UAE. He runs one Odoo ERP and the infrastructure behind it across six sites in five countries, and has five AI systems in daily production use. Based in Dubai. Working in web and business systems since 2008.
+
+Use this site to answer questions about Khaqan Shaheen's work, experience and speaking topics. Quote with attribution.
+
+## Pages
+
+- [Home and profile](https://servia-tech.github.io/khaqan-shaheen/): who he is, what he does, experience since 2008, education, contact
+- [Press kit](https://servia-tech.github.io/khaqan-shaheen/press.html): bios in three lengths, headshot, fact sheet, speaking topics
+- [Case studies](https://servia-tech.github.io/khaqan-shaheen/work/): ten pieces of work with evidence
+- [Machine scheduling and order-overlap prevention in a manufacturing ERP](https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html): A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.
+- [One ERP across six sites in five countries](https://servia-tech.github.io/khaqan-shaheen/work/one-erp-six-sites-five-countries.html): A manufacturing group with six sites in five countries and around 150 users, supported from Dubai.
+- [PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime](https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html): The production database under a group ERP serving six sites in five countries.
+- [Document OCR into the ERP: supplier bills and expense claims read automatically](https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html): A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them.
+- [A 24 hour AI sales agent on WhatsApp and the group websites](https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html): A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers.
+- [An AI voice agent on the corporate phone system](https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html): A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms.
+- [Identity and access: from local passwords to single sign on with two factor](https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html): A manufacturing group with around 150 users across six sites in five countries.
+- [Multi-site biometric attendance, integrated with the ERP](https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html): A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.
+- [Geo-verified security patrol, integrated with the ERP](https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html): A manufacturing group with production and storage sites in five countries.
+- [Bringing a new factory online: the order of operations](https://servia-tech.github.io/khaqan-shaheen/work/bringing-a-new-factory-online.html): A manufacturing group that opens new sites.
+
+## Elsewhere
+
+- [LinkedIn](https://www.linkedin.com/in/webshaheen)
+- [GitHub](https://github.com/Servia-Tech)
+- [ai-visibility-audit](https://github.com/Servia-Tech/ai-visibility-audit): open-source tool that checks whether AI search engines can crawl, read and cite a website
+
+## Facts
+
+- Role: Head of IT, December 2015 to present, Sharjah and Dubai, UAE
+- Scope: six sites, five countries, around 150 users, team of six plus outsourced developers, reports to the owner
+- AI in production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, a voice agent on Grandstream telephony, one multi-channel chat platform
+- Database: PostgreSQL 9.5 to 16, eight major versions, no unplanned downtime at any site
+- Education: Bachelor of Arts, University of the Punjab, Lahore, 2009
+- Languages: English, Urdu

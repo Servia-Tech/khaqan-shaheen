@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Identity and access: from local passwords to single sign on with two factor | Khaqan Shaheen</title>
+<meta name="description" content="A manufacturing group with around 150 users across six sites in five countries.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Identity and access: from local passwords to single sign on with two factor">
+<meta property="og:description" content="A manufacturing group with around 150 users across six sites in five countries.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html#article", "headline": "Identity and access: from local passwords to single sign on with two factor", "description": "A manufacturing group with around 150 users across six sites in five countries.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "Identity and access: from local passwords to single sign on with two factor", "item": "https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 7</div>
+<article class="article">
+<h1>Identity and access: from local passwords to single sign on with two factor</h1>
+<p class="meta">Case study 7 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A manufacturing group with around 150 users across six sites in five countries. Each site had bought and set up its own systems locally over the years, so identity had never been designed. It had accumulated.</p>
+<h2>Business problem</h2>
+<p>Passwords were held per system and per site. The same person had separate credentials for the ERP, for mail and for whatever else their site had bought, which guarantees one weak password reused across all of them. There was no central control and no reliable way to answer the basic questions: who has access to what, and who still has access who should not. Leavers were the sharp edge. Removing access meant remembering every system a person had touched, so accounts survived departures. Inside the ERP, everybody could see everything.</p>
+<h2>My responsibility</h2>
+<p>I own the security and identity estate for the group and report to the owner. This rebuild was my proposal, my design and my delivery, across all sites.</p>
+<h2>Solution</h2>
+<p>One identity per person on Google Workspace, with single sign on and OAuth, two factor authentication enforced, and access granted through role-based groups rather than individually.</p>
+<p>Access inside the ERP was rebuilt on the same principle. Odoo expresses access as user groups, record rules and per-model access lists, so I defined those properly: a salesperson sees the records their role allows and nothing else.</p>
+<p>Joiners and leavers became a role change instead of a search. Somebody leaves and access is withdrawn the same day, in one place, rather than site by site from memory. On top sits login and activity monitoring with automated alerts, so unusual access is visible as it happens rather than discovered afterwards.</p>
+<h2>Technology</h2>
+<p>Google Workspace administration, single sign on, OAuth, two factor authentication, role-based access control, Odoo security groups and record rules, logging and monitoring tooling.</p>
+<h2>Implementation</h2>
+<p>Identity first, then the application layer, then monitoring. Two factor was introduced with the enrolment support a factory workforce actually needs, not as an announcement. Roles were defined with the managers who own the data, because a role model nobody agreed to gets bypassed within a month.</p>
+<h2>Challenges</h2>
+<p>Two factor across a manufacturing workforce is a practical problem before it is a technical one. Not everybody sits at a desk or has a company handset, and shop-floor patterns are not office patterns. Tightening access also always takes something away from somebody, so every restriction needs a person who will defend it. I could do that because the mandate came from the owner.</p>
+<h2>Result</h2>
+<p>One identity per person, with a second factor. Access follows the role and is withdrawn on the day someone leaves rather than whenever it is noticed. Unusual access raises an alert instead of surfacing later.</p>
+<h2>Verified evidence</h2>
+<p>Access control inside the ERP is defined in the custom module tree I hold, as user security groups, record rules and per-model access lists. The identity layer is the group's live Google Workspace tenant, which I administer. I publish no policy detail, no role model, no monitoring rules and no tenant detail, because that is the part an attacker would want.</p>
+<h2>Skills demonstrated</h2>
+<p>Identity and access management, Google Workspace administration, single sign on, OAuth and two factor authentication, role-based access control, security monitoring.</p>
+<nav class="pager" aria-label="Case studies"><a href="ai-voice-agent-on-grandstream.html">&larr; An AI voice agent on the corporate phone system</a><a href="multi-site-biometric-attendance.html">Multi-site biometric attendance, integrated with the ERP &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

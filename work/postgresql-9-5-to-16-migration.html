@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime | Khaqan Shaheen</title>
+<meta name="description" content="The production database under a group ERP serving six sites in five countries.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime">
+<meta property="og:description" content="The production database under a group ERP serving six sites in five countries.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html#article", "headline": "PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime", "description": "The production database under a group ERP serving six sites in five countries.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime", "item": "https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 3</div>
+<article class="article">
+<h1>PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime</h1>
+<p class="meta">Case study 3 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>The production database under a group ERP serving six sites in five countries. Everything the group does commercially lives in it. If it stops, six sites stop.</p>
+<h2>Business problem</h2>
+<p>The database was eight major versions behind, on PostgreSQL 9.5. That is a support problem and a security problem at once: security fixes had stopped arriving, and newer tooling assumed a database far ahead of ours. The reason it had been left alone is the usual one. It was the most business-critical thing in the company and nobody wanted to be the person who touched it. There was also no dependable recovery position, so nothing answered the question a manufacturer needs answered: if this server dies on a Tuesday morning, what happens.</p>
+<h2>My responsibility</h2>
+<p>Mine alone, as owner of the platform. I planned the upgrade, rehearsed it, executed it across every site and built the recovery estate around it. There was nobody above me in IT to sign it off, so the risk assessment and the rollback decision were mine too.</p>
+<h2>Solution</h2>
+<p>I took the database from 9.5 to 16, eight major versions, with no unplanned downtime at any site.</p>
+<p>The work was not the upgrade. The work was everything around it. I rehearsed the migration on a copy of production and ran the application against the result, because a heavily customised ERP is where major-version behaviour changes bite: query plans move, deprecated behaviour disappears, and every extension has to exist on the new version before you find out live that one does not. Each step had a rollback position I could reach inside the planned window, and sites moved one at a time.</p>
+<p>Around the database I built the resilience layer that had not existed: automated backups, point in time recovery, off-site and NAS replication, and monitoring with automated alerts. Recovery stopped being a question about the last backup and became a question about a chosen moment.</p>
+<h2>Technology</h2>
+<p>PostgreSQL, Ubuntu Linux, Nginx, replication and backup tooling, monitoring, Odoo as the application above it.</p>
+<h2>Implementation</h2>
+<p>Rehearse, verify the application, plan the rollback, take a planned window, move, verify again, and keep the old position available until the new one had proved itself. Repeated per site. Deliberately unexciting.</p>
+<h2>Challenges</h2>
+<p>The exposure is asymmetric. A good upgrade is invisible; a bad one is the worst day the company has had. Customisation makes it harder, because the tests that matter are the group's own workflows rather than generic benchmarks. So do time zones: a window that is comfortable in one country is the middle of a working day in another.</p>
+<h2>Result</h2>
+<p>The production database is current and supported. No site suffered unplanned downtime. A failed server is now a documented restore rather than an incident with an unknown outcome.</p>
+<h2>Verified evidence</h2>
+<p>This work leaves an operational record rather than a code artefact. The estate for six sites runs on the current major version, and the backup, replication and monitoring estate runs daily. I hold the change and maintenance records and can produce the window detail in an interview. I do not publish backup locations, retention windows or the recovery runbook.</p>
+<h2>Skills demonstrated</h2>
+<p>PostgreSQL administration and major-version migration, business continuity and disaster recovery design, risk assessment and rollback planning, Linux administration, change management across time zones.</p>
+<nav class="pager" aria-label="Case studies"><a href="one-erp-six-sites-five-countries.html">&larr; One ERP across six sites in five countries</a><a href="document-ocr-into-the-erp.html">Document OCR into the ERP: supplier bills and expense claims read automatically &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

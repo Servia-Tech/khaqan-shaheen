@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A 24 hour AI sales agent on WhatsApp and the group websites | Khaqan Shaheen</title>
+<meta name="description" content="A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A 24 hour AI sales agent on WhatsApp and the group websites">
+<meta property="og:description" content="A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html#article", "headline": "A 24 hour AI sales agent on WhatsApp and the group websites", "description": "A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "A 24 hour AI sales agent on WhatsApp and the group websites", "item": "https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 5</div>
+<article class="article">
+<h1>A 24 hour AI sales agent on WhatsApp and the group websites</h1>
+<p class="meta">Case study 5 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers. In this market WhatsApp is the first channel a buyer reaches for, ahead of email and ahead of the phone.</p>
+<h2>Business problem</h2>
+<p>Enquiries do not arrive during office hours. They arrive when the buyer is thinking about the problem, often late at night or at a weekend, and one that waits until Sunday morning has usually been answered by somebody else first. Enquiries also landed in personal inboxes and on individual phones, so there was no reliable record they had existed. Nobody could say how many the group received, let alone how many were lost.</p>
+<h2>My responsibility</h2>
+<p>I designed and built it and I own it. It is one of five AI systems of my design running in daily production at the group.</p>
+<h2>Solution</h2>
+<p>A conversational agent that answers enquiries on WhatsApp and on the group websites, at any hour, then qualifies the enquiry and creates the lead in the ERP.</p>
+<p>The architecture matters more than the chat. Rather than a separate bot per brand and per number, I built one platform driving several WhatsApp numbers and the websites, with one set of rules and one place to change them. Each brand answers in its own voice, but there is one system behind it, which is why adding a number is a configuration change rather than a project.</p>
+<p>The agent's job stops at qualification. It answers the question, works out what the enquiry actually is, and creates a qualified lead in the ERP pipeline. Anything that binds the company commercially goes to a person.</p>
+<h2>Technology</h2>
+<p>Large language model APIs, WhatsApp, Python, Odoo CRM, web integration, PostgreSQL.</p>
+<h2>Implementation</h2>
+<p>Wired into the ERP lead pipeline that already existed, so leads land where the sales team already lives.</p>
+<h2>Challenges</h2>
+<p>An agent that invents an answer is worse than no agent at all, so the boundary between what it answers and what it escalates is the design, and it took iteration. Manufacturing enquiries are also technical, and a buyer asking about a specification will not accept a brochure paragraph. The last one is unglamorous: WhatsApp connectivity in production is fragile, sessions drop, and something running unattended for months has to be engineered for reconnection rather than for the happy path.</p>
+<h2>Result</h2>
+<p>An enquiry at any hour gets a proper answer and arrives in the ERP as a qualified lead. What used to sit on somebody's personal phone is now a record the group can count and follow up.</p>
+<h2>Verified evidence</h2>
+<p>The system runs in production at the group on both channels. Independently of the employer, I built and run a WhatsApp integration estate of my own under my own venture, with a documented send contract, a live product catalogue on a business-verified number and an unattended posting engine, which is the same capability on infrastructure I can demonstrate. I hold the conversation logs and can produce the conversation count and the after-hours share on request. I do not quote figures I have not measured.</p>
+<h2>Skills demonstrated</h2>
+<p>Applied AI in production, conversational system design, WhatsApp and web channel integration, CRM and ERP integration, multi-brand architecture, unattended service reliability.</p>
+<nav class="pager" aria-label="Case studies"><a href="document-ocr-into-the-erp.html">&larr; Document OCR into the ERP: supplier bills and expense claims read automatically</a><a href="ai-voice-agent-on-grandstream.html">An AI voice agent on the corporate phone system &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document OCR into the ERP: supplier bills and expense claims read automatically | Khaqan Shaheen</title>
+<meta name="description" content="A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them.">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Document OCR into the ERP: supplier bills and expense claims read automatically">
+<meta property="og:description" content="A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html#article", "headline": "Document OCR into the ERP: supplier bills and expense claims read automatically", "description": "A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them.", "url": "https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "about": ["ERP", "Manufacturing IT", "AI in operations"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://servia-tech.github.io/khaqan-shaheen/work/"}, {"@type": "ListItem", "position": 3, "name": "Document OCR into the ERP: supplier bills and expense claims read automatically", "item": "https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#ai">AI in production</a>
+      <a href="../#experience">Experience</a>
+      <a href="../#open-source">Open source</a>
+      <a href="../press.html">Press kit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Work</a> / Case study 4</div>
+<article class="article">
+<h1>Document OCR into the ERP: supplier bills and expense claims read automatically</h1>
+<p class="meta">Case study 4 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
+<h2>Situation</h2>
+<p>A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them. Every one of those documents ends up as a record in the ERP. Until recently, every one got there because a person typed it.</p>
+<h2>Business problem</h2>
+<p>Data entry was the bottleneck between a document arriving and the business knowing about it. A supplier bill sat in a mailbox or a tray until somebody had time, so the payables position was always a few days behind reality. Expense claims were worse, because they arrive as photographs of receipts in whatever condition the person's pocket left them.</p>
+<h2>My responsibility</h2>
+<p>I designed and built it. This is one of five AI systems of my own design running in daily production at the group, not a proof of concept and not a vendor product I bought and configured.</p>
+<h2>Solution</h2>
+<p>A pipeline that reads the document and creates the record in the ERP. A bill or a claim arrives, the pipeline extracts the fields that matter, and an ERP record appears with those values populated and the original document attached.</p>
+<p>The design principle I held to is that the pipeline creates records, it does not post to the ledger on its own. Extraction is not perfect, and a language model is confidently wrong in a way a broken scanner never is. So the output lands where the group's existing controls already apply. Vendor bills continue through the approval workflow I had already built into the ERP, where a rejected bill carries a recorded reason and a non-standard payment term is a request with an approver. Finance changed from typing values to checking them.</p>
+<h2>Technology</h2>
+<p>Gemini and Claude vision APIs, Python, Odoo, PostgreSQL.</p>
+<h2>Implementation</h2>
+<p>Built against the group's own document mix rather than clean samples, because the real population determines whether this works. Wired into the existing bill and expense models, so documents follow the approval path that was already there.</p>
+<h2>Challenges</h2>
+<p>Supplier documents have no common layout. Every supplier invoices differently, in different languages, and the same supplier changes its template without telling anyone. The engineering problem is less about reading characters than about deciding which number on an unfamiliar page is the one you want, and being honest about what the system should refuse to guess at.</p>
+<h2>Result</h2>
+<p>Documents are processed on arrival rather than waiting for somebody to be at a desk, with the original attached to the record. Finance reviews and approves instead of transcribing.</p>
+<h2>Verified evidence</h2>
+<p>The pipeline runs in daily production against live supplier bills and expense claims. Its output lands in the ERP bill and expense models I built, in the custom module tree I hold, alongside the payment-term request and bill-rejection workflows it feeds. I work in this space commercially as well, having specified a document OCR product under my own venture. I hold the pipeline logs and can produce the processed-document count and date range on request. I do not quote a figure I have not measured.</p>
+<h2>Skills demonstrated</h2>
+<p>Applied AI in production, vision and language model APIs, Python engineering, ERP integration, process redesign in finance, judgement about where automation should stop.</p>
+<nav class="pager" aria-label="Case studies"><a href="postgresql-9-5-to-16-migration.html">&larr; PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime</a><a href="ai-sales-agent-whatsapp-and-web.html">A 24 hour AI sales agent on WhatsApp and the group websites &rarr;</a></nav>
+</article>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Dubai. Content on this site is written by me and may be quoted with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>
