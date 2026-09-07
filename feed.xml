@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Khaqan Shaheen: articles, tutorials and notes</title>
+  <link>https://servia-tech.github.io/khaqan-shaheen/</link>
+  <description>ERP, AI in production, infrastructure and IT leadership, written by Khaqan Shaheen, Head of IT in Dubai.</description>
+  <language>en</language>
+  <atom:link href="https://servia-tech.github.io/khaqan-shaheen/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Why every AI agent I run sits behind a human queue</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Because a language model is confidently wrong in a way a scanner never is, every agent I run creates records for a person to check and none of them post or pay.</description>
+    <category>Note</category>
+  </item>
+  <item>
+    <title>Why I published my case studies without numbers</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/notes/why-i-published-my-case-studies-without-numbers.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/notes/why-i-published-my-case-studies-without-numbers.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Because a number I cannot show how I measured is worse than no number; the scope is honest, and measured figures will be added once I have measured them.</description>
+    <category>Note</category>
+  </item>
+  <item>
+    <title>What running my own venture taught me about corporate IT</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/notes/what-running-my-own-venture-taught-me-about-corporate-it.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/notes/what-running-my-own-venture-taught-me-about-corporate-it.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Paying the bill yourself, watching what customers do on a booking page, a pipeline that stops silently and search traffic answering back changed how I run IT.</description>
+    <category>Note</category>
+  </item>
+  <item>
+    <title>What OCR gets wrong on supplier bills</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/notes/what-ocr-gets-wrong-on-supplier-bills.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/notes/what-ocr-gets-wrong-on-supplier-bills.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>OCR on supplier bills fails on handwritten totals, stamps over numbers, multi-page bills, duplicates and currency; the fix is validation and a review queue.</description>
+    <category>Note</category>
+  </item>
+  <item>
+    <title>What I check the week before a factory opens</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week-before-a-factory-opens.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week-before-a-factory-opens.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Two links with a tested failover, the company and warehouse in the ERP with local tax and numbering, printers on the floor, every user logged in once, and a restore.</description>
+    <category>Note</category>
+  </item>
+  <item>
+    <title>The month-end test for ERP health</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/notes/the-month-end-test-for-erp-health.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/notes/the-month-end-test-for-erp-health.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>If six sites can close the month from the same ERP records without a spreadsheet, the ERP is healthy; a spreadsheet at month end means a record is missing.</description>
+    <category>Note</category>
+  </item>
+  <item>
+    <title>Odoo: how to stop two work orders being booked on the same machine at the same time</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.</description>
+    <category>Tutorial</category>
+  </item>
+  <item>
+    <title>How to write an llms.txt for a business website</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>An llms.txt is a short Markdown map of your site at /llms.txt with an H1, a one-line summary and linked sections. Here is the format and a full worked example.</description>
+    <category>Tutorial</category>
+  </item>
+  <item>
+    <title>How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Read robots.txt for GPTBot, OAI-SearchBot and PerplexityBot, fetch your homepage with curl as each bot, check the raw HTML, or run one Python audit script.</description>
+    <category>Tutorial</category>
+  </item>
+  <item>
+    <title>A WhatsApp AI sales agent that hands leads to your ERP: the architecture</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo by XML-RPC.</description>
+    <category>Tutorial</category>
+  </item>
+  <item>
+    <title>A PostgreSQL major-version upgrade with no unplanned downtime: the checklist</title>
+    <link>https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html</link>
+    <guid>https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html</guid>
+    <pubDate>Tue, 08 Sep 2026 06:00:00 +0400</pubDate>
+    <description>Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.</description>
+    <category>Tutorial</category>
+  </item>
+</channel>
+</rss>

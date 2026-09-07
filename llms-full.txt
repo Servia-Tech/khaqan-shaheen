@@ -1,0 +1,1945 @@
+# Khaqan Shaheen: full text
+
+Generated 2026-09-08. Source: https://servia-tech.github.io/khaqan-shaheen/
+
+## Questions people ask
+
+### What is Khaqan Shaheen's speciality?
+
+Moving a business from manual, spreadsheet and paper operations to one ERP with AI doing the repetitive work. He has done it for a manufacturing group across six sites in five countries on Odoo, and put five AI systems into daily production on top of it: document OCR, document verification, a WhatsApp and web sales agent, a voice agent on the telephony and a multi-channel chat platform.
+
+### Does Khaqan Shaheen offer ERP consultation?
+
+Yes. A one-hour ERP consultation call for a specific decision, and a fixed-price roadmap for a business moving from manual operations to an ERP with AI automation. Larger ERP work, such as implementation oversight or a health check of an existing Odoo, is on the services page.
+
+### What awards has Khaqan Shaheen won?
+
+Four from CXO DX, the UAE technology leadership publication and events organiser: Technology Transformer of the Year at the SME Tech Innovation Summit and Awards (Conrad Dubai, February 2023) and IT Leadership Excellence at the CIO Connect Summit and Awards (JW Marriott Dubai Marina, May 2024), both listed in the organiser's published event reports, plus Excellence in CIO Leadership and CIO of the Year at the CXO DX Future Workspace Summit and Awards in Downtown Dubai.
+
+### Who is Khaqan Shaheen?
+
+Khaqan Shaheen is Head of IT for a plastics manufacturing group in the UAE. He owns the entire technology function for six sites in five countries and around 150 users, runs one Odoo ERP for the whole group, and has five AI systems in daily production use. He has worked in web and business systems since 2008 and lives in Dubai.
+
+### What does Khaqan Shaheen specialise in?
+
+Four things: ERP for multi-site manufacturing (Odoo, from implementation to directing custom development), AI systems that run in production (document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, a multi-channel chat platform), the infrastructure and identity underneath (PostgreSQL, Linux, cloud, single sign-on, two factor authentication), and running an IT function that reports to the owner.
+
+### Is Khaqan Shaheen available for consulting?
+
+Yes. He takes advisory and project engagements in ERP and Odoo, AI in operations, IT function reviews, new-site IT and identity and security, on-site in the UAE or remote. Details and how an engagement starts are on the services page. Fees are agreed in writing before work starts and are not published.
+
+### Does Khaqan Shaheen take part-time or fractional Head of IT work?
+
+Yes. A fractional engagement means ownership of a company's IT function on an agreed number of days a month, with a weekly cadence and a monthly review with the owner. It suits companies that need a head of IT's judgement without a full-time hire.
+
+### Does he work on-site or remotely?
+
+Both. On-site in Dubai, Sharjah and across the UAE, and remote for the wider Gulf, Pakistan and international companies. He works on Dubai time, GMT+4.
+
+### Does Khaqan Shaheen offer career advice or mentoring?
+
+Yes. One-to-one sessions for engineers moving into IT leadership, for IT professionals targeting leadership roles in the Gulf, and for beginners who want to get started with AI. He also teaches AI to people starting out.
+
+### Is Khaqan Shaheen open to senior IT leadership roles?
+
+Yes. He considers full-time mandates as IT Director, Head of IT, or Head of Digital and AI Transformation, in the UAE and internationally, including relocation. The best fit is a manufacturing, distribution or family group that runs on an ERP and wants AI to do real work.
+
+### Which industries does Khaqan Shaheen know?
+
+Manufacturing first: he has run IT for a plastics group since 2015. Before that, web projects for a national school network in Pakistan and web and design delivery for a technology company in Abu Dhabi. He has also built and run a consumer web platform of his own.
+
+### Which ERP does Khaqan Shaheen work with?
+
+Odoo. He implemented a single instance covering production, sales, inventory, procurement, accounting, HR and maintenance for six sites, and directs its custom development, including machine scheduling with overlap prevention. Before Odoo he spent two years building a custom ERP from scratch.
+
+### What AI systems has Khaqan Shaheen put into production?
+
+Five: document OCR that reads supplier bills and expense claims into the ERP, automated certificate and document verification, a 24 hour sales agent on WhatsApp and the web, an AI voice agent on Grandstream telephony, and one chat platform running several WhatsApp numbers and the group websites.
+
+### Does Khaqan Shaheen speak at events or write for publications?
+
+Yes. He speaks and writes on ERP across a multi-country group, AI systems that survive daily operations, database migrations, identity and access, building the IT for a new factory, and AI search visibility. Bios and a headshot are in the press kit.
+
+### What is ai-visibility-audit?
+
+An open-source tool by Khaqan Shaheen: one Python file with no dependencies that checks whether ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews can crawl, read and cite a website, scores it across five layers, and lists the fixes worth doing first.
+
+### Where is Khaqan Shaheen based, and which languages does he speak?
+
+Dubai, United Arab Emirates. English and Urdu.
+
+### How can I contact Khaqan Shaheen?
+
+Email khaqanshaheen@yahoo.com or message him on LinkedIn at linkedin.com/in/webshaheen.
+
+### How do I know the claims on this site are true?
+
+Every case study has an evidence section that says what the claim rests on, and none of them carries a number he cannot show how he measured. Where a figure would normally sit, the site uses scope: six sites, five countries, around 150 users, eight database major versions, no unplanned downtime at any site.
+
+## Services and pricing (AED, paid in advance)
+
+### Manual to automated: ERP and AI transformation roadmap: AED 6,500 (about USD 1,770), 7 working days
+
+For a business still run on spreadsheets, WhatsApp and paper: a written plan to move to one ERP with AI doing the repetitive work, in the order that will not break the company.
+
+- Process map of how the business actually runs today, from the people who run it
+- ERP scope and platform recommendation (Odoo or otherwise), with what to customise and what to leave standard
+- Which repetitive work goes to AI first: document capture, enquiries, verification, reporting
+- Phased rollout plan, budget bands, vendor shortlist and the questions to ask each one
+- A follow-up call after your first vendor conversations
+
+### ERP consultation call: AED 600 (about USD 165), 60 minutes, within 5 working days
+
+One hour with someone who has run an ERP for six sites in five countries. Bring the problem; leave with a decision.
+
+- Selection, stalled rollout, customisation gone wrong, upgrade fear, or whether to move at all
+- Straight answers with the trade-offs spelled out
+- Written notes within 24 hours
+- Credited against any fixed-price service booked within 30 days
+
+### AI visibility and SEO site audit: AED 1,500 (about USD 410), 3 working days
+
+Find out whether Google, ChatGPT, Perplexity and Gemini can crawl, read and cite your site, and what to fix first.
+
+- Five-layer audit (SEO, AEO, GEO, AIO, SXO) of up to 25 pages
+- Robots rules for every major AI crawler, llms.txt and structured data reviewed
+- Written report with every finding and the fix, in priority order
+- 30 minute walkthrough call
+
+### New website survey before you build: AED 1,200 (about USD 325), 3 working days
+
+Get the structure, platform and search plan right before a developer writes a line.
+
+- Goals, audience and the pages that will earn their place
+- Sitemap and content plan with search and AI-answer intent for each page
+- Platform recommendation and a brief you can hand to any developer
+- Budget sanity check and the questions to ask each vendor
+
+### Google Ads campaign design: AED 2,500 (about USD 680), 5 working days
+
+A search campaign built the way I run my own: tight keyword structure, hard bid caps, conversion tracking that actually fires.
+
+- Keyword research, match types and negative keyword list
+- Ad groups, ad copy and extensions
+- Conversion tracking plan (GA4 and Ads) and a launch checklist
+- Daily budget and cost-per-click caps, plus what to watch in week one
+- Optional: set it up inside your account (quoted separately)
+
+### Marketing automation and AI content pipeline design: AED 3,500 (about USD 955), 7 working days
+
+Enquiry capture on WhatsApp and the web, a content and posting pipeline, and the guardrails so it does not embarrass you.
+
+- Enquiry flow design: WhatsApp, web, email, hand-off rules to a person
+- Content pipeline: what gets generated, what a human approves, where it posts
+- Tool and model choice with a monthly cost model
+- Guardrails, logging and the switch-off rule
+
+### Mobile and watch app concept review: AED 1,500 (about USD 410), 3 working days
+
+Before you commission an app: is it a native app, a PWA or a watch companion, and what will it really cost to run?
+
+- Scope and platform choice: native, PWA, Wear OS or watchOS companion
+- Architecture, sign-in, notifications, offline behaviour
+- Store readiness and the review pitfalls
+- Build versus outsource, with cost bands
+
+### ERP and Odoo health check: AED 4,500 (about USD 1,225), 2 days plus report
+
+A working review of your Odoo: customisation risk, upgrade path, data quality, backups and access.
+
+- Module and customisation inventory with upgrade risk
+- Process walk-through with the people who use it daily
+- Backups, recovery, access control and audit trail checked
+- Written plan: fix now, fix next, leave alone
+
+### AI in operations readiness review: AED 5,500 (about USD 1,500), 5 working days
+
+Which of your processes are worth automating with AI, and a design that will survive daily use.
+
+- Process selection: where OCR, agents or verification pay back
+- Pipeline design with validation rules and human review queues
+- Model and vendor choice with a cost model
+- How you will measure accuracy honestly, month by month
+
+### New factory or site IT plan: AED 6,000 (about USD 1,635), 5 working days
+
+The order of operations for bringing a greenfield site online, from connectivity to the day one checklist.
+
+- Connectivity, identity, ERP site record, devices, telephony, in the right order
+- Vendor list and what to ask each one
+- Day one checklist and the week-before checks
+- Budget bands and the items that always get forgotten
+
+### IT function review: AED 7,500 (about USD 2,045), 5 working days
+
+A structured review of the whole function for an owner who wants to know what they actually have.
+
+- Infrastructure, backups and recovery, identity and security, vendors and contracts, cost
+- Interviews with the team and the people they serve
+- Written plan in priority order with rough costs
+- Presentation to the owner or board
+
+### Fractional or part-time Head of IT: From AED 8,000 per month for two days a month; AED 15,000 for four
+
+Ownership of your IT function on an agreed number of days a month, for a company that needs a head of IT's judgement without a full-time hire.
+
+- Vendors, budget, priorities, security, the ERP roadmap and direction for in-house or outsourced developers
+- A weekly cadence, a standing priority list, written decisions, a monthly review with the owner
+- On-site in Dubai, Sharjah and across the UAE, or remote
+
+### Project and task-based work: Scoped and quoted in writing
+
+Defined-scope tasks that suit senior experience, delivered part-time.
+
+- ERP go-live oversight: cut-over planning, data migration checks, user acceptance, hypercare
+- PostgreSQL major-version migration planning and rehearsal
+- AI pipeline build oversight and vendor evaluation
+- Tender writing and vendor selection
+- Website, app and marketing builds directed end to end
+
+### Senior leadership roles: Full-time mandates
+
+I consider full-time roles as IT Director, Head of IT, or Head of Digital and AI Transformation, in the UAE and internationally, including relocation.
+
+- Best fit: manufacturing, distribution, family groups and mid-sized companies that run on an ERP and want AI to do real work
+- Email or LinkedIn with the scope, the reporting line and the location
+
+## Career advice and mentoring (live online sessions, paid in advance)
+
+### Career strategy call: AED 350, 45 minutes, live on Google Meet
+
+For: Anyone in IT who wants a straight answer about their next move.
+
+- Where you are, where the market is, and the two or three moves that make sense
+- What recruiters in the Gulf actually search for
+- Written notes within 24 hours
+
+### CV and LinkedIn rebuild session: AED 650, 90 minutes, live, plus a written pass
+
+For: IT professionals whose profile reads junior to their real scope.
+
+- Line-by-line rework of your headline, summary and experience with you on the call
+- Scope over adjectives: sites, users, systems, reporting line
+- A written pass on the final version within three days
+
+### Interview preparation for IT leadership roles: AED 900, Two sessions of 60 minutes
+
+For: Candidates with an IT Director, Head of IT or transformation interview coming up.
+
+- Mock interview with the questions an owner or a CIO panel asks
+- How to talk about ERP, AI and security work without a number you cannot defend
+- Feedback after each round and a final checklist
+
+### Engineer to Head of IT mentoring: AED 1,800 per month, Four sessions of 60 minutes a month
+
+For: Engineers and team leads moving into ownership of an IT function.
+
+- Vendors, budgets, the owner's expectations, being measured on outcomes
+- Your live problems worked through each week
+- Reading list, templates and written decisions between sessions
+
+### AI for beginners, one to one: AED 1,200, Three sessions of 60 minutes
+
+For: People starting out who want to use AI properly at work.
+
+- What the tools can and cannot do, and how to check their output
+- Using them safely with company data
+- Your first working automation, built together
+
+### AI for beginners, small group: AED 450 per person, Three sessions of 90 minutes, up to six people
+
+For: Teams or friends who want to learn together at a lower price per head.
+
+- The same course as the one to one, run as a group
+- Shared exercises and a group chat between sessions
+- A recording of each session
+
+## Skills
+
+### ERP and business systems
+
+- Odoo implementation and ownership (Owns): One instance for six sites in five countries, covering production, sales, inventory, procurement, accounting, HR and maintenance.
+- Custom module specification and direction (Directs): Writes the specification, reviews the build, keeps extensions upgrade-safe. Developers build to the specification.
+- Manufacturing processes in the ERP (Owns): Machine scheduling, work orders, capacity planning, batch issue and validation, barcode generation and label printing.
+- Order-overlap prevention (Directs): A server-side block on booking two work orders onto the same machine at the same time, with a conflict count and drill-through.
+- Sales, CRM and lead capture (Owns): Quotation and pricing, Gmail-to-lead capture, sales-support order confirmation linking a sale to manufacturing and delivery orders.
+- Purchasing and approval workflows (Owns): Payment-term approval, vendor-bill rejection with a recorded reason, role-specific dashboards.
+- Custom ERP built from scratch (Hands-on): Two years building a custom ERP before moving the group to Odoo.
+
+### AI and automation
+
+- Document OCR pipelines (Owns): Supplier bills and expense claims read into the ERP with validation and a review queue, in daily production.
+- Automated document verification (Owns): Certificates and supporting documents checked automatically before a person has to look at them.
+- Conversational agents on WhatsApp and the web (Owns): A 24 hour sales agent that captures and qualifies enquiries into the ERP pipeline.
+- Voice agents on telephony (Owns): An AI agent answering and handling inbound calls on the corporate Grandstream platform.
+- Multi-channel chat platforms (Owns): Several WhatsApp numbers and the websites run from one place.
+- Guardrails, review queues and monitoring (Owns): Boundaries, human hand-off rules, logging and the decision to switch a system off.
+- Autonomous content and SEO agents (Hands-on): An agent on my own venture that ships search and content work hourly inside guardrails I set.
+- Teaching AI to beginners (Hands-on): What the tools can and cannot do, how to use them safely at work, a first automation.
+
+### Databases and infrastructure
+
+- PostgreSQL (Owns): 9.5 to 16 across eight major versions with no unplanned downtime at any site; backups, point in time recovery, replication, monitoring.
+- Linux and Nginx (Hands-on): Ubuntu servers on-premise and in the cloud, Nginx in front of the ERP and the websites.
+- Cloud: AWS, Google Cloud, DigitalOcean (Owns): Workloads placed across the three alongside on-premise servers.
+- Backup, recovery and replication (Owns): Automated backups, point in time recovery, off-site and NAS replication, monitoring and alerts.
+- Deployment pipelines (Hands-on): Built and run for my own venture; the lesson about pipelines that silently stop is in the notes.
+
+### Security and identity
+
+- Google Workspace SSO and OAuth (Owns): Local passwords replaced by single sign-on across the group.
+- Two factor authentication and role based access (Owns): Enforced by organisational unit; groups, record rules and per-model access lists in the ERP.
+- Login and activity monitoring (Owns): Who logged in, from where, and what changed.
+- Network security (Owns): Firewalls, site to site VPNs, endpoint protection.
+- Physical security systems (Owns): IP CCTV and access control integrated with the site setup.
+
+### Devices, telephony and sites
+
+- New factory IT from nothing (Owns): Connectivity, identity, ERP site record, devices, telephony and the day one checklist.
+- Device and systems integration (Owns): Biometric readers, IP CCTV, access control units, label printers, machine records in the ERP.
+- Telephony: Avaya and Grandstream (Owns): Corporate telephony, including the AI voice agent on Grandstream.
+- Multi-site biometric attendance (Owns): Attendance across sites feeding payroll and reporting without retyping.
+- Geo-verified security patrol (Owns): Guard patrols verified by location from a phone application, recorded in the ERP.
+
+### Applications, mobile and web
+
+- Android apps and PWAs (Directs): Attendance and patrol applications, verified by build artefacts.
+- Web applications and booking flows (Hands-on): Built end to end for my own venture, including a mobile app and Wear OS watch apps.
+- WordPress and corporate websites (Owns): The group websites, from build to search and marketing.
+- Graphic and web design (Hands-on): Where I started in 2008; a diploma in graphics design and early design roles in Lahore.
+
+### Search, marketing and AI visibility
+
+- SEO and structured data (Hands-on): Technical SEO, JSON-LD schema, sitemaps, canonicalisation, Search Console.
+- AI search visibility (Hands-on): Robots rules for AI crawlers, llms.txt, answer-first content. Author of ai-visibility-audit.
+- Google Ads and analytics (Hands-on): Paid search for my own venture: keyword structure, bidding controls, conversion tracking. GA4 and Search Console reporting. Google Fundamentals of Digital Marketing, 2023.
+- Content systems (Hands-on): Structured data and content generation pipelines for my own venture.
+
+### Leadership and commercial
+
+- Owning an IT function (Owns): Six sites, five countries, around 150 users, reporting directly to the owner since December 2015.
+- Team leadership (Owns): A team of six plus outsourced development teams; hiring in-house and outsourced developers.
+- Vendor selection, negotiation and IT purchasing (Owns): From requirement to contract to renewal.
+- Build versus buy judgement (Owns): Extending one platform rather than buying a second and maintaining an interface forever.
+- Standardising across sites (Owns): Persuading six sites that a group standard is worth what they give up.
+- Project management (Hands-on): Project Management Professional (PMP) course, Al Khawarizmi Institute, Abu Dhabi, 2010 (38 hours), applied since on every rollout.
+- Web project management (Owns): Web Projects Manager and Webmaster for a national school network, 2012 to 2015.
+
+## Case studies
+
+# Machine scheduling and order-overlap prevention in a manufacturing ERP
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html
+
+## Situation
+
+A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct. Machines are the constraint. Every promise to a customer is really a promise about a machine being free.
+
+## Business problem
+
+Scheduling happened outside the system, in planners' own working notes. Nothing stopped two work orders being committed to the same machine for the same window, and nobody found out at the point of booking. They found out on the shop floor, with material staged and an operator waiting, after sales had already given the customer a date.
+
+## My responsibility
+
+I own the ERP function and I own and direct its custom development. This was mine end to end as the owner: I specified the data model, the Python and the views, reviewed the build, ran the testing and the rollout to planners on shifts.
+
+## Solution
+
+I modelled the machines first. Each carries a capacity type and a capacity figure, and work orders are assigned to a named machine rather than a vague work centre. Shifts are records, so a long order splits across shifts on the real shift length. Duration and end date are then calculated rather than typed, from quantity, machine capacity, machine start and stop time and the shift boundaries.
+
+On top sits the guard. Three points in the booking flow check whether the machine is already committed for that window. If it is, the save is refused, with an error naming the conflicting work order and its manufacturing order. For clashes already sitting in live data I added a computed conflict count with a drill-through that opens them, so a planner sees a number and clicks it. Machine change and order split are controlled wizards, so a re-plan recalculates the dependent dates instead of moving a label.
+
+## Technology
+
+Python, the Odoo ORM, computed fields and server-side constraints, XML views and wizards, QWeb, JavaScript, PostgreSQL, Linux.
+
+## Implementation
+
+Built incrementally against real planning data. The conflict count shipped before the hard block, so planners could clear the existing clashes before the system began refusing saves.
+
+## Challenges
+
+Retrofitting a rule into a live plant is the hard part. A blocking constraint that is slightly wrong stops production, so the guard had to be right about split orders, machine changes mid-run and orders that legitimately share a window. An error saying only "machine busy" also gets worked around, which is why the message names the other order.
+
+## Result
+
+Double-booking is refused at save time rather than discovered on the floor. End dates are calculated. A plan change recalculates the dates that depend on it.
+
+## Verified evidence
+
+`gt_order_mgnt/models/mrp_machine.py`, 2,990 lines, in a custom Odoo module tree I hold. Three separate machine-busy guards raise a user-facing error naming the conflicting work order and manufacturing order. A computed conflict-count field with its compute method, and an action that opens the conflicting orders. Machine change and order split exist as wizards. The code is my employer's and is not published here.
+
+## Skills demonstrated
+
+Manufacturing process modelling, capacity planning and machine scheduling, Odoo module engineering, server-side constraint design, working with shop-floor users.
+
+# One ERP across six sites in five countries
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/one-erp-six-sites-five-countries.html
+
+## Situation
+
+A manufacturing group with six sites in five countries and around 150 users, supported from Dubai. Each site had bought its own software locally over the years. No shared platform, no shared standard, no single owner.
+
+## Business problem
+
+Six sites were not closing the month off the same records. Production ran on one set of numbers, finance on another, sales on a third. Consolidating meant exporting from one system and retyping into a spreadsheet, which is slow and quietly invents differences that then get argued about. No question about the whole group could be answered without a week of work.
+
+## My responsibility
+
+I own the entire IT function and report directly to the owner, with no IT layer above me. I lead a team of six and buy in outsourced development when the pipeline needs it. The ERP was mine to decide and mine to deliver.
+
+## Solution
+
+One Odoo instance for the group, covering production, sales, inventory, procurement, accounting, human resources and maintenance.
+
+The decision that mattered was to extend rather than replace. Stock manufacturing software did not model our plant: machines, capacity, shifts, batch issue, and the path from enquiry to manufacturing order to delivery order. The usual answer is to buy a second system for manufacturing and then maintain the interface between the two forever. Instead I had the modules the standard package did not reach built on top of it, to my specification, so there is one platform and one set of records. That covers order management, quotation and pricing, lead capture, accounting approvals, dashboards by function, and barcode and label printing. Where a good community module already existed I deployed and maintained it rather than rewriting it, which is a different claim from authoring it.
+
+## Technology
+
+Odoo, Python, the Odoo ORM, XML and QWeb, JavaScript, PostgreSQL, Ubuntu Linux, Nginx, with workloads on-premise and across AWS, Google Cloud and DigitalOcean.
+
+## Implementation
+
+Site by site and function by function rather than one switch-over. Where a local difference was real it went into the configuration; where it was habit, it was standardised.
+
+## Challenges
+
+Customisation is what kills ERP platforms. Heavily modified systems become impossible to upgrade and the group is stranded on an unsupported release, so keeping the extensions upgradable was a constant design constraint. The other challenge was people. Sites that had chosen their own tools had to be persuaded that a group standard was worth what they gave up.
+
+## Result
+
+All sites run on a single supported platform and close the month from the same records, instead of six systems and a reconciliation exercise.
+
+## Verified evidence
+
+A custom Odoo module tree I hold and maintain: 28 module directories, 25 carrying the company as author, four being third-party or community modules I maintain rather than claim. The largest module alone holds 22 model files, more than 30 views and eight wizards, with its own JavaScript and QWeb assets. That snapshot documents an earlier generation of the platform, migrated forward since. The code is my employer's and is not published.
+
+## Skills demonstrated
+
+ERP implementation and ownership, multi-country rollout, build-versus-buy judgement, custom module engineering, upgrade-safe architecture, team leadership, vendor management.
+
+# PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html
+
+## Situation
+
+The production database under a group ERP serving six sites in five countries. Everything the group does commercially lives in it. If it stops, six sites stop.
+
+## Business problem
+
+The database was eight major versions behind, on PostgreSQL 9.5. That is a support problem and a security problem at once: security fixes had stopped arriving, and newer tooling assumed a database far ahead of ours. The reason it had been left alone is the usual one. It was the most business-critical thing in the company and nobody wanted to be the person who touched it. There was also no dependable recovery position, so nothing answered the question a manufacturer needs answered: if this server dies on a Tuesday morning, what happens.
+
+## My responsibility
+
+Mine alone, as owner of the platform. I planned the upgrade, rehearsed it, executed it across every site and built the recovery estate around it. There was nobody above me in IT to sign it off, so the risk assessment and the rollback decision were mine too.
+
+## Solution
+
+I took the database from 9.5 to 16, eight major versions, with no unplanned downtime at any site.
+
+The work was not the upgrade. The work was everything around it. I rehearsed the migration on a copy of production and ran the application against the result, because a heavily customised ERP is where major-version behaviour changes bite: query plans move, deprecated behaviour disappears, and every extension has to exist on the new version before you find out live that one does not. Each step had a rollback position I could reach inside the planned window, and sites moved one at a time.
+
+Around the database I built the resilience layer that had not existed: automated backups, point in time recovery, off-site and NAS replication, and monitoring with automated alerts. Recovery stopped being a question about the last backup and became a question about a chosen moment.
+
+## Technology
+
+PostgreSQL, Ubuntu Linux, Nginx, replication and backup tooling, monitoring, Odoo as the application above it.
+
+## Implementation
+
+Rehearse, verify the application, plan the rollback, take a planned window, move, verify again, and keep the old position available until the new one had proved itself. Repeated per site. Deliberately unexciting.
+
+## Challenges
+
+The exposure is asymmetric. A good upgrade is invisible; a bad one is the worst day the company has had. Customisation makes it harder, because the tests that matter are the group's own workflows rather than generic benchmarks. So do time zones: a window that is comfortable in one country is the middle of a working day in another.
+
+## Result
+
+The production database is current and supported. No site suffered unplanned downtime. A failed server is now a documented restore rather than an incident with an unknown outcome.
+
+## Verified evidence
+
+This work leaves an operational record rather than a code artefact. The estate for six sites runs on the current major version, and the backup, replication and monitoring estate runs daily. I hold the change and maintenance records and can produce the window detail in an interview. I do not publish backup locations, retention windows or the recovery runbook.
+
+## Skills demonstrated
+
+PostgreSQL administration and major-version migration, business continuity and disaster recovery design, risk assessment and rollback planning, Linux administration, change management across time zones.
+
+# Document OCR into the ERP: supplier bills and expense claims read automatically
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html
+
+## Situation
+
+A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them. Every one of those documents ends up as a record in the ERP. Until recently, every one got there because a person typed it.
+
+## Business problem
+
+Data entry was the bottleneck between a document arriving and the business knowing about it. A supplier bill sat in a mailbox or a tray until somebody had time, so the payables position was always a few days behind reality. Expense claims were worse, because they arrive as photographs of receipts in whatever condition the person's pocket left them.
+
+## My responsibility
+
+I designed and built it. This is one of five AI systems of my own design running in daily production at the group, not a proof of concept and not a vendor product I bought and configured.
+
+## Solution
+
+A pipeline that reads the document and creates the record in the ERP. A bill or a claim arrives, the pipeline extracts the fields that matter, and an ERP record appears with those values populated and the original document attached.
+
+The design principle I held to is that the pipeline creates records, it does not post to the ledger on its own. Extraction is not perfect, and a language model is confidently wrong in a way a broken scanner never is. So the output lands where the group's existing controls already apply. Vendor bills continue through the approval workflow I had already built into the ERP, where a rejected bill carries a recorded reason and a non-standard payment term is a request with an approver. Finance changed from typing values to checking them.
+
+## Technology
+
+Gemini and Claude vision APIs, Python, Odoo, PostgreSQL.
+
+## Implementation
+
+Built against the group's own document mix rather than clean samples, because the real population determines whether this works. Wired into the existing bill and expense models, so documents follow the approval path that was already there.
+
+## Challenges
+
+Supplier documents have no common layout. Every supplier invoices differently, in different languages, and the same supplier changes its template without telling anyone. The engineering problem is less about reading characters than about deciding which number on an unfamiliar page is the one you want, and being honest about what the system should refuse to guess at.
+
+## Result
+
+Documents are processed on arrival rather than waiting for somebody to be at a desk, with the original attached to the record. Finance reviews and approves instead of transcribing.
+
+## Verified evidence
+
+The pipeline runs in daily production against live supplier bills and expense claims. Its output lands in the ERP bill and expense models I built, in the custom module tree I hold, alongside the payment-term request and bill-rejection workflows it feeds. I work in this space commercially as well, having specified a document OCR product under my own venture. I hold the pipeline logs and can produce the processed-document count and date range on request. I do not quote a figure I have not measured.
+
+## Skills demonstrated
+
+Applied AI in production, vision and language model APIs, Python engineering, ERP integration, process redesign in finance, judgement about where automation should stop.
+
+# A 24 hour AI sales agent on WhatsApp and the group websites
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html
+
+## Situation
+
+A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers. In this market WhatsApp is the first channel a buyer reaches for, ahead of email and ahead of the phone.
+
+## Business problem
+
+Enquiries do not arrive during office hours. They arrive when the buyer is thinking about the problem, often late at night or at a weekend, and one that waits until Sunday morning has usually been answered by somebody else first. Enquiries also landed in personal inboxes and on individual phones, so there was no reliable record they had existed. Nobody could say how many the group received, let alone how many were lost.
+
+## My responsibility
+
+I designed and built it and I own it. It is one of five AI systems of my design running in daily production at the group.
+
+## Solution
+
+A conversational agent that answers enquiries on WhatsApp and on the group websites, at any hour, then qualifies the enquiry and creates the lead in the ERP.
+
+The architecture matters more than the chat. Rather than a separate bot per brand and per number, I built one platform driving several WhatsApp numbers and the websites, with one set of rules and one place to change them. Each brand answers in its own voice, but there is one system behind it, which is why adding a number is a configuration change rather than a project.
+
+The agent's job stops at qualification. It answers the question, works out what the enquiry actually is, and creates a qualified lead in the ERP pipeline. Anything that binds the company commercially goes to a person.
+
+## Technology
+
+Large language model APIs, WhatsApp, Python, Odoo CRM, web integration, PostgreSQL.
+
+## Implementation
+
+Wired into the ERP lead pipeline that already existed, so leads land where the sales team already lives.
+
+## Challenges
+
+An agent that invents an answer is worse than no agent at all, so the boundary between what it answers and what it escalates is the design, and it took iteration. Manufacturing enquiries are also technical, and a buyer asking about a specification will not accept a brochure paragraph. The last one is unglamorous: WhatsApp connectivity in production is fragile, sessions drop, and something running unattended for months has to be engineered for reconnection rather than for the happy path.
+
+## Result
+
+An enquiry at any hour gets a proper answer and arrives in the ERP as a qualified lead. What used to sit on somebody's personal phone is now a record the group can count and follow up.
+
+## Verified evidence
+
+The system runs in production at the group on both channels. Independently of the employer, I built and run a WhatsApp integration estate of my own under my own venture, with a documented send contract, a live product catalogue on a business-verified number and an unattended posting engine, which is the same capability on infrastructure I can demonstrate. I hold the conversation logs and can produce the conversation count and the after-hours share on request. I do not quote figures I have not measured.
+
+## Skills demonstrated
+
+Applied AI in production, conversational system design, WhatsApp and web channel integration, CRM and ERP integration, multi-brand architecture, unattended service reliability.
+
+# An AI voice agent on the corporate phone system
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html
+
+## Situation
+
+A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms. Telephony sits inside my IT function rather than with facilities or an outside supplier, which turns out to be the fact that made this project possible.
+
+## Business problem
+
+Calls outside office hours went unanswered. In a business selling into five countries, "outside office hours" covers a large part of the working week somewhere. A caller who reaches a ring tone does not leave a voicemail. They call the next supplier. There was also no record the call had happened, so the loss was invisible: you cannot review a report of calls nobody answered and nobody logged. Chat had already been solved. Voice is where people still go when the enquiry is urgent, and voice was the gap.
+
+## My responsibility
+
+I designed and built it, on a phone platform I already own and administer. It is one of five AI systems of my design in daily production at the group.
+
+## Solution
+
+An AI agent that answers and handles inbound calls on the Grandstream platform. It picks up, holds a conversation, deals with what it can deal with, and takes what it cannot to the right place instead of dropping it.
+
+Most organisations that want this buy a hosted service and point their numbers at somebody else's cloud, which means a cost per minute, caller audio leaving the estate, and a dependency on a supplier's roadmap. Because the phone platform is mine and I administer it, I built the agent onto our own telephony rather than renting a service in front of it. Call handling stays inside the estate and the design stays under my control.
+
+## Technology
+
+Grandstream telephony, VoIP, speech and large language model APIs, Python, Linux, integration with the group's systems of record.
+
+## Implementation
+
+Built onto the existing VoIP estate rather than beside it, so numbers, extensions and routing carry on working as they did. Introduced first where an unanswered call was pure loss, with fallback behaviour defined before it went near a live number.
+
+## Challenges
+
+Voice is much less forgiving than chat. A pause of a second that nobody notices when typing is an awkward silence on a call, so latency is a design constraint from the first line of code rather than a tuning exercise at the end. Callers to a manufacturer in this region speak in a wide range of accents and several languages, often on a poor connection. Handover has to be clean too, because an agent that traps a caller in a loop is worse than the ring tone it replaced.
+
+## Result
+
+Calls that used to ring out are answered and handled, and voice stopped being the channel where enquiries disappeared.
+
+## Verified evidence
+
+The agent runs in production on the group's Grandstream platform, and my ownership of both the Avaya and Grandstream estates is what the build depends on. I hold the platform call records and can produce the calls-handled figure on request. I do not quote a number I have not measured. No recordings, transcripts or caller details are used in any write-up or demonstration.
+
+## Skills demonstrated
+
+VoIP and telephony administration, applied AI in production, speech interface design, latency-sensitive engineering, integration of AI with existing corporate infrastructure.
+
+# Identity and access: from local passwords to single sign on with two factor
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html
+
+## Situation
+
+A manufacturing group with around 150 users across six sites in five countries. Each site had bought and set up its own systems locally over the years, so identity had never been designed. It had accumulated.
+
+## Business problem
+
+Passwords were held per system and per site. The same person had separate credentials for the ERP, for mail and for whatever else their site had bought, which guarantees one weak password reused across all of them. There was no central control and no reliable way to answer the basic questions: who has access to what, and who still has access who should not. Leavers were the sharp edge. Removing access meant remembering every system a person had touched, so accounts survived departures. Inside the ERP, everybody could see everything.
+
+## My responsibility
+
+I own the security and identity estate for the group and report to the owner. This rebuild was my proposal, my design and my delivery, across all sites.
+
+## Solution
+
+One identity per person on Google Workspace, with single sign on and OAuth, two factor authentication enforced, and access granted through role-based groups rather than individually.
+
+Access inside the ERP was rebuilt on the same principle. Odoo expresses access as user groups, record rules and per-model access lists, so I defined those properly: a salesperson sees the records their role allows and nothing else.
+
+Joiners and leavers became a role change instead of a search. Somebody leaves and access is withdrawn the same day, in one place, rather than site by site from memory. On top sits login and activity monitoring with automated alerts, so unusual access is visible as it happens rather than discovered afterwards.
+
+## Technology
+
+Google Workspace administration, single sign on, OAuth, two factor authentication, role-based access control, Odoo security groups and record rules, logging and monitoring tooling.
+
+## Implementation
+
+Identity first, then the application layer, then monitoring. Two factor was introduced with the enrolment support a factory workforce actually needs, not as an announcement. Roles were defined with the managers who own the data, because a role model nobody agreed to gets bypassed within a month.
+
+## Challenges
+
+Two factor across a manufacturing workforce is a practical problem before it is a technical one. Not everybody sits at a desk or has a company handset, and shop-floor patterns are not office patterns. Tightening access also always takes something away from somebody, so every restriction needs a person who will defend it. I could do that because the mandate came from the owner.
+
+## Result
+
+One identity per person, with a second factor. Access follows the role and is withdrawn on the day someone leaves rather than whenever it is noticed. Unusual access raises an alert instead of surfacing later.
+
+## Verified evidence
+
+Access control inside the ERP is defined in the custom module tree I hold, as user security groups, record rules and per-model access lists. The identity layer is the group's live Google Workspace tenant, which I administer. I publish no policy detail, no role model, no monitoring rules and no tenant detail, because that is the part an attacker would want.
+
+## Skills demonstrated
+
+Identity and access management, Google Workspace administration, single sign on, OAuth and two factor authentication, role-based access control, security monitoring.
+
+# Multi-site biometric attendance, integrated with the ERP
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html
+
+## Situation
+
+A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks. Attendance drives payroll, and in a shift operation it also drives production planning.
+
+## Business problem
+
+Attendance was captured locally and then retyped into payroll. Every site had its own way of recording who turned up, and at the end of the period somebody turned that into a payroll input by hand. Retyping is slow and error-prone, and payroll errors are the kind staff notice and remember. Management reporting lagged the month, and there was no group view.
+
+## My responsibility
+
+I designed and delivered the system and I lead the team that runs it. As with everything in this function, I both specify it and build it.
+
+## Solution
+
+Biometric attendance capture at each site, connected directly to the ERP, with the record reaching payroll and management reporting without anyone retyping it. This is device and systems integration: biometric readers at the sites feeding the system of record that already holds employees, contracts and payroll.
+
+Alongside the fixed readers, staff and supervisors reach the system from a phone. I built and packaged an Android client for the group's ERP and made the ERP backend responsive. That mobile layer is the same system rather than a separate app with its own data, which is what keeps the numbers consistent.
+
+## Technology
+
+Biometric attendance devices, Odoo, PostgreSQL, Android application packaging, progressive web application delivery, Linux, site networking across five countries.
+
+## Implementation
+
+One site first, proved against a payroll period run in parallel with the old method, then extended. Running both methods for a period is unglamorous and it is the only way anybody trusts a new payroll input.
+
+## Challenges
+
+Five countries means five sets of local employment practice, and shift and overtime rules are not the same in each. Modelling that without forking the system into five variants took more thought than the device integration did. Sites also lose connectivity, and an attendance system that fails when the link drops is worse than a paper register.
+
+The most important constraint is not technical. Biometric data is sensitive personal data in every jurisdiction the group operates in and in every country I would work in next. The system exists to produce an attendance record, and I do not discuss or publish anything about how biometric data is handled or stored.
+
+## Result
+
+Attendance reaches payroll and management reporting from the record itself rather than from a spreadsheet somebody typed, and a group-wide attendance position exists.
+
+## Verified evidence
+
+Android delivery is verified by build artefacts I hold: packaged application builds for the group's ERP client and a field tracking application, plus signed releases from my own venture. The attendance estate exists as a live system with its own database in my care. I have separately specified and published an attendance register module commercially, which is the same problem solved in public. I publish nothing about biometric data handling and I do not distribute the employer's application builds.
+
+## Skills demonstrated
+
+Device and systems integration, ERP and payroll integration, Android and PWA delivery, multi-country process modelling, handling of sensitive personal data, site networking.
+
+# Geo-verified security patrol, integrated with the ERP
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html
+
+## Situation
+
+A manufacturing group with production and storage sites in five countries. Physical security sits inside my IT function alongside IP CCTV and access control, because in a manufacturing group those are IT systems.
+
+## Business problem
+
+Guard patrols were recorded as signatures on paper: a sheet on a clipboard, a time written next to a checkpoint, a signature at the end of the round. The problem is not that guards are dishonest. It is that the record is unverifiable in principle, because a sheet completed in a gatehouse at the end of a shift looks exactly like a sheet completed on the round. Nobody could show that a patrol had happened, so the control existed on paper and not in fact.
+
+## My responsibility
+
+I proposed it, designed it and built it, and I own the physical security estate it belongs to.
+
+## Solution
+
+A patrol application on a phone, where reaching a checkpoint is confirmed by location rather than by a signature, and the record goes straight into the ERP.
+
+The guard walks the round and records the checkpoint on the handset. The system verifies the checkpoint by location at the moment it is recorded, so the evidence is produced by the act itself rather than written down afterwards. The record then reaches management reporting the same way every other operational number does.
+
+I scoped it deliberately narrowly. The system verifies that a checkpoint was reached, which is the control the business actually needs. It is a patrol evidence system, not a tracking system aimed at individuals, and that is a distinction I would defend in any jurisdiction.
+
+## Technology
+
+Android application development and packaging, device location services, Odoo, PostgreSQL, the group's mobile and PWA delivery stack.
+
+## Implementation
+
+Built on the same mobile delivery approach as the group's other field applications, so it is packaged, distributed and integrated the same way. Introduced site by site, with the paper round kept running until the electronic record had proved itself.
+
+## Challenges
+
+Location on a manufacturing site is not the clean signal it is in open ground. Steel-framed buildings, warehouses and plant rooms are exactly where accuracy degrades, and exactly where the checkpoints are. Designing for that, rather than assuming a perfect fix, is most of the engineering. Connectivity is the second problem: a patrol at the far end of a yard at three in the morning cannot depend on a live link. The third is adoption. A system introduced as a way of catching guards out gets defeated within a week. Introduced as the thing that proves they did their job, it gets used.
+
+## Result
+
+Patrol evidence is verifiable rather than assumed, and it reaches management reporting directly instead of as collected paper.
+
+## Verified evidence
+
+Android delivery is verified by build artefacts I hold, including a packaged field tracking application build alongside the group's ERP client. The system runs in production at the group. I do not publish the application build, checkpoint locations, patrol timings or coverage detail, for reasons that are obvious in a security system.
+
+## Skills demonstrated
+
+Android application delivery, location-based system design, ERP integration, physical security operations, designing controls people will actually use.
+
+# Bringing a new factory online: the order of operations
+
+Source: https://servia-tech.github.io/khaqan-shaheen/work/bringing-a-new-factory-online.html
+
+## Situation
+
+A manufacturing group that opens new sites. When the group commits to a new factory the building work has a date, and the commercial plan assumes the site can trade from that date. IT is on the critical path whether or not anybody has said so.
+
+## Business problem
+
+A new plant with no systems cannot trade. It cannot receive material, book production or raise an invoice. The failure mode is well known and expensive: the site opens, the systems are not ready, so it runs on spreadsheets and local workarounds "for a few weeks". Those workarounds then have to be unpicked and reconciled months later, by which point the site has its own way of working and does not want to give it up.
+
+## My responsibility
+
+I own the build: network, servers, connectivity, ERP, identity, telephony and physical security, delivered as one project, from Dubai, with my team of six and the local vendors I select and contract.
+
+## Solution
+
+A defined order of operations, because the sequence is the method. Each layer depends on the one before it, and doing them out of order means doing them twice.
+
+1. Physical and network first, while the builders are still on site. Containment, cabling and the equipment room get designed in during construction, because retrofitting cable into a finished factory costs several times more.
+2. Connectivity to the group. Local circuits ordered early, because carrier lead times are the longest single item.
+3. Perimeter and network security to the group standard, before anything is connected.
+4. Servers and ERP connectivity, so the site works in the group system of record on day one rather than in a local copy.
+5. Identity. Accounts, single sign on, two factor and role-based groups as the new team is hired.
+6. Telephony on the group platform, with the site reachable on the group numbering.
+7. Physical security and site devices: IP CCTV, access control, biometric attendance readers and label printers, each connected to the system it feeds.
+8. Support handover. Local hands contracted, documentation done, the site inside the normal support arrangement.
+
+## Technology
+
+Structured cabling and site networking, firewalls and site to site VPNs, Linux servers, ERP and database connectivity, Google Workspace identity, Avaya and Grandstream telephony, IP CCTV and access control.
+
+## Implementation
+
+Delivered remotely from Dubai with local vendors, whose selection and negotiation are part of the same job for me, not a procurement handoff.
+
+## Challenges
+
+Every country has its own carriers, its own customs timelines and its own local contractors, and none of them care about the group's opening date. Equipment can sit in customs for longer than the fit-out takes, and building programmes move late, so the plan has to survive dates changing underneath it.
+
+## Result
+
+A new site trades on group systems from opening day, so there is no reconciliation project afterwards.
+
+## Verified evidence
+
+This is a repeated delivery rather than a code artefact, and the evidence is the estate itself: six sites in five countries on one ERP instance, one network standard, one identity platform and one security standard. The sequence above is my own checklist, published without site names or dates.
+
+## Skills demonstrated
+
+Greenfield IT delivery, project sequencing, multi-country vendor and contract management, network and infrastructure design, budget ownership.
+
+## Articles
+
+## Tutorials
+
+# Odoo: how to stop two work orders being booked on the same machine at the same time
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html. Published 2026-09-08.
+
+By the end of this you will have a small Odoo 17 module that refuses to save a work order overlapping another on the same machine, names the orders it clashes with, and holds even when two planners save at the same moment. It is written for people who own or build a manufacturing ERP.
+
+## What you need
+
+- Odoo 17, Community or Enterprise, with the Manufacturing app (`mrp`) installed
+- PostgreSQL 13 or later (I run 16), with rights to create extensions
+- A development database you are free to break
+- Working knowledge of Odoo modules: models, views, the manifest
+
+This is the pattern, simplified. It is not the code I run in production, which carries shifts, split orders and machine-change wizards on top of the same bones.
+
+## Why the check belongs on the server
+
+The obvious place to stop a double booking is the form: grey out the machine, show a warning, block the save button. That protects one path into the data and leaves every other path open. Work orders are also written by manufacturing order confirmation, imports, XML-RPC integrations, scheduled actions and other modules. None of those go through your form.
+
+So the rule lives on the model, where every write passes through it. In Odoo that means `@api.constrains`, not `@api.onchange`. An onchange runs while a user edits a form in the browser, and only there. It never fires on `create()` or `write()` called from code. A constraint fires on every create and write that touches the fields it declares, whoever is doing the writing. I learned the difference the hard way, watching a rule that behaved perfectly in the form get bypassed by an import soon after it went live.
+
+## 1. The machine and the work order fields
+
+Odoo's `mrp.workorder` already carries `date_start` and `date_finished` (in Odoo 17 these replaced the older `date_planned_*` names) and a `workcenter_id`. A work centre is usually a group of machines, so I add a machine model and put the guard on the machine.
+
+```python
+# models/plant_machine.py
+from odoo import fields, models
+
+
+class PlantMachine(models.Model):
+    _name = 'plant.machine'
+    _description = 'Machine'
+
+    name = fields.Char(required=True)
+    workcenter_id = fields.Many2one('mrp.workcenter', string='Work centre')
+    active = fields.Boolean(default=True)
+```
+
+Give it `ir.model.access.csv` lines for the manufacturing user and manager groups.
+
+## 2. The overlap constraint
+
+Two windows overlap when one starts before the other finishes and finishes after the other starts. That one condition covers partial overlap either way, one window inside the other, and identical windows. Touching end points (one finishes at 10:00, the next starts at 10:00) are not an overlap under strict comparisons, which is what a planner expects.
+
+
+
+```python
+# models/mrp_workorder.py
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
+
+
+class MrpWorkorder(models.Model):
+    _inherit = 'mrp.workorder'
+
+    machine_id = fields.Many2one('plant.machine', string='Machine', index=True)
+    conflict_count = fields.Integer(
+        compute='_compute_conflict_count',
+        search='_search_conflict_count',
+    )
+
+    def _find_conflicts(self):
+        self.ensure_one()
+        if not (self.machine_id and self.date_start and self.date_finished):
+            return self.browse()
+        return self.search([
+            ('machine_id', '=', self.machine_id.id),
+            ('id', '!=', self.id),
+            ('state', '!=', 'cancel'),
+            ('date_start', '<', self.date_finished),
+            ('date_finished', '>', self.date_start),
+        ])
+
+    @api.constrains('machine_id', 'date_start', 'date_finished', 'state')
+    def _check_machine_overlap(self):
+        for wo in self:
+            if wo.state == 'cancel':
+                continue
+            clashes = wo._find_conflicts()
+            if clashes:
+                names = ', '.join(
+                    f'{c.name} ({c.production_id.name})' for c in clashes
+                )
+                raise ValidationError(_(
+                    'Machine %(machine)s is already booked in this window by '
+                    '%(count)d work order(s): %(names)s',
+                    machine=wo.machine_id.name,
+                    count=len(clashes),
+                    names=names,
+                ))
+```
+
+The error names the conflicting work orders and their manufacturing orders. A message that says only "machine busy" gets worked around; one that says which order is in the way starts a conversation between two planners.
+
+Cancelled orders are excluded. Whether to exclude `done` as well is a judgement: a finished order sits in the past, but excluding it lets someone back-date a new order over a real run. I leave `done` in.
+
+## 3. The conflict count and the drill-through
+
+When you retrofit the rule into a live plant there are already clashes in the data, and planners need to see them before the system starts refusing saves. That is what the computed count and its search method are for.
+
+```python
+    @api.depends('machine_id', 'date_start', 'date_finished', 'state')
+    def _compute_conflict_count(self):
+        for wo in self:
+            wo.conflict_count = len(wo._find_conflicts())
+
+    def _search_conflict_count(self, operator, value):
+        if operator not in ('=', '!=', '>', '<') or not isinstance(value, int):
+            raise NotImplementedError()
+        compare = {
+            '=': lambda a, b: a == b, '!=': lambda a, b: a != b,
+            '>': lambda a, b: a > b, '<': lambda a, b: a < b,
+        }[operator]
+        live = self.search([('state', 'not in', ('done', 'cancel'))])
+        matching = live.filtered(lambda wo: compare(wo.conflict_count, value))
+        return [('id', 'in', matching.ids)]
+
+    def action_open_conflicts(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Conflicting work orders'),
+            'res_model': 'mrp.workorder',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', self._find_conflicts().ids)],
+            'context': {'create': False},
+        }
+```
+
+The field is not stored, because its value changes when other records change and the ORM's dependency tracking cannot express that. The `search` method is what lets a planner filter the list on `conflict_count > 0`. It runs one query per live work order; if your table is large, rewrite it as a self-join in SQL.
+
+The smart button goes in the work order form's button box:
+
+```xml
+<!-- views/mrp_workorder_views.xml -->
+<odoo>
+    <record id="mrp_workorder_form_machine_guard" model="ir.ui.view">
+        <field name="name">mrp.workorder.form.machine.guard</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_conflicts" type="object"
+                        class="oe_stat_button" icon="fa-exclamation-triangle"
+                        invisible="conflict_count == 0">
+                    <field name="conflict_count" widget="statinfo" string="Conflicts"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='workcenter_id']" position="after">
+                <field name="machine_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+```
+
+Note the Odoo 17 syntax: `invisible="conflict_count == 0"` as a plain attribute. The old `attrs` dictionary was removed in 17.
+
+The manifest:
+
+```python
+# __manifest__.py
+{
+    'name': 'Machine Overlap Guard',
+    'version': '17.0.1.0.0',
+    'category': 'Manufacturing',
+    'depends': ['mrp'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/mrp_workorder_views.xml',
+    ],
+    'installable': True,
+    'license': 'LGPL-3',
+}
+```
+
+## 4. The race the constraint cannot see
+
+Here is the gap. Two planners book the same machine for the same window and press save within the same second. Each request runs in its own database transaction. Each constraint searches for overlaps and finds none, because the other planner's row is not committed yet. Both commit. You now have the double booking the code was written to prevent, and no error anywhere.
+
+A Python check cannot close this, because it reads a snapshot. Only the database can, and PostgreSQL has the exact tool: an exclusion constraint over a range type, enforced under the same locking as a unique index.
+
+```sql
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+
+ALTER TABLE mrp_workorder
+    ADD CONSTRAINT mrp_workorder_machine_no_overlap
+    EXCLUDE USING gist (
+        machine_id WITH =,
+        tstzrange(date_start AT TIME ZONE 'UTC',
+                  date_finished AT TIME ZONE 'UTC', '[)') WITH &&
+    )
+    WHERE (state <> 'cancel'
+           AND machine_id IS NOT NULL
+           AND date_start IS NOT NULL
+           AND date_finished IS NOT NULL);
+```
+
+Three things to know. `btree_gist` is needed because a GiST index cannot do equality on an integer column without it; the extension is marked trusted in PostgreSQL 13 and later, so the database owner can install it without superuser rights. Odoo stores `Datetime` fields as `timestamp without time zone` holding UTC, so the columns are converted before building the `tstzrange`, and the `'[)'` bound makes the range half-open to match the strict comparisons in Python (`tsrange` on the raw columns also works). The `WHERE` clause keeps cancelled and incomplete rows out of the index, so the constraint agrees with the ORM rule.
+
+Now the second of two simultaneous saves waits for the first to commit, then fails with an exclusion violation. The user sees a blunter error than the `ValidationError`, which is why both layers exist: Python handles the everyday case with a good message, and the database handles the one case Python cannot.
+
+I run the two statements from the model's `init()` method, which Odoo calls on every install and update, behind a check on `pg_constraint` so they run once. The constraint refuses to be created while overlapping rows exist, which is the right order of events: filter on `conflict_count > 0`, clear the clashes with the planners, then update the module. Shipping the count before the block is a sequencing decision, not a coding one.
+
+## 5. Testing it
+
+Test both layers separately. The Python test is ordinary. The database test bypasses the ORM on purpose.
+
+```python
+# tests/test_overlap.py
+from psycopg2.errors import ExclusionViolation
+from odoo.exceptions import ValidationError
+from odoo.tests import TransactionCase, tagged
+from odoo.tools import mute_logger
+
+
+@tagged('post_install', '-at_install')
+class TestMachineOverlap(TransactionCase):
+    # setUp creates self.machine and two work orders on one manufacturing
+    # order: self.wo1 booked 08:00 to 12:00 on the machine, self.wo2 unbooked
+
+    def test_orm_refuses_overlap(self):
+        with self.assertRaises(ValidationError):
+            self.wo2.write({
+                'machine_id': self.machine.id,
+                'date_start': '2026-09-08 10:00:00',
+                'date_finished': '2026-09-08 14:00:00',
+            })
+
+    @mute_logger('odoo.sql_db')
+    def test_database_refuses_overlap(self):
+        with self.assertRaises(ExclusionViolation), self.env.cr.savepoint():
+            self.env.cr.execute(
+                "UPDATE mrp_workorder SET machine_id = %s, "
+                "date_start = %s, date_finished = %s WHERE id = %s",
+                (self.machine.id, '2026-09-08 10:00:00',
+                 '2026-09-08 14:00:00', self.wo2.id),
+            )
+```
+
+```bash
+./odoo-bin -d dev17 -i machine_overlap_guard --test-enable \
+    --test-tags /machine_overlap_guard --stop-after-init
+```
+
+To see the race with your own eyes, open two `psql` sessions. In the first, `BEGIN` and run an `UPDATE` that books the machine, without committing. In the second, book an overlapping window. The second session blocks. Commit the first, and the second fails with `conflicting key value violates exclusion constraint`.
+
+## Common questions
+
+### Should the guard sit on the work centre instead of a machine?
+
+Only if every work centre is a single physical machine. In most plants a work centre is a group, and two orders can legitimately run side by side on different machines within it. A constraint that refuses valid plans gets switched off within a month. Model the machine, and let the work centre stay as Odoo's costing and capacity grouping.
+
+### What about orders that genuinely share a machine, like a changeover overlapping the next run?
+
+Model the exception rather than weakening the rule. A changeover is its own record with its own window, or the next order's start is set to the end of it. If you find yourself wanting an "allow overlap" tick box, the box will be ticked whenever the message is inconvenient, and you are back where you started.
+
+### Does the exclusion constraint slow down saving work orders?
+
+Not in any way you will notice. A GiST index on an integer plus a range is small, and the check on insert or update is an index probe. The cost to plan for is organisational: the clean-up of existing overlaps comes first, and the raw database error needs rewording for a planner if the race ever fires.
+
+# How to write an llms.txt for a business website
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html. Published 2026-09-08.
+
+An llms.txt is a short Markdown file at /llms.txt that gives a language model a curated map of your site: a name, a summary and the pages that matter, one line each. It takes about an hour to write. Whether the big AI companies read it yet is an open question, but it costs nothing to add.
+
+The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index that says what the site is and where the important pages are gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.
+
+## Step 1: learn the format
+
+The specification is short. In order:
+
+- An H1 with the business or site name. This is the only required element.
+- A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of everything below.
+- Any paragraphs or lists that give more context. No headings in this part.
+- H2 sections, each containing a list of links in the form `- [Title](https://url): one-line description`.
+- An optional final H2 called `Optional`, for links that can be skipped when the reader is short on space.
+
+Here is the skeleton.
+
+```markdown
+# Business name
+
+> One or two sentences on what the business does, where, and for whom.
+
+A short paragraph of context that does not fit in the summary.
+
+## Services
+
+- [Service name](https://example.com/services/name): what it is and who it is for.
+
+## Optional
+
+- [Blog](https://example.com/blog): articles, less important than the pages above.
+```
+
+The specification also allows a companion file, llms-full.txt, holding the full text of the linked pages in Markdown. It is optional, and I start without it.
+
+## Step 2: decide what to put in for a services business
+
+Think of the file as the briefing you would give a new receptionist on their first morning. For a services business that means:
+
+- What you do, as a list of services with one line each. If you publish prices or a price range, say so and link to the page.
+- Where you serve. Emirates, cities, neighbourhoods. A model answering "plumber near me in Al Nahda" needs the place name, not "across the UAE".
+- Who you serve. Homes, offices, landlords, facilities companies.
+- How to book and how to get in touch, with both pages linked.
+- Hours, including whether you take emergency calls.
+- The questions customers ask most, which is your FAQ page.
+- Public credentials: trade licence, certifications, insurance, if they are already on the site.
+
+Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the price on the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.
+
+## Step 3: decide what to leave out
+
+- Login pages, carts, checkout, account pages.
+- Terms, privacy and cookie policies. Put them under `Optional` if you must.
+- Tag archives, category pages, pagination, search result pages.
+- Hundreds of links. This is a map, not a sitemap. If the list runs past forty or fifty lines, you are no longer curating.
+- Tracking parameters in URLs.
+- Marketing copy with no facts in it. "Trusted by thousands" tells a model nothing it can use.
+- Facts that do not appear on a page. If something is only in llms.txt, it will be quoted with nothing to back it up.
+
+## Step 4: a complete worked example
+
+A fictional plumbing company in Sharjah, on the reserved `.example` domain so nothing here collides with a real business.
+
+```markdown
+# Bluepipe Plumbing
+
+> Licensed plumbing company in Sharjah, UAE, serving homes and small businesses across Sharjah and Ajman. Emergency call-outs at any hour, fixed prices for common jobs, booking by WhatsApp or online.
+
+Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharjah. Prices on this site are in UAE dirhams and include VAT. Emergency call-outs outside 8am to 8pm carry the surcharge shown on the pricing page. All work carries a 30 day workmanship guarantee.
+
+## Services
+
+- [Emergency plumber](https://www.bluepipeplumbing.example/services/emergency-plumber): burst pipes, major leaks and blocked drains, one hour response target across Sharjah.
+- [Water heater repair and replacement](https://www.bluepipeplumbing.example/services/water-heaters): repair of electric and solar heaters, replacement with supply and fitting.
+- [Leak detection](https://www.bluepipeplumbing.example/services/leak-detection): thermal and acoustic detection for hidden leaks in walls, floors and roof tanks.
+- [Bathroom and kitchen plumbing](https://www.bluepipeplumbing.example/services/bathroom-kitchen): new installations and replacement of taps, mixers, WCs and sinks.
+- [Water tank cleaning](https://www.bluepipeplumbing.example/services/tank-cleaning): cleaning and disinfection of roof and underground tanks with a written report.
+
+## Pricing
+
+- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and which jobs are charged by the hour.
+
+## Areas served
+
+- [Sharjah](https://www.bluepipeplumbing.example/areas/sharjah): Al Nahda, Al Majaz, Al Khan, Muwaileh, Al Qasimia and the industrial areas.
+- [Ajman](https://www.bluepipeplumbing.example/areas/ajman): Al Rashidiya, Al Nuaimiya and Ajman Industrial.
+
+## Booking and contact
+
+- [Book online](https://www.bluepipeplumbing.example/book): choose a service and a two hour slot, pay on completion.
+- [Contact](https://www.bluepipeplumbing.example/contact): phone, WhatsApp, office address and opening hours.
+
+## Frequently asked questions
+
+- [FAQ](https://www.bluepipeplumbing.example/faq): what a call-out includes, whether parts are included, and how the guarantee works.
+
+## About
+
+- [About Bluepipe](https://www.bluepipeplumbing.example/about): trade licence number, the team, insurance cover and years in operation.
+
+## Optional
+
+- [Blog](https://www.bluepipeplumbing.example/blog): maintenance guides and seasonal advice.
+- [Terms of service](https://www.bluepipeplumbing.example/terms): booking, cancellation and guarantee terms.
+```
+
+In three sentences the summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, which are the things a model would otherwise guess at.
+
+## Step 5: serve it as text/plain or text/markdown
+
+The file is static and sits at the web root. Most servers already send `.txt` as `text/plain`, which is fine. The specification prefers `text/markdown`, which takes one rule.
+
+On nginx:
+
+```nginx
+location = /llms.txt {
+    types { }
+    default_type "text/markdown; charset=utf-8";
+}
+```
+
+On a static host that reads a `_headers` file, such as Netlify:
+
+```text
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+```
+
+If the site is an application and the framework owns every route, serve it from a route rather than fighting the router. In FastAPI:
+
+```python
+from fastapi import FastAPI
+from fastapi.responses import PlainTextResponse
+
+app = FastAPI()
+
+@app.get("/llms.txt")
+def llms_txt():
+    with open("static/llms.txt", encoding="utf-8") as f:
+        return PlainTextResponse(f.read(), media_type="text/markdown; charset=utf-8")
+```
+
+Two things to watch. A catch-all route can swallow `/llms.txt` and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a rule that adds a trailing slash to every path will redirect the file to `/llms.txt/`, a different resource.
+
+## Step 6: check it is reachable
+
+Do not open it in a browser and call it done. Ask for it the way a crawler would.
+
+```bash
+curl -s -o /dev/null -w "%{http_code} %{content_type} %{size_download}\n" https://www.bluepipeplumbing.example/llms.txt
+```
+
+You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall rule can pass a browser and block a crawler on the same URL.
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 (compatible; GPTBot/1.0)" https://www.bluepipeplumbing.example/llms.txt
+```
+
+Then check every link in the file, because a map that points at missing pages is worse than no map.
+
+```bash
+curl -s https://www.bluepipeplumbing.example/llms.txt | grep -o 'https://[^)]*' | while read u; do
+  echo "$(curl -s -o /dev/null -w '%{http_code}' -L "$u")  $u"
+done
+```
+
+Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a couple of weeks to see who is fetching it.
+
+## Common questions
+
+### Do ChatGPT, Claude or Google actually read llms.txt?
+
+Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it automatically, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.
+
+### Should I also publish llms-full.txt?
+
+Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a specific consumer asks for it.
+
+### Does llms.txt replace robots.txt or the sitemap?
+
+No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none of them conflicts with the others.
+
+# How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html. Published 2026-09-08.
+
+Read your robots.txt for the AI crawler names, fetch your homepage with curl while pretending to be each bot, and confirm your main text is in the raw HTML. That takes ten minutes by hand. Or run one Python script that does all of it and scores the result.
+
+Traffic from AI assistants started showing up in the analytics for a site I run, and I wanted to know which of them could read it and which were being turned away at the door. These are the checks I still run. They use curl and grep, so they work on a laptop, a server or inside a scheduled job.
+
+## Step 1: read robots.txt for the AI user agents
+
+```bash
+curl -s https://your-site.com/robots.txt
+```
+
+Look for these names. Each one controls a different product, and they are easy to confuse.
+
+- GPTBot: OpenAI's training crawler. Blocking it keeps your pages out of future model training. It does not stop ChatGPT search.
+- OAI-SearchBot: the crawler behind ChatGPT search. Block this and your site will not be cited when ChatGPT searches the web.
+- ChatGPT-User: live browsing when a user asks ChatGPT to open a page. A fetch on a person's request, not a crawl.
+- ClaudeBot: Anthropic's training crawler.
+- Claude-SearchBot: Anthropic's search index crawler, the equivalent of OAI-SearchBot.
+- PerplexityBot: Perplexity's index crawler.
+- Google-Extended: controls whether Google may use your content for Gemini training and grounding. It has no effect on Google Search. AI Overviews are part of Search and use plain Googlebot, so if Googlebot can index you, AI Overviews can quote you.
+- Bingbot: feeds Bing, which feeds Microsoft Copilot and is one of the sources behind ChatGPT search. Blocking it has a wider blast radius than most people expect.
+- CCBot: Common Crawl, a public corpus used by many training pipelines.
+
+A robots.txt that says nothing about these agents allows them all. A `User-agent: *` block with `Disallow: /` shuts out every one of them. The common mistake is a block on GPTBot, added to stop training, that a later edit widens into `Disallow: /` under the wildcard.
+
+## Step 2: fetch the homepage as each bot and compare status codes
+
+robots.txt is a request. A CDN or web application firewall enforces its own rules, and those often ship with a "block AI bots" toggle that somebody switched on without telling you. The only way to know is to ask for the page as the bot and read the status code.
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 (compatible; GPTBot/1.0; +https://openai.com/gptbot)" https://your-site.com/
+```
+
+A 200 is fine. A 403 or 503 means something in front of your server is turning the bot away. A 429 means you are rate limiting it. Run the check for every agent in one loop, with a normal browser string first as the baseline.
+
+```bash
+for ua in \
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/128.0 Safari/537.36" \
+  "Mozilla/5.0 (compatible; GPTBot/1.0; +https://openai.com/gptbot)" \
+  "Mozilla/5.0 (compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)" \
+  "Mozilla/5.0 (compatible; ChatGPT-User/1.0; +https://openai.com/bot)" \
+  "Mozilla/5.0 (compatible; ClaudeBot/1.0; +claudebot@anthropic.com)" \
+  "Mozilla/5.0 (compatible; Claude-SearchBot/1.0; +claudebot@anthropic.com)" \
+  "Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)" \
+  "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" \
+  "CCBot/2.0 (https://commoncrawl.org/faq/)"
+do
+  code=$(curl -s -o /dev/null -w "%{http_code}" -L -A "$ua" https://your-site.com/)
+  echo "$code  ${ua:0:60}"
+done
+```
+
+If the browser string gets 200 and a bot string gets 403, you have found a block that robots.txt never mentioned. On one of my own sites I went looking for exactly that and found no block at all; the likely cause was a slow server that exhausted a crawler's patience before the page arrived. So check response time too, with `-w "%{http_code} %{time_total}\n"`.
+
+## Step 3: confirm the text is in the raw HTML
+
+Most AI crawlers do not run JavaScript. Googlebot does, eventually; the others read what the server sends and nothing more. If your homepage is an empty shell a framework fills in on the client, a crawler sees a title and a spinner.
+
+Pick a phrase from your main content, something a customer would search for, and grep for it in the raw response.
+
+```bash
+curl -s -A "Mozilla/5.0 (compatible; GPTBot/1.0)" https://your-site.com/ | grep -i -c "emergency plumber"
+```
+
+A count of zero means the phrase is not in the HTML. Then look at how much text there actually is.
+
+```bash
+curl -s https://your-site.com/ | sed 's/<[^>]*>//g' | tr -s '[:space:]' ' ' | wc -w
+```
+
+That strips the tags and counts words. A homepage that shows three hundred words in a browser but returns forty from curl is being built by JavaScript. The fix is server-side rendering or static generation, which is a framework decision rather than a tweak.
+
+## Step 4: check for JSON-LD structured data
+
+Structured data tells a machine what your business is without it having to guess from prose. Check that at least one block exists and that it parses.
+
+```bash
+curl -s https://your-site.com/ | grep -c 'application/ld+json'
+```
+
+Then pull the blocks out and make sure they are valid JSON, using Python's standard library only.
+
+```bash
+curl -s https://your-site.com/ | python3 -c "
+import sys, re, json
+html = sys.stdin.read()
+blocks = re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', html, re.S)
+for b in blocks:
+    data = json.loads(b)
+    print(data.get('@type'), data.get('name'))
+"
+```
+
+For a services business you want `LocalBusiness` or one of its subtypes, `Service` for each thing you sell, and `FAQPage` if the page carries questions and answers. If `json.loads` throws, the block is broken and every consumer will ignore it silently.
+
+## Step 5: check for /llms.txt
+
+llms.txt is a plain Markdown file at the site root that gives a language model a curated map of your pages. Adoption by the big AI companies is uneven, but the file costs nothing and I have seen crawlers request it.
+
+```bash
+curl -s -o /dev/null -w "%{http_code} %{content_type}\n" https://your-site.com/llms.txt
+```
+
+You want 200 and a text type. A 200 with `text/html` usually means your framework served its 404 page with the wrong status, which looks like success and is not. Then check every link in the file. I once published one that pointed at pages a redirect rule had quietly broken.
+
+```bash
+curl -s https://your-site.com/llms.txt | grep -o 'https://[^) ]*' | while read u; do
+  echo "$(curl -s -o /dev/null -w '%{http_code}' -L "$u")  $u"
+done
+```
+
+## Step 6: check the sitemap has real lastmod dates
+
+A sitemap tells crawlers what changed. If every URL carries the same lastmod, or a date from the week you launched, crawlers learn to ignore it.
+
+```bash
+curl -s https://your-site.com/sitemap.xml | grep -o '<lastmod>[^<]*</lastmod>' | sort | uniq -c | sort -rn | head
+```
+
+If the output is one line with a large count, the dates are hardcoded. I have found that on a site I was responsible for. Generate lastmod from the record's real modified time, and for a sitemap index run the same check on each child sitemap.
+
+## Step 7: the one-command method
+
+Everything above is what my audit script does, plus a scoring pass. It is one Python file with no dependencies beyond the standard library, and it is open source.
+
+```bash
+git clone https://github.com/Servia-Tech/ai-visibility-audit.git
+cd ai-visibility-audit
+python ai_visibility_audit.py https://your-site.com
+```
+
+It scores the site on five layers: SEO (can search engines index it), AEO (does it give direct answers, with FAQ content and structured data), GEO (can generative engines fetch and cite it, including robots rules and llms.txt), AIO (is the content shaped so an AI system can use it) and SXO (what a visitor gets after the click, speed and mobile included). It prints a score for each layer and the top fixes in order. I run it daily from a scheduled job and keep the output, so I can see when a deployment moves a score.
+
+The script is a starting point. It can tell you whether ChatGPT is able to read you, not whether it will choose to cite you. Being readable is the entry ticket. Being worth citing is content.
+
+## Common questions
+
+### Does blocking GPTBot stop my site appearing in ChatGPT answers?
+
+No. GPTBot is the training crawler. ChatGPT search uses OAI-SearchBot, and live browsing on a user's request uses ChatGPT-User. If you want to stay out of training but remain citable, block GPTBot only and leave the other two alone.
+
+### Does Google-Extended affect AI Overviews?
+
+No. Google-Extended only controls use of your content for Gemini training and grounding. AI Overviews are a feature of Google Search and rely on Googlebot, so the only way to stay out of them is to stay out of Search, which is rarely what a business wants.
+
+### My CDN has an "AI bots" toggle. Should I turn it on?
+
+Only if you have decided you do not want to be found by AI assistants at all. These toggles usually block search crawlers such as OAI-SearchBot and PerplexityBot along with the training crawlers, and some block on behaviour rather than user agent. Run the curl loop above after any change.
+
+# A WhatsApp AI sales agent that hands leads to your ERP: the architecture
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html. Published 2026-09-08.
+
+A webhook receives each WhatsApp message, a session store keyed by phone number holds the conversation, and a model with four tools answers from a catalogue it cannot contradict. Money, complaints and requests for a person go to a human. Qualified enquiries become leads in the ERP through its API.
+
+I built one of these for a manufacturing group, running several WhatsApp numbers and the group websites through one platform, and a smaller one for my own venture. The shape is the same in both. What follows is that shape in generic Python, not the production code. The chat is the easy part. The boundaries are the design.
+
+## Step 1: the components
+
+- A WhatsApp Business Platform webhook. Meta delivers inbound messages to your URL and you reply through the Graph API.
+- A session store keyed by phone number: recent turns, state (open, human, closed), language, lead id, and the time of the last message.
+- A language model with four tools: look up a service, quote a price from the catalogue, create a lead, hand over to a human.
+- The catalogue: one table of services, variants, prices and units, the only source of any number a customer sees.
+- The hand-off rule, enforced in code as well as in the prompt.
+- A review queue where a person reads every lead and every hand-off.
+- A log of every turn, and rate limits per phone number and overall.
+- The ERP connection that creates the lead.
+
+## Step 2: the webhook
+
+Meta verifies the endpoint once with a GET carrying `hub.mode`, `hub.verify_token` and `hub.challenge`. Messages then arrive as POSTs shaped `entry[].changes[].value.messages[]`. Return 200 within a few seconds or Meta retries, so do the work in the background. Check the `X-Hub-Signature-256` header against your app secret, otherwise anyone who finds the URL can feed your bot.
+
+```python
+import hmac
+import hashlib
+from fastapi import FastAPI, Request, Response, BackgroundTasks
+
+app = FastAPI()
+
+@app.get("/webhook")
+async def verify(request: Request):
+    q = request.query_params
+    if q.get("hub.mode") == "subscribe" and q.get("hub.verify_token") == VERIFY_TOKEN:
+        return Response(q.get("hub.challenge"), media_type="text/plain")
+    return Response(status_code=403)
+
+@app.post("/webhook")
+async def receive(request: Request, background: BackgroundTasks):
+    raw = await request.body()
+    expected = "sha256=" + hmac.new(APP_SECRET.encode(), raw, hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(expected, request.headers.get("X-Hub-Signature-256", "")):
+        return Response(status_code=403)
+    body = await request.json()
+    for entry in body.get("entry", []):
+        for change in entry.get("changes", []):
+            for msg in change.get("value", {}).get("messages", []):
+                if msg.get("type") == "text":
+                    background.add_task(handle_turn, msg["from"], msg["id"], msg["text"]["body"])
+    return {"status": "received"}
+```
+
+Sending a reply is one POST to the Graph API.
+
+```python
+import requests
+
+def send_text(to: str, body: str) -> None:
+    requests.post(
+        f"https://graph.facebook.com/v20.0/{PHONE_NUMBER_ID}/messages",
+        headers={"Authorization": f"Bearer {ACCESS_TOKEN}"},
+        json={"messaging_product": "whatsapp", "to": to, "type": "text", "text": {"body": body}},
+        timeout=10,
+    )
+```
+
+## Step 3: the turn handler
+
+This is where every rule lives, in this order: deduplicate, rate limit, load the session, respect a human owner, cap the input, run the model, act on tool calls, check the reply against the catalogue, log, send.
+
+```python
+def handle_turn(phone: str, message_id: str, text: str) -> None:
+    if store.seen(message_id):
+        return
+    if store.over_limit(phone):
+        send_text(phone, "Thanks, we have your messages. A colleague will reply during working hours.")
+        return
+    session = store.load(phone)
+    log_turn(phone, message_id, "in", text)
+    if session.state == "human":
+        return
+    text = text[:1500]
+    reply, calls = model.respond(session.history, text, tools=TOOLS)
+    for call in calls:
+        if call.name == "handover":
+            session.state = "human"
+            queue.add(phone, reason=call.args["reason"])
+            notify_staff(phone, call.args["reason"])
+        elif call.name == "create_lead":
+            session.lead_id = create_lead(**call.args)
+            queue.add(phone, reason="new lead")
+    reply = enforce_catalogue(reply, calls)
+    session.append(text, reply)
+    store.save(session)
+    log_turn(phone, message_id, "out", reply, calls)
+    send_text(phone, reply)
+```
+
+`enforce_catalogue` is the part people leave out. It finds every currency amount in the reply and checks it against the prices `quote_price` returned this turn. Any amount that did not come from the tool is replaced with a line saying a colleague will confirm, and the conversation is flagged. The model can be told a hundred times not to invent prices. Code is what makes it true.
+
+## Step 4: the tools and the catalogue
+
+Four tools are enough. More tools means more ways to be wrong.
+
+- `lookup_service(query)` returns matching catalogue entries with descriptions, so the model can answer "do you do X".
+- `quote_price(service_id, variant, quantity)` returns the price and unit. The model never sees a price any other way.
+- `create_lead(contact_name, phone, summary)` runs once the model has a name and a clear enquiry.
+- `handover(reason)` ends the model's ownership of the conversation.
+
+The catalogue is a table in your own database: service, variant, price, unit, area, active flag. The system prompt carries the service names and descriptions so the model can converse, but not the prices. If a customer asks about something not in the catalogue, the correct answer is that a person will confirm, not a plausible guess.
+
+## Step 5: the hand-off rule and the review queue
+
+The rule I use: anything about money beyond quoting a listed price (discounts, negotiation, payment terms, refunds), any complaint, any request for a person, anything the catalogue cannot answer twice in a row, and any language the agent was not configured for. On hand-off the agent tells the customer plainly that a person will take over and when, sets the session state, alerts a member of staff, and goes quiet on that number until a person releases it.
+
+The review queue holds every lead and every hand-off. A person reads the transcript, corrects the lead, and marks it reviewed. I also sample routine conversations that triggered neither. Those review notes are the best evaluation data you will get, and you cannot manufacture them.
+
+## Step 6: create the lead in the ERP
+
+The lead goes into the pipeline the sales team already uses, so nothing new has to be checked. In Odoo that is the `crm.lead` model over XML-RPC. Use a dedicated user with an API key and CRM rights only.
+
+```python
+import xmlrpc.client
+
+URL, DB, USER, KEY = "https://erp.example.com", "erp", "bot@example.com", "api-key"
+
+common = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/common")
+uid = common.authenticate(DB, USER, KEY, {})
+models = xmlrpc.client.ServerProxy(f"{URL}/xmlrpc/2/object")
+
+def create_lead(contact_name: str, phone: str, summary: str) -> int:
+    source_ids = models.execute_kw(DB, uid, KEY, "utm.source", "search",
+                                   [[["name", "=", "WhatsApp"]]], {"limit": 1})
+    values = {
+        "name": f"WhatsApp enquiry from {contact_name}",
+        "contact_name": contact_name,
+        "phone": phone,
+        "description": summary,
+    }
+    if source_ids:
+        values["source_id"] = source_ids[0]
+    return models.execute_kw(DB, uid, KEY, "crm.lead", "create", [values])
+```
+
+`name` is the only required field. `contact_name`, `phone` and `description` are standard, and `source_id` links to a `utm.source` record so the pipeline can report where leads come from. If the Leads stage is switched off in CRM settings the record becomes an opportunity straight away, which is fine. Before creating, search `crm.lead` for the same phone number and add a note to the existing record with `message_post` instead. A customer who messages three times in a week should be one lead with three notes, not three leads.
+
+## Step 7: logging and rate limits
+
+Log every turn: phone number, message id, direction, text, the model's input and output, tool calls, latency and token counts, in the same database as the sessions. When a customer says the bot told them something, you need to read exactly what it said.
+
+Rate limits go in three places: messages per phone number per hour, messages overall per minute, and turns per conversation before a forced hand-off. WhatsApp also has a 24 hour customer service window. Free-form replies are only allowed within 24 hours of the customer's last message; after that only approved template messages go through, so a person picking up a hand-off the next day may need a template to reopen the conversation.
+
+## Step 8: what goes wrong
+
+- The model invents prices. Even with the catalogue behind a tool, it rounds, bundles two services into one number, or offers a discount nobody authorised. The reply check in Step 3 is the only fix that held.
+- Loops. A customer's auto-reply answers the bot, the bot answers back, and the pair run until a rate limit stops them. Or the model asks the same clarifying question three times. Cap turns, detect a repeated reply, hand over.
+- Long pasted messages. Somebody pastes a tender, a spreadsheet or an entire earlier chat. Cap the input, ask for the key point, and hand over if it is clearly a document.
+- Off-hours expectations. At two in the morning the customer wants a person now. The agent has to say when a person will reply, and the team has to keep that promise.
+- Duplicate deliveries. Meta resends webhooks it thinks you missed. Deduplicate on message id or you answer everything twice.
+- Connectivity. Sessions and tokens fail quietly. Alert on silence during working hours, not only on errors.
+
+## Common questions
+
+### Why not let the model create the lead without a review queue?
+
+Because the model is confidently wrong in a way a form validation error never is. The queue costs a person a minute per lead and catches the wrong name, the wrong service and the enquiry that was actually a complaint. It also produces the notes you need to improve the prompt.
+
+### Which language model should I use?
+
+Any current model with reliable tool calling, and I have run this design on more than one. The architecture matters far more than the model, because the catalogue, the reply check and the hand-off rule are what stop bad answers reaching a customer.
+
+### Can the same design serve a website chat widget?
+
+Yes. Only the channel adapter changes: the webhook and the send function become a web endpoint and a response to the browser. The session store, tools, catalogue, hand-off rule, queue and ERP connection stay as they are, which is why I run both channels through one platform.
+
+# A PostgreSQL major-version upgrade with no unplanned downtime: the checklist
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html. Published 2026-09-08.
+
+By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave behind a better recovery position than you started with. It is for engineers who own a production database.
+
+## What you need
+
+- The old server on PostgreSQL 10 or later for built-in logical replication (older publishers need the pglogical extension instead)
+- A new server with PostgreSQL 16 installed and network access to the old one
+- Spare capacity for a rehearsal clone
+- Superuser on both databases and root on both hosts
+- A way to stop every application that writes to the database, and a list of what those applications are
+
+## Two ways to do it
+
+`pg_upgrade` and logical replication solve different problems, and the choice decides the shape of the whole project.
+
+`pg_upgrade` rewrites the catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. Once you start the new cluster after a link-mode upgrade, the old cluster cannot be started again; the way back is a backup. It needs a window with the application stopped. Run `pg_upgrade --check` first, every time, because it finds missing extensions and incompatible data types while there is still time to fix them. On Debian and Ubuntu the `pg_upgradecluster` wrapper from postgresql-common drives it, with a method option for link mode. Planner statistics are not carried over, so the new cluster runs slowly until `vacuumdb --all --analyze-in-stages` has been through it.
+
+Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is a list of things it does not do. Every replicated table needs a primary key, or a `REPLICA IDENTITY`, or updates and deletes on it fail on the publisher. It copies data, not schema: you create the tables on the new server yourself. It does not replicate sequences, so their values are copied by hand at cutover. It does not replicate DDL, so any schema change during the replication window must be applied to both sides, and the sane policy is to forbid them. It does not copy large objects either.
+
+| | pg_upgrade --link | Logical replication |
+|---|---|---|
+| Application outage | Minutes, in a planned window | Seconds at cutover |
+| Change host or OS at the same time | No | Yes |
+| Rollback after cutover | Restore from backup | Old server kept read-only |
+| Primary key needed on every table | No | Yes, or REPLICA IDENTITY |
+| Copies sequences and schema | Yes | No, done by hand |
+| Effort | Low | High |
+
+When the database is the thing the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.
+
+## The runbook
+
+### 1. Audit tables without primary keys
+
+Run this on the old server. Anything it returns needs a primary key added, or `ALTER TABLE ... REPLICA IDENTITY FULL` as a slower fallback.
+
+```sql
+SELECT n.nspname, c.relname
+FROM pg_class c
+JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind = 'r'
+  AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+  AND NOT EXISTS (
+      SELECT 1 FROM pg_index i
+      WHERE i.indrelid = c.oid AND i.indisprimary
+  )
+ORDER BY 1, 2;
+```
+
+An ERP that has been through several application upgrades will have a handful: old relation tables and leftovers from abandoned modules. Decide each one deliberately.
+
+### 2. Audit extensions and collation versions
+
+List what the old server uses, then confirm each one is available on the new binaries:
+
+```sql
+SELECT extname, extversion FROM pg_extension;               -- old server
+SELECT name, default_version FROM pg_available_extensions;  -- new server
+```
+
+Collation is the quieter risk. Text sort order comes from the operating system's C library, and a new host with a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch; take the warning seriously.
+
+### 3. Prepare the publisher
+
+On the old server, `wal_level` must be `logical`, which needs one restart. That restart is the only planned interruption before cutover, so schedule it.
+
+```sql
+ALTER SYSTEM SET wal_level = 'logical';
+ALTER SYSTEM SET max_replication_slots = 10;
+ALTER SYSTEM SET max_wal_senders = 10;
+-- restart the server, then:
+CREATE ROLE upgrade_repl WITH REPLICATION LOGIN PASSWORD '...';
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO upgrade_repl;
+CREATE PUBLICATION upgrade_pub FOR ALL TABLES;
+```
+
+Add a `pg_hba.conf` line for the new server's address against the database itself, not the `replication` pseudo-database. Logical replication connects like an ordinary client.
+
+### 4. Prepare the subscriber
+
+Copy roles and schema to the new server, using the new server's `pg_dump` against the old one (a newer `pg_dump` can read an older server; the reverse is not true):
+
+```bash
+pg_dumpall -h old-db -U postgres --globals-only | psql -h new-db -U postgres
+pg_dump -h old-db -U postgres --schema-only --no-publications --no-subscriptions erp \
+    | psql -h new-db -U postgres erp
+```
+
+Then subscribe. This creates a replication slot on the publisher and starts the initial copy of every table.
+
+```sql
+CREATE SUBSCRIPTION upgrade_sub
+    CONNECTION 'host=old-db dbname=erp user=upgrade_repl password=...'
+    PUBLICATION upgrade_pub;
+```
+
+Raise `max_sync_workers_per_subscription` on the subscriber first if the database is large, so several tables copy at once.
+
+### 5. Monitor the lag
+
+Watch the initial copy finish, then watch the ongoing lag. On the subscriber:
+
+```sql
+SELECT srrelid::regclass, srsubstate
+FROM pg_subscription_rel WHERE srsubstate <> 'r';   -- empty when the copy is done
+
+SELECT subname, received_lsn, latest_end_lsn, last_msg_receipt_time
+FROM pg_stat_subscription;
+
+SELECT subname, apply_error_count, sync_error_count
+FROM pg_stat_subscription_stats;                     -- should stay at zero
+```
+
+On the publisher, the slot's lag in bytes:
+
+```sql
+SELECT slot_name, active,
+       pg_size_pretty(pg_wal_lsn_diff(pg_current_wal_lsn(), confirmed_flush_lsn)) AS lag
+FROM pg_replication_slots;
+```
+
+One warning from experience. A replication slot that nobody is consuming holds WAL forever, and the old server's disk fills up. If you abandon the exercise, drop the slot.
+
+### 6. Rehearse on a clone
+
+Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it. Not a benchmark: the real workflows. In an ERP that means creating orders, confirming manufacturing, posting invoices and running the slowest reports, because a heavily customised application is where major-version changes bite. Query plans move. Deprecated behaviour disappears. Something that worked for years throws an error on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback as well. Then rehearse once more with someone else reading the steps aloud.
+
+### 7. Freeze the application
+
+At the agreed time, stop everything that writes: the application server and all its worker processes, its scheduler, integrations, reporting jobs, any script anyone has ever set up. Then confirm from the database side:
+
+```sql
+SELECT usename, application_name, client_addr, state
+FROM pg_stat_activity WHERE datname = 'erp';
+```
+
+Anything still connected that is not you or the replication role gets found now, not after cutover.
+
+### 8. Wait for lag zero, then copy the sequences
+
+Run the slot query from step 5 until the lag is zero and stays there for a minute. Then copy the sequence values, which replication never touched. Generate the statements on the old server and run them on the new:
+
+```sql
+SELECT format('SELECT setval(%L, %s, true);',
+              format('%I.%I', schemaname, sequencename), last_value)
+FROM pg_sequences
+WHERE last_value IS NOT NULL;
+```
+
+```bash
+psql -h old-db -At -f copy_sequences.sql erp | psql -h new-db erp
+```
+
+Do this after the freeze and after lag zero, not before. Sequences advance while the application runs, and a sequence set too low produces duplicate key errors on the first insert after cutover.
+
+### 9. Switch, analyse, and open the doors
+
+Detach the subscription so the new server stops following the old one, build planner statistics, then change the application's connection string and start it.
+
+```sql
+ALTER SUBSCRIPTION upgrade_sub DISABLE;
+ALTER SUBSCRIPTION upgrade_sub SET (slot_name = NONE);
+DROP SUBSCRIPTION upgrade_sub;
+-- on the old server:
+SELECT pg_drop_replication_slot('upgrade_sub');
+```
+
+```bash
+vacuumdb -h new-db -U postgres --all --analyze-in-stages
+```
+
+Run the rehearsal's checks again, briefly, before telling users.
+
+### 10. Keep the old server read-only for a rollback window
+
+Do not switch the old server off. Make it read-only and unreachable by the application, and leave it that way for an agreed period.
+
+```sql
+ALTER ROLE erp_app NOLOGIN;
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = 'erp_app';
+ALTER SYSTEM SET default_transaction_read_only = on;
+SELECT pg_reload_conf();
+```
+
+Rolling back inside that window means pointing the application at the old server again and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application, so the old server follows the new one. It is more work, and it is the only rollback that keeps the data.
+
+### 11. Rebuild backups, recovery and monitoring
+
+A new server has no backups until you make them. I treat the migration as the moment to rebuild the whole recovery position, because it is the one time everybody agrees it matters.
+
+With pgBackRest: on the new server set `archive_mode = on` and `archive_command = 'pgbackrest --stanza=main archive-push %p'` (a restart for `archive_mode`), then:
+
+```bash
+pgbackrest --stanza=main stanza-create
+pgbackrest --stanza=main check
+pgbackrest --stanza=main --type=full backup
+```
+
+The `check` command proves that WAL archiving works end to end, which is the part people skip. Then prove the restore. Point in time recovery to a chosen moment looks like this on a scratch machine:
+
+```bash
+pgbackrest --stanza=main --delta --type=time \
+    "--target=2026-09-08 10:15:00+04" --target-action=promote restore
+```
+
+If you prefer plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` into a safe directory gives you a base backup and continuous WAL; recovery uses `restore_command` and `recovery_target_time` in `postgresql.conf` with a `recovery.signal` file. Either way, restore to a second machine and open the application against it before you call it done. A backup that has never been restored is a hope, not a position.
+
+Monitoring on the new server should alert on at least: `pg_stat_archiver.failed_count` rising, backup age, replication slot lag if any slots remain, disk space on the data and WAL volumes, connection count near `max_connections`, and transactions open for longer than a few minutes.
+
+## The checklist
+
+| Phase | Item | Done |
+|---|---|---|
+| Audit | Tables without primary keys resolved | |
+| Audit | Extensions available on the new binaries | |
+| Audit | Collation and glibc versions compared | |
+| Audit | Every writer to the database listed | |
+| Prepare | `wal_level = logical`, restart done | |
+| Prepare | Replication role, `pg_hba.conf`, publication | |
+| Prepare | Globals and schema restored on the new server | |
+| Prepare | Subscription created, initial copy complete | |
+| Rehearse | Full runbook run on a clone, steps timed | |
+| Rehearse | Application tested against the clone | |
+| Rehearse | Rollback rehearsed | |
+| Cutover | Schema changes frozen on both sides | |
+| Cutover | Application and every writer stopped | |
+| Cutover | `pg_stat_activity` clean | |
+| Cutover | Lag zero and stable | |
+| Cutover | Sequences copied | |
+| Cutover | Subscription dropped, slot dropped, statistics built | |
+| Cutover | Connection string switched, application checked | |
+| Cutover | Old server read-only, app role locked | |
+| After | WAL archiving and `pgbackrest check` passing | |
+| After | Restore and point in time recovery proven | |
+| After | Monitoring and alerts live | |
+| After | Old server decommissioned at end of window | |
+
+## Common questions
+
+### Why not use pg_upgrade when it is so much faster?
+
+Use it when you can take the window and you are staying on the same host. It is less work and fewer moving parts, and `--link` mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore.
+
+### Can I skip the rehearsal if the database is small?
+
+No. The rehearsal is not about size, it is about the application. A small database under a heavily customised application has the same query-plan changes, the same deprecated behaviour and the same extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.
+
+### What happens if someone changes the schema during replication?
+
+A new table on the publisher is not on the subscriber, so replication for it fails, and a column added on one side but not the other stops the apply worker with an error in `pg_stat_subscription_stats`. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables.
+
+## Working notes
+
+# Why every AI agent I run sits behind a human queue
+
+Source: https://servia-tech.github.io/khaqan-shaheen/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html. Published 2026-09-08.
+
+Because a language model is confidently wrong in a way a broken scanner never is. Every agent I run creates a record, a draft or a lead for a person to check. None of them post a journal entry, pay a supplier or commit the company to a price.
+
+The five systems I have in production all follow the same pattern, and it was a decision rather than an accident. The OCR pipeline creates draft bills. The sales agent creates leads and hands anything commercial to a person. The others draft and suggest. Between each model and anything that has consequences, there is a queue with a human on the other end of it.
+
+The first reason is the failure mode. A scanner that breaks gives you a blank page or an error. A model that breaks gives you a plausible answer in a full sentence, with a reason attached. You cannot catch that with an exception handler, because nothing was thrown. You catch it with a person who knows what a bill from that supplier normally looks like, or what a serious enquiry sounds like. The second reason is cost. Checking a draft takes a person a moment. Unwinding a posted entry across two companies' books, or apologising to a customer for a price the bot invented, takes a morning and a phone call. When review is that much cheaper than the mistake, the queue pays for itself the first time it catches one.
+
+The third reason is that the queue is where trust gets built, and there is no other place to build it. Finance did not trust the OCR on day one and had no reason to. They trust it now because they have checked its output for long enough to know where it fails. Their review notes are the evaluation set I could never have written myself, because I do not know what a wrong bill looks like as well as they do. The fourth reason is that it made the rollout possible at all. Nobody had to approve the sentence "the AI posts to the ledger". They approved "the AI fills in the form and you press the button", which is a much easier sentence to say yes to.
+
+The queue narrows over time, by category, as the notes show a category has been clean for long enough. It will never narrow to zero for anything involving money. If I ever remove the review for some class of document, it will be because months of review notes say nothing happened, not because a model scored higher on a benchmark.
+
+
+
+# Why I published my case studies without numbers
+
+Source: https://servia-tech.github.io/khaqan-shaheen/notes/why-i-published-my-case-studies-without-numbers.html. Published 2026-09-08.
+
+Because a number I cannot show how I measured is worse than no number. The scope is honest: six sites, five countries, one ERP, around 150 users, five AI systems in production. The results will get figures when I have measured them, with the method and the date attached.
+
+The early drafts had numbers in them. They looked like every other set of case studies you have read: a percentage faster, a share of hours saved, an uptime with two nines in it. Then I made myself write, next to each one, a single line saying how it was measured. Most of them did not survive that line. Faster than what, measured over which period, by whom, against which baseline? If I could not answer in one sentence, the number was a guess wearing the clothes of a fact, and I had put it there because the page looked empty without it.
+
+What survived was scope, and scope is the part I can defend. The number of sites and countries. The number of users. The number of AI systems in daily production. The models and workflows in a module tree I hold. A reader can ask me to show any of those, and I can. That is a different kind of claim from a percentage, and I would rather make the kind I can back up.
+
+There is a cost. Hiring managers and recruiters are trained to look for figures, and a case study without them reads as modest, possibly as thin. I decided that modest and true beats impressive and unverifiable, because the second kind falls apart in the interview, which is the only room where it matters. "Show me how you measured that" is a fair question, and I want to be able to answer it every time.
+
+The figures will come. The sales agent logs every conversation, so I can count conversations and the share that arrived outside working hours. The OCR pipeline logs every document, so I can count documents and give the date range. When those counts are run they will go in with the window they cover and the way they were counted. Until then the honest sentence is that I hold the logs and can produce the count on request, so that is the sentence on the page.
+
+The rule going forward is short. A number, its method and its date, or nothing.
+
+
+
+# What running my own venture taught me about corporate IT
+
+Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-running-my-own-venture-taught-me-about-corporate-it.html. Published 2026-09-08.
+
+Paying the bill yourself, watching what real customers do on a booking page, finding a pipeline that had stopped without telling anyone, and having search traffic answer back. Each of those changed how I run IT for an employer.
+
+Alongside the day job I run a small technology venture, where I built the web platform, booking flow, messaging automation, search and content systems and analytics myself, and where I run the paid search. It stays unnamed here because the name is not the point. The first lesson was owning the bill and the outcome at the same time. At work a server or an advertising budget is a line somebody approved. At the venture it comes off my own card, and I notice a runaway process, a subscription nobody uses, or a keyword bringing the wrong clicks within days rather than at the next budget review. I now look at group spend as if it came out of my account, and I keep finding things.
+
+The second lesson was the booking page. I built the flow, and I assumed people would use it the way I had designed it. They do not. They do not read. They skip fields. They get to the form and leave, and many message on WhatsApp instead, asking the question the page already answers. That changed how I look at every form I give staff in the ERP. If a customer will not complete a form for something they want, a warehouse clerk will not complete one for something they do not, and the answer is fewer fields and a channel they already use, not a training session.
+
+The third lesson was the pipeline that silently stopped. A scheduled job that published content stopped running, and nothing told me, because it did not fail. It simply did not run. I found out later than I would like to admit, by noticing the absence. Every unattended job I now own at work has to prove it ran, with an alert on silence rather than only on error, because silence is the failure mode nobody designs for.
+
+The fourth was search traffic answering back. Publish a page and within weeks the search console tells you whether anyone wanted it, in clicks or in their absence. Corporate IT almost never gets feedback that direct. Nobody tells you the report you built is unread. I now check who actually opens the things I build, and I retire the ones nobody does.
+
+None of this needed a venture to learn. I did not learn it until the bill had my name on it.
+
+
+
+# What OCR gets wrong on supplier bills
+
+Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-ocr-gets-wrong-on-supplier-bills.html. Published 2026-09-08.
+
+The characters are the easy part. What the pipeline gets wrong is which number on the page is the one you want: a handwritten correction, a stamp across the total, the second page of a bill, the same bill arriving twice, and a currency nobody wrote down.
+
+Handwritten totals were the first surprise. A supplier's clerk crosses out the printed total and writes the agreed figure in pen beside it. The model reads the printed one because it is cleaner, or reads the pen one and drops a digit. Either way the record shows a number that looks reasonable, which is the problem. A wrong number that looks wrong gets caught. A wrong number that looks right gets paid.
+
+Stamps come next. A "received" stamp, a "paid" stamp or a company chop lands on the total, because that is where a hand naturally goes. The model reads around it and picks the nearest clean figure, which is often the VAT amount or a line subtotal. Multi-page bills fail differently. Page one carries a subtotal, page two the total, and the pipeline reads page one as the whole bill or treats each page as its own document. A three-page bill photographed as three images has arrived as three bills.
+
+Duplicates are not an OCR problem, but the OCR pipeline is where they surface. The supplier emails the PDF, the driver brings the paper copy which gets scanned at the gate, and the invoice appears again on the month-end statement. The model has no memory between documents and will create every one of them with a straight face. Currency is the quiet one. A supplier abroad bills in dollars with the symbol missing and dirham bank details in the footer. A local supplier's template says USD because someone copied it years ago. The model reads the number correctly and the currency is a guess.
+
+None of this is fixed by a better model; a better model moves the errors around. What fixed it was validation in code and a review queue in front of the ledger. Lines must sum to the total. VAT must be the right percentage of the net. The currency must match the supplier master record. A bill with the same supplier, reference and amount inside a short window is flagged, not created. The page count is checked against what the model claims to have read. Anything that fails a check, or that the model marks as uncertain, goes to a person before it becomes a record finance can act on.
+
+I stopped evaluating models on how often they are right and started evaluating them on whether they will say they are not sure. The second is worth more.
+
+
+
+# What I check the week before a factory opens
+
+Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week-before-a-factory-opens.html. Published 2026-09-08.
+
+Two internet links with a failover I have tested by pulling the cable, the new company and warehouse in the ERP with local tax and numbering, printers and scanners on the floor, every user logged in once, and a backup I have restored from. The list is short because the failures are boring.
+
+Connectivity first, because the ERP is central and a site with no link has no delivery notes, no labels and no stock moves. Two links from different providers, and the failover proved by unplugging the primary and watching, not by reading the configuration. The tunnel to the group comes up on both. I have been shown a failover that was configured and then watched it not fail over, so I no longer take anyone's word for it.
+
+Then the ERP. The company record, its currency and fiscal year. The tax configuration for that country, which is different every time and the thing most likely to make the first invoice wrong. The warehouse, its locations and routes. The numbering sequences for invoices, delivery notes and purchase orders, per company, because a sequence left on the default will number the new site's documents into another company's range. I have had numbering wrong on day one and spent the first week fixing documents that had already gone out. Units of measure, the shared product master, and the intercompany rules that let the new site buy from the others.
+
+Then the floor, which is where opening day goes wrong. Label printers on the network with the right driver on the right machine. Barcode scanners paired and tested on a real product. The PC at the packing station and at the weighbridge, if there is one. The shared office printer nobody thought was IT's problem until the first invoice needed printing. What stops a line on the first morning is almost never a server. It is a printer.
+
+Then people. Accounts created, roles assigned, and every person logged in once from the machine they will use, so day one is not password day. One named person on site who can restart the router and the print server and knows who to call. Training happened weeks earlier; this is the check that it took.
+
+Then the backup. The new site's data is in it, and I have restored one record from it somewhere harmless. Time zone on every server, or a factory in a different zone posts stock moves with the wrong date. And the item I always underestimate, the one nobody owns: the cabinet the switch sits in, the power to it, and the cooling. It is not IT until it fails, and then it is nothing but IT.
+
+
+
+# The month-end test for ERP health
+
+Source: https://servia-tech.github.io/khaqan-shaheen/notes/the-month-end-test-for-erp-health.html. Published 2026-09-08.
+
+If every site can close the month from the same records without opening a spreadsheet, the ERP is healthy. If a spreadsheet appears, something the business needs is not in the system. Everything else on the dashboard is detail.
+
+I run one ERP across six sites in five countries. Different tax regimes, different currencies, different public holidays, one database. For most of the month those differences do not have to agree with each other. At month end they do. Close is the only moment when every site's stock, sales, purchases and payroll are tested against the bank statement and the tax return at the same time, and it is the only test of the system that is not a proxy for something else.
+
+The spreadsheet is the symptom I watch for. Somebody reconciles stock in Excel because the valuation report does not match what they counted. Somebody recalculates landed cost by hand because the freight invoice arrived after the receipt was posted. Somebody keeps a list of intercompany invoices because the two companies' records do not tie. Each of those is a missing record, a missing report, or a process that lives in one person's head instead of in the system. The spreadsheet is not the problem. It is the bug report.
+
+So I do not ask whether the ERP is up. It is up, and uptime is the entry fee, not a result. I ask each site's accountant what else they had open during close. Then I go and find the record that spreadsheet is standing in for. Sometimes it is a report that was never built. Sometimes it is a workflow the site has been doing on paper since before the migration. Sometimes it is a configuration error, a fiscal position or a cost method set wrong on one company, that has been quietly producing numbers people learnt to correct by hand.
+
+There have been closes where the spreadsheet was the honest answer, and I would rather know that than have it hidden. The fix has always been a report or a workflow. It has never been a memo telling people to stop using Excel, because people use Excel when the system has let them down, and telling them off does not repair the system.
+
+Ticket counts, dashboards and satisfaction surveys all measure something. Month end measures whether the records are true. A spreadsheet at close is a bug report, and I read it like one.
+
+

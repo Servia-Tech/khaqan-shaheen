@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/</loc><lastmod>2026-09-08</lastmod><priority>1.0</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/services.html</loc><lastmod>2026-09-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/career-advice.html</loc><lastmod>2026-09-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/faq.html</loc><lastmod>2026-09-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/skills.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/press.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/writing/</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/one-erp-six-sites-five-countries.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
@@ -13,4 +18,18 @@
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://servia-tech.github.io/khaqan-shaheen/work/bringing-a-new-factory-online.html</loc><lastmod>2026-09-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/articles/</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/tutorials/</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/why-i-published-my-case-studies-without-numbers.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/what-running-my-own-venture-taught-me-about-corporate-it.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/what-ocr-gets-wrong-on-supplier-bills.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week-before-a-factory-opens.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://servia-tech.github.io/khaqan-shaheen/notes/the-month-end-test-for-erp-health.html</loc><lastmod>2026-09-08</lastmod><priority>0.7</priority></url>
 </urlset>

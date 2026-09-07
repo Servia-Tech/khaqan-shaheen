@@ -121,3 +121,37 @@ section { padding: 48px 0; border-top: 1px solid var(--line); }
 .bio { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin-bottom: 18px; }
 .bio h3 { margin-top: 0; }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--paper-2); padding: 2px 6px; border-radius: 4px; }
+
+/* pricing, plans, skills table */
+.price { font-family: var(--serif); font-size: 1.45rem; margin: .8rem 0 .6rem; color: var(--ink); }
+.price .muted { font-family: var(--sans); font-size: .85rem; }
+.card.plan { display: flex; flex-direction: column; }
+.card.plan .btn { align-self: flex-start; margin-top: auto; }
+.card.plan ul { margin: .4rem 0 .6rem; }
+.card .eyebrow { margin-bottom: .3rem; }
+.table-wrap { overflow-x: auto; }
+table.skills { width: 100%; border-collapse: collapse; font-size: .95rem; }
+table.skills th, table.skills td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.skills th { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+table.skills td:first-child { white-space: nowrap; font-weight: 600; }
+table.skills td:first-child a { color: var(--ink); text-decoration: none; }
+table.skills td:first-child a:hover { color: var(--accent-ink); }
+.lvl { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: .75rem; font-weight: 600; letter-spacing: .04em; white-space: nowrap; }
+.lvl-owns { background: #e6f0ea; color: #1f5a3a; }
+.lvl-directs { background: #eef0f6; color: #2f3f6d; }
+.lvl-hands-on { background: #fbf1e0; color: #8a5a1c; }
+@media (prefers-color-scheme: dark) {
+  .lvl-owns { background: #173526; color: #9fd8b5; }
+  .lvl-directs { background: #1d2740; color: #b5c2ee; }
+  .lvl-hands-on { background: #3b2a12; color: #f0c98a; }
+}
+.showcase { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.showcase .card h3 { font-size: 1.1rem; }
+.showcase .card ul { padding-left: 1.1rem; margin: .4rem 0 0; font-size: .95rem; }
+
+/* awards gallery */
+.gallery { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: 1rem 0 1.4rem; }
+.gallery figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.gallery img { width: 100%; height: auto; }
+.gallery figcaption { padding: 12px 16px; font-size: .9rem; color: var(--ink-soft); }
+.awards-list li { margin-bottom: .6rem; }

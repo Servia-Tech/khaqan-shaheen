@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A WhatsApp AI sales agent that hands leads to your ERP: the architecture | Khaqan Shaheen</title>
+<meta name="description" content="A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo by XML-RPC.">
+<meta name="author" content="Khaqan Shaheen">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Khaqan Shaheen">
+<meta property="og:title" content="A WhatsApp AI sales agent that hands leads to your ERP: the architecture | Khaqan Shaheen">
+<meta property="og:description" content="A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo by XML-RPC.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A WhatsApp AI sales agent that hands leads to your ERP: the architecture | Khaqan Shaheen">
+<meta name="twitter:description" content="A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo by XML-RPC.">
+<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="article:published_time" content="2026-09-08">
+<meta property="article:author" content="Khaqan Shaheen">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html#article", "headline": "A WhatsApp AI sales agent that hands leads to your ERP: the architecture", "description": "A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo by XML-RPC.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1698, "keywords": "whatsapp, ai-agent, odoo, xml-rpc, python", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "A WhatsApp AI sales agent that hands leads to your ERP: the architecture", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not let the model create the lead without a review queue?", "acceptedAnswer": {"@type": "Answer", "text": "Because the model is confidently wrong in a way a form validation error never is. The queue costs a person a minute per lead and catches the wrong name, the wrong service and the enquiry that was actually a complaint. It also produces the notes you need to improve the prompt."}}, {"@type": "Question", "name": "Which language model should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Any current model with reliable tool calling, and I have run this design on more than one. The architecture matters far more than the model, because the catalogue, the reply check and the hand-off rule are what stop bad answers reaching a customer."}}, {"@type": "Question", "name": "Can the same design serve a website chat widget?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Only the channel adapter changes: the webhook and the send function become a web endpoint and a response to the browser. The session store, tools, catalogue, hand-off rule, queue and ERP connection stay as they are, which is why I run both channels through one platform."}}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href=".././">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../work/">Work</a>
+      <a href="../writing/">Writing</a>
+      <a href="../services.html">Services</a>
+      <a href="../career-advice.html">Career advice</a>
+      <a href="../skills.html">Skills</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="../writing/">Writing</a> / <a href="./">Tutorials</a></div>
+<article class="article">
+<h1>A WhatsApp AI sales agent that hands leads to your ERP: the architecture</h1>
+<p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 1,698 words. Topics: whatsapp, ai-agent, odoo, xml-rpc, python.</p>
+<p class="answer">A webhook receives each WhatsApp message, a session store keyed by phone number holds the conversation, and a model with four tools answers from a catalogue it cannot contradict. Money, complaints and requests for a person go to a human. Qualified enquiries become leads in the ERP through its API.</p>
+<p>I built one of these for a manufacturing group, running several WhatsApp numbers and the group websites through one platform, and a smaller one for my own venture. The shape is the same in both. What follows is that shape in generic Python, not the production code. The chat is the easy part. The boundaries are the design.</p>
+<h2>Step 1: the components</h2>
+<ul>
+<li>A WhatsApp Business Platform webhook. Meta delivers inbound messages to your URL and you reply through the Graph API.</li>
+<li>A session store keyed by phone number: recent turns, state (open, human, closed), language, lead id, and the time of the last message.</li>
+<li>A language model with four tools: look up a service, quote a price from the catalogue, create a lead, hand over to a human.</li>
+<li>The catalogue: one table of services, variants, prices and units, the only source of any number a customer sees.</li>
+<li>The hand-off rule, enforced in code as well as in the prompt.</li>
+<li>A review queue where a person reads every lead and every hand-off.</li>
+<li>A log of every turn, and rate limits per phone number and overall.</li>
+<li>The ERP connection that creates the lead.</li>
+</ul>
+<h2>Step 2: the webhook</h2>
+<p>Meta verifies the endpoint once with a GET carrying <code>hub.mode</code>, <code>hub.verify_token</code> and <code>hub.challenge</code>. Messages then arrive as POSTs shaped <code>entry[].changes[].value.messages[]</code>. Return 200 within a few seconds or Meta retries, so do the work in the background. Check the <code>X-Hub-Signature-256</code> header against your app secret, otherwise anyone who finds the URL can feed your bot.</p>
+<pre><code class="language-python">import hmac
+import hashlib
+from fastapi import FastAPI, Request, Response, BackgroundTasks
+
+app = FastAPI()
+
+@app.get(&quot;/webhook&quot;)
+async def verify(request: Request):
+    q = request.query_params
+    if q.get(&quot;hub.mode&quot;) == &quot;subscribe&quot; and q.get(&quot;hub.verify_token&quot;) == VERIFY_TOKEN:
+        return Response(q.get(&quot;hub.challenge&quot;), media_type=&quot;text/plain&quot;)
+    return Response(status_code=403)
+
+@app.post(&quot;/webhook&quot;)
+async def receive(request: Request, background: BackgroundTasks):
+    raw = await request.body()
+    expected = &quot;sha256=&quot; + hmac.new(APP_SECRET.encode(), raw, hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(expected, request.headers.get(&quot;X-Hub-Signature-256&quot;, &quot;&quot;)):
+        return Response(status_code=403)
+    body = await request.json()
+    for entry in body.get(&quot;entry&quot;, []):
+        for change in entry.get(&quot;changes&quot;, []):
+            for msg in change.get(&quot;value&quot;, {}).get(&quot;messages&quot;, []):
+                if msg.get(&quot;type&quot;) == &quot;text&quot;:
+                    background.add_task(handle_turn, msg[&quot;from&quot;], msg[&quot;id&quot;], msg[&quot;text&quot;][&quot;body&quot;])
+    return {&quot;status&quot;: &quot;received&quot;}
+</code></pre>
+<p>Sending a reply is one POST to the Graph API.</p>
+<pre><code class="language-python">import requests
+
+def send_text(to: str, body: str) -&gt; None:
+    requests.post(
+        f&quot;https://graph.facebook.com/v20.0/{PHONE_NUMBER_ID}/messages&quot;,
+        headers={&quot;Authorization&quot;: f&quot;Bearer {ACCESS_TOKEN}&quot;},
+        json={&quot;messaging_product&quot;: &quot;whatsapp&quot;, &quot;to&quot;: to, &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: {&quot;body&quot;: body}},
+        timeout=10,
+    )
+</code></pre>
+<h2>Step 3: the turn handler</h2>
+<p>This is where every rule lives, in this order: deduplicate, rate limit, load the session, respect a human owner, cap the input, run the model, act on tool calls, check the reply against the catalogue, log, send.</p>
+<pre><code class="language-python">def handle_turn(phone: str, message_id: str, text: str) -&gt; None:
+    if store.seen(message_id):
+        return
+    if store.over_limit(phone):
+        send_text(phone, &quot;Thanks, we have your messages. A colleague will reply during working hours.&quot;)
+        return
+    session = store.load(phone)
+    log_turn(phone, message_id, &quot;in&quot;, text)
+    if session.state == &quot;human&quot;:
+        return
+    text = text[:1500]
+    reply, calls = model.respond(session.history, text, tools=TOOLS)
+    for call in calls:
+        if call.name == &quot;handover&quot;:
+            session.state = &quot;human&quot;
+            queue.add(phone, reason=call.args[&quot;reason&quot;])
+            notify_staff(phone, call.args[&quot;reason&quot;])
+        elif call.name == &quot;create_lead&quot;:
+            session.lead_id = create_lead(**call.args)
+            queue.add(phone, reason=&quot;new lead&quot;)
+    reply = enforce_catalogue(reply, calls)
+    session.append(text, reply)
+    store.save(session)
+    log_turn(phone, message_id, &quot;out&quot;, reply, calls)
+    send_text(phone, reply)
+</code></pre>
+<p><code>enforce_catalogue</code> is the part people leave out. It finds every currency amount in the reply and checks it against the prices <code>quote_price</code> returned this turn. Any amount that did not come from the tool is replaced with a line saying a colleague will confirm, and the conversation is flagged. The model can be told a hundred times not to invent prices. Code is what makes it true.</p>
+<h2>Step 4: the tools and the catalogue</h2>
+<p>Four tools are enough. More tools means more ways to be wrong.</p>
+<ul>
+<li><code>lookup_service(query)</code> returns matching catalogue entries with descriptions, so the model can answer "do you do X".</li>
+<li><code>quote_price(service_id, variant, quantity)</code> returns the price and unit. The model never sees a price any other way.</li>
+<li><code>create_lead(contact_name, phone, summary)</code> runs once the model has a name and a clear enquiry.</li>
+<li><code>handover(reason)</code> ends the model's ownership of the conversation.</li>
+</ul>
+<p>The catalogue is a table in your own database: service, variant, price, unit, area, active flag. The system prompt carries the service names and descriptions so the model can converse, but not the prices. If a customer asks about something not in the catalogue, the correct answer is that a person will confirm, not a plausible guess.</p>
+<h2>Step 5: the hand-off rule and the review queue</h2>
+<p>The rule I use: anything about money beyond quoting a listed price (discounts, negotiation, payment terms, refunds), any complaint, any request for a person, anything the catalogue cannot answer twice in a row, and any language the agent was not configured for. On hand-off the agent tells the customer plainly that a person will take over and when, sets the session state, alerts a member of staff, and goes quiet on that number until a person releases it.</p>
+<p>The review queue holds every lead and every hand-off. A person reads the transcript, corrects the lead, and marks it reviewed. I also sample routine conversations that triggered neither. Those review notes are the best evaluation data you will get, and you cannot manufacture them.</p>
+<h2>Step 6: create the lead in the ERP</h2>
+<p>The lead goes into the pipeline the sales team already uses, so nothing new has to be checked. In Odoo that is the <code>crm.lead</code> model over XML-RPC. Use a dedicated user with an API key and CRM rights only.</p>
+<pre><code class="language-python">import xmlrpc.client
+
+URL, DB, USER, KEY = &quot;https://erp.example.com&quot;, &quot;erp&quot;, &quot;bot@example.com&quot;, &quot;api-key&quot;
+
+common = xmlrpc.client.ServerProxy(f&quot;{URL}/xmlrpc/2/common&quot;)
+uid = common.authenticate(DB, USER, KEY, {})
+models = xmlrpc.client.ServerProxy(f&quot;{URL}/xmlrpc/2/object&quot;)
+
+def create_lead(contact_name: str, phone: str, summary: str) -&gt; int:
+    source_ids = models.execute_kw(DB, uid, KEY, &quot;utm.source&quot;, &quot;search&quot;,
+                                   [[[&quot;name&quot;, &quot;=&quot;, &quot;WhatsApp&quot;]]], {&quot;limit&quot;: 1})
+    values = {
+        &quot;name&quot;: f&quot;WhatsApp enquiry from {contact_name}&quot;,
+        &quot;contact_name&quot;: contact_name,
+        &quot;phone&quot;: phone,
+        &quot;description&quot;: summary,
+    }
+    if source_ids:
+        values[&quot;source_id&quot;] = source_ids[0]
+    return models.execute_kw(DB, uid, KEY, &quot;crm.lead&quot;, &quot;create&quot;, [values])
+</code></pre>
+<p><code>name</code> is the only required field. <code>contact_name</code>, <code>phone</code> and <code>description</code> are standard, and <code>source_id</code> links to a <code>utm.source</code> record so the pipeline can report where leads come from. If the Leads stage is switched off in CRM settings the record becomes an opportunity straight away, which is fine. Before creating, search <code>crm.lead</code> for the same phone number and add a note to the existing record with <code>message_post</code> instead. A customer who messages three times in a week should be one lead with three notes, not three leads.</p>
+<h2>Step 7: logging and rate limits</h2>
+<p>Log every turn: phone number, message id, direction, text, the model's input and output, tool calls, latency and token counts, in the same database as the sessions. When a customer says the bot told them something, you need to read exactly what it said.</p>
+<p>Rate limits go in three places: messages per phone number per hour, messages overall per minute, and turns per conversation before a forced hand-off. WhatsApp also has a 24 hour customer service window. Free-form replies are only allowed within 24 hours of the customer's last message; after that only approved template messages go through, so a person picking up a hand-off the next day may need a template to reopen the conversation.</p>
+<h2>Step 8: what goes wrong</h2>
+<ul>
+<li>The model invents prices. Even with the catalogue behind a tool, it rounds, bundles two services into one number, or offers a discount nobody authorised. The reply check in Step 3 is the only fix that held.</li>
+<li>Loops. A customer's auto-reply answers the bot, the bot answers back, and the pair run until a rate limit stops them. Or the model asks the same clarifying question three times. Cap turns, detect a repeated reply, hand over.</li>
+<li>Long pasted messages. Somebody pastes a tender, a spreadsheet or an entire earlier chat. Cap the input, ask for the key point, and hand over if it is clearly a document.</li>
+<li>Off-hours expectations. At two in the morning the customer wants a person now. The agent has to say when a person will reply, and the team has to keep that promise.</li>
+<li>Duplicate deliveries. Meta resends webhooks it thinks you missed. Deduplicate on message id or you answer everything twice.</li>
+<li>Connectivity. Sessions and tokens fail quietly. Alert on silence during working hours, not only on errors.</li>
+</ul>
+<h2>Common questions</h2>
+<h3>Why not let the model create the lead without a review queue?</h3>
+<p>Because the model is confidently wrong in a way a form validation error never is. The queue costs a person a minute per lead and catches the wrong name, the wrong service and the enquiry that was actually a complaint. It also produces the notes you need to improve the prompt.</p>
+<h3>Which language model should I use?</h3>
+<p>Any current model with reliable tool calling, and I have run this design on more than one. The architecture matters far more than the model, because the catalogue, the reply check and the hand-off rule are what stop bad answers reaching a customer.</p>
+<h3>Can the same design serve a website chat widget?</h3>
+<p>Yes. Only the channel adapter changes: the webhook and the send function become a web endpoint and a response to the browser. The session store, tools, catalogue, hand-off rule, queue and ERP connection stay as they are, which is why I run both channels through one platform.</p>
+<nav class="pager" aria-label="More"><a href="./">&larr; All tutorials</a><a href="../services.html">Work with me &rarr;</a></nav>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>
