@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
 <meta property="article:published_time" content="2026-09-08">
 <meta property="article:author" content="Khaqan Shaheen">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#article", "headline": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "description": "Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 2206, "keywords": "postgresql, upgrade, logical-replication, backup", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not use pg_upgrade when it is so much faster?", "acceptedAnswer": {"@type": "Answer", "text": "Use it when you can take the window and you are staying on the same host. It is less work and fewer moving parts, and `--link` mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore."}}, {"@type": "Question", "name": "Can I skip the rehearsal if the database is small?", "acceptedAnswer": {"@type": "Answer", "text": "No. The rehearsal is not about size, it is about the application. A small database under a heavily customised application has the same query-plan changes, the same deprecated behaviour and the same extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it."}}, {"@type": "Question", "name": "What happens if someone changes the schema during replication?", "acceptedAnswer": {"@type": "Answer", "text": "A new table on the publisher is not on the subscriber, so replication for it fails, and a column added on one side but not the other stops the apply worker with an error in `pg_stat_subscription_stats`. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#article", "headline": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "description": "Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 2029, "keywords": "postgresql, upgrade, logical-replication, backup", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not use pg_upgrade when it is so much faster?", "acceptedAnswer": {"@type": "Answer", "text": "Use it when you can take the window and you are staying on the same host. It is less work with fewer moving parts, and `--link` mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore."}}, {"@type": "Question", "name": "Can I skip the rehearsal if the database is small?", "acceptedAnswer": {"@type": "Answer", "text": "No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it."}}, {"@type": "Question", "name": "What happens if someone changes the schema during replication?", "acceptedAnswer": {"@type": "Answer", "text": "A table added on the publisher is missing on the subscriber, and a column added on one side but not the other stops the apply worker with an error in `pg_stat_subscription_stats`. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then run `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables."}}]}]}</script>
 </head>
 <body>
 <header class="site-header">
@@ -48,20 +48,19 @@
 <div class="breadcrumb"><a href="../">Home</a> / <a href="../writing/">Writing</a> / <a href="./">Tutorials</a></div>
 <article class="article">
 <h1>A PostgreSQL major-version upgrade with no unplanned downtime: the checklist</h1>
-<p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 2,206 words. Topics: postgresql, upgrade, logical-replication, backup.</p>
+<p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 2,029 words. Topics: postgresql, upgrade, logical-replication, backup.</p>
 <p class="answer">By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave behind a better recovery position than you started with. It is for engineers who own a production database.</p>
 <h2>What you need</h2>
 <ul>
-<li>The old server on PostgreSQL 10 or later for built-in logical replication (older publishers need the pglogical extension instead)</li>
+<li>The old server on PostgreSQL 10 or later for built-in logical replication (older publishers need the pglogical extension)</li>
 <li>A new server with PostgreSQL 16 installed and network access to the old one</li>
 <li>Spare capacity for a rehearsal clone</li>
 <li>Superuser on both databases and root on both hosts</li>
-<li>A way to stop every application that writes to the database, and a list of what those applications are</li>
+<li>A list of every application that writes to the database, and a way to stop each one</li>
 </ul>
 <h2>Two ways to do it</h2>
-<p><code>pg_upgrade</code> and logical replication solve different problems, and the choice decides the shape of the whole project.</p>
-<p><code>pg_upgrade</code> rewrites the catalogue in place and, in <code>--link</code> mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. Once you start the new cluster after a link-mode upgrade, the old cluster cannot be started again; the way back is a backup. It needs a window with the application stopped. Run <code>pg_upgrade --check</code> first, every time, because it finds missing extensions and incompatible data types while there is still time to fix them. On Debian and Ubuntu the <code>pg_upgradecluster</code> wrapper from postgresql-common drives it, with a method option for link mode. Planner statistics are not carried over, so the new cluster runs slowly until <code>vacuumdb --all --analyze-in-stages</code> has been through it.</p>
-<p>Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is a list of things it does not do. Every replicated table needs a primary key, or a <code>REPLICA IDENTITY</code>, or updates and deletes on it fail on the publisher. It copies data, not schema: you create the tables on the new server yourself. It does not replicate sequences, so their values are copied by hand at cutover. It does not replicate DDL, so any schema change during the replication window must be applied to both sides, and the sane policy is to forbid them. It does not copy large objects either.</p>
+<p><code>pg_upgrade</code> rewrites the system catalogue in place and, in <code>--link</code> mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. It needs a window with the application stopped, and once you start the new cluster after a link-mode upgrade the old one cannot be started again; the way back is a backup. Run <code>pg_upgrade --check</code> first, every time. Planner statistics are not carried over, so run <code>vacuumdb --all --analyze-in-stages</code> straight afterwards. On Debian and Ubuntu the <code>pg_upgradecluster</code> wrapper drives it, with a method option for link mode.</p>
+<p>Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is what it does not do. Every replicated table needs a primary key or a <code>REPLICA IDENTITY</code>, or updates and deletes on it fail on the publisher. It copies data, not schema. It does not replicate sequences, DDL or large objects, so sequences are copied by hand at cutover and schema changes are frozen for the whole window.</p>
 <table>
 <thead>
 <tr>
@@ -87,14 +86,14 @@
 <td>Old server kept read-only</td>
 </tr>
 <tr>
-<td>Primary key needed on every table</td>
-<td>No</td>
-<td>Yes, or REPLICA IDENTITY</td>
+<td>Primary key on every table</td>
+<td>Not needed</td>
+<td>Needed, or REPLICA IDENTITY</td>
 </tr>
 <tr>
-<td>Copies sequences and schema</td>
-<td>Yes</td>
-<td>No, done by hand</td>
+<td>Sequences and schema</td>
+<td>Carried over</td>
+<td>Copied by hand</td>
 </tr>
 <tr>
 <td>Effort</td>
@@ -103,53 +102,49 @@
 </tr>
 </tbody>
 </table>
-<p>When the database is the thing the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.</p>
+<p>When the database is what the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.</p>
 <h2>The runbook</h2>
 <h3>1. Audit tables without primary keys</h3>
-<p>Run this on the old server. Anything it returns needs a primary key added, or <code>ALTER TABLE ... REPLICA IDENTITY FULL</code> as a slower fallback.</p>
+<p>Run this on the old server. Anything it returns gets a primary key, or <code>ALTER TABLE ... REPLICA IDENTITY FULL</code> as a slower fallback.</p>
 <pre><code class="language-sql">SELECT n.nspname, c.relname
 FROM pg_class c
 JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind = 'r'
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
-  AND NOT EXISTS (
-      SELECT 1 FROM pg_index i
-      WHERE i.indrelid = c.oid AND i.indisprimary
-  )
+  AND NOT EXISTS (SELECT 1 FROM pg_index i
+                  WHERE i.indrelid = c.oid AND i.indisprimary)
 ORDER BY 1, 2;
 </code></pre>
-<p>An ERP that has been through several application upgrades will have a handful: old relation tables and leftovers from abandoned modules. Decide each one deliberately.</p>
+<p>An ERP that has been through several application upgrades will have a handful, usually old relation tables and leftovers from abandoned modules.</p>
 <h3>2. Audit extensions and collation versions</h3>
-<p>List what the old server uses, then confirm each one is available on the new binaries:</p>
 <pre><code class="language-sql">SELECT extname, extversion FROM pg_extension;               -- old server
 SELECT name, default_version FROM pg_available_extensions;  -- new server
 </code></pre>
-<p>Collation is the quieter risk. Text sort order comes from the operating system's C library, and a new host with a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different <code>ORDER BY</code> for the same names. With <code>pg_upgrade</code> onto a new host, reindex every index on text columns. PostgreSQL 15 and later records <code>datcollversion</code> in <code>pg_database</code> and warns on a mismatch; take the warning seriously.</p>
+<p>Every extension in the first list must appear in the second before you go further. Collation is the quieter risk. Text sort order comes from the operating system's C library, and a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different <code>ORDER BY</code> for the same names. With <code>pg_upgrade</code> onto a new host, reindex every index on text columns. PostgreSQL 15 and later records <code>datcollversion</code> in <code>pg_database</code> and warns on a mismatch; take the warning seriously.</p>
 <h3>3. Prepare the publisher</h3>
 <p>On the old server, <code>wal_level</code> must be <code>logical</code>, which needs one restart. That restart is the only planned interruption before cutover, so schedule it.</p>
 <pre><code class="language-sql">ALTER SYSTEM SET wal_level = 'logical';
 ALTER SYSTEM SET max_replication_slots = 10;
 ALTER SYSTEM SET max_wal_senders = 10;
--- restart the server, then:
+-- restart, then:
 CREATE ROLE upgrade_repl WITH REPLICATION LOGIN PASSWORD '...';
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO upgrade_repl;
 CREATE PUBLICATION upgrade_pub FOR ALL TABLES;
 </code></pre>
 <p>Add a <code>pg_hba.conf</code> line for the new server's address against the database itself, not the <code>replication</code> pseudo-database. Logical replication connects like an ordinary client.</p>
 <h3>4. Prepare the subscriber</h3>
-<p>Copy roles and schema to the new server, using the new server's <code>pg_dump</code> against the old one (a newer <code>pg_dump</code> can read an older server; the reverse is not true):</p>
+<p>Copy roles and schema using the new server's <code>pg_dump</code> against the old one (a newer <code>pg_dump</code> reads an older server; the reverse is not true), then subscribe. The subscription creates a replication slot on the publisher and starts the initial copy of every table.</p>
 <pre><code class="language-bash">pg_dumpall -h old-db -U postgres --globals-only | psql -h new-db -U postgres
 pg_dump -h old-db -U postgres --schema-only --no-publications --no-subscriptions erp \
     | psql -h new-db -U postgres erp
 </code></pre>
-<p>Then subscribe. This creates a replication slot on the publisher and starts the initial copy of every table.</p>
 <pre><code class="language-sql">CREATE SUBSCRIPTION upgrade_sub
     CONNECTION 'host=old-db dbname=erp user=upgrade_repl password=...'
     PUBLICATION upgrade_pub;
 </code></pre>
 <p>Raise <code>max_sync_workers_per_subscription</code> on the subscriber first if the database is large, so several tables copy at once.</p>
 <h3>5. Monitor the lag</h3>
-<p>Watch the initial copy finish, then watch the ongoing lag. On the subscriber:</p>
+<p>On the subscriber, watch the initial copy finish and the apply worker stay healthy:</p>
 <pre><code class="language-sql">SELECT srrelid::regclass, srsubstate
 FROM pg_subscription_rel WHERE srsubstate &lt;&gt; 'r';   -- empty when the copy is done
 
@@ -164,17 +159,17 @@ FROM pg_stat_subscription_stats;                     -- should stay at zero
        pg_size_pretty(pg_wal_lsn_diff(pg_current_wal_lsn(), confirmed_flush_lsn)) AS lag
 FROM pg_replication_slots;
 </code></pre>
-<p>One warning from experience. A replication slot that nobody is consuming holds WAL forever, and the old server's disk fills up. If you abandon the exercise, drop the slot.</p>
+<p>One warning from experience: a slot that nobody is consuming holds WAL forever, and the old server's disk fills up. If you abandon the exercise, drop the slot.</p>
 <h3>6. Rehearse on a clone</h3>
-<p>Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it. Not a benchmark: the real workflows. In an ERP that means creating orders, confirming manufacturing, posting invoices and running the slowest reports, because a heavily customised application is where major-version changes bite. Query plans move. Deprecated behaviour disappears. Something that worked for years throws an error on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback as well. Then rehearse once more with someone else reading the steps aloud.</p>
+<p>Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it, not as a benchmark but through the real workflows: orders, manufacturing, invoices, the slowest reports. A heavily customised application is where major-version changes bite. Query plans move, deprecated behaviour disappears, and something that worked for years fails on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback too, then run the whole thing once more with someone else reading the steps aloud.</p>
 <h3>7. Freeze the application</h3>
-<p>At the agreed time, stop everything that writes: the application server and all its worker processes, its scheduler, integrations, reporting jobs, any script anyone has ever set up. Then confirm from the database side:</p>
+<p>At the agreed time, stop everything that writes: the application server and its worker processes, its scheduler, integrations, reporting jobs, any script anyone ever set up. Then confirm from the database side:</p>
 <pre><code class="language-sql">SELECT usename, application_name, client_addr, state
 FROM pg_stat_activity WHERE datname = 'erp';
 </code></pre>
 <p>Anything still connected that is not you or the replication role gets found now, not after cutover.</p>
 <h3>8. Wait for lag zero, then copy the sequences</h3>
-<p>Run the slot query from step 5 until the lag is zero and stays there for a minute. Then copy the sequence values, which replication never touched. Generate the statements on the old server and run them on the new:</p>
+<p>Run the slot query from step 5 until the lag is zero and stays there. Then copy the sequence values, which replication never touched. Generate the statements on the old server and run them on the new:</p>
 <pre><code class="language-sql">SELECT format('SELECT setval(%L, %s, true);',
               format('%I.%I', schemaname, sequencename), last_value)
 FROM pg_sequences
@@ -182,9 +177,9 @@ WHERE last_value IS NOT NULL;
 </code></pre>
 <pre><code class="language-bash">psql -h old-db -At -f copy_sequences.sql erp | psql -h new-db erp
 </code></pre>
-<p>Do this after the freeze and after lag zero, not before. Sequences advance while the application runs, and a sequence set too low produces duplicate key errors on the first insert after cutover.</p>
+<p>Do this after the freeze and after lag zero, never before. A sequence set too low produces duplicate key errors on the first insert after cutover.</p>
 <h3>9. Switch, analyse, and open the doors</h3>
-<p>Detach the subscription so the new server stops following the old one, build planner statistics, then change the application's connection string and start it.</p>
+<p>Detach the subscription, build planner statistics, then change the application's connection string and start it.</p>
 <pre><code class="language-sql">ALTER SUBSCRIPTION upgrade_sub DISABLE;
 ALTER SUBSCRIPTION upgrade_sub SET (slot_name = NONE);
 DROP SUBSCRIPTION upgrade_sub;
@@ -195,26 +190,26 @@ SELECT pg_drop_replication_slot('upgrade_sub');
 </code></pre>
 <p>Run the rehearsal's checks again, briefly, before telling users.</p>
 <h3>10. Keep the old server read-only for a rollback window</h3>
-<p>Do not switch the old server off. Make it read-only and unreachable by the application, and leave it that way for an agreed period.</p>
+<p>Do not switch the old server off. Lock the application role out, make the server read-only, and leave it for an agreed period.</p>
 <pre><code class="language-sql">ALTER ROLE erp_app NOLOGIN;
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = 'erp_app';
 ALTER SYSTEM SET default_transaction_read_only = on;
 SELECT pg_reload_conf();
 </code></pre>
-<p>Rolling back inside that window means pointing the application at the old server again and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application, so the old server follows the new one. It is more work, and it is the only rollback that keeps the data.</p>
+<p>Rolling back inside that window means pointing the application at the old server and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application. It is more work, and it is the only rollback that keeps the data.</p>
 <h3>11. Rebuild backups, recovery and monitoring</h3>
 <p>A new server has no backups until you make them. I treat the migration as the moment to rebuild the whole recovery position, because it is the one time everybody agrees it matters.</p>
-<p>With pgBackRest: on the new server set <code>archive_mode = on</code> and <code>archive_command = 'pgbackrest --stanza=main archive-push %p'</code> (a restart for <code>archive_mode</code>), then:</p>
+<p>With pgBackRest: set <code>archive_mode = on</code> and <code>archive_command = 'pgbackrest --stanza=main archive-push %p'</code> on the new server (a restart for <code>archive_mode</code>), then:</p>
 <pre><code class="language-bash">pgbackrest --stanza=main stanza-create
 pgbackrest --stanza=main check
 pgbackrest --stanza=main --type=full backup
 </code></pre>
-<p>The <code>check</code> command proves that WAL archiving works end to end, which is the part people skip. Then prove the restore. Point in time recovery to a chosen moment looks like this on a scratch machine:</p>
+<p>The <code>check</code> command proves that WAL archiving works end to end, which is the part people skip. Then prove the restore, on a scratch machine, to a chosen moment:</p>
 <pre><code class="language-bash">pgbackrest --stanza=main --delta --type=time \
     &quot;--target=2026-09-08 10:15:00+04&quot; --target-action=promote restore
 </code></pre>
-<p>If you prefer plain tools, <code>pg_basebackup -D /backup/base -Fp -Xs -P</code> plus the same <code>archive_command</code> into a safe directory gives you a base backup and continuous WAL; recovery uses <code>restore_command</code> and <code>recovery_target_time</code> in <code>postgresql.conf</code> with a <code>recovery.signal</code> file. Either way, restore to a second machine and open the application against it before you call it done. A backup that has never been restored is a hope, not a position.</p>
-<p>Monitoring on the new server should alert on at least: <code>pg_stat_archiver.failed_count</code> rising, backup age, replication slot lag if any slots remain, disk space on the data and WAL volumes, connection count near <code>max_connections</code>, and transactions open for longer than a few minutes.</p>
+<p>With plain tools, <code>pg_basebackup -D /backup/base -Fp -Xs -P</code> plus the same <code>archive_command</code> into a safe directory does the same job, and recovery uses <code>restore_command</code> and <code>recovery_target_time</code> with a <code>recovery.signal</code> file. Either way, open the application against the restored copy before you call it done. A backup that has never been restored is a hope, not a position.</p>
+<p>Monitoring on the new server should alert on <code>pg_stat_archiver.failed_count</code> rising, backup age, any remaining slot lag, disk space on the data and WAL volumes, connections near <code>max_connections</code>, and transactions open for more than a few minutes.</p>
 <h2>The checklist</h2>
 <table>
 <thead>
@@ -252,22 +247,17 @@ pgbackrest --stanza=main --type=full backup
 </tr>
 <tr>
 <td>Prepare</td>
-<td>Replication role, <code>pg_hba.conf</code>, publication</td>
+<td>Role, <code>pg_hba.conf</code>, publication, schema, subscription</td>
 <td></td>
 </tr>
 <tr>
 <td>Prepare</td>
-<td>Globals and schema restored on the new server</td>
-<td></td>
-</tr>
-<tr>
-<td>Prepare</td>
-<td>Subscription created, initial copy complete</td>
+<td>Initial copy complete, error counts zero</td>
 <td></td>
 </tr>
 <tr>
 <td>Rehearse</td>
-<td>Full runbook run on a clone, steps timed</td>
+<td>Full runbook and rollback run on a clone, steps timed</td>
 <td></td>
 </tr>
 <tr>
@@ -276,58 +266,38 @@ pgbackrest --stanza=main --type=full backup
 <td></td>
 </tr>
 <tr>
-<td>Rehearse</td>
-<td>Rollback rehearsed</td>
+<td>Cutover</td>
+<td>Schema changes frozen, every writer stopped</td>
 <td></td>
 </tr>
 <tr>
 <td>Cutover</td>
-<td>Schema changes frozen on both sides</td>
+<td><code>pg_stat_activity</code> clean, lag zero and stable</td>
 <td></td>
 </tr>
 <tr>
 <td>Cutover</td>
-<td>Application and every writer stopped</td>
+<td>Sequences copied, subscription and slot dropped</td>
 <td></td>
 </tr>
 <tr>
 <td>Cutover</td>
-<td><code>pg_stat_activity</code> clean</td>
+<td>Statistics built, connection string switched, application checked</td>
 <td></td>
 </tr>
 <tr>
 <td>Cutover</td>
-<td>Lag zero and stable</td>
-<td></td>
-</tr>
-<tr>
-<td>Cutover</td>
-<td>Sequences copied</td>
-<td></td>
-</tr>
-<tr>
-<td>Cutover</td>
-<td>Subscription dropped, slot dropped, statistics built</td>
-<td></td>
-</tr>
-<tr>
-<td>Cutover</td>
-<td>Connection string switched, application checked</td>
-<td></td>
-</tr>
-<tr>
-<td>Cutover</td>
-<td>Old server read-only, app role locked</td>
+<td>Old server read-only, application role locked</td>
 <td></td>
 </tr>
 <tr>
 <td>After</td>
-<td>WAL archiving and <code>pgbackrest check</code> passing</td>
+<td>WAL archiving, <code>pgbackrest check</code> and a full backup passing</td>
 <td></td>
 </tr>
 <tr>
 <td>After</td>
-<td>Restore and point in time recovery proven</td>
+<td>Restore and point in time recovery proven on another machine</td>
 <td></td>
 </tr>
 <tr>
@@ -337,18 +307,18 @@ pgbackrest --stanza=main --type=full backup
 </tr>
 <tr>
 <td>After</td>
-<td>Old server decommissioned at end of window</td>
+<td>Old server decommissioned at the end of the window</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h2>Common questions</h2>
 <h3>Why not use pg_upgrade when it is so much faster?</h3>
-<p>Use it when you can take the window and you are staying on the same host. It is less work and fewer moving parts, and <code>--link</code> mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore.</p>
+<p>Use it when you can take the window and you are staying on the same host. It is less work with fewer moving parts, and <code>--link</code> mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore.</p>
 <h3>Can I skip the rehearsal if the database is small?</h3>
-<p>No. The rehearsal is not about size, it is about the application. A small database under a heavily customised application has the same query-plan changes, the same deprecated behaviour and the same extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.</p>
+<p>No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.</p>
 <h3>What happens if someone changes the schema during replication?</h3>
-<p>A new table on the publisher is not on the subscriber, so replication for it fails, and a column added on one side but not the other stops the apply worker with an error in <code>pg_stat_subscription_stats</code>. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then <code>ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION</code> to pick up new tables.</p>
+<p>A table added on the publisher is missing on the subscriber, and a column added on one side but not the other stops the apply worker with an error in <code>pg_stat_subscription_stats</code>. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then run <code>ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION</code> to pick up new tables.</p>
 <nav class="pager" aria-label="More"><a href="./">&larr; All tutorials</a><a href="../services.html">Work with me &rarr;</a></nav>
 </article>
 </main>

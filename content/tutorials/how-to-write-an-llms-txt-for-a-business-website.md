@@ -10,19 +10,19 @@ tags: [llms.txt, aeo, markdown, nginx]
 
 An llms.txt is a short Markdown file at /llms.txt that gives a language model a curated map of your site: a name, a summary and the pages that matter, one line each. It takes about an hour to write. Whether the big AI companies read it yet is an open question, but it costs nothing to add.
 
-The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index that says what the site is and where the important pages are gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.
+The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.
 
 ## Step 1: learn the format
 
 The specification is short. In order:
 
 - An H1 with the business or site name. This is the only required element.
-- A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of everything below.
+- A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of the rest.
 - Any paragraphs or lists that give more context. No headings in this part.
 - H2 sections, each containing a list of links in the form `- [Title](https://url): one-line description`.
-- An optional final H2 called `Optional`, for links that can be skipped when the reader is short on space.
+- An optional final H2 called `Optional`, for links that can be skipped when space is short.
 
-Here is the skeleton.
+The skeleton:
 
 ```markdown
 # Business name
@@ -40,7 +40,7 @@ A short paragraph of context that does not fit in the summary.
 - [Blog](https://example.com/blog): articles, less important than the pages above.
 ```
 
-The specification also allows a companion file, llms-full.txt, holding the full text of the linked pages in Markdown. It is optional, and I start without it.
+The specification also allows a companion llms-full.txt holding the full text of the linked pages in Markdown. It is optional, and I start without it.
 
 ## Step 2: decide what to put in for a services business
 
@@ -49,21 +49,21 @@ Think of the file as the briefing you would give a new receptionist on their fir
 - What you do, as a list of services with one line each. If you publish prices or a price range, say so and link to the page.
 - Where you serve. Emirates, cities, neighbourhoods. A model answering "plumber near me in Al Nahda" needs the place name, not "across the UAE".
 - Who you serve. Homes, offices, landlords, facilities companies.
-- How to book and how to get in touch, with both pages linked.
+- How to book and how to get in touch, both pages linked.
 - Hours, including whether you take emergency calls.
 - The questions customers ask most, which is your FAQ page.
-- Public credentials: trade licence, certifications, insurance, if they are already on the site.
+- Public credentials: trade licence, certifications, insurance, if already on the site.
 
-Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the price on the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.
+Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.
 
 ## Step 3: decide what to leave out
 
 - Login pages, carts, checkout, account pages.
 - Terms, privacy and cookie policies. Put them under `Optional` if you must.
 - Tag archives, category pages, pagination, search result pages.
-- Hundreds of links. This is a map, not a sitemap. If the list runs past forty or fifty lines, you are no longer curating.
+- Hundreds of links. This is a map, not a sitemap. Past forty or fifty lines you are no longer curating.
 - Tracking parameters in URLs.
-- Marketing copy with no facts in it. "Trusted by thousands" tells a model nothing it can use.
+- Marketing copy with no facts. "Trusted by thousands" tells a model nothing it can use.
 - Facts that do not appear on a page. If something is only in llms.txt, it will be quoted with nothing to back it up.
 
 ## Step 4: a complete worked example
@@ -87,7 +87,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 
 ## Pricing
 
-- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and which jobs are charged by the hour.
+- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and what is charged by the hour.
 
 ## Areas served
 
@@ -113,7 +113,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 - [Terms of service](https://www.bluepipeplumbing.example/terms): booking, cancellation and guarantee terms.
 ```
 
-In three sentences the summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, which are the things a model would otherwise guess at.
+The summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, the things a model would otherwise guess at.
 
 ## Step 5: serve it as text/plain or text/markdown
 
@@ -135,7 +135,7 @@ On a static host that reads a `_headers` file, such as Netlify:
   Content-Type: text/markdown; charset=utf-8
 ```
 
-If the site is an application and the framework owns every route, serve it from a route rather than fighting the router. In FastAPI:
+If a framework owns every route, serve it from a route rather than fighting the router. In FastAPI:
 
 ```python
 from fastapi import FastAPI
@@ -149,17 +149,17 @@ def llms_txt():
         return PlainTextResponse(f.read(), media_type="text/markdown; charset=utf-8")
 ```
 
-Two things to watch. A catch-all route can swallow `/llms.txt` and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a rule that adds a trailing slash to every path will redirect the file to `/llms.txt/`, a different resource.
+Two things to watch. A catch-all route can swallow `/llms.txt` and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a trailing-slash rule will redirect the file to `/llms.txt/`, a different resource.
 
 ## Step 6: check it is reachable
 
-Do not open it in a browser and call it done. Ask for it the way a crawler would.
+Do not open it in a browser and call it done. Ask for it as a crawler would.
 
 ```bash
 curl -s -o /dev/null -w "%{http_code} %{content_type} %{size_download}\n" https://www.bluepipeplumbing.example/llms.txt
 ```
 
-You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall rule can pass a browser and block a crawler on the same URL.
+You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall can pass a browser and block a crawler on the same URL.
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 (compatible; GPTBot/1.0)" https://www.bluepipeplumbing.example/llms.txt
@@ -173,18 +173,18 @@ curl -s https://www.bluepipeplumbing.example/llms.txt | grep -o 'https://[^)]*' 
 done
 ```
 
-Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a couple of weeks to see who is fetching it.
+Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a few weeks to see who fetches it.
 
 ## Common questions
 
 ### Do ChatGPT, Claude or Google actually read llms.txt?
 
-Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it automatically, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.
+Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.
 
 ### Should I also publish llms-full.txt?
 
-Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a specific consumer asks for it.
+Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a consumer asks for it.
 
 ### Does llms.txt replace robots.txt or the sitemap?
 
-No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none of them conflicts with the others.
+No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none conflicts with the others.

@@ -13,38 +13,29 @@ By the end of this you will have a design for a pipeline that takes supplier bil
 ## What you need
 
 - A vision-capable model with an API, such as Gemini or Claude, and a budget for it
-- Python 3.11 or later, with a PDF renderer (`pdftoppm` from poppler, or PyMuPDF)
+- Python 3.11 or later and a PDF renderer (`pdftoppm` from poppler, or PyMuPDF)
 - Read access to the bill sources: a mailbox, a scanner share, a WhatsApp Business account
-- An ERP with an API for creating draft vendor bills (Odoo's `account.move` over JSON-RPC in my case)
-- A table or two of your own for the audit log and the hash register
-- A finance person who will label a sample of bills by hand, monthly
+- An ERP API for creating draft vendor bills (Odoo's `account.move` over JSON-RPC in my case)
+- Two tables of your own: an audit log and a hash register
+- A finance person who will label a sample of bills by hand each month
 
 I run a pipeline of this shape in production. What follows is the design, not the code, and each rule is here because it caught something.
 
 ## The shape of it
 
-Six stages, each with one job:
-
-1. Capture: collect the file and a record of where it came from
-2. Extract: the model reads the pages and returns JSON that matches a schema
-3. Validate: rules decide whether the JSON is trustworthy
-4. Route: trusted results become draft bills, the rest go to a review queue
-5. Record: every step writes to an audit log
-6. Measure: a labelled sample tells you how accurate it is
+Capture the file, extract JSON with the model, validate it with rules, route it to a draft bill or a review queue, record every step, and measure the result against a labelled sample. Six stages, one job each.
 
 The principle that holds it together: the pipeline creates draft records, it does not post to the ledger. A model is confidently wrong in a way a broken scanner never is. The output lands where your existing approval controls already apply, and finance changes from typing values to checking them.
 
 ## 1. Capture
 
-Three sources cover most companies. A mailbox (a dedicated address read by IMAP or the Gmail API, keeping every attachment and the message ID). A scanner folder (a watched share where the multi-function device drops PDFs). WhatsApp (the Business API webhook, because suppliers in some markets send bills as photographs from a phone and will not stop).
+Three sources cover most companies: a dedicated mailbox read by IMAP or the Gmail API, a watched folder where the scanner drops PDFs, and the WhatsApp Business API webhook, because suppliers in some markets send bills as photographs from a phone and will not stop.
 
-Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before you do anything else. You need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said.
-
-Compute a SHA-256 of the bytes here and check it against your register. This is the first idempotency guard, and it sits before the model call so a repeat costs nothing.
+Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before anything else. You need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said. Then compute a SHA-256 of the bytes and check it against your register, so a repeat costs nothing.
 
 ## 2. Extraction against a strict schema
 
-Render each page to an image (150 to 200 dpi is enough; more costs money and does not read better), send all the pages in one request, and ask for JSON only, against a schema you include in the prompt. Use the API's structured output or JSON mode if it has one, and set the temperature to zero. Then validate the response against the schema in code before anything else looks at it. A response that does not parse is a failure, not a partial success.
+Render each page to an image (150 to 200 dpi is enough; more costs money and does not read better), send all the pages in one request, and ask for JSON only, against a schema you include in the prompt. Use the API's structured output mode if it has one, and set the temperature to zero. Validate the response against the schema in code before anything else looks at it. A response that does not parse is a failure, not a partial success.
 
 The schema I use is close to this:
 
@@ -98,7 +89,7 @@ Dates are ISO in the schema so the model makes the day-month decision once, with
 
 ## 3. Validation rules
 
-The schema proves the shape. The rules prove the content. Every rule produces a named pass or fail with a detail string, because the review queue shows those to the reviewer.
+The schema proves the shape. The rules prove the content. Each rule produces a named pass or fail with a detail string, because the review queue shows those to the reviewer.
 
 ```python
 from dataclasses import dataclass
@@ -148,62 +139,45 @@ def validate(doc: dict, vendors, register, today: date) -> list[Check]:
     return checks
 ```
 
-The supplier match deserves care. Match on tax registration number first, then on a normalised name, and treat a name-only match below a similarity threshold as a fail. The vendor master is the only place the pipeline learns supplier names from. If the model reads "Al Something Trading LLC" and your master says "Al Something Trading L.L.C.", that is a matching problem for you to solve in code, not a reason to create a vendor.
+The supplier match deserves care. Match on tax registration number first, then on a normalised name, and treat a weak name-only match as a fail. The vendor master is the only place the pipeline learns supplier names from; a spelling difference between the bill and the master is a matching problem to solve in code, not a reason to create a vendor.
 
-Invoice number uniqueness is per supplier, not global. Two suppliers can both issue "INV-1001". The register is a table of (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
+Invoice number uniqueness is per supplier, not global, because two suppliers can both issue "INV-1001". The register is a table of (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
 
 ## 4. Confidence and the review queue
 
-Do not ask the model how confident it is and route on the answer. The number it gives you is not calibrated, and I have watched it report high confidence on a total it invented. Confidence in this pipeline is earned three ways:
-
-- Every validation rule passed
-- A second extraction agrees: run the same pages again (a different rendering, or a second model) and compare supplier, number, date and total
-- The supplier has a history of clean extractions
+Do not ask the model how confident it is and route on the answer. The number it gives you is not calibrated, and I have watched it report high confidence on a total it invented. Confidence here is earned three ways: every rule passed, a second extraction (a different rendering, or a second model) agrees on supplier, number, date and total, and the supplier has a history of clean extractions.
 
 Anything that fails a rule or disagrees on a key field goes to the review queue, with the page images, the JSON and the failed checks side by side. Start with everything reviewed, including the passes, until the measurement in step 8 says the straight-through path is safe. Loosen from there, one supplier at a time.
 
-The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Every correction is recorded, because corrections are evidence for your accuracy figure and the raw material for better rules.
+The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Record every correction. Corrections are evidence for your accuracy figure and the raw material for better rules.
 
 ## 5. Idempotency and the audit log
 
-The same bill arrives twice more often than you would think: forwarded by two people, sent by the supplier and again by the buyer, scanned again because the first scan looked crooked. Two guards, in order:
+The same bill arrives twice more often than you would think: forwarded by two people, sent by the supplier and again by the buyer, scanned again because the first scan looked crooked. The file hash catches byte-identical repeats before you spend anything; the (vendor, invoice number) register catches repeats that are different files; for email, the message ID is a third key. The register needs a status column, because a bill sitting in the review queue is not yet in the ERP, and a second copy arriving while it waits must be tied to the first.
 
-1. The file hash from step 1 catches byte-identical repeats before you spend anything on them
-2. The (vendor, invoice number) register catches repeats that are different files
-
-For email, keep the message ID as a third key. The register needs a status column, because a bill sitting in the review queue is not yet in the ERP, and a second copy arriving while it waits must be tied to the first, not treated as new.
-
-The audit log is one row per document per attempt: the hash, the source and sender, the received time, the model and prompt version, the raw JSON returned, every check with its result, the route taken, the ERP record created if any, the reviewer's decision and corrections, and the timestamp of each step. When someone asks in six months why a bill went in with the wrong total, this is the only thing that answers them.
+The audit log is one row per document per attempt: hash, source and sender, received time, model and prompt version, the raw JSON returned, every check with its result, the route taken, the ERP record created if any, the reviewer's decision and corrections, and a timestamp for each step. When someone asks in six months why a bill went in with the wrong total, this is the only thing that answers them.
 
 ## 6. Cost control
 
-Vision models charge roughly by the page. The controls that matter:
-
-- A page cap per document, the first few pages and the last one, because a bill with twenty pages is usually a statement with a bill stapled to it; anything over the cap goes to review with a note
-- Downscaled JPEG pages rather than full-resolution PNGs
-- The hash check before the model call, not after
-- Batching non-urgent sources overnight if the API offers a cheaper batch tier
-- A daily spend ceiling with an alert, and a hard stop above it
+Vision models charge roughly by the page. A page cap per document (the first few pages and the last, because a bill with twenty pages is usually a statement with a bill stapled to it; anything over the cap goes to review). Downscaled JPEG pages rather than full-resolution PNGs. The hash check before the model call. Non-urgent sources batched overnight if the API has a cheaper batch tier. A daily spend ceiling with an alert, and a hard stop above it.
 
 ## 7. Failure modes I have met
 
-Handwritten amendments. A printed total with a pen correction beside it, or a handwritten discount at the bottom. The model reads the printed number. The `handwritten_amendments` flag sends these to review.
+Handwritten amendments: a printed total with a pen correction beside it. The model reads the printed number. The `handwritten_amendments` flag sends these to review.
 
-Multi-page bills. Line items run across pages, and a subtotal on page two gets read as the total. Sending all pages in one request fixes most of it; the totals rule catches the rest.
+Multi-page bills: line items run across pages, and a subtotal on page two gets read as the total. Sending every page in one request fixes most of it; the totals rule catches the rest.
 
-Stamps over numbers. A "RECEIVED" or "PAID" stamp across the total, or a signature through the invoice number. The model guesses at the obscured digits. The totals rule and the second extraction disagree, and it goes to review.
+Stamps over numbers: a "RECEIVED" stamp across the total, or a signature through the invoice number. The model guesses at the hidden digits. The totals rule and the second extraction disagree, and it goes to review.
 
-Duplicates sent twice. Covered above, but the case that still needs a person is a supplier who reissues a corrected bill under the same number. The register flags it and a reviewer decides, which is the right outcome.
+Duplicates sent twice: covered above, but a supplier who reissues a corrected bill under the same number still needs a person. The register flags it and a reviewer decides, which is the right outcome.
 
-Statements and pro formas. `document_type` and the `is_invoice` rule keep them out of accounts payable.
+Statements and pro formas: `document_type` and the `is_invoice` rule keep them out of accounts payable.
 
-Foreign currency and thousands separators. Give the model the supplier's country and expected currency as hints, and let `currency_expected` catch the rest.
+Foreign currency and thousands separators: give the model the supplier's country and expected currency as hints, and let `currency_expected` catch the rest.
 
 ## 8. Measuring accuracy honestly
 
-An accuracy figure from a demo is worthless. Measure on your own document mix.
-
-Each month, draw a random sample of processed bills (a hundred is a workable size), including ones that went straight through and ones that were reviewed. A finance person keys the fields from the original document without seeing the pipeline's output. Compare field by field. Report three numbers: accuracy for each key field, the straight-through rate (bills that needed no human touch), and the rate at which straight-through bills were later found to be wrong. That third number is the one that matters and the one nobody publishes.
+An accuracy figure from a demo is worthless. Measure on your own document mix. Each month, draw a random sample of processed bills (a hundred is a workable size), including ones that went straight through and ones that were reviewed. A finance person keys the fields from the original without seeing the pipeline's output. Compare field by field and report three numbers: accuracy per key field, the straight-through rate (bills that needed no human touch), and the rate at which straight-through bills were later found to be wrong. That third number is the one that matters and the one nobody publishes.
 
 Track it by supplier, because suppliers change their templates without telling anyone and accuracy drops one supplier at a time. Do not use the reviewers' corrected values as ground truth; a reviewer can accept a wrong value that looked right. The monthly re-check is what makes the number believable a year later.
 
@@ -215,8 +189,8 @@ Templates work when your suppliers are few and their layouts stable. Mine are ne
 
 ### Should the pipeline create the vendor when it cannot find one?
 
-No. A vendor record is a control point: someone checked the trade licence, the tax registration and the bank details before it existed. Let the pipeline route the bill to review with a "supplier not found" reason, and let a person create the vendor through the normal path. The bill is then reprocessed and matches.
+No. A vendor record is a control point: someone checked the trade licence, the tax registration and the bank details before it existed. Route the bill to review with a "supplier not found" reason, let a person create the vendor through the normal path, and reprocess the bill.
 
 ### How do I keep the model from inventing line items on a bill that has none?
 
-Say so in the prompt: some bills carry only a total, and an empty `lines` array is the correct answer for them. Then let the rules do their work. Invented lines rarely add up to the printed subtotal, so `lines_add_up` fails and the bill goes to review, where the reviewer sees the empty page next to the invented rows.
+Say in the prompt that some bills carry only a total and an empty `lines` array is the correct answer for them. Then let the rules work. Invented lines rarely add up to the printed subtotal, so `lines_add_up` fails and the reviewer sees the empty page next to the invented rows.

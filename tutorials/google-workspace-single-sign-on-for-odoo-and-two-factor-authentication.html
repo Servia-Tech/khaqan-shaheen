@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Workspace single sign-on for Odoo, with two factor authentication and role based access | Khaqan Shaheen</title>
+<meta name="description" content="Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.">
+<meta name="author" content="Khaqan Shaheen">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Khaqan Shaheen">
+<meta property="og:title" content="Google Workspace single sign-on for Odoo, with two factor authentication and role based access | Khaqan Shaheen">
+<meta property="og:description" content="Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Workspace single sign-on for Odoo, with two factor authentication and role based access | Khaqan Shaheen">
+<meta name="twitter:description" content="Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.">
+<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="article:published_time" content="2026-09-08">
+<meta property="article:author" content="Khaqan Shaheen">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html#article", "headline": "Google Workspace single sign-on for Odoo, with two factor authentication and role based access", "description": "Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1974, "keywords": "odoo, google-workspace, sso, security", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Google Workspace single sign-on for Odoo, with two factor authentication and role based access", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html#faq", "mainEntity": [{"@type": "Question", "name": "What happens to Odoo if Google is down?", "acceptedAnswer": {"@type": "Answer", "text": "Nobody signs in through Google until it is back, and sessions already open keep working until they expire. That is the whole reason the break-glass account exists as a local login with Odoo's own two factor. If the outage is long, an administrator can set temporary passwords for a few key users from the Users list and remove them afterwards."}}, {"@type": "Question", "name": "Can I use Google groups to assign Odoo groups automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets `groups_id` on `res.users` from your role matrix, and it is worth it above a few hundred users. Below that, the role matrix and a good joiner process do the same job with less to break."}}, {"@type": "Question", "name": "Does enforcing 2-Step Verification in Workspace protect Odoo?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. Check both regularly: a user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses."}}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href=".././">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../work/">Work</a>
+      <a href="../writing/">Writing</a>
+      <a href="../services.html">Services</a>
+      <a href="../career-advice.html">Career advice</a>
+      <a href="../skills.html">Skills</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="../writing/">Writing</a> / <a href="./">Tutorials</a></div>
+<article class="article">
+<h1>Google Workspace single sign-on for Odoo, with two factor authentication and role based access</h1>
+<p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 1,974 words. Topics: odoo, google-workspace, sso, security.</p>
+<p class="answer">By the end of this your Odoo 17 users will sign in with their Google Workspace account, protected by 2-Step Verification enforced in the Admin console, with access inside Odoo following their job role, and you will still be able to get in if Google cannot. It is for IT heads who run both systems.</p>
+<h2>What you need</h2>
+<ul>
+<li>Odoo 17, Community or Enterprise, served over HTTPS on a hostname users reach by name</li>
+<li>Google Workspace with super admin rights</li>
+<li>Access to the Google Cloud console for the same organisation, to create the OAuth client</li>
+<li>A list of every Odoo user, their email address and their job role</li>
+<li>One local Odoo administrator account that will never be linked to Google</li>
+</ul>
+<h2>Before anything else: the lockout risk</h2>
+<p>Single sign-on concentrates risk. If the OAuth client is deleted, if Workspace has an outage, or if you enforce 2-Step Verification with a date that arrives before people have enrolled, nobody gets into the ERP. So before the first step:</p>
+<p>Create a break-glass administrator in Odoo. A local login, not a Google one, with a long random password kept somewhere physical that two named people can reach. Put Odoo's own two factor on it (step 8) and keep its recovery codes with the password. Test it on a schedule, and alert on every login to it, because a login to that account is either you or a problem.</p>
+<p>Do the same on the Workspace side: at least two super admins, each with a security key or backup codes stored offline. I have seen an enforcement date arrive on a Monday morning for people who ignored the enrolment emails, and the ones who suffered were the ones without a plan for it.</p>
+<h2>1. Create the OAuth client in Google Cloud</h2>
+<p>In the Google Cloud console, in a project that belongs to your Workspace organisation:</p>
+<ol>
+<li>Open APIs &amp; Services, then the OAuth consent screen (Google has been moving this under a "Google Auth Platform" heading; the settings are the same). Set the user type to Internal. This is what limits sign-in to accounts in your Workspace, and it is the one setting you must not get wrong.</li>
+<li>Open Credentials, Create credentials, OAuth client ID, application type Web application.</li>
+<li>Authorised JavaScript origins: <code>https://&lt;odoo-host&gt;</code></li>
+<li>Authorised redirect URIs: <code>https://&lt;odoo-host&gt;/auth_oauth/signin</code></li>
+<li>Save and copy the client ID. The client secret is not needed for Odoo's default Google provider.</li>
+</ol>
+<p>No API needs enabling for sign-in. The hostname must match what users type, including the scheme; a redirect to an <code>http://</code> address or a different subdomain fails with a redirect mismatch error from Google.</p>
+<h2>2. Install and configure auth_oauth in Odoo</h2>
+<ol>
+<li>Settings, General Settings, Integrations. Tick OAuth Authentication and save; this installs the <code>auth_oauth</code> module.</li>
+<li>The Google Authentication option appears under it. Tick it, paste the client ID, save.</li>
+<li>In developer mode, Settings, Users &amp; Companies, OAuth Providers shows the Google provider marked Allowed, with its endpoints preconfigured.</li>
+<li>Check that the system parameter <code>web.base.url</code> is your HTTPS hostname, and set <code>web.base.url.freeze</code> to <code>True</code> so a login from another address cannot change it. The redirect Odoo sends to Google is built from it.</li>
+</ol>
+<p>Open the login page in a private window. A "Log in with Google" button appears under the password form. Don't click it as an existing user yet; users are not linked until step 3.</p>
+<h2>3. Link existing users</h2>
+<p>Odoo ties a Google identity to a user by storing Google's subject identifier in <code>oauth_uid</code> on <code>res.users</code>, together with <code>oauth_provider_id</code>. Matching is on that identifier, not on email, so an existing user who clicks the Google button gets an access denied error until the link exists.</p>
+<p>Two ways to create it. The user-driven way: send each user a password reset from Settings, Users, the Action menu. The page that email opens carries a signup token, and the Google button on that page links the account instead of creating one. This is the method I use for rollout because it needs nothing from IT beyond sending the email. The admin-driven way: set <code>oauth_uid</code> yourself from the user's ID in the Admin SDK Directory API, which is the same value as Google's subject.</p>
+<p>Keep the Odoo login equal to the Workspace email either way. Leave sign-up on invitation only under Settings, General Settings, Users; an internal ERP should never create a user because someone signed in.</p>
+<h2>4. Enforce 2-Step Verification in the Admin console</h2>
+<p>In the Admin console: Security, Authentication, 2-Step Verification. Do it per organisational unit, in the order you roll out, not for the whole domain at once.</p>
+<ol>
+<li>Allow users to turn on 2-Step Verification, if it is not already allowed.</li>
+<li>Set Enforcement to "On from" a date, and set a new-user enrolment period so joiners get a grace window.</li>
+<li>Under Methods, choose "Any except verification codes via text, phone call" if your workforce can manage the Google prompt or an authenticator app; text messages are the weakest method and the one most often unavailable on a factory floor.</li>
+<li>Allow users to trust a device, or the daily prompt will drive the shop floor to find a way round it.</li>
+</ol>
+<p>Before the date, open Users in the Admin console, filter on 2-Step Verification enrolment, and go and find the ones who have not enrolled. Two factor across a manufacturing workforce is a people problem before it is a technical one. Not everyone has a company handset, and the enrolment support is the project. The configuration takes an afternoon.</p>
+<h2>5. People who are not in Workspace</h2>
+<p>Contractors, auditors, an outsourced bookkeeper. Three choices, in order of preference:</p>
+<ol>
+<li>Give them an account in your tenant. Cloud Identity Free accounts sit in the same organisation without a Workspace licence, go in a Contractors organisational unit with 2-Step Verification enforced, and are suspended the day the contract ends.</li>
+<li>Keep a local Odoo account for them with Odoo's own two factor (step 8) and a review date in your calendar.</li>
+<li>Shared accounts. Never. If you find one, it is the first thing to remove.</li>
+</ol>
+<h2>6. Map Odoo groups to job roles</h2>
+<p>Odoo expresses access as groups, record rules and model access lists. Write the role matrix before touching a user: one row per job role, one column per Odoo application, the group in each cell (Sales: User: Own Documents Only; Inventory: User; Accounting: Billing, and so on). Agree it with the manager who owns each set of data, because a role model nobody agreed to is bypassed within a month.</p>
+<p>Then apply it. Set Default Access Rights under Settings, General Settings, Users to the least you give anyone, so a new user starts from the floor. If you want roles as records rather than a spreadsheet, the OCA module <code>base_user_role</code> does that. Odoo does not read Google group membership; syncing the two is a script against the Directory API, and most companies do not need it.</p>
+<h2>7. Remove password logins for SSO users</h2>
+<p>Odoo 17 has no switch to disable the password form for one user. What you can do is make the password unknown. From an Odoo shell (<code>./odoo-bin shell -d &lt;db&gt;</code>):</p>
+<pre><code class="language-python">import secrets
+
+admin = env.ref('base.user_admin')
+sso_users = env['res.users'].search([
+    ('oauth_uid', '!=', False),
+    ('share', '=', False),
+    ('id', '!=', admin.id),
+])
+for user in sso_users:
+    user.write({'password': secrets.token_urlsafe(32)})
+env.cr.commit()
+</code></pre>
+<p>Run it after the users are linked, never before, and never on the break-glass account. Then turn off the password reset link on the login page (the Password Reset option under Settings, General Settings, Users) so nobody can give themselves a password back. Removing the password form from the login page altogether, for everyone but the break-glass admin, is a small inheritance of the <code>web.login</code> template and outside this guide.</p>
+<h2>8. Odoo's built-in two factor for local accounts</h2>
+<p>Any account that still logs in with a password, the break-glass admin above all, gets Odoo's own two factor. The module is <code>auth_totp</code>, installed by default in 17. The user opens Preferences from their avatar, then Account Security, then Enable two-factor authentication, scans the QR code with an authenticator app and confirms. Odoo 17 also ships <code>auth_totp_mail_enforce</code>, which demands a second factor from every user and falls back to a code by email for anyone without an authenticator; use it if local accounts are more than a handful. Do not switch Odoo's two factor on for Google-linked users. Their second factor is Google's, and asking twice makes people resent both.</p>
+<h2>9. Review the login records</h2>
+<p>Odoo writes a row to <code>res.users.log</code> on each successful login. An automatic clean-up keeps only the latest row per user, so the table tells you who last logged in and when, not a history. <code>login_date</code> on <code>res.users</code> says the same thing and is easier to query:</p>
+<pre><code class="language-sql">SELECT login, login_date
+FROM res_users
+WHERE active AND NOT share
+ORDER BY login_date DESC NULLS LAST;
+</code></pre>
+<p>The users at the bottom of that list, and the ones with no date at all, are your leaver and dormant account review. For a real history, the Workspace side has it: Reporting, Audit and investigation, Login log events, filterable by user, application and outcome, with suspicious login flags. If you need a history on the Odoo side, keep it yourself from the reverse proxy's access log for <code>/web/login</code> and <code>/auth_oauth/signin</code>.</p>
+<h2>10. Roll it out in the right order</h2>
+<ol>
+<li>IT first. Link your own team, enforce 2-Step Verification on the IT organisational unit, and live with it for a couple of weeks. You find the redirect mistakes and the trusted-device questions on yourselves.</li>
+<li>One department next, chosen for a manager who wants it and users who sit at desks. Fix what they find.</li>
+<li>Everyone else, one organisational unit at a time, with the enforcement date announced, enrolment sessions where people actually work, and someone on the floor on the day.</li>
+<li>Then step 7 for each unit, once every user in it has signed in with Google at least once.</li>
+</ol>
+<p>Leavers become a role change in one place: suspend the Workspace account, and the Odoo login stops the same minute because there is no password to fall back on.</p>
+<h2>Common questions</h2>
+<h3>What happens to Odoo if Google is down?</h3>
+<p>Nobody signs in through Google until it is back, and sessions already open keep working until they expire. That is the whole reason the break-glass account exists as a local login with Odoo's own two factor. If the outage is long, an administrator can set temporary passwords for a few key users from the Users list and remove them afterwards.</p>
+<h3>Can I use Google groups to assign Odoo groups automatically?</h3>
+<p>Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets <code>groups_id</code> on <code>res.users</code> from your role matrix, and it is worth it above a few hundred users. Below that, the role matrix and a good joiner process do the same job with less to break.</p>
+<h3>Does enforcing 2-Step Verification in Workspace protect Odoo?</h3>
+<p>Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. Check both regularly: a user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses.</p>
+<nav class="pager" aria-label="More"><a href="./">&larr; All tutorials</a><a href="../services.html">Work with me &rarr;</a></nav>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

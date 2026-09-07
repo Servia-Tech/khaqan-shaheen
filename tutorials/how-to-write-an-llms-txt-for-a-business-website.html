@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
 <meta property="article:published_time" content="2026-09-08">
 <meta property="article:author" content="Khaqan Shaheen">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html#article", "headline": "How to write an llms.txt for a business website", "description": "An llms.txt is a short Markdown map of your site at /llms.txt with an H1, a one-line summary and linked sections. Here is the format and a full worked example.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1631, "keywords": "llms.txt, aeo, markdown, nginx", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "How to write an llms.txt for a business website", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html#faq", "mainEntity": [{"@type": "Question", "name": "Do ChatGPT, Claude or Google actually read llms.txt?", "acceptedAnswer": {"@type": "Answer", "text": "Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it automatically, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise."}}, {"@type": "Question", "name": "Should I also publish llms-full.txt?", "acceptedAnswer": {"@type": "Answer", "text": "Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a specific consumer asks for it."}}, {"@type": "Question", "name": "Does llms.txt replace robots.txt or the sitemap?", "acceptedAnswer": {"@type": "Answer", "text": "No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none of them conflicts with the others."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html#article", "headline": "How to write an llms.txt for a business website", "description": "An llms.txt is a short Markdown map of your site at /llms.txt with an H1, a one-line summary and linked sections. Here is the format and a full worked example.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1575, "keywords": "llms.txt, aeo, markdown, nginx", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "How to write an llms.txt for a business website", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html#faq", "mainEntity": [{"@type": "Question", "name": "Do ChatGPT, Claude or Google actually read llms.txt?", "acceptedAnswer": {"@type": "Answer", "text": "Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise."}}, {"@type": "Question", "name": "Should I also publish llms-full.txt?", "acceptedAnswer": {"@type": "Answer", "text": "Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a consumer asks for it."}}, {"@type": "Question", "name": "Does llms.txt replace robots.txt or the sitemap?", "acceptedAnswer": {"@type": "Answer", "text": "No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none conflicts with the others."}}]}]}</script>
 </head>
 <body>
 <header class="site-header">
@@ -48,19 +48,19 @@
 <div class="breadcrumb"><a href="../">Home</a> / <a href="../writing/">Writing</a> / <a href="./">Tutorials</a></div>
 <article class="article">
 <h1>How to write an llms.txt for a business website</h1>
-<p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 1,631 words. Topics: llms.txt, aeo, markdown, nginx.</p>
+<p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 1,575 words. Topics: llms.txt, aeo, markdown, nginx.</p>
 <p class="answer">An llms.txt is a short Markdown file at /llms.txt that gives a language model a curated map of your site: a name, a summary and the pages that matter, one line each. It takes about an hour to write. Whether the big AI companies read it yet is an open question, but it costs nothing to add.</p>
-<p>The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index that says what the site is and where the important pages are gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.</p>
+<p>The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.</p>
 <h2>Step 1: learn the format</h2>
 <p>The specification is short. In order:</p>
 <ul>
 <li>An H1 with the business or site name. This is the only required element.</li>
-<li>A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of everything below.</li>
+<li>A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of the rest.</li>
 <li>Any paragraphs or lists that give more context. No headings in this part.</li>
 <li>H2 sections, each containing a list of links in the form <code>- [Title](https://url): one-line description</code>.</li>
-<li>An optional final H2 called <code>Optional</code>, for links that can be skipped when the reader is short on space.</li>
+<li>An optional final H2 called <code>Optional</code>, for links that can be skipped when space is short.</li>
 </ul>
-<p>Here is the skeleton.</p>
+<p>The skeleton:</p>
 <pre><code class="language-markdown"># Business name
 
 &gt; One or two sentences on what the business does, where, and for whom.
@@ -75,27 +75,27 @@ A short paragraph of context that does not fit in the summary.
 
 - [Blog](https://example.com/blog): articles, less important than the pages above.
 </code></pre>
-<p>The specification also allows a companion file, llms-full.txt, holding the full text of the linked pages in Markdown. It is optional, and I start without it.</p>
+<p>The specification also allows a companion llms-full.txt holding the full text of the linked pages in Markdown. It is optional, and I start without it.</p>
 <h2>Step 2: decide what to put in for a services business</h2>
 <p>Think of the file as the briefing you would give a new receptionist on their first morning. For a services business that means:</p>
 <ul>
 <li>What you do, as a list of services with one line each. If you publish prices or a price range, say so and link to the page.</li>
 <li>Where you serve. Emirates, cities, neighbourhoods. A model answering "plumber near me in Al Nahda" needs the place name, not "across the UAE".</li>
 <li>Who you serve. Homes, offices, landlords, facilities companies.</li>
-<li>How to book and how to get in touch, with both pages linked.</li>
+<li>How to book and how to get in touch, both pages linked.</li>
 <li>Hours, including whether you take emergency calls.</li>
 <li>The questions customers ask most, which is your FAQ page.</li>
-<li>Public credentials: trade licence, certifications, insurance, if they are already on the site.</li>
+<li>Public credentials: trade licence, certifications, insurance, if already on the site.</li>
 </ul>
-<p>Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the price on the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.</p>
+<p>Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.</p>
 <h2>Step 3: decide what to leave out</h2>
 <ul>
 <li>Login pages, carts, checkout, account pages.</li>
 <li>Terms, privacy and cookie policies. Put them under <code>Optional</code> if you must.</li>
 <li>Tag archives, category pages, pagination, search result pages.</li>
-<li>Hundreds of links. This is a map, not a sitemap. If the list runs past forty or fifty lines, you are no longer curating.</li>
+<li>Hundreds of links. This is a map, not a sitemap. Past forty or fifty lines you are no longer curating.</li>
 <li>Tracking parameters in URLs.</li>
-<li>Marketing copy with no facts in it. "Trusted by thousands" tells a model nothing it can use.</li>
+<li>Marketing copy with no facts. "Trusted by thousands" tells a model nothing it can use.</li>
 <li>Facts that do not appear on a page. If something is only in llms.txt, it will be quoted with nothing to back it up.</li>
 </ul>
 <h2>Step 4: a complete worked example</h2>
@@ -116,7 +116,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 
 ## Pricing
 
-- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and which jobs are charged by the hour.
+- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and what is charged by the hour.
 
 ## Areas served
 
@@ -141,7 +141,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 - [Blog](https://www.bluepipeplumbing.example/blog): maintenance guides and seasonal advice.
 - [Terms of service](https://www.bluepipeplumbing.example/terms): booking, cancellation and guarantee terms.
 </code></pre>
-<p>In three sentences the summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, which are the things a model would otherwise guess at.</p>
+<p>The summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, the things a model would otherwise guess at.</p>
 <h2>Step 5: serve it as text/plain or text/markdown</h2>
 <p>The file is static and sits at the web root. Most servers already send <code>.txt</code> as <code>text/plain</code>, which is fine. The specification prefers <code>text/markdown</code>, which takes one rule.</p>
 <p>On nginx:</p>
@@ -154,7 +154,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 <pre><code class="language-text">/llms.txt
   Content-Type: text/markdown; charset=utf-8
 </code></pre>
-<p>If the site is an application and the framework owns every route, serve it from a route rather than fighting the router. In FastAPI:</p>
+<p>If a framework owns every route, serve it from a route rather than fighting the router. In FastAPI:</p>
 <pre><code class="language-python">from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
 
@@ -165,12 +165,12 @@ def llms_txt():
     with open(&quot;static/llms.txt&quot;, encoding=&quot;utf-8&quot;) as f:
         return PlainTextResponse(f.read(), media_type=&quot;text/markdown; charset=utf-8&quot;)
 </code></pre>
-<p>Two things to watch. A catch-all route can swallow <code>/llms.txt</code> and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a rule that adds a trailing slash to every path will redirect the file to <code>/llms.txt/</code>, a different resource.</p>
+<p>Two things to watch. A catch-all route can swallow <code>/llms.txt</code> and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a trailing-slash rule will redirect the file to <code>/llms.txt/</code>, a different resource.</p>
 <h2>Step 6: check it is reachable</h2>
-<p>Do not open it in a browser and call it done. Ask for it the way a crawler would.</p>
+<p>Do not open it in a browser and call it done. Ask for it as a crawler would.</p>
 <pre><code class="language-bash">curl -s -o /dev/null -w &quot;%{http_code} %{content_type} %{size_download}\n&quot; https://www.bluepipeplumbing.example/llms.txt
 </code></pre>
-<p>You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall rule can pass a browser and block a crawler on the same URL.</p>
+<p>You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall can pass a browser and block a crawler on the same URL.</p>
 <pre><code class="language-bash">curl -s -o /dev/null -w &quot;%{http_code}\n&quot; -A &quot;Mozilla/5.0 (compatible; GPTBot/1.0)&quot; https://www.bluepipeplumbing.example/llms.txt
 </code></pre>
 <p>Then check every link in the file, because a map that points at missing pages is worse than no map.</p>
@@ -178,14 +178,14 @@ def llms_txt():
   echo &quot;$(curl -s -o /dev/null -w '%{http_code}' -L &quot;$u&quot;)  $u&quot;
 done
 </code></pre>
-<p>Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a couple of weeks to see who is fetching it.</p>
+<p>Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a few weeks to see who fetches it.</p>
 <h2>Common questions</h2>
 <h3>Do ChatGPT, Claude or Google actually read llms.txt?</h3>
-<p>Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it automatically, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.</p>
+<p>Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.</p>
 <h3>Should I also publish llms-full.txt?</h3>
-<p>Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a specific consumer asks for it.</p>
+<p>Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a consumer asks for it.</p>
 <h3>Does llms.txt replace robots.txt or the sitemap?</h3>
-<p>No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none of them conflicts with the others.</p>
+<p>No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none conflicts with the others.</p>
 <nav class="pager" aria-label="More"><a href="./">&larr; All tutorials</a><a href="../services.html">Work with me &rarr;</a></nav>
 </article>
 </main>

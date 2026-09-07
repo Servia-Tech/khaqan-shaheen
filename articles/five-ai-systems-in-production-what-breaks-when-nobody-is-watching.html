@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five AI systems in production: what breaks when nobody is watching | Khaqan Shaheen</title>
+<meta name="description" content="Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.">
+<meta name="author" content="Khaqan Shaheen">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Khaqan Shaheen">
+<meta property="og:title" content="Five AI systems in production: what breaks when nobody is watching | Khaqan Shaheen">
+<meta property="og:description" content="Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Five AI systems in production: what breaks when nobody is watching | Khaqan Shaheen">
+<meta name="twitter:description" content="Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.">
+<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="article:published_time" content="2026-09-08">
+<meta property="article:author" content="Khaqan Shaheen">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html#article", "headline": "Five AI systems in production: what breaks when nobody is watching", "description": "Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.", "url": "https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1415, "keywords": "ai, production-systems, erp", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Articles", "item": "https://servia-tech.github.io/khaqan-shaheen/articles/"}, {"@type": "ListItem", "position": 4, "name": "Five AI systems in production: what breaks when nobody is watching", "item": "https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html#faq", "mainEntity": [{"@type": "Question", "name": "Why let AI create ERP records at all if a person still has to check them?", "acceptedAnswer": {"@type": "Answer", "text": "Because checking is faster and less error-prone than typing, and the document is processed on arrival rather than when somebody is free. The person's job changes from transcription to review, which is where their judgement is actually useful."}}, {"@type": "Question", "name": "How do you decide what an AI sales agent is allowed to say?", "acceptedAnswer": {"@type": "Answer", "text": "By writing down the boundary before the agent goes live and revising it from real conversations. It answers questions and qualifies the enquiry. Anything that binds the company commercially, such as a price or a delivery promise, goes to a person. When a conversation shows the boundary was in the wrong place, the boundary moves."}}, {"@type": "Question", "name": "When do you switch one of them off?", "acceptedAnswer": {"@type": "Answer", "text": "When it is doing harm that the review queue cannot catch in time: a voice agent looping callers, a chat agent answering off-script, an OCR pipeline suddenly misreading a common supplier. Each system has a fallback that a person can reach without a developer, and the fallback is always the manual process that existed before."}}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href=".././">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../work/">Work</a>
+      <a href="../writing/">Writing</a>
+      <a href="../services.html">Services</a>
+      <a href="../career-advice.html">Career advice</a>
+      <a href="../skills.html">Skills</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="../writing/">Writing</a> / <a href="./">Articles</a></div>
+<article class="article">
+<h1>Five AI systems in production: what breaks when nobody is watching</h1>
+<p class="meta">Article by Khaqan Shaheen. Published 8 September 2026. About 1,415 words. Topics: ai, production-systems, erp.</p>
+<p class="answer">Five AI systems of my design run in daily production at the group. What breaks when nobody is watching is rarely the model. It is a dropped connection, a confident wrong answer, or a boundary nobody defined. The fix is the same for all five: a person at the edge, a review queue, and an off switch.</p>
+<h2>Document OCR into the ERP</h2>
+<p>The first system reads supplier bills and expense claims and creates the record in the ERP. A bill or a photographed receipt arrives, the pipeline extracts the fields that matter, and a bill or expense record appears in Odoo with those values populated and the original document attached. It runs on Gemini and Claude vision APIs, with Python between them and the ERP.</p>
+<p>The principle from the first version is that the pipeline creates records but never posts to the ledger. A language model is confidently wrong in a way a broken scanner never is. It gives you a plausible total from the wrong line, formatted perfectly. So the output lands in the bill and expense models where the group's existing approval workflow already applies, and finance changed from typing values to checking them.</p>
+<p>What breaks unattended: a supplier changes its invoice template without telling anyone, and the field that was reliably in the top right is now somewhere else. The system does not crash. It quietly starts picking a different number. That is why the review step is not optional.</p>
+<h2>Certificate and document verification</h2>
+<p>The second system checks certificates and documents automatically: whether the document is what it claims to be, whether the details on it match what we expect, and whether anything is missing.</p>
+<p>It makes no decisions. It raises a flag for a person and shows them why. The failure mode I designed against is the confident pass: a document that looks right, reads right and is wrong in one detail that matters. A system that only ever says yes is worse than no system, because people stop looking. So it is built to refuse to guess and to escalate on doubt, and the person who reviews the exceptions is the same person who would have checked the document by hand before.</p>
+<h2>The sales agent on WhatsApp and the web</h2>
+<p>The third system answers enquiries on WhatsApp and on the group websites at any hour, qualifies the enquiry and creates the lead in the Odoo CRM pipeline. In this market WhatsApp is the first channel a buyer reaches for, and enquiries do not arrive during office hours. They arrive when the buyer is thinking about the problem, often late at night or at a weekend.</p>
+<p>The agent's job stops at qualification. It answers the question, works out what the enquiry actually is, and hands over a qualified lead. Anything that binds the company commercially, such as a price or a delivery promise, goes to a person. Deciding what it must escalate was more of the work than making it talk, because a manufacturing buyer asking about a specification will not accept a brochure paragraph, and an agent that invents an answer is worse than no agent at all.</p>
+<p>What breaks unattended: the WhatsApp connection. Sessions drop. Something running for months without a person watching has to be engineered for reconnection rather than for the happy path. An agent that is silently down looks, from the outside, exactly like a business that does not answer.</p>
+<h2>The voice agent on the phone system</h2>
+<p>The fourth system answers inbound calls on our Grandstream telephony. Chat had already been solved. Voice is where people still go when the enquiry is urgent, and a caller who reaches a ring tone does not leave a voicemail. They call the next supplier, and there is no record the call ever happened.</p>
+<p>Because telephony sits inside my IT function rather than with facilities or an outside supplier, I could build the agent onto our own platform instead of pointing our numbers at somebody else's cloud. Call handling stays inside the estate, caller audio does not leave it, and the design stays under my control.</p>
+<p>Voice is far less forgiving than chat. A pause of a second that nobody notices when typing is an awkward silence on a call, so latency was a design constraint from the start rather than a tuning exercise at the end. Callers to a manufacturer in this region speak with a wide range of accents, in several languages, often on a poor line.</p>
+<p>What breaks unattended: handover. An agent that traps a caller in a loop is worse than the ring tone it replaced. The fallback behaviour, what happens when it cannot understand or cannot help, was defined before it went anywhere near a live number.</p>
+<h2>One chat platform under several numbers</h2>
+<p>The fifth system is the one people do not see. Rather than a separate bot per brand and per WhatsApp number, one platform drives several numbers and all the group websites, with one set of rules and one place to change them. Each brand answers in its own voice, but there is one system behind it. Adding a number is a configuration change rather than a project.</p>
+<p>This is the system that makes the other chat systems operable. When a rule changes, it changes once. When the reconnection logic is fixed, it is fixed for every number.</p>
+<h2>What actually breaks?</h2>
+<p>Looking across all five, the failures fall into a short list.</p>
+<ul>
+<li>Connections drop. WhatsApp sessions, API endpoints, the telephony link. The model is fine and the system is unreachable.</li>
+<li>Inputs drift. A supplier changes a template, callers start arriving in a language last month's calls did not include, a website form gains a field.</li>
+<li>Confidence outruns accuracy. The model produces a clean, well-formatted answer that is wrong, and nothing in the output signals doubt.</li>
+<li>The boundary is crossed. The agent is asked something it should escalate and does not, because nobody wrote that case down.</li>
+<li>Silence looks like success. A system that stops working and stops reporting is indistinguishable from one that is quiet because nothing came in.</li>
+</ul>
+<p>None of these is a model problem. They are operations problems.</p>
+<h2>The rules I apply to all five</h2>
+<p>Every system creates or flags, and a person decides. OCR creates a record for finance to approve. Verification raises an exception for a person to clear. The sales agent creates a lead for a salesperson. The voice agent hands over. Nothing posts, commits or promises on its own.</p>
+<p>Each has a written boundary: what it answers, what it refuses, what it escalates, and to whom. That document exists before the system goes live, and it changes whenever a real conversation shows it was wrong.</p>
+<p>All five are monitored for absence as well as errors. Automated alerts fire when a channel goes quiet for longer than it should, not only when something throws an exception.</p>
+<p>Each has a review queue that somebody actually owns. A queue nobody reads is a queue where mistakes accumulate.</p>
+<p>And each has an off switch I can reach without a developer. When the voice agent misbehaves, calls go back to the routing they had before it. When the sales agent misbehaves, the number goes back to a person. Knowing you can turn it off in a minute is what makes it safe to leave it on overnight.</p>
+<h2>Common questions</h2>
+<h3>Why let AI create ERP records at all if a person still has to check them?</h3>
+<p>Because checking is faster and less error-prone than typing, and the document is processed on arrival rather than when somebody is free. The person's job changes from transcription to review, which is where their judgement is actually useful.</p>
+<h3>How do you decide what an AI sales agent is allowed to say?</h3>
+<p>By writing down the boundary before the agent goes live and revising it from real conversations. It answers questions and qualifies the enquiry. Anything that binds the company commercially, such as a price or a delivery promise, goes to a person. When a conversation shows the boundary was in the wrong place, the boundary moves.</p>
+<h3>When do you switch one of them off?</h3>
+<p>When it is doing harm that the review queue cannot catch in time: a voice agent looping callers, a chat agent answering off-script, an OCR pipeline suddenly misreading a common supplier. Each system has a fallback that a person can reach without a developer, and the fallback is always the manual process that existed before.</p>
+<nav class="pager" aria-label="More"><a href="./">&larr; All articles</a><a href="../services.html">Work with me &rarr;</a></nav>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

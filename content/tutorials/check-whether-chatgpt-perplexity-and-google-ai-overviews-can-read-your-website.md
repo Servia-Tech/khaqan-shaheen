@@ -59,7 +59,7 @@ do
 done
 ```
 
-If the browser string gets 200 and a bot string gets 403, you have found a block that robots.txt never mentioned. On one of my own sites I went looking for exactly that and found no block at all; the likely cause was a slow server that exhausted a crawler's patience before the page arrived. So check response time too, with `-w "%{http_code} %{time_total}\n"`.
+If the browser string gets 200 and a bot string gets 403, you have found a block that robots.txt never mentioned. On one of my own sites I went looking for that and found no block at all; the likely cause was a slow server that exhausted a crawler's patience. So check response time too, with `-w "%{http_code} %{time_total}\n"`.
 
 ## Step 3: confirm the text is in the raw HTML
 
@@ -77,17 +77,17 @@ A count of zero means the phrase is not in the HTML. Then look at how much text 
 curl -s https://your-site.com/ | sed 's/<[^>]*>//g' | tr -s '[:space:]' ' ' | wc -w
 ```
 
-That strips the tags and counts words. A homepage that shows three hundred words in a browser but returns forty from curl is being built by JavaScript. The fix is server-side rendering or static generation, which is a framework decision rather than a tweak.
+That strips the tags and counts words. A homepage that shows three hundred words in a browser but returns forty from curl is being built by JavaScript. The fix is server-side rendering or static generation, a framework decision rather than a tweak.
 
 ## Step 4: check for JSON-LD structured data
 
-Structured data tells a machine what your business is without it having to guess from prose. Check that at least one block exists and that it parses.
+Structured data tells a machine what your business is without guessing from prose. Check that at least one block exists and parses.
 
 ```bash
 curl -s https://your-site.com/ | grep -c 'application/ld+json'
 ```
 
-Then pull the blocks out and make sure they are valid JSON, using Python's standard library only.
+Then pull the blocks out and check they are valid JSON, with Python's standard library only.
 
 ```bash
 curl -s https://your-site.com/ | python3 -c "
@@ -104,7 +104,7 @@ For a services business you want `LocalBusiness` or one of its subtypes, `Servic
 
 ## Step 5: check for /llms.txt
 
-llms.txt is a plain Markdown file at the site root that gives a language model a curated map of your pages. Adoption by the big AI companies is uneven, but the file costs nothing and I have seen crawlers request it.
+llms.txt is a plain Markdown file at the site root that gives a language model a curated map of your pages. Adoption is uneven, but the file costs nothing and I have seen crawlers request it.
 
 ```bash
 curl -s -o /dev/null -w "%{http_code} %{content_type}\n" https://your-site.com/llms.txt
@@ -130,7 +130,7 @@ If the output is one line with a large count, the dates are hardcoded. I have fo
 
 ## Step 7: the one-command method
 
-Everything above is what my audit script does, plus a scoring pass. It is one Python file with no dependencies beyond the standard library, and it is open source.
+Everything above is what my audit script does, plus a scoring pass. It is one open-source Python file with no dependencies beyond the standard library.
 
 ```bash
 git clone https://github.com/Servia-Tech/ai-visibility-audit.git

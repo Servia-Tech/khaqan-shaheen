@@ -806,7 +806,588 @@ Greenfield IT delivery, project sequencing, multi-country vendor and contract ma
 
 ## Articles
 
+# Why I extended one ERP instead of buying a second system for manufacturing
+
+Source: https://servia-tech.github.io/khaqan-shaheen/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html. Published 2026-09-08.
+
+Because a second system means a second set of records and an interface that somebody maintains forever. I had the manufacturing modules the standard package lacked built on top of the ERP the group already ran, to my specification, and kept them upgradable. Six sites now close the month from the same records.
+
+## What six sites looked like before one platform
+
+The group I run IT for makes plastics at six sites in five countries, with around 150 people using the systems and support coming from Dubai. When I took on the whole function, each site had bought its own software locally over the years. Nothing was shared, there was no standard, and nobody owned the whole.
+
+The cost of that showed up at month end. Production ran on one set of numbers, finance on another, sales on a third. Consolidating the group meant exporting from one system, retyping into a spreadsheet, and then arguing about the differences the retyping had quietly invented. A simple question about the whole group took a week to answer, and the answer depended on who had done the export.
+
+I report directly to the owner with no IT layer above me, so the ERP was mine to decide and mine to deliver. The obvious first step was one ERP for the group. The harder question was what to do about manufacturing.
+
+## Why not just buy a manufacturing system?
+
+Stock ERP software is good at accounting, sales, purchasing and stock. It is weaker on a plastics plant. Ours has machines with different capacities, shifts, batch issue of material, and a path from a customer enquiry through a manufacturing order to a delivery order that the standard package did not model the way we work.
+
+The usual answer is a second product. You keep the ERP for finance and buy a manufacturing system for the plant, then connect the two. Every vendor in the space will tell you the interface is straightforward. It never is, and even when it works on day one it has to work on every day after that, through every upgrade of either side. Somebody owns that interface for the life of both systems, and in a group of our size that somebody is me.
+
+Two systems also means two sets of records. The manufacturing order in one product and the sales order in the other are supposed to agree. When they don't, you are back to the reconciliation exercise you bought the ERP to get rid of. I had just done the work of getting six sites onto one set of numbers. I was not going to split them again at the plant door.
+
+So I chose to extend. One Odoo instance for the group, covering production, sales, inventory, procurement, accounting, HR and maintenance, with the modules the standard package did not reach built on top of it.
+
+## What had to be built
+
+The gaps were specific. Order management from enquiry to delivery. Quotation and pricing that understood our products. Lead capture feeding the same pipeline. An accounting approval flow where a rejected bill carries a recorded reason. Dashboards by function, so a plant manager and a finance manager each see their own view. Barcode and label printing on the shop floor.
+
+I do not write this code myself. I specify it, external developers build it to that specification, and I review what comes back against what I asked for. That division matters. My job is to know the business well enough to write a specification a developer can build without guessing, and to know Odoo well enough to reject a design that will not survive.
+
+Where a good community module already existed for a gap, I deployed and maintained it rather than having it rebuilt. That is a different claim from having written it, and I am careful about which is which. An ERP-literate reader will check.
+
+## Keeping the customisation upgrade-safe
+
+Customisation is what kills ERP platforms. Heavily modified systems become impossible to upgrade, and the group ends up stranded on an unsupported release with a vendor who has moved on. The point of extending one system rather than buying two was to stay on a supported platform, so upgradability was a design constraint on every module from the start, not something to think about later.
+
+In practice that means a few rules I apply to every specification.
+
+- Extend the standard models, never fork them. A custom field on a standard model survives an upgrade. A copied and edited core module does not.
+- Keep custom code in its own module tree, with the company as author, so it is obvious what is ours and what is Odoo's.
+- Never patch the core to fix a problem. If the framework does not allow something cleanly, the specification changes, not the framework.
+- Treat the upgrade as a rehearsed event. The module tree gets migrated forward on a copy of production before anything touches the live instance.
+
+The module tree I hold today documents more than one generation of the platform, each migrated forward from the last. That is the evidence the approach works. If it had not, we would still be on the version we started on.
+
+## How do you get six sites to accept one standard?
+
+The technical work was the easier half. Sites that had chosen their own tools had to be persuaded that a group standard was worth what they were giving up, and a site manager who picked his own tools is not going to enjoy being told they are going.
+
+I rolled out site by site and function by function rather than one switch-over. That gave each site a period where their local system and the group system ran together, which is uncomfortable but honest. It also gave me a rule for every difference that came up. Where a local difference was real, such as a legal requirement in that country or a genuinely different production flow, it went into the configuration. Where it was habit, it was standardised. Most differences turned out to be habit, and saying so plainly at the start saved a lot of argument later.
+
+The other thing that helped was the reporting line. The ERP was mine to decide, and I report directly to the owner, so nobody at a site could appeal over my head for a different answer. I could spend my time explaining how the group standard would work rather than defending whether it should exist.
+
+## What changed at month end
+
+All six sites now run on one supported platform and close the month from the same records. The reconciliation exercise is gone because there is nothing to reconcile. A question about the whole group is a report, not a project. And the manufacturing side of the business lives in the same system as the invoice it produces, so the order that went to the machine and the order that went to the customer are the same order.
+
+It is not a finished job. The tree keeps growing as the group grows, and each new module has to pass the same upgradability test as the first.
+
+## Common questions
+
+### Does extending Odoo mean you are locked into one version?
+
+No, provided the extensions are built to survive upgrades. Ours are kept in their own module tree, extend the standard models rather than forking them, and never patch the core. Each upgrade is rehearsed on a copy of production first, and the platform has been migrated forward more than once since the first build.
+
+### Why not run a separate ERP in each country?
+
+Because the whole problem was six sites closing the month off six sets of records. Local requirements that are real, such as a tax rule or a customer document format, go into the configuration of the one instance. Running separate instances would recreate the reconciliation exercise we removed.
+
+### When would you buy a second system instead?
+
+When the gap is a whole discipline the platform was never designed for and the interface would be simple, such as a machine-level control system that only reports finished quantities. For order management, pricing, approvals and shop-floor printing, which all touch the same records as sales and finance, extending the one platform was the right call.
+
+# Replacing local passwords with single sign-on in a mid-sized group
+
+Source: https://servia-tech.github.io/khaqan-shaheen/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html. Published 2026-09-08.
+
+Every person now has one identity on Google Workspace, with single sign-on, two factor enforced, and access through role-based groups rather than individual requests. Identity came first, the ERP's own access model second, monitoring last. A leaver is now a role change made in one place on the day they go.
+
+## Identity that accumulated instead of being designed
+
+The group has around 150 users across six sites in five countries. Each site had bought and set up its own systems locally over the years, which means identity had never been designed. It had accumulated.
+
+The same person had a password for the ERP, another for mail, and others for whatever that site had bought. Nobody remembers that many passwords, so in practice it was one weak password reused everywhere, and the security of the whole group rested on the weakest system any site had ever installed. There was no central control and no way to answer the two questions that matter: who has access to what, and who still has access who should not.
+
+Leavers were the sharp edge. Removing someone's access meant remembering every system they had ever touched, at every site, and asking somebody local to do it. Accounts survived departures because nobody could be sure they had found them all. Inside the ERP it was worse in a different way. Everybody could see everything, because nobody had ever defined what a salesperson or a storekeeper should and should not see.
+
+This rebuild was my proposal, my design and my delivery. I own the security and identity estate and report to the owner, and that mandate turned out to matter more than any of the technology.
+
+## Why identity has to come first
+
+The order of operations was identity, then the application layer, then monitoring. It is tempting to start with the ERP because that is where the pain is most visible, but access rules in an application are only as good as the identity behind them. If I do not know for certain who is logging in, defining what they can see is decoration.
+
+So the first job was one identity per person on Google Workspace, with single sign-on and OAuth so that the ERP and the other systems trusted that identity rather than holding their own passwords. Once that was in place a person had one login. Turn it off and everything it reaches goes with it.
+
+Only then did it make sense to rebuild access inside Odoo, and only after that did monitoring mean anything, because monitoring a system with no reliable identity just tells you that someone did something.
+
+## Where did the resistance come from?
+
+Not from where I expected. The technical objections were minor. The real resistance was that tightening access always takes something away from somebody, and every restriction needs a person willing to defend it.
+
+A site manager who has had full visibility of every record for years does not experience role-based access as security. He experiences it as being locked out of his own business. A salesperson who could look at every customer now sees only theirs and wants to know why. Each of those conversations has to be had, and each one goes better if the answer is "the owner wants it this way" rather than "IT wants it this way". I could give that answer because the mandate came from the top, and I made sure the managers who own the data were in the room when roles were defined. A role model nobody agreed to gets bypassed within a month.
+
+The other kind of resistance was practical rather than political, and it centred on two factor.
+
+## What two factor authentication changed
+
+Two factor across a manufacturing workforce is a people problem before it is a technical one. Not everybody sits at a desk. Not everybody has a company handset. Shop-floor patterns are not office patterns, and an enrolment process designed for someone with a laptop and a smartphone falls apart at a machine where the operator shares a terminal and keeps their phone in a locker.
+
+The configuration took an afternoon. The enrolment support was the project. It went in with the help a factory workforce actually needs, site by site, with somebody there in person rather than as an announcement by email, and with a way for a person who has lost their second factor to get back in that does not involve turning the protection off.
+
+What it changed is simple to state. A stolen or reused password, on its own, no longer opens anything. That closes the door the old arrangement had left wide open, where one leaked credential from one site's forgotten system could reach the group's mail and its ERP.
+
+## Role-based access inside the ERP
+
+Odoo expresses access as user groups, record rules and per-model access lists. Those are well designed, and the problem had never been the tooling. The problem was that nobody had defined them, so the defaults applied and the defaults were generous.
+
+I defined them properly, working with the managers who own each area of data. A salesperson sees the records their role allows and nothing else. Roles are defined once in the ERP and mirrored as groups in the identity layer, so access follows the role rather than a request. When someone changes job they change role, and the access changes with it.
+
+I publish no detail of the role model itself. That is the part an attacker would want, and it stays inside the estate.
+
+## What did monitoring show once it was on?
+
+Login and activity monitoring with automated alerts went on last, once identity and access were trustworthy enough that an alert meant something.
+
+The first thing monitoring shows any organisation is how much of its access nobody had asked for. Sessions that never ended, accounts that had outlived their purpose, logins at hours and from places that did not fit the person's job. Under the old arrangement that activity was invisible, not because it was hidden but because nothing was looking. Now unusual access is visible as it happens rather than discovered afterwards, when the only remaining question is how long it had been going on.
+
+I keep the monitoring rules to myself for the same reason I keep the role model to myself.
+
+## Joiners and leavers afterwards
+
+Somebody joins and they get a role. That role gives them an identity, a mailbox, a second factor and exactly the access their job needs, on the day they start. Somebody leaves and their access is withdrawn the same day, in one place, rather than site by site from memory. There is no search, because there is nothing to search for.
+
+The technology was the smaller part of this. Getting six sites to accept it was the work, and it only happened because the people who own the data helped define what access should look like rather than having it imposed on them.
+
+## Common questions
+
+### Why put two factor on everyone rather than only on administrators?
+
+Because the attacker does not need an administrator account to reach the ERP or the mail system, only one reused password from one person. Applying it across the group closes that door for everybody. The cost is enrolment support, which is real but one-off, and the alternative is a security model that depends on the least careful person at the least careful site.
+
+### How do you handle shop-floor staff who do not have company phones?
+
+You design enrolment around how they actually work rather than assuming a desk and a smartphone. That means being on site for enrolment, offering a second factor that fits the environment, and having a recovery route that does not require switching protection off. The configuration is quick. The people work is the project.
+
+### Does single sign-on create a single point of failure?
+
+It creates a single point of control, which is what you want. The alternative is many points of failure that nobody can see. The identity platform is a managed service with its own resilience, and access is monitored so that a compromised identity raises an alert rather than quietly working for months.
+
+# Five AI systems in production: what breaks when nobody is watching
+
+Source: https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html. Published 2026-09-08.
+
+Five AI systems of my design run in daily production at the group. What breaks when nobody is watching is rarely the model. It is a dropped connection, a confident wrong answer, or a boundary nobody defined. The fix is the same for all five: a person at the edge, a review queue, and an off switch.
+
+## Document OCR into the ERP
+
+The first system reads supplier bills and expense claims and creates the record in the ERP. A bill or a photographed receipt arrives, the pipeline extracts the fields that matter, and a bill or expense record appears in Odoo with those values populated and the original document attached. It runs on Gemini and Claude vision APIs, with Python between them and the ERP.
+
+The principle from the first version is that the pipeline creates records but never posts to the ledger. A language model is confidently wrong in a way a broken scanner never is. It gives you a plausible total from the wrong line, formatted perfectly. So the output lands in the bill and expense models where the group's existing approval workflow already applies, and finance changed from typing values to checking them.
+
+What breaks unattended: a supplier changes its invoice template without telling anyone, and the field that was reliably in the top right is now somewhere else. The system does not crash. It quietly starts picking a different number. That is why the review step is not optional.
+
+## Certificate and document verification
+
+The second system checks certificates and documents automatically: whether the document is what it claims to be, whether the details on it match what we expect, and whether anything is missing.
+
+It makes no decisions. It raises a flag for a person and shows them why. The failure mode I designed against is the confident pass: a document that looks right, reads right and is wrong in one detail that matters. A system that only ever says yes is worse than no system, because people stop looking. So it is built to refuse to guess and to escalate on doubt, and the person who reviews the exceptions is the same person who would have checked the document by hand before.
+
+## The sales agent on WhatsApp and the web
+
+The third system answers enquiries on WhatsApp and on the group websites at any hour, qualifies the enquiry and creates the lead in the Odoo CRM pipeline. In this market WhatsApp is the first channel a buyer reaches for, and enquiries do not arrive during office hours. They arrive when the buyer is thinking about the problem, often late at night or at a weekend.
+
+The agent's job stops at qualification. It answers the question, works out what the enquiry actually is, and hands over a qualified lead. Anything that binds the company commercially, such as a price or a delivery promise, goes to a person. Deciding what it must escalate was more of the work than making it talk, because a manufacturing buyer asking about a specification will not accept a brochure paragraph, and an agent that invents an answer is worse than no agent at all.
+
+What breaks unattended: the WhatsApp connection. Sessions drop. Something running for months without a person watching has to be engineered for reconnection rather than for the happy path. An agent that is silently down looks, from the outside, exactly like a business that does not answer.
+
+## The voice agent on the phone system
+
+The fourth system answers inbound calls on our Grandstream telephony. Chat had already been solved. Voice is where people still go when the enquiry is urgent, and a caller who reaches a ring tone does not leave a voicemail. They call the next supplier, and there is no record the call ever happened.
+
+Because telephony sits inside my IT function rather than with facilities or an outside supplier, I could build the agent onto our own platform instead of pointing our numbers at somebody else's cloud. Call handling stays inside the estate, caller audio does not leave it, and the design stays under my control.
+
+Voice is far less forgiving than chat. A pause of a second that nobody notices when typing is an awkward silence on a call, so latency was a design constraint from the start rather than a tuning exercise at the end. Callers to a manufacturer in this region speak with a wide range of accents, in several languages, often on a poor line.
+
+What breaks unattended: handover. An agent that traps a caller in a loop is worse than the ring tone it replaced. The fallback behaviour, what happens when it cannot understand or cannot help, was defined before it went anywhere near a live number.
+
+## One chat platform under several numbers
+
+The fifth system is the one people do not see. Rather than a separate bot per brand and per WhatsApp number, one platform drives several numbers and all the group websites, with one set of rules and one place to change them. Each brand answers in its own voice, but there is one system behind it. Adding a number is a configuration change rather than a project.
+
+This is the system that makes the other chat systems operable. When a rule changes, it changes once. When the reconnection logic is fixed, it is fixed for every number.
+
+## What actually breaks?
+
+Looking across all five, the failures fall into a short list.
+
+- Connections drop. WhatsApp sessions, API endpoints, the telephony link. The model is fine and the system is unreachable.
+- Inputs drift. A supplier changes a template, callers start arriving in a language last month's calls did not include, a website form gains a field.
+- Confidence outruns accuracy. The model produces a clean, well-formatted answer that is wrong, and nothing in the output signals doubt.
+- The boundary is crossed. The agent is asked something it should escalate and does not, because nobody wrote that case down.
+- Silence looks like success. A system that stops working and stops reporting is indistinguishable from one that is quiet because nothing came in.
+
+None of these is a model problem. They are operations problems.
+
+## The rules I apply to all five
+
+Every system creates or flags, and a person decides. OCR creates a record for finance to approve. Verification raises an exception for a person to clear. The sales agent creates a lead for a salesperson. The voice agent hands over. Nothing posts, commits or promises on its own.
+
+Each has a written boundary: what it answers, what it refuses, what it escalates, and to whom. That document exists before the system goes live, and it changes whenever a real conversation shows it was wrong.
+
+All five are monitored for absence as well as errors. Automated alerts fire when a channel goes quiet for longer than it should, not only when something throws an exception.
+
+Each has a review queue that somebody actually owns. A queue nobody reads is a queue where mistakes accumulate.
+
+And each has an off switch I can reach without a developer. When the voice agent misbehaves, calls go back to the routing they had before it. When the sales agent misbehaves, the number goes back to a person. Knowing you can turn it off in a minute is what makes it safe to leave it on overnight.
+
+## Common questions
+
+### Why let AI create ERP records at all if a person still has to check them?
+
+Because checking is faster and less error-prone than typing, and the document is processed on arrival rather than when somebody is free. The person's job changes from transcription to review, which is where their judgement is actually useful.
+
+### How do you decide what an AI sales agent is allowed to say?
+
+By writing down the boundary before the agent goes live and revising it from real conversations. It answers questions and qualifies the enquiry. Anything that binds the company commercially, such as a price or a delivery promise, goes to a person. When a conversation shows the boundary was in the wrong place, the boundary moves.
+
+### When do you switch one of them off?
+
+When it is doing harm that the review queue cannot catch in time: a voice agent looping callers, a chat agent answering off-script, an OCR pipeline suddenly misreading a common supplier. Each system has a fallback that a person can reach without a developer, and the fallback is always the manual process that existed before.
+
+# Bringing a new factory online: the order of operations
+
+Source: https://servia-tech.github.io/khaqan-shaheen/articles/bringing-a-new-factory-online-the-order-of-operations.html. Published 2026-09-08.
+
+Cable while the builders are there, order the circuits first, secure the perimeter, connect the site to the group ERP, then identity, telephony and site devices, then hand over. Each layer depends on the one before it. Done out of order, you do them twice, and the site opens on spreadsheets it never gives up.
+
+## IT is on the critical path whether anyone says so or not
+
+When the group commits to a new factory, the building work has a date and the commercial plan assumes the site can trade from that date. Nobody writes IT into the critical path. It is there anyway. A plant with no systems cannot receive material, book production or raise an invoice, so it cannot trade, however finished the building looks.
+
+The failure mode is well known and expensive. The site opens, the systems are not ready, and it runs on spreadsheets and local workarounds "for a few weeks". Those weeks become months. The workarounds have to be unpicked and reconciled later, and by then the site has its own way of working and does not want to give it up. That is how a group ends up unable to close the month off one set of records.
+
+I own the build: network, servers, connectivity, ERP, identity, telephony and physical security, delivered as one project from Dubai with my team of six and the local vendors I select and contract. The sequence below is the checklist I use each time.
+
+## Cabling and the equipment room, while the builders are still there
+
+Physical and network first. Containment, structured cabling and the equipment room get designed in during construction, because retrofitting cable into a finished factory costs several times more than running it while the walls are open. That means being in the drawings before the fit-out contractor is appointed, and being on the calls where the building programme changes, because it will.
+
+The equipment room is the item most easily forgotten. It needs power, cooling, a lockable door and enough space for the site to grow, and if it is not on the plan it becomes a cupboard next to the compressor.
+
+## Why do the circuits get ordered first?
+
+Because carrier lead times are the longest single item in the whole project and the one I have least control over. Every country has its own carriers, its own customs timelines and its own local contractors, and none of them care about the group's opening date. Equipment can sit in customs for longer than the fit-out takes.
+
+So local circuits are ordered as soon as the site has an address, before the network design is even finished. If the circuit arrives early it waits. If it arrives late the site opens without a connection to the group, and everything that follows waits with it. Connectivity to the group is what makes the site part of the estate rather than an island with a logo on the gate.
+
+## Perimeter and security before anything connects
+
+The site gets a firewall and a site to site VPN to the group standard before a single device is connected to anything. It is much easier to build a site to the standard than to bring it up to the standard afterwards, and a site that has spent weeks open to the internet while waiting for "the security phase" is a site I now have to treat as compromised.
+
+I do not publish the standard. The point is that there is one, it is the same at all six sites, and a new site inherits it on day one rather than earning it later.
+
+## The ERP site record and identity
+
+Servers and ERP connectivity come next, so that the site works in the group's system of record from the first day rather than in a local copy. In practice that means creating the site inside the one Odoo instance: its company record, its warehouses and locations, its local accounting configuration for that country, its sequences and its printing. The site does not get its own ERP. It gets a place in the group's.
+
+Identity runs alongside, as the new team is hired. Each person gets one Google Workspace identity with single sign-on, two factor authentication and role-based groups, the same way every other site works. Because roles already exist, a new site's staff are assigned to roles rather than having access invented for them. A storekeeper at the new site has the same access as a storekeeper at any other.
+
+This is the point where the site can trade. It can receive material, book production and raise an invoice, on the group's records, before the last painter has left.
+
+## Telephony on the group platform
+
+The site goes onto the group telephony platform and is reachable on the group numbering from the start. Telephony sits inside my IT function rather than with facilities, which means it is part of the same project and the same sequence rather than something a local supplier installs later and I inherit. It also means anything built on the group platform, including the AI voice agent that answers calls on our Grandstream telephony, is available to the new site rather than being something to rebuild locally.
+
+## Site devices: biometric readers, IP CCTV, access control, label printers
+
+Last of the technical layers is physical security and the devices on the floor. Each is connected to the system it feeds, which is the point of doing them after the ERP and the network rather than before.
+
+- Biometric attendance readers, feeding attendance into the ERP so a shift is a record rather than a paper sheet.
+- IP CCTV, on its own network segment, viewable from the group.
+- Access control on the doors that need it, managed as part of the estate rather than as a stand-alone box on the wall.
+- Label printers on the shop floor, driven from the ERP so a barcode label comes from the same record as the manufacturing order.
+
+Device and systems integration is where the local contractor and my team meet. The contractor pulls cable and mounts hardware. My team makes each device part of the estate.
+
+## The day one checklist
+
+Before I let a site open on group systems, I want to be able to answer yes to every one of these.
+
+- The circuit is live and the site to site VPN is up.
+- The firewall is on the group standard.
+- The site exists in the ERP with its warehouses, locations and local accounting in place.
+- Every hired person has one identity, a second factor enrolled and a role.
+- The site's numbers ring on the group platform.
+- Attendance readers, CCTV, access control and label printers are connected and feeding the systems they belong to.
+- Local hands are contracted, documentation is done, and the site is inside the normal support arrangement.
+
+That last line is the handover, and it is the one that gets skipped when the opening date is close. A site with no local hands and no documentation is a site that phones Dubai for every printer jam.
+
+The dates always move. The plan has to survive dates changing underneath it, and the sequence is what makes that possible. If the order is right, a slip in one layer delays the next layer, not the whole project.
+
+## Common questions
+
+### What happens if the circuit is not ready on opening day?
+
+The site can still be built and configured to the group standard, but it cannot trade on group systems until it is connected, which is why circuits are ordered before almost anything else. A temporary connection buys time. Anything that lets a site "start on spreadsheets" is avoided, because those spreadsheets are still there a year later.
+
+### Why not let a new site pick its own local systems?
+
+Because that is exactly how the group ended up with six sites on six systems before the ERP consolidation. A new site joins the group's one instance as a company record with its own warehouses and local accounting, so it closes the month from the same records as everyone else from its first month.
+
+### How do you deliver this from Dubai?
+
+With local vendors I select and contract myself for cabling, mounting and hands-on work, and my own team for everything that makes the site part of the estate: the firewall, the VPN, the ERP configuration, identity, telephony and device integration. Vendor selection and negotiation are part of the job, not a procurement handoff.
+
+# A PostgreSQL upgrade nobody was allowed to notice
+
+Source: https://servia-tech.github.io/khaqan-shaheen/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html. Published 2026-09-08.
+
+I took the production database under our group ERP from PostgreSQL 9.5 to 16, eight major versions, with no unplanned downtime at any site. The upgrade itself was the small part. The rehearsal, the rollback plan and the backup and recovery estate built around it were the work.
+
+## Why was it left so long?
+
+The database under the ERP holds everything the group does commercially: every order, every stock movement, every invoice, for six sites in five countries. If it stops, six sites stop. That is exactly why nobody had touched it. It was the most business-critical thing in the company, and the person who upgrades it and breaks it is the person everybody remembers. So it sat on 9.5 while the versions went past.
+
+The reasons to leave it alone are all short-term and the reasons to move are all long-term, which is how a database gets eight versions behind without anyone ever deciding that it should. Security fixes had stopped arriving for 9.5. Newer tooling, including the backup and monitoring tools I wanted, assumed a database far ahead of ours. Each year of waiting made the eventual jump larger and the excuse for not making it stronger.
+
+There was a second problem that worried me more than the version number. There was no dependable recovery position. If the server had died on a Tuesday morning, nobody could have said with confidence what the group would get back or when. A manufacturer needs that question answered, and it was not.
+
+I own the platform and report to the owner, with no IT layer above me. That meant nobody was going to sign this off for me. The risk assessment and the rollback decision were mine, which concentrates the mind.
+
+## What was actually at risk
+
+The risk in a major-version upgrade sits above the database, not inside it. A heavily customised ERP is exactly where major-version behaviour changes bite. Query plans move, so a report that ran comfortably on 9.5 can crawl on a newer planner. Deprecated behaviour that the old version tolerated is simply gone. Every extension the database uses has to exist and behave on the new version, and you would rather find out that one does not on a copy than in production with six sites waiting.
+
+The exposure is asymmetric. A good upgrade is invisible. A bad one is the worst day the company has had. So the tests that matter are not generic database benchmarks. They are the group's own workflows: raise a manufacturing order, receive stock, post an invoice, close a period, print a label. If those work on the new version, the upgrade works. If one of them does not, nothing else matters.
+
+## Rehearsing on a copy of production
+
+The rehearsal was the centre of the plan. I restored a copy of production, ran the migration against it, and then ran the ERP against the result. Not a smoke test. The actual application, the actual custom modules, the actual reports the finance team runs at month end.
+
+That surfaced the things a checklist never would have. Behaviour that was silently tolerated on the old version and rejected on the new one. Custom queries whose plans changed. Extension versions that had to be lined up before the move rather than after. Each of those was fixed on the copy and the migration was run again from the start, until a full rehearsal went through cleanly with the application working on the other side.
+
+I kept repeating rehearsals until the run was boring. Boring was the goal. An upgrade that surprises you in rehearsal is doing its job. An upgrade that surprises you in production has already failed.
+
+## The rollback rule
+
+Every step had a rollback position I could reach inside the planned window. That was the one rule I would not bend. If I cannot get back to where I started before the window closes, I am not starting.
+
+In practice that meant keeping the old position intact and available until the new one had proved itself under a real working day, rather than declaring victory the moment the migration finished. A rollback you have to improvise at three in the morning is not a rollback. It is a second incident.
+
+## Moving one site at a time across time zones
+
+Six sites in five countries do not share a quiet hour. A window that is comfortable in one country is the middle of a working day in another. So sites moved one at a time, each in a planned window agreed with that site, with the rest of the group told what was happening and when.
+
+The sequence per site was deliberately unexciting. Rehearse. Verify the application on the copy. Plan the rollback. Take the planned window. Move. Verify again on the live system. Keep the old position available until the new one has earned trust. Then the next site, until every site was on the current version.
+
+Nobody noticed, which was the brief.
+
+## What the backup and recovery estate looks like now
+
+The upgrade was the excuse to build the resilience layer that had never existed. Around the database there are now automated backups, point in time recovery, replication off-site and to NAS storage, and monitoring with automated alerts. It runs on Linux with Nginx in front of the application, with workloads on-premise and across AWS, Google Cloud and DigitalOcean.
+
+The change that matters is the question recovery answers. Before, it was a question about the last backup: when was it taken, did it complete, has anyone ever restored from it. Now it is a question about a chosen moment. A failed server is a documented restore to a point in time, not an incident with an unknown outcome.
+
+I do not publish backup locations, retention windows or the recovery runbook, and I would not trust anyone who did. But the estate runs daily, it is monitored, and a restore is a documented procedure rather than an assumption.
+
+## What I would do differently
+
+Two things.
+
+First, I would build the backup and recovery estate before the upgrade rather than alongside it. I did both in the same programme because both were overdue, but the honest order is recovery first. A rehearsed restore is the safety net under everything else, and I would rather have had it in place before I started moving versions.
+
+Second, I would never again let a database get eight versions behind. The safest upgrade is a small one, done regularly, on a system where upgrading is a normal event rather than a feared one. The whole programme existed because that habit had not. It exists now. The database is current and supported, and the next major version will be one step, rehearsed the same way, in a window nobody notices.
+
+## Common questions
+
+### How do you test an ERP against a new database version?
+
+By restoring a copy of production, migrating it, and running the real application against the result: the custom modules, the month-end reports, the shop-floor printing. Generic database benchmarks tell you nothing about whether your own workflows will survive. The rehearsal is repeated until it runs cleanly end to end.
+
+### What does point in time recovery actually give you?
+
+The ability to restore the database to a chosen moment rather than to the last completed backup. If somebody deletes the wrong records at ten past nine, you can recover to nine o'clock. It turns a failed server or a bad change from an incident with an unknown outcome into a documented restore.
+
+### Is it safer to upgrade in small steps every year?
+
+Yes. The cost of a major-version upgrade grows with the gap, and so does the fear of doing it. A database that moves one version at a time, rehearsed each time, carries far less risk than one that waits eight versions and then has to move all at once.
+
 ## Tutorials
+
+# Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html. Published 2026-09-08.
+
+By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules your finance team would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this for their own company.
+
+## What you need
+
+- A vision-capable model with an API, such as Gemini or Claude, and a budget for it
+- Python 3.11 or later and a PDF renderer (`pdftoppm` from poppler, or PyMuPDF)
+- Read access to the bill sources: a mailbox, a scanner share, a WhatsApp Business account
+- An ERP API for creating draft vendor bills (Odoo's `account.move` over JSON-RPC in my case)
+- Two tables of your own: an audit log and a hash register
+- A finance person who will label a sample of bills by hand each month
+
+I run a pipeline of this shape in production. What follows is the design, not the code, and each rule is here because it caught something.
+
+## The shape of it
+
+Capture the file, extract JSON with the model, validate it with rules, route it to a draft bill or a review queue, record every step, and measure the result against a labelled sample. Six stages, one job each.
+
+The principle that holds it together: the pipeline creates draft records, it does not post to the ledger. A model is confidently wrong in a way a broken scanner never is. The output lands where your existing approval controls already apply, and finance changes from typing values to checking them.
+
+## 1. Capture
+
+Three sources cover most companies: a dedicated mailbox read by IMAP or the Gmail API, a watched folder where the scanner drops PDFs, and the WhatsApp Business API webhook, because suppliers in some markets send bills as photographs from a phone and will not stop.
+
+Each source produces the same thing: a file, a source tag, a sender identity if there is one, and a received timestamp. Store the original bytes before anything else. You need them for the audit trail, for reprocessing when you improve the prompt, and for the argument with a supplier about what their bill said. Then compute a SHA-256 of the bytes and check it against your register, so a repeat costs nothing.
+
+## 2. Extraction against a strict schema
+
+Render each page to an image (150 to 200 dpi is enough; more costs money and does not read better), send all the pages in one request, and ask for JSON only, against a schema you include in the prompt. Use the API's structured output mode if it has one, and set the temperature to zero. Validate the response against the schema in code before anything else looks at it. A response that does not parse is a failure, not a partial success.
+
+The schema I use is close to this:
+
+```json
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["document_type", "supplier", "invoice_number", "invoice_date",
+               "currency", "lines", "subtotal", "tax_total", "total",
+               "handwritten_amendments", "unreadable_fields"],
+  "properties": {
+    "document_type": {"enum": ["invoice", "credit_note", "statement", "proforma", "other"]},
+    "supplier": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string"},
+        "tax_id": {"type": ["string", "null"]},
+        "country": {"type": ["string", "null"]}
+      }
+    },
+    "invoice_number": {"type": "string"},
+    "invoice_date": {"type": "string", "format": "date"},
+    "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+    "lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description", "quantity", "unit_price", "amount"],
+        "properties": {
+          "description": {"type": "string"},
+          "quantity": {"type": "number"},
+          "unit_price": {"type": "number"},
+          "tax_rate": {"type": ["number", "null"]},
+          "amount": {"type": "number"}
+        }
+      }
+    },
+    "subtotal": {"type": "number"},
+    "tax_total": {"type": "number"},
+    "total": {"type": "number"},
+    "handwritten_amendments": {"type": "boolean"},
+    "unreadable_fields": {"type": "array", "items": {"type": "string"}}
+  }
+}
+```
+
+Two fields do most of the work. `document_type` lets the model tell you that the thing in the mailbox is a statement or a pro forma, which is not a bill and must not become one. `unreadable_fields` gives the model a way to say "I could not read the total" instead of guessing. Tell it in the prompt, in plain words, that a guessed number is worse than naming the field as unreadable. That one instruction removed more bad records than any clever prompting.
+
+Dates are ISO in the schema so the model makes the day-month decision once, with the supplier's country as a hint. Numbers are numbers, so "1.234,56" and "1,234.56" both arrive as 1234.56.
+
+## 3. Validation rules
+
+The schema proves the shape. The rules prove the content. Each rule produces a named pass or fail with a detail string, because the review queue shows those to the reviewer.
+
+```python
+from dataclasses import dataclass
+from datetime import date
+from decimal import Decimal
+
+TOLERANCE = Decimal("0.05")   # rounding across tax lines
+
+
+@dataclass
+class Check:
+    name: str
+    passed: bool
+    detail: str = ""
+
+
+def money(value) -> Decimal:
+    return Decimal(str(value))
+
+
+def validate(doc: dict, vendors, register, today: date) -> list[Check]:
+    checks = []
+    lines_sum = sum(money(line["amount"]) for line in doc["lines"])
+    subtotal, tax, total = money(doc["subtotal"]), money(doc["tax_total"]), money(doc["total"])
+
+    checks.append(Check("is_invoice", doc["document_type"] in ("invoice", "credit_note"),
+                        doc["document_type"]))
+    checks.append(Check("lines_add_up", abs(lines_sum - subtotal) <= TOLERANCE,
+                        f"lines {lines_sum} vs subtotal {subtotal}"))
+    checks.append(Check("total_adds_up", abs(subtotal + tax - total) <= TOLERANCE,
+                        f"{subtotal} + {tax} vs {total}"))
+    checks.append(Check("nothing_unreadable", not doc["unreadable_fields"],
+                        ", ".join(doc["unreadable_fields"])))
+    checks.append(Check("no_handwriting", not doc["handwritten_amendments"]))
+
+    vendor = vendors.match(doc["supplier"]["name"], doc["supplier"].get("tax_id"))
+    checks.append(Check("supplier_in_master", vendor is not None, doc["supplier"]["name"]))
+    if vendor:
+        number = doc["invoice_number"].strip().upper()
+        checks.append(Check("invoice_number_unique",
+                            not register.exists(vendor.id, number), number))
+        checks.append(Check("currency_expected", doc["currency"] in vendor.currencies,
+                            doc["currency"]))
+
+    age = (today - date.fromisoformat(doc["invoice_date"])).days
+    checks.append(Check("date_plausible", 0 <= age <= 365, doc["invoice_date"]))
+    return checks
+```
+
+The supplier match deserves care. Match on tax registration number first, then on a normalised name, and treat a weak name-only match as a fail. The vendor master is the only place the pipeline learns supplier names from; a spelling difference between the bill and the master is a matching problem to solve in code, not a reason to create a vendor.
+
+Invoice number uniqueness is per supplier, not global, because two suppliers can both issue "INV-1001". The register is a table of (vendor, normalised number) pairs written when a bill is created, and it catches the second scan of the same bill even when the file bytes differ.
+
+## 4. Confidence and the review queue
+
+Do not ask the model how confident it is and route on the answer. The number it gives you is not calibrated, and I have watched it report high confidence on a total it invented. Confidence here is earned three ways: every rule passed, a second extraction (a different rendering, or a second model) agrees on supplier, number, date and total, and the supplier has a history of clean extractions.
+
+Anything that fails a rule or disagrees on a key field goes to the review queue, with the page images, the JSON and the failed checks side by side. Start with everything reviewed, including the passes, until the measurement in step 8 says the straight-through path is safe. Loosen from there, one supplier at a time.
+
+The review queue is a screen your finance team will live in, so build it for them: keyboard-driven, the failed rule at the top, one key to accept, one to correct a field, one to reject with a reason. Record every correction. Corrections are evidence for your accuracy figure and the raw material for better rules.
+
+## 5. Idempotency and the audit log
+
+The same bill arrives twice more often than you would think: forwarded by two people, sent by the supplier and again by the buyer, scanned again because the first scan looked crooked. The file hash catches byte-identical repeats before you spend anything; the (vendor, invoice number) register catches repeats that are different files; for email, the message ID is a third key. The register needs a status column, because a bill sitting in the review queue is not yet in the ERP, and a second copy arriving while it waits must be tied to the first.
+
+The audit log is one row per document per attempt: hash, source and sender, received time, model and prompt version, the raw JSON returned, every check with its result, the route taken, the ERP record created if any, the reviewer's decision and corrections, and a timestamp for each step. When someone asks in six months why a bill went in with the wrong total, this is the only thing that answers them.
+
+## 6. Cost control
+
+Vision models charge roughly by the page. A page cap per document (the first few pages and the last, because a bill with twenty pages is usually a statement with a bill stapled to it; anything over the cap goes to review). Downscaled JPEG pages rather than full-resolution PNGs. The hash check before the model call. Non-urgent sources batched overnight if the API has a cheaper batch tier. A daily spend ceiling with an alert, and a hard stop above it.
+
+## 7. Failure modes I have met
+
+Handwritten amendments: a printed total with a pen correction beside it. The model reads the printed number. The `handwritten_amendments` flag sends these to review.
+
+Multi-page bills: line items run across pages, and a subtotal on page two gets read as the total. Sending every page in one request fixes most of it; the totals rule catches the rest.
+
+Stamps over numbers: a "RECEIVED" stamp across the total, or a signature through the invoice number. The model guesses at the hidden digits. The totals rule and the second extraction disagree, and it goes to review.
+
+Duplicates sent twice: covered above, but a supplier who reissues a corrected bill under the same number still needs a person. The register flags it and a reviewer decides, which is the right outcome.
+
+Statements and pro formas: `document_type` and the `is_invoice` rule keep them out of accounts payable.
+
+Foreign currency and thousands separators: give the model the supplier's country and expected currency as hints, and let `currency_expected` catch the rest.
+
+## 8. Measuring accuracy honestly
+
+An accuracy figure from a demo is worthless. Measure on your own document mix. Each month, draw a random sample of processed bills (a hundred is a workable size), including ones that went straight through and ones that were reviewed. A finance person keys the fields from the original without seeing the pipeline's output. Compare field by field and report three numbers: accuracy per key field, the straight-through rate (bills that needed no human touch), and the rate at which straight-through bills were later found to be wrong. That third number is the one that matters and the one nobody publishes.
+
+Track it by supplier, because suppliers change their templates without telling anyone and accuracy drops one supplier at a time. Do not use the reviewers' corrected values as ground truth; a reviewer can accept a wrong value that looked right. The monthly re-check is what makes the number believable a year later.
+
+## Common questions
+
+### Why not a template-based OCR product instead of a language model?
+
+Templates work when your suppliers are few and their layouts stable. Mine are neither: every supplier invoices differently, in more than one language, and the same supplier changes its template without warning. A vision model reads an unfamiliar layout on the first attempt, and the rules above do the job the template used to do, which is deciding whether to trust what was read.
+
+### Should the pipeline create the vendor when it cannot find one?
+
+No. A vendor record is a control point: someone checked the trade licence, the tax registration and the bank details before it existed. Route the bill to review with a "supplier not found" reason, let a person create the vendor through the normal path, and reprocess the bill.
+
+### How do I keep the model from inventing line items on a bill that has none?
+
+Say in the prompt that some bills carry only a total and an empty `lines` array is the correct answer for them. Then let the rules work. Invented lines rarely add up to the printed subtotal, so `lines_add_up` fails and the reviewer sees the empty page next to the invented rows.
 
 # Odoo: how to stop two work orders being booked on the same machine at the same time
 
@@ -1076,19 +1657,19 @@ Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-l
 
 An llms.txt is a short Markdown file at /llms.txt that gives a language model a curated map of your site: a name, a summary and the pages that matter, one line each. It takes about an hour to write. Whether the big AI companies read it yet is an open question, but it costs nothing to add.
 
-The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index that says what the site is and where the important pages are gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.
+The idea was proposed in September 2024 by Jeremy Howard, and the specification lives at llmstxt.org. A model that fetches your site gets navigation, cookie banners and scripts mixed in with the content, and it has a limited window to read it in. A short, clean index gives it a better start. I have added one to every site I run. This is how I write them and how I check they are reachable, which is the step people skip.
 
 ## Step 1: learn the format
 
 The specification is short. In order:
 
 - An H1 with the business or site name. This is the only required element.
-- A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of everything below.
+- A blockquote immediately after it with a short summary, the few sentences a model needs to make sense of the rest.
 - Any paragraphs or lists that give more context. No headings in this part.
 - H2 sections, each containing a list of links in the form `- [Title](https://url): one-line description`.
-- An optional final H2 called `Optional`, for links that can be skipped when the reader is short on space.
+- An optional final H2 called `Optional`, for links that can be skipped when space is short.
 
-Here is the skeleton.
+The skeleton:
 
 ```markdown
 # Business name
@@ -1106,7 +1687,7 @@ A short paragraph of context that does not fit in the summary.
 - [Blog](https://example.com/blog): articles, less important than the pages above.
 ```
 
-The specification also allows a companion file, llms-full.txt, holding the full text of the linked pages in Markdown. It is optional, and I start without it.
+The specification also allows a companion llms-full.txt holding the full text of the linked pages in Markdown. It is optional, and I start without it.
 
 ## Step 2: decide what to put in for a services business
 
@@ -1115,21 +1696,21 @@ Think of the file as the briefing you would give a new receptionist on their fir
 - What you do, as a list of services with one line each. If you publish prices or a price range, say so and link to the page.
 - Where you serve. Emirates, cities, neighbourhoods. A model answering "plumber near me in Al Nahda" needs the place name, not "across the UAE".
 - Who you serve. Homes, offices, landlords, facilities companies.
-- How to book and how to get in touch, with both pages linked.
+- How to book and how to get in touch, both pages linked.
 - Hours, including whether you take emergency calls.
 - The questions customers ask most, which is your FAQ page.
-- Public credentials: trade licence, certifications, insurance, if they are already on the site.
+- Public credentials: trade licence, certifications, insurance, if already on the site.
 
-Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the price on the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.
+Every line should point to a page that exists and says the same thing. If the price in the file disagrees with the page, a model can trust neither. When I first did this on my own site I found prices that disagreed between pages; the file did not cause that, but it exposed it.
 
 ## Step 3: decide what to leave out
 
 - Login pages, carts, checkout, account pages.
 - Terms, privacy and cookie policies. Put them under `Optional` if you must.
 - Tag archives, category pages, pagination, search result pages.
-- Hundreds of links. This is a map, not a sitemap. If the list runs past forty or fifty lines, you are no longer curating.
+- Hundreds of links. This is a map, not a sitemap. Past forty or fifty lines you are no longer curating.
 - Tracking parameters in URLs.
-- Marketing copy with no facts in it. "Trusted by thousands" tells a model nothing it can use.
+- Marketing copy with no facts. "Trusted by thousands" tells a model nothing it can use.
 - Facts that do not appear on a page. If something is only in llms.txt, it will be quoted with nothing to back it up.
 
 ## Step 4: a complete worked example
@@ -1153,7 +1734,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 
 ## Pricing
 
-- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and which jobs are charged by the hour.
+- [Price list](https://www.bluepipeplumbing.example/pricing): fixed prices for call-outs, tap replacement, drain clearing and heater installation, and what is charged by the hour.
 
 ## Areas served
 
@@ -1179,7 +1760,7 @@ Bluepipe Plumbing is a registered plumbing contractor based in Al Qasimia, Sharj
 - [Terms of service](https://www.bluepipeplumbing.example/terms): booking, cancellation and guarantee terms.
 ```
 
-In three sentences the summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, which are the things a model would otherwise guess at.
+The summary gives a model the trade, the two emirates, emergency cover, fixed prices and how to book. The paragraph after it settles currency, VAT and the guarantee, the things a model would otherwise guess at.
 
 ## Step 5: serve it as text/plain or text/markdown
 
@@ -1201,7 +1782,7 @@ On a static host that reads a `_headers` file, such as Netlify:
   Content-Type: text/markdown; charset=utf-8
 ```
 
-If the site is an application and the framework owns every route, serve it from a route rather than fighting the router. In FastAPI:
+If a framework owns every route, serve it from a route rather than fighting the router. In FastAPI:
 
 ```python
 from fastapi import FastAPI
@@ -1215,17 +1796,17 @@ def llms_txt():
         return PlainTextResponse(f.read(), media_type="text/markdown; charset=utf-8")
 ```
 
-Two things to watch. A catch-all route can swallow `/llms.txt` and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a rule that adds a trailing slash to every path will redirect the file to `/llms.txt/`, a different resource.
+Two things to watch. A catch-all route can swallow `/llms.txt` and return your 404 page with a 200 status, which looks fine in a browser and is useless to a crawler. And a trailing-slash rule will redirect the file to `/llms.txt/`, a different resource.
 
 ## Step 6: check it is reachable
 
-Do not open it in a browser and call it done. Ask for it the way a crawler would.
+Do not open it in a browser and call it done. Ask for it as a crawler would.
 
 ```bash
 curl -s -o /dev/null -w "%{http_code} %{content_type} %{size_download}\n" https://www.bluepipeplumbing.example/llms.txt
 ```
 
-You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall rule can pass a browser and block a crawler on the same URL.
+You want a 200, a text type and a size that matches the file. Then repeat with a bot user agent, because a firewall can pass a browser and block a crawler on the same URL.
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 (compatible; GPTBot/1.0)" https://www.bluepipeplumbing.example/llms.txt
@@ -1239,21 +1820,21 @@ curl -s https://www.bluepipeplumbing.example/llms.txt | grep -o 'https://[^)]*' 
 done
 ```
 
-Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a couple of weeks to see who is fetching it.
+Every line should show 200. I published one with links that returned 404 because of a redirect rule I had forgotten, and only noticed when I ran this loop. Finally, make sure robots.txt does not disallow the file, and check your server logs after a few weeks to see who fetches it.
 
 ## Common questions
 
 ### Do ChatGPT, Claude or Google actually read llms.txt?
 
-Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it automatically, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.
+Unevenly, and nobody has committed to it in writing. Anthropic publishes one for its own documentation, several documentation tools generate it, and Google has said publicly that Search does not use it. In my own logs I have seen occasional requests for the file and nothing that proves it changed an answer. Treat it as cheap insurance and a useful editorial exercise.
 
 ### Should I also publish llms-full.txt?
 
-Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a specific consumer asks for it.
+Only if your site is small and the content is stable. The full file duplicates your pages, so every edit has to happen twice or the two drift apart. For a services site I would keep the short file accurate and leave the full one until a consumer asks for it.
 
 ### Does llms.txt replace robots.txt or the sitemap?
 
-No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none of them conflicts with the others.
+No. robots.txt says what may be fetched, the sitemap lists everything that exists, and llms.txt is the short curated list of what matters. All three belong on the site and none conflicts with the others.
 
 # How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website
 
@@ -1310,7 +1891,7 @@ do
 done
 ```
 
-If the browser string gets 200 and a bot string gets 403, you have found a block that robots.txt never mentioned. On one of my own sites I went looking for exactly that and found no block at all; the likely cause was a slow server that exhausted a crawler's patience before the page arrived. So check response time too, with `-w "%{http_code} %{time_total}\n"`.
+If the browser string gets 200 and a bot string gets 403, you have found a block that robots.txt never mentioned. On one of my own sites I went looking for that and found no block at all; the likely cause was a slow server that exhausted a crawler's patience. So check response time too, with `-w "%{http_code} %{time_total}\n"`.
 
 ## Step 3: confirm the text is in the raw HTML
 
@@ -1328,17 +1909,17 @@ A count of zero means the phrase is not in the HTML. Then look at how much text 
 curl -s https://your-site.com/ | sed 's/<[^>]*>//g' | tr -s '[:space:]' ' ' | wc -w
 ```
 
-That strips the tags and counts words. A homepage that shows three hundred words in a browser but returns forty from curl is being built by JavaScript. The fix is server-side rendering or static generation, which is a framework decision rather than a tweak.
+That strips the tags and counts words. A homepage that shows three hundred words in a browser but returns forty from curl is being built by JavaScript. The fix is server-side rendering or static generation, a framework decision rather than a tweak.
 
 ## Step 4: check for JSON-LD structured data
 
-Structured data tells a machine what your business is without it having to guess from prose. Check that at least one block exists and that it parses.
+Structured data tells a machine what your business is without guessing from prose. Check that at least one block exists and parses.
 
 ```bash
 curl -s https://your-site.com/ | grep -c 'application/ld+json'
 ```
 
-Then pull the blocks out and make sure they are valid JSON, using Python's standard library only.
+Then pull the blocks out and check they are valid JSON, with Python's standard library only.
 
 ```bash
 curl -s https://your-site.com/ | python3 -c "
@@ -1355,7 +1936,7 @@ For a services business you want `LocalBusiness` or one of its subtypes, `Servic
 
 ## Step 5: check for /llms.txt
 
-llms.txt is a plain Markdown file at the site root that gives a language model a curated map of your pages. Adoption by the big AI companies is uneven, but the file costs nothing and I have seen crawlers request it.
+llms.txt is a plain Markdown file at the site root that gives a language model a curated map of your pages. Adoption is uneven, but the file costs nothing and I have seen crawlers request it.
 
 ```bash
 curl -s -o /dev/null -w "%{http_code} %{content_type}\n" https://your-site.com/llms.txt
@@ -1381,7 +1962,7 @@ If the output is one line with a large count, the dates are hardcoded. I have fo
 
 ## Step 7: the one-command method
 
-Everything above is what my audit script does, plus a scoring pass. It is one Python file with no dependencies beyond the standard library, and it is open source.
+Everything above is what my audit script does, plus a scoring pass. It is one open-source Python file with no dependencies beyond the standard library.
 
 ```bash
 git clone https://github.com/Servia-Tech/ai-visibility-audit.git
@@ -1406,6 +1987,142 @@ No. Google-Extended only controls use of your content for Gemini training and gr
 ### My CDN has an "AI bots" toggle. Should I turn it on?
 
 Only if you have decided you do not want to be found by AI assistants at all. These toggles usually block search crawlers such as OAI-SearchBot and PerplexityBot along with the training crawlers, and some block on behaviour rather than user agent. Run the curl loop above after any change.
+
+# Google Workspace single sign-on for Odoo, with two factor authentication and role based access
+
+Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html. Published 2026-09-08.
+
+By the end of this your Odoo 17 users will sign in with their Google Workspace account, protected by 2-Step Verification enforced in the Admin console, with access inside Odoo following their job role, and you will still be able to get in if Google cannot. It is for IT heads who run both systems.
+
+## What you need
+
+- Odoo 17, Community or Enterprise, served over HTTPS on a hostname users reach by name
+- Google Workspace with super admin rights
+- Access to the Google Cloud console for the same organisation, to create the OAuth client
+- A list of every Odoo user, their email address and their job role
+- One local Odoo administrator account that will never be linked to Google
+
+## Before anything else: the lockout risk
+
+Single sign-on concentrates risk. If the OAuth client is deleted, if Workspace has an outage, or if you enforce 2-Step Verification with a date that arrives before people have enrolled, nobody gets into the ERP. So before the first step:
+
+Create a break-glass administrator in Odoo. A local login, not a Google one, with a long random password kept somewhere physical that two named people can reach. Put Odoo's own two factor on it (step 8) and keep its recovery codes with the password. Test it on a schedule, and alert on every login to it, because a login to that account is either you or a problem.
+
+Do the same on the Workspace side: at least two super admins, each with a security key or backup codes stored offline. I have seen an enforcement date arrive on a Monday morning for people who ignored the enrolment emails, and the ones who suffered were the ones without a plan for it.
+
+## 1. Create the OAuth client in Google Cloud
+
+In the Google Cloud console, in a project that belongs to your Workspace organisation:
+
+1. Open APIs & Services, then the OAuth consent screen (Google has been moving this under a "Google Auth Platform" heading; the settings are the same). Set the user type to Internal. This is what limits sign-in to accounts in your Workspace, and it is the one setting you must not get wrong.
+2. Open Credentials, Create credentials, OAuth client ID, application type Web application.
+3. Authorised JavaScript origins: `https://<odoo-host>`
+4. Authorised redirect URIs: `https://<odoo-host>/auth_oauth/signin`
+5. Save and copy the client ID. The client secret is not needed for Odoo's default Google provider.
+
+No API needs enabling for sign-in. The hostname must match what users type, including the scheme; a redirect to an `http://` address or a different subdomain fails with a redirect mismatch error from Google.
+
+## 2. Install and configure auth_oauth in Odoo
+
+1. Settings, General Settings, Integrations. Tick OAuth Authentication and save; this installs the `auth_oauth` module.
+2. The Google Authentication option appears under it. Tick it, paste the client ID, save.
+3. In developer mode, Settings, Users & Companies, OAuth Providers shows the Google provider marked Allowed, with its endpoints preconfigured.
+4. Check that the system parameter `web.base.url` is your HTTPS hostname, and set `web.base.url.freeze` to `True` so a login from another address cannot change it. The redirect Odoo sends to Google is built from it.
+
+Open the login page in a private window. A "Log in with Google" button appears under the password form. Don't click it as an existing user yet; users are not linked until step 3.
+
+## 3. Link existing users
+
+Odoo ties a Google identity to a user by storing Google's subject identifier in `oauth_uid` on `res.users`, together with `oauth_provider_id`. Matching is on that identifier, not on email, so an existing user who clicks the Google button gets an access denied error until the link exists.
+
+Two ways to create it. The user-driven way: send each user a password reset from Settings, Users, the Action menu. The page that email opens carries a signup token, and the Google button on that page links the account instead of creating one. This is the method I use for rollout because it needs nothing from IT beyond sending the email. The admin-driven way: set `oauth_uid` yourself from the user's ID in the Admin SDK Directory API, which is the same value as Google's subject.
+
+Keep the Odoo login equal to the Workspace email either way. Leave sign-up on invitation only under Settings, General Settings, Users; an internal ERP should never create a user because someone signed in.
+
+## 4. Enforce 2-Step Verification in the Admin console
+
+In the Admin console: Security, Authentication, 2-Step Verification. Do it per organisational unit, in the order you roll out, not for the whole domain at once.
+
+1. Allow users to turn on 2-Step Verification, if it is not already allowed.
+2. Set Enforcement to "On from" a date, and set a new-user enrolment period so joiners get a grace window.
+3. Under Methods, choose "Any except verification codes via text, phone call" if your workforce can manage the Google prompt or an authenticator app; text messages are the weakest method and the one most often unavailable on a factory floor.
+4. Allow users to trust a device, or the daily prompt will drive the shop floor to find a way round it.
+
+Before the date, open Users in the Admin console, filter on 2-Step Verification enrolment, and go and find the ones who have not enrolled. Two factor across a manufacturing workforce is a people problem before it is a technical one. Not everyone has a company handset, and the enrolment support is the project. The configuration takes an afternoon.
+
+## 5. People who are not in Workspace
+
+Contractors, auditors, an outsourced bookkeeper. Three choices, in order of preference:
+
+1. Give them an account in your tenant. Cloud Identity Free accounts sit in the same organisation without a Workspace licence, go in a Contractors organisational unit with 2-Step Verification enforced, and are suspended the day the contract ends.
+2. Keep a local Odoo account for them with Odoo's own two factor (step 8) and a review date in your calendar.
+3. Shared accounts. Never. If you find one, it is the first thing to remove.
+
+## 6. Map Odoo groups to job roles
+
+Odoo expresses access as groups, record rules and model access lists. Write the role matrix before touching a user: one row per job role, one column per Odoo application, the group in each cell (Sales: User: Own Documents Only; Inventory: User; Accounting: Billing, and so on). Agree it with the manager who owns each set of data, because a role model nobody agreed to is bypassed within a month.
+
+Then apply it. Set Default Access Rights under Settings, General Settings, Users to the least you give anyone, so a new user starts from the floor. If you want roles as records rather than a spreadsheet, the OCA module `base_user_role` does that. Odoo does not read Google group membership; syncing the two is a script against the Directory API, and most companies do not need it.
+
+## 7. Remove password logins for SSO users
+
+Odoo 17 has no switch to disable the password form for one user. What you can do is make the password unknown. From an Odoo shell (`./odoo-bin shell -d <db>`):
+
+```python
+import secrets
+
+admin = env.ref('base.user_admin')
+sso_users = env['res.users'].search([
+    ('oauth_uid', '!=', False),
+    ('share', '=', False),
+    ('id', '!=', admin.id),
+])
+for user in sso_users:
+    user.write({'password': secrets.token_urlsafe(32)})
+env.cr.commit()
+```
+
+Run it after the users are linked, never before, and never on the break-glass account. Then turn off the password reset link on the login page (the Password Reset option under Settings, General Settings, Users) so nobody can give themselves a password back. Removing the password form from the login page altogether, for everyone but the break-glass admin, is a small inheritance of the `web.login` template and outside this guide.
+
+## 8. Odoo's built-in two factor for local accounts
+
+Any account that still logs in with a password, the break-glass admin above all, gets Odoo's own two factor. The module is `auth_totp`, installed by default in 17. The user opens Preferences from their avatar, then Account Security, then Enable two-factor authentication, scans the QR code with an authenticator app and confirms. Odoo 17 also ships `auth_totp_mail_enforce`, which demands a second factor from every user and falls back to a code by email for anyone without an authenticator; use it if local accounts are more than a handful. Do not switch Odoo's two factor on for Google-linked users. Their second factor is Google's, and asking twice makes people resent both.
+
+## 9. Review the login records
+
+Odoo writes a row to `res.users.log` on each successful login. An automatic clean-up keeps only the latest row per user, so the table tells you who last logged in and when, not a history. `login_date` on `res.users` says the same thing and is easier to query:
+
+```sql
+SELECT login, login_date
+FROM res_users
+WHERE active AND NOT share
+ORDER BY login_date DESC NULLS LAST;
+```
+
+The users at the bottom of that list, and the ones with no date at all, are your leaver and dormant account review. For a real history, the Workspace side has it: Reporting, Audit and investigation, Login log events, filterable by user, application and outcome, with suspicious login flags. If you need a history on the Odoo side, keep it yourself from the reverse proxy's access log for `/web/login` and `/auth_oauth/signin`.
+
+## 10. Roll it out in the right order
+
+1. IT first. Link your own team, enforce 2-Step Verification on the IT organisational unit, and live with it for a couple of weeks. You find the redirect mistakes and the trusted-device questions on yourselves.
+2. One department next, chosen for a manager who wants it and users who sit at desks. Fix what they find.
+3. Everyone else, one organisational unit at a time, with the enforcement date announced, enrolment sessions where people actually work, and someone on the floor on the day.
+4. Then step 7 for each unit, once every user in it has signed in with Google at least once.
+
+Leavers become a role change in one place: suspend the Workspace account, and the Odoo login stops the same minute because there is no password to fall back on.
+
+## Common questions
+
+### What happens to Odoo if Google is down?
+
+Nobody signs in through Google until it is back, and sessions already open keep working until they expire. That is the whole reason the break-glass account exists as a local login with Odoo's own two factor. If the outage is long, an administrator can set temporary passwords for a few key users from the Users list and remove them afterwards.
+
+### Can I use Google groups to assign Odoo groups automatically?
+
+Not out of the box. Odoo's Google provider reads identity, not group membership. You can write a sync that reads the Directory API and sets `groups_id` on `res.users` from your role matrix, and it is worth it above a few hundred users. Below that, the role matrix and a good joiner process do the same job with less to break.
+
+### Does enforcing 2-Step Verification in Workspace protect Odoo?
+
+Yes, for every user who signs in only through Google, because Odoo never sees a password for them. It does nothing for accounts that still have a working password, which is why step 7 removes those and step 8 puts Odoo's own two factor on the ones that remain. Check both regularly: a user linked to Google who also has a known password has two doors, and the weaker one is the one an attacker uses.
 
 # A WhatsApp AI sales agent that hands leads to your ERP: the architecture
 
@@ -1590,36 +2307,34 @@ By the end of this you will be able to plan and run a PostgreSQL major-version u
 
 ## What you need
 
-- The old server on PostgreSQL 10 or later for built-in logical replication (older publishers need the pglogical extension instead)
+- The old server on PostgreSQL 10 or later for built-in logical replication (older publishers need the pglogical extension)
 - A new server with PostgreSQL 16 installed and network access to the old one
 - Spare capacity for a rehearsal clone
 - Superuser on both databases and root on both hosts
-- A way to stop every application that writes to the database, and a list of what those applications are
+- A list of every application that writes to the database, and a way to stop each one
 
 ## Two ways to do it
 
-`pg_upgrade` and logical replication solve different problems, and the choice decides the shape of the whole project.
+`pg_upgrade` rewrites the system catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. It needs a window with the application stopped, and once you start the new cluster after a link-mode upgrade the old one cannot be started again; the way back is a backup. Run `pg_upgrade --check` first, every time. Planner statistics are not carried over, so run `vacuumdb --all --analyze-in-stages` straight afterwards. On Debian and Ubuntu the `pg_upgradecluster` wrapper drives it, with a method option for link mode.
 
-`pg_upgrade` rewrites the catalogue in place and, in `--link` mode, hard-links the data files instead of copying them, so even a large database upgrades in minutes. It runs on one host with both sets of binaries installed. Once you start the new cluster after a link-mode upgrade, the old cluster cannot be started again; the way back is a backup. It needs a window with the application stopped. Run `pg_upgrade --check` first, every time, because it finds missing extensions and incompatible data types while there is still time to fix them. On Debian and Ubuntu the `pg_upgradecluster` wrapper from postgresql-common drives it, with a method option for link mode. Planner statistics are not carried over, so the new cluster runs slowly until `vacuumdb --all --analyze-in-stages` has been through it.
-
-Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is a list of things it does not do. Every replicated table needs a primary key, or a `REPLICA IDENTITY`, or updates and deletes on it fail on the publisher. It copies data, not schema: you create the tables on the new server yourself. It does not replicate sequences, so their values are copied by hand at cutover. It does not replicate DDL, so any schema change during the replication window must be applied to both sides, and the sane policy is to forbid them. It does not copy large objects either.
+Logical replication streams row changes from the old server to a new one, which can be on different hardware, a different operating system and a different major version. The application keeps running against the old server while the new one catches up, and the cutover is a connection-string change measured in seconds. The price is what it does not do. Every replicated table needs a primary key or a `REPLICA IDENTITY`, or updates and deletes on it fail on the publisher. It copies data, not schema. It does not replicate sequences, DDL or large objects, so sequences are copied by hand at cutover and schema changes are frozen for the whole window.
 
 | | pg_upgrade --link | Logical replication |
 |---|---|---|
 | Application outage | Minutes, in a planned window | Seconds at cutover |
 | Change host or OS at the same time | No | Yes |
 | Rollback after cutover | Restore from backup | Old server kept read-only |
-| Primary key needed on every table | No | Yes, or REPLICA IDENTITY |
-| Copies sequences and schema | Yes | No, done by hand |
+| Primary key on every table | Not needed | Needed, or REPLICA IDENTITY |
+| Sequences and schema | Carried over | Copied by hand |
 | Effort | Low | High |
 
-When the database is the thing the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.
+When the database is what the whole business runs on, and the sites using it span time zones so there is no quiet hour, logical replication earns its extra effort. The rest of this is that runbook.
 
 ## The runbook
 
 ### 1. Audit tables without primary keys
 
-Run this on the old server. Anything it returns needs a primary key added, or `ALTER TABLE ... REPLICA IDENTITY FULL` as a slower fallback.
+Run this on the old server. Anything it returns gets a primary key, or `ALTER TABLE ... REPLICA IDENTITY FULL` as a slower fallback.
 
 ```sql
 SELECT n.nspname, c.relname
@@ -1627,25 +2342,21 @@ FROM pg_class c
 JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind = 'r'
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
-  AND NOT EXISTS (
-      SELECT 1 FROM pg_index i
-      WHERE i.indrelid = c.oid AND i.indisprimary
-  )
+  AND NOT EXISTS (SELECT 1 FROM pg_index i
+                  WHERE i.indrelid = c.oid AND i.indisprimary)
 ORDER BY 1, 2;
 ```
 
-An ERP that has been through several application upgrades will have a handful: old relation tables and leftovers from abandoned modules. Decide each one deliberately.
+An ERP that has been through several application upgrades will have a handful, usually old relation tables and leftovers from abandoned modules.
 
 ### 2. Audit extensions and collation versions
-
-List what the old server uses, then confirm each one is available on the new binaries:
 
 ```sql
 SELECT extname, extversion FROM pg_extension;               -- old server
 SELECT name, default_version FROM pg_available_extensions;  -- new server
 ```
 
-Collation is the quieter risk. Text sort order comes from the operating system's C library, and a new host with a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch; take the warning seriously.
+Every extension in the first list must appear in the second before you go further. Collation is the quieter risk. Text sort order comes from the operating system's C library, and a newer glibc can sort accented and mixed-case strings differently. With logical replication every index is built fresh on the new server, so you avoid corrupted indexes, but the application may see a different `ORDER BY` for the same names. With `pg_upgrade` onto a new host, reindex every index on text columns. PostgreSQL 15 and later records `datcollversion` in `pg_database` and warns on a mismatch; take the warning seriously.
 
 ### 3. Prepare the publisher
 
@@ -1655,7 +2366,7 @@ On the old server, `wal_level` must be `logical`, which needs one restart. That 
 ALTER SYSTEM SET wal_level = 'logical';
 ALTER SYSTEM SET max_replication_slots = 10;
 ALTER SYSTEM SET max_wal_senders = 10;
--- restart the server, then:
+-- restart, then:
 CREATE ROLE upgrade_repl WITH REPLICATION LOGIN PASSWORD '...';
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO upgrade_repl;
 CREATE PUBLICATION upgrade_pub FOR ALL TABLES;
@@ -1665,15 +2376,13 @@ Add a `pg_hba.conf` line for the new server's address against the database itsel
 
 ### 4. Prepare the subscriber
 
-Copy roles and schema to the new server, using the new server's `pg_dump` against the old one (a newer `pg_dump` can read an older server; the reverse is not true):
+Copy roles and schema using the new server's `pg_dump` against the old one (a newer `pg_dump` reads an older server; the reverse is not true), then subscribe. The subscription creates a replication slot on the publisher and starts the initial copy of every table.
 
 ```bash
 pg_dumpall -h old-db -U postgres --globals-only | psql -h new-db -U postgres
 pg_dump -h old-db -U postgres --schema-only --no-publications --no-subscriptions erp \
     | psql -h new-db -U postgres erp
 ```
-
-Then subscribe. This creates a replication slot on the publisher and starts the initial copy of every table.
 
 ```sql
 CREATE SUBSCRIPTION upgrade_sub
@@ -1685,7 +2394,7 @@ Raise `max_sync_workers_per_subscription` on the subscriber first if the databas
 
 ### 5. Monitor the lag
 
-Watch the initial copy finish, then watch the ongoing lag. On the subscriber:
+On the subscriber, watch the initial copy finish and the apply worker stay healthy:
 
 ```sql
 SELECT srrelid::regclass, srsubstate
@@ -1706,15 +2415,15 @@ SELECT slot_name, active,
 FROM pg_replication_slots;
 ```
 
-One warning from experience. A replication slot that nobody is consuming holds WAL forever, and the old server's disk fills up. If you abandon the exercise, drop the slot.
+One warning from experience: a slot that nobody is consuming holds WAL forever, and the old server's disk fills up. If you abandon the exercise, drop the slot.
 
 ### 6. Rehearse on a clone
 
-Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it. Not a benchmark: the real workflows. In an ERP that means creating orders, confirming manufacturing, posting invoices and running the slowest reports, because a heavily customised application is where major-version changes bite. Query plans move. Deprecated behaviour disappears. Something that worked for years throws an error on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback as well. Then rehearse once more with someone else reading the steps aloud.
+Restore a backup of production to a spare machine and run the whole sequence from it to a throwaway PostgreSQL 16, timing every step. Then point a copy of the application at the result and use it, not as a benchmark but through the real workflows: orders, manufacturing, invoices, the slowest reports. A heavily customised application is where major-version changes bite. Query plans move, deprecated behaviour disappears, and something that worked for years fails on a data type nobody remembered. Each of those is cheap to find on the clone and expensive to find live. Rehearse the rollback too, then run the whole thing once more with someone else reading the steps aloud.
 
 ### 7. Freeze the application
 
-At the agreed time, stop everything that writes: the application server and all its worker processes, its scheduler, integrations, reporting jobs, any script anyone has ever set up. Then confirm from the database side:
+At the agreed time, stop everything that writes: the application server and its worker processes, its scheduler, integrations, reporting jobs, any script anyone ever set up. Then confirm from the database side:
 
 ```sql
 SELECT usename, application_name, client_addr, state
@@ -1725,7 +2434,7 @@ Anything still connected that is not you or the replication role gets found now,
 
 ### 8. Wait for lag zero, then copy the sequences
 
-Run the slot query from step 5 until the lag is zero and stays there for a minute. Then copy the sequence values, which replication never touched. Generate the statements on the old server and run them on the new:
+Run the slot query from step 5 until the lag is zero and stays there. Then copy the sequence values, which replication never touched. Generate the statements on the old server and run them on the new:
 
 ```sql
 SELECT format('SELECT setval(%L, %s, true);',
@@ -1738,11 +2447,11 @@ WHERE last_value IS NOT NULL;
 psql -h old-db -At -f copy_sequences.sql erp | psql -h new-db erp
 ```
 
-Do this after the freeze and after lag zero, not before. Sequences advance while the application runs, and a sequence set too low produces duplicate key errors on the first insert after cutover.
+Do this after the freeze and after lag zero, never before. A sequence set too low produces duplicate key errors on the first insert after cutover.
 
 ### 9. Switch, analyse, and open the doors
 
-Detach the subscription so the new server stops following the old one, build planner statistics, then change the application's connection string and start it.
+Detach the subscription, build planner statistics, then change the application's connection string and start it.
 
 ```sql
 ALTER SUBSCRIPTION upgrade_sub DISABLE;
@@ -1760,7 +2469,7 @@ Run the rehearsal's checks again, briefly, before telling users.
 
 ### 10. Keep the old server read-only for a rollback window
 
-Do not switch the old server off. Make it read-only and unreachable by the application, and leave it that way for an agreed period.
+Do not switch the old server off. Lock the application role out, make the server read-only, and leave it for an agreed period.
 
 ```sql
 ALTER ROLE erp_app NOLOGIN;
@@ -1769,13 +2478,13 @@ ALTER SYSTEM SET default_transaction_read_only = on;
 SELECT pg_reload_conf();
 ```
 
-Rolling back inside that window means pointing the application at the old server again and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application, so the old server follows the new one. It is more work, and it is the only rollback that keeps the data.
+Rolling back inside that window means pointing the application at the old server and re-keying what was entered in between. If that is unacceptable, set up a reverse publication from new to old before you open the application. It is more work, and it is the only rollback that keeps the data.
 
 ### 11. Rebuild backups, recovery and monitoring
 
 A new server has no backups until you make them. I treat the migration as the moment to rebuild the whole recovery position, because it is the one time everybody agrees it matters.
 
-With pgBackRest: on the new server set `archive_mode = on` and `archive_command = 'pgbackrest --stanza=main archive-push %p'` (a restart for `archive_mode`), then:
+With pgBackRest: set `archive_mode = on` and `archive_command = 'pgbackrest --stanza=main archive-push %p'` on the new server (a restart for `archive_mode`), then:
 
 ```bash
 pgbackrest --stanza=main stanza-create
@@ -1783,16 +2492,16 @@ pgbackrest --stanza=main check
 pgbackrest --stanza=main --type=full backup
 ```
 
-The `check` command proves that WAL archiving works end to end, which is the part people skip. Then prove the restore. Point in time recovery to a chosen moment looks like this on a scratch machine:
+The `check` command proves that WAL archiving works end to end, which is the part people skip. Then prove the restore, on a scratch machine, to a chosen moment:
 
 ```bash
 pgbackrest --stanza=main --delta --type=time \
     "--target=2026-09-08 10:15:00+04" --target-action=promote restore
 ```
 
-If you prefer plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` into a safe directory gives you a base backup and continuous WAL; recovery uses `restore_command` and `recovery_target_time` in `postgresql.conf` with a `recovery.signal` file. Either way, restore to a second machine and open the application against it before you call it done. A backup that has never been restored is a hope, not a position.
+With plain tools, `pg_basebackup -D /backup/base -Fp -Xs -P` plus the same `archive_command` into a safe directory does the same job, and recovery uses `restore_command` and `recovery_target_time` with a `recovery.signal` file. Either way, open the application against the restored copy before you call it done. A backup that has never been restored is a hope, not a position.
 
-Monitoring on the new server should alert on at least: `pg_stat_archiver.failed_count` rising, backup age, replication slot lag if any slots remain, disk space on the data and WAL volumes, connection count near `max_connections`, and transactions open for longer than a few minutes.
+Monitoring on the new server should alert on `pg_stat_archiver.failed_count` rising, backup age, any remaining slot lag, disk space on the data and WAL volumes, connections near `max_connections`, and transactions open for more than a few minutes.
 
 ## The checklist
 
@@ -1803,38 +2512,33 @@ Monitoring on the new server should alert on at least: `pg_stat_archiver.failed_
 | Audit | Collation and glibc versions compared | |
 | Audit | Every writer to the database listed | |
 | Prepare | `wal_level = logical`, restart done | |
-| Prepare | Replication role, `pg_hba.conf`, publication | |
-| Prepare | Globals and schema restored on the new server | |
-| Prepare | Subscription created, initial copy complete | |
-| Rehearse | Full runbook run on a clone, steps timed | |
+| Prepare | Role, `pg_hba.conf`, publication, schema, subscription | |
+| Prepare | Initial copy complete, error counts zero | |
+| Rehearse | Full runbook and rollback run on a clone, steps timed | |
 | Rehearse | Application tested against the clone | |
-| Rehearse | Rollback rehearsed | |
-| Cutover | Schema changes frozen on both sides | |
-| Cutover | Application and every writer stopped | |
-| Cutover | `pg_stat_activity` clean | |
-| Cutover | Lag zero and stable | |
-| Cutover | Sequences copied | |
-| Cutover | Subscription dropped, slot dropped, statistics built | |
-| Cutover | Connection string switched, application checked | |
-| Cutover | Old server read-only, app role locked | |
-| After | WAL archiving and `pgbackrest check` passing | |
-| After | Restore and point in time recovery proven | |
+| Cutover | Schema changes frozen, every writer stopped | |
+| Cutover | `pg_stat_activity` clean, lag zero and stable | |
+| Cutover | Sequences copied, subscription and slot dropped | |
+| Cutover | Statistics built, connection string switched, application checked | |
+| Cutover | Old server read-only, application role locked | |
+| After | WAL archiving, `pgbackrest check` and a full backup passing | |
+| After | Restore and point in time recovery proven on another machine | |
 | After | Monitoring and alerts live | |
-| After | Old server decommissioned at end of window | |
+| After | Old server decommissioned at the end of the window | |
 
 ## Common questions
 
 ### Why not use pg_upgrade when it is so much faster?
 
-Use it when you can take the window and you are staying on the same host. It is less work and fewer moving parts, and `--link` mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore.
+Use it when you can take the window and you are staying on the same host. It is less work with fewer moving parts, and `--link` mode makes the outage short. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, a move to new hardware or a new operating system at the same time, or a rollback that must not depend on a restore.
 
 ### Can I skip the rehearsal if the database is small?
 
-No. The rehearsal is not about size, it is about the application. A small database under a heavily customised application has the same query-plan changes, the same deprecated behaviour and the same extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.
+No. The rehearsal is about the application, not the size. A small database under a heavily customised application has the same query-plan changes, deprecated behaviour and extension gaps as a large one. The clone is also where you time the steps, and the timings are what let you promise a window and keep it.
 
 ### What happens if someone changes the schema during replication?
 
-A new table on the publisher is not on the subscriber, so replication for it fails, and a column added on one side but not the other stops the apply worker with an error in `pg_stat_subscription_stats`. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables.
+A table added on the publisher is missing on the subscriber, and a column added on one side but not the other stops the apply worker with an error in `pg_stat_subscription_stats`. Freeze schema changes for the whole window, including application module updates that alter tables. If one gets through, apply the same change on the subscriber, then run `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables.
 
 ## Working notes
 
@@ -1898,13 +2602,13 @@ The characters are the easy part. What the pipeline gets wrong is which number o
 
 Handwritten totals were the first surprise. A supplier's clerk crosses out the printed total and writes the agreed figure in pen beside it. The model reads the printed one because it is cleaner, or reads the pen one and drops a digit. Either way the record shows a number that looks reasonable, which is the problem. A wrong number that looks wrong gets caught. A wrong number that looks right gets paid.
 
-Stamps come next. A "received" stamp, a "paid" stamp or a company chop lands on the total, because that is where a hand naturally goes. The model reads around it and picks the nearest clean figure, which is often the VAT amount or a line subtotal. Multi-page bills fail differently. Page one carries a subtotal, page two the total, and the pipeline reads page one as the whole bill or treats each page as its own document. A three-page bill photographed as three images has arrived as three bills.
+Stamps come next. A "received" stamp, a "paid" stamp or a company chop lands on the total, because that is where a hand goes. The model reads around it and picks the nearest clean figure, often the VAT amount or a line subtotal. Multi-page bills fail differently. Page one carries a subtotal, page two the total, and the pipeline reads page one as the whole bill or treats each page as a document. A three-page bill photographed as three images has arrived as three bills.
 
-Duplicates are not an OCR problem, but the OCR pipeline is where they surface. The supplier emails the PDF, the driver brings the paper copy which gets scanned at the gate, and the invoice appears again on the month-end statement. The model has no memory between documents and will create every one of them with a straight face. Currency is the quiet one. A supplier abroad bills in dollars with the symbol missing and dirham bank details in the footer. A local supplier's template says USD because someone copied it years ago. The model reads the number correctly and the currency is a guess.
+Duplicates are not an OCR problem, but the pipeline is where they surface. The supplier emails the PDF, the driver brings the paper copy which gets scanned at the gate, and the invoice appears again on the month-end statement. The model has no memory between documents and will create every one of them with a straight face. Currency is the quiet one. A supplier abroad bills in dollars with the symbol missing and dirham bank details in the footer. A local supplier's template says USD because someone copied it years ago. The model reads the number correctly and the currency is a guess.
 
-None of this is fixed by a better model; a better model moves the errors around. What fixed it was validation in code and a review queue in front of the ledger. Lines must sum to the total. VAT must be the right percentage of the net. The currency must match the supplier master record. A bill with the same supplier, reference and amount inside a short window is flagged, not created. The page count is checked against what the model claims to have read. Anything that fails a check, or that the model marks as uncertain, goes to a person before it becomes a record finance can act on.
+None of this is fixed by a better model; a better model moves the errors around. What fixed it was validation in code and a review queue in front of the ledger. Lines must sum to the total. VAT must be the right percentage of the net. The currency must match the supplier master record. A bill with the same supplier, reference and amount inside a short window is flagged, not created. The page count is checked against what the model claims it read. Anything that fails a check, or that the model marks uncertain, goes to a person before it becomes a record finance can act on.
 
-I stopped evaluating models on how often they are right and started evaluating them on whether they will say they are not sure. The second is worth more.
+I stopped evaluating models on how often they are right and started evaluating whether they will say they are not sure. The second is worth more.
 
 
 
@@ -1914,15 +2618,15 @@ Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week
 
 Two internet links with a failover I have tested by pulling the cable, the new company and warehouse in the ERP with local tax and numbering, printers and scanners on the floor, every user logged in once, and a backup I have restored from. The list is short because the failures are boring.
 
-Connectivity first, because the ERP is central and a site with no link has no delivery notes, no labels and no stock moves. Two links from different providers, and the failover proved by unplugging the primary and watching, not by reading the configuration. The tunnel to the group comes up on both. I have been shown a failover that was configured and then watched it not fail over, so I no longer take anyone's word for it.
+Connectivity first, because the ERP is central and a site with no link has no delivery notes, labels or stock moves. Two links from different providers, and the failover proved by unplugging the primary and watching, not by reading the configuration. The tunnel to the group comes up on both. I have been shown a configured failover and then watched it not fail over, so I no longer take anyone's word for it.
 
-Then the ERP. The company record, its currency and fiscal year. The tax configuration for that country, which is different every time and the thing most likely to make the first invoice wrong. The warehouse, its locations and routes. The numbering sequences for invoices, delivery notes and purchase orders, per company, because a sequence left on the default will number the new site's documents into another company's range. I have had numbering wrong on day one and spent the first week fixing documents that had already gone out. Units of measure, the shared product master, and the intercompany rules that let the new site buy from the others.
+Then the ERP. The company record, its currency and fiscal year. The tax configuration for that country, different every time and the thing most likely to make the first invoice wrong. The warehouse, its locations and routes. The numbering sequences for invoices, delivery notes and purchase orders, per company, because a sequence left on the default will number the new site's documents into another company's range. I have had numbering wrong on day one and spent the first week fixing documents that had already gone out. Units of measure, the shared product master, and the intercompany rules that let the new site buy from the others.
 
 Then the floor, which is where opening day goes wrong. Label printers on the network with the right driver on the right machine. Barcode scanners paired and tested on a real product. The PC at the packing station and at the weighbridge, if there is one. The shared office printer nobody thought was IT's problem until the first invoice needed printing. What stops a line on the first morning is almost never a server. It is a printer.
 
 Then people. Accounts created, roles assigned, and every person logged in once from the machine they will use, so day one is not password day. One named person on site who can restart the router and the print server and knows who to call. Training happened weeks earlier; this is the check that it took.
 
-Then the backup. The new site's data is in it, and I have restored one record from it somewhere harmless. Time zone on every server, or a factory in a different zone posts stock moves with the wrong date. And the item I always underestimate, the one nobody owns: the cabinet the switch sits in, the power to it, and the cooling. It is not IT until it fails, and then it is nothing but IT.
+Then the backup. The new site's data is in it, and I have restored one record from it. Time zone on every server, or a factory in a different zone posts stock moves with the wrong date. And the item I always underestimate, the one nobody owns: the cabinet the switch sits in, its power, and the cooling. It is not IT until it fails, and then it is nothing but IT.
 
 
 
