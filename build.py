@@ -39,7 +39,7 @@ NAV = [
 # PayPal.me, Calendly or similar URL here and every Book button switches to it.
 BOOKING = {"payment_link": "", "calendar_link": ""}
 SHOW_PRICES = False  # Khaqan, 8 Sep 2026: fees are quoted by email, never shown on the site
-EMAIL = "khaqanshaheen@yahoo.com"
+EMAIL = "support@khaqanshaheen.com"
 AED_PER_USD = 3.67
 
 LANDING_URLS = []
@@ -1339,7 +1339,7 @@ def build_booking():
         '  <label for="bk-note">What you want to cover</label>\n  <textarea id="bk-note" rows="4"></textarea>\n'
         '</div>\n'
         '<p class="muted small">Nothing is stored and nothing is sent from this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>\n'
-        '<div class="bk-actions" id="bk-addr" data-u="khaqanshaheen" data-d="yahoo.com">\n'
+        '<div class="bk-actions" id="bk-addr" ' + mail_attrs() + '>\n'
         '  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot by email</button>\n'
         '  <button type="button" id="bk-priority" class="btn">Ask about a priority slot</button>\n'
         '</div>\n'
