@@ -49,8 +49,6 @@ Give it `ir.model.access.csv` lines for the manufacturing user and manager group
 
 Two windows overlap when one starts before the other finishes and finishes after the other starts. That one condition covers partial overlap either way, one window inside the other, and identical windows. Touching end points (one finishes at 10:00, the next starts at 10:00) are not an overlap under strict comparisons, which is what a planner expects.
 
-
-
 ```python
 # models/mrp_workorder.py
 from odoo import _, api, fields, models
