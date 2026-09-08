@@ -13,6 +13,15 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 - [Skills and abilities](https://servia-tech.github.io/khaqan-shaheen/skills.html): every skill with an ownership level and evidence link
 - [Press kit](https://servia-tech.github.io/khaqan-shaheen/press.html): bios in three lengths, headshot, fact sheet, speaking topics
 
+## What he helps with
+
+- [Odoo ERP consultant in Dubai and the UAE](https://servia-tech.github.io/khaqan-shaheen/odoo-erp-consultant-dubai.html)
+- [ERP consultant for manufacturers in the UAE](https://servia-tech.github.io/khaqan-shaheen/erp-consultant-uae-manufacturing.html)
+- [AI automation for business operations in Dubai and the UAE](https://servia-tech.github.io/khaqan-shaheen/ai-automation-consultant-dubai.html)
+- [Fractional Head of IT in the UAE](https://servia-tech.github.io/khaqan-shaheen/fractional-head-of-it-uae.html)
+- [AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?](https://servia-tech.github.io/khaqan-shaheen/ai-search-visibility-audit.html)
+- [From manual and spreadsheets to an ERP with AI doing the repetitive work](https://servia-tech.github.io/khaqan-shaheen/manual-to-erp-and-ai-automation.html)
+
 ## Case studies
 
 - [Machine scheduling and order-overlap prevention in a manufacturing ERP](https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html): A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.

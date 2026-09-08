@@ -41,6 +41,8 @@ SHOW_PRICES = False  # Khaqan, 8 Sep 2026: fees are quoted by email, never shown
 EMAIL = "khaqanshaheen@yahoo.com"
 AED_PER_USD = 3.67
 
+LANDING_URLS = []
+GLOSSARY_URLS = []
 DROP_SECTIONS = {"suitable target roles", "three interview talking points"}
 MD_EXT = ["tables", "fenced_code", "sane_lists"]
 
@@ -200,6 +202,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 </main>
 <footer class="site-footer">
   <div class="wrap">
+    <div class="topics">What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}glossary/">Glossary</a></div>
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
@@ -709,6 +712,238 @@ def build_career():
     )
 
 
+# --------------------------------------------------------------------------- keyword landing pages
+LANDING = [
+    {
+        "slug": "odoo-erp-consultant-dubai",
+        "title": "Odoo ERP consultant in Dubai and the UAE | Khaqan Shaheen",
+        "h1": "Odoo ERP consultant in Dubai and the UAE",
+        "description": "Independent Odoo ERP consultant in Dubai who has run one Odoo instance across six sites in five countries. Selection, implementation oversight, customisation done safely, upgrades, health checks.",
+        "answer": "I am an independent Odoo consultant in Dubai, not a reseller. I implemented one Odoo instance for a manufacturing group across six sites in five countries and I direct its custom development. I help UAE and GCC companies choose Odoo, get a stalled rollout moving, customise it without breaking upgrades, and check the health of what they already have.",
+        "sections": [
+            ("Who this is for", "Manufacturers, distributors, trading companies and family groups in the UAE and GCC that run Odoo or are deciding whether to. Typically 50 to 600 people, one or several sites, an owner or managing director who wants the month to close from one set of records."),
+            ("What I have actually done with Odoo", "One instance covering production, sales, inventory, procurement, accounting, HR and maintenance for six sites in five countries and around 150 users. Machine scheduling with overlap prevention, batch and barcode control, approval workflows and role-specific dashboards, all built to my specification and kept upgradable. The database underneath it moved from PostgreSQL 9.5 to 16 with no unplanned downtime at any site. Five AI systems sit on top of it in daily production, from document OCR to a WhatsApp sales agent that creates leads in the CRM."),
+            ("What an Odoo consultant should do for you", "Tell you what to leave standard and what to customise, and why. Write the specification developers build from, so that what arrives is what the business needs. Keep an eye on upgrade risk, because heavily modified Odoo is how companies get stranded on an old version. Check backups, access control and the audit trail, which most implementations skip. And explain all of it to the owner in plain language."),
+            ("How I work", "Remote across the GCC or on-site in Dubai, Sharjah and the other emirates. A one-hour consultation call for a specific decision, a two-day health check of an existing Odoo, implementation oversight through go-live, or a roadmap for a business moving from spreadsheets to Odoo with AI doing the repetitive work. I do not sell licences and I am not paid by any Odoo partner, so the advice is only about what works for you. Fees are quoted in writing before anything is paid."),
+        ],
+        "related": [("Case study: one ERP across six sites in five countries", "work/one-erp-six-sites-five-countries.html"), ("Case study: machine scheduling and overlap prevention", "work/machine-scheduling-and-overlap-prevention.html"), ("Tutorial: stop two work orders booking the same machine in Odoo", "tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html"), ("Tutorial: Google Workspace single sign-on for Odoo", "tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html"), ("Service: ERP and Odoo health check", "services.html#erp-odoo-health-check")],
+        "faq": [
+            ("Are you an official Odoo partner?", "No. I am an independent consultant who has run Odoo as the customer for a multi-site group. I do not sell licences or implementation hours for a partner, which means my advice about which partner to hire, or whether to hire one, is not tied to anyone's commission."),
+            ("Which Odoo versions do you work with?", "Current supported versions, and the older ones companies are usually stuck on. Much of the work is getting a customised older version to a supported one without losing what the business relies on."),
+            ("Can you help if our Odoo rollout has stalled?", "Yes. That is one of the most common calls. The usual causes are a specification nobody wrote down, customisation that outran the budget, and data nobody cleaned. A health check finds which of the three you have and what to do first."),
+            ("Do you work outside Dubai?", "Yes. On-site across the UAE, and remote for Saudi Arabia, Oman, Qatar, Bahrain, Kuwait, Pakistan and further afield, on Dubai time."),
+        ],
+    },
+    {
+        "slug": "erp-consultant-uae-manufacturing",
+        "title": "ERP consultant for manufacturers in the UAE: from manual to one ERP | Khaqan Shaheen",
+        "h1": "ERP consultant for manufacturers in the UAE",
+        "description": "ERP consulting for UAE and GCC manufacturers from someone who runs one ERP across six factories in five countries: selection, implementation oversight, machine scheduling, upgrades, and the move from spreadsheets to a system.",
+        "answer": "I advise manufacturers in the UAE and GCC on ERP from the customer's side of the table. I run one ERP for a plastics group across six sites in five countries, and I have done the move from spreadsheets and paper to a single system that every site closes its month on. Selection, implementation oversight, manufacturing-specific modules and upgrades are the usual work.",
+        "sections": [
+            ("The manufacturing problems an ERP has to solve", "Work orders on named machines with real capacity and shifts, and a hard block on booking two orders on the same machine at the same time. Batch issue and validation, barcodes and labels on the floor. The path from enquiry to manufacturing order to delivery. Purchasing and vendor bills with an approval trail. And the finance close, from the same records the plant uses, without a spreadsheet in between."),
+            ("Extend or replace", "The decision that matters most is whether to extend the ERP you have or buy a second system for manufacturing and maintain an interface forever. I extended one platform for six sites, built the manufacturing modules the standard package did not reach to my specification, and kept them upgradable. I can tell you when that is right and when it is not."),
+            ("What I have run", "Six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo instance for production, sales, inventory, procurement, accounting, HR and maintenance. The full IT setup, from nothing, each time the group opened a new factory. PostgreSQL 9.5 to 16 underneath it all with no unplanned downtime at any site."),
+            ("How an engagement runs", "A process map of how the plant actually runs, from the people who run it. A written scope: what to standardise, what to customise, what to leave alone. Vendor and partner selection with the questions to ask. Oversight through go-live and the first month-end. On-site in the UAE or remote across the GCC. Fees are quoted in writing before anything is paid."),
+        ],
+        "related": [("Case study: one ERP across six sites in five countries", "work/one-erp-six-sites-five-countries.html"), ("Case study: bringing a new factory online", "work/bringing-a-new-factory-online.html"), ("Article: why I extended one ERP instead of buying a second system", "articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html"), ("Note: the month-end test for ERP health", "notes/the-month-end-test-for-erp-health.html"), ("Service: manual to automated, the ERP and AI roadmap", "services.html#manual-to-erp-and-ai-roadmap")],
+        "faq": [
+            ("Which ERP do you recommend for a UAE manufacturer?", "It depends on size, product mix and budget. I run Odoo and know it deeply, and I have seen where it fits and where it does not. For many 50 to 600 person manufacturers it is the right answer; for some it is not, and I will say so."),
+            ("We run the factory on spreadsheets. Where do we start?", "With a process map and one clean master data set: products, machines, customers, suppliers. Then one site and one function at a time, not a single switch-over. The roadmap service on this site is built for exactly this situation."),
+            ("Can you handle the finance side as well as the plant?", "The ERP has to do both from the same records or it fails the month-end test. I work with your finance lead on the close, the approval trail and the audit requirements, and with the plant on scheduling and stock."),
+            ("Do you do the implementation yourself?", "I direct it. I write the specification, choose and manage the partner or developers, and check what they deliver. That is how the six-site rollout was done."),
+        ],
+    },
+    {
+        "slug": "ai-automation-consultant-dubai",
+        "title": "AI automation for business operations in Dubai: OCR, agents, verification | Khaqan Shaheen",
+        "h1": "AI automation for business operations in Dubai and the UAE",
+        "description": "AI automation consultant in Dubai with five AI systems running in daily production: document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, and a multi-channel chat platform.",
+        "answer": "I put AI to work inside business operations, in production rather than in pilots. Five systems I designed run every day in a manufacturing group: document OCR that reads supplier bills into the ERP, automated document verification, a 24 hour sales agent on WhatsApp and the web, a voice agent on the corporate telephony, and one chat platform for every channel. I help UAE companies choose the right first process and design the pipeline so it survives daily use.",
+        "sections": [
+            ("Where AI pays back first", "Repetitive work with a paper trail: supplier bills and expense claims typed into the system, documents checked by eye, enquiries answered at midnight, calls that only need a fact. Those are the processes where a model plus a validation layer removes hours without removing control. Strategy decks and chatbots on the home page are not where it pays back."),
+            ("The design that survives production", "Capture, extraction with a vision-capable model returning strict JSON, validation rules that reject anything that does not add up, a confidence threshold, a human review queue for everything below it, idempotency so the same bill cannot post twice, an audit log, and a way to measure accuracy honestly every month. Agents get a small set of tools, a catalogue they cannot contradict, and a hand-off rule for anything about money or complaints. Every agent I run creates records for a person to check; none of them post or pay."),
+            ("What I have run", "Document OCR into the ERP in daily production. Automated certificate and document verification. A WhatsApp and web sales agent that qualifies enquiries into the CRM. An AI voice agent on Grandstream telephony. One chat platform running several WhatsApp numbers and the group websites. Plus, on my own venture, an autonomous search and content agent that ships work hourly inside guardrails I set."),
+            ("How an engagement runs", "An AI readiness review picks the processes worth automating and designs the pipeline, the validation rules and the measurement. Then design oversight through build and the first month in production, with a switch-off rule agreed up front. Remote across the GCC or on-site in the UAE. Fees are quoted in writing before anything is paid."),
+        ],
+        "related": [("Case study: document OCR into the ERP", "work/document-ocr-into-the-erp.html"), ("Case study: AI sales agent on WhatsApp and the web", "work/ai-sales-agent-whatsapp-and-web.html"), ("Article: five AI systems in production, what breaks when nobody is watching", "articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html"), ("Tutorial: reading supplier bills into an ERP with an LLM OCR pipeline", "tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html"), ("Service: AI in operations readiness review", "services.html#ai-operations-readiness")],
+        "faq": [
+            ("Which AI models do you use?", "Vision-capable models such as Gemini and Claude for document work, and current language models for agents, chosen per task on accuracy and cost. The model is the least important part of the design; the validation rules and the review queue are what make it safe."),
+            ("Will AI replace our accounts or sales staff?", "No. It removes the typing and the waiting. A person still approves every bill and takes over every conversation about money. The staff spend their time on exceptions and customers instead of data entry."),
+            ("What does a first project look like?", "Usually supplier bills or expense claims into the ERP, because the paper trail makes accuracy measurable. Four to eight weeks from review to the first month in production, with a labelled sample re-checked monthly."),
+            ("Can you work with our existing ERP?", "Yes. The pipeline writes into the ERP through its API. I run this on Odoo and the pattern is the same for other systems with an API."),
+        ],
+    },
+    {
+        "slug": "fractional-head-of-it-uae",
+        "title": "Fractional Head of IT in the UAE: part-time IT leadership for growing companies | Khaqan Shaheen",
+        "h1": "Fractional Head of IT in the UAE",
+        "description": "Part-time, fractional Head of IT for UAE and GCC companies that need the judgement of an IT leader without a full-time hire: vendors, budget, security, the ERP roadmap and direction for developers, on an agreed number of days a month.",
+        "answer": "A fractional Head of IT gives a company the judgement and ownership of an IT leader on an agreed number of days a month instead of a full-time salary. I offer it to UAE and GCC companies from the experience of running the whole IT function for a manufacturing group across six sites in five countries, reporting directly to the owner.",
+        "sections": [
+            ("Who needs one", "Companies of roughly 50 to 600 people with an IT support person or an outsourced provider but nobody who owns the function: nobody deciding what to buy, nobody accountable for backups and access, nobody directing the ERP roadmap, nobody translating between the owner and the vendors. Also companies between two full-time heads of IT, or preparing for one."),
+            ("What it covers", "Vendors, contracts and IT purchasing. Budget and priorities. Security, identity and backups that are actually tested. The ERP roadmap and direction for in-house or outsourced developers. AI projects chosen for payback. Hiring the full-time person when the time comes. A weekly cadence, a standing priority list, written decisions, and a monthly review with the owner or managing director."),
+            ("What I bring", "Since December 2015 I have owned the IT function of a plastics manufacturing group: six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo ERP for the group, five AI systems in production, a PostgreSQL migration across eight major versions with no unplanned downtime, Google Workspace single sign-on across the group, and the IT for each new factory built from nothing."),
+            ("How it runs", "Two or four days a month, on-site in Dubai, Sharjah and across the UAE or remote for the wider Gulf. Work is done outside my employer's hours or by arrangement, and never for a competitor of my employer. Fees are quoted in writing before anything is paid, and the engagement can end with a month's notice."),
+        ],
+        "related": [("Service: fractional or part-time Head of IT", "services.html#fractional"), ("Case study: identity and access rebuild", "work/identity-and-access-rebuild.html"), ("Case study: PostgreSQL 9.5 to 16 with no unplanned downtime", "work/postgresql-9-5-to-16-migration.html"), ("Article: bringing a new factory online, the order of operations", "articles/bringing-a-new-factory-online-the-order-of-operations.html"), ("Skills, with the evidence for each", "skills.html")],
+        "faq": [
+            ("How is a fractional Head of IT different from an outsourced IT provider?", "The provider does the work: tickets, servers, licences. The fractional head decides what work should be done, holds the provider to it, and answers to the owner for the result. Most companies need both."),
+            ("How many days a month?", "Two days a month covers vendors, priorities and a monthly review. Four days adds hands-on direction of an ERP or AI project. More than that and you should hire a full-time head, and I will help you do it."),
+            ("Can you start quickly?", "Usually within two weeks, with a short IT function review first so the priority list is based on what is actually there."),
+            ("Do you work with companies outside the UAE?", "Yes, remotely, on Dubai time. Saudi Arabia, Oman, Qatar, Bahrain, Kuwait and Pakistan are the usual ones."),
+        ],
+    },
+    {
+        "slug": "ai-search-visibility-audit",
+        "title": "AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site? | Khaqan Shaheen",
+        "h1": "AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?",
+        "description": "An AI search visibility audit checks whether AI answer engines can crawl, read and cite your website: robots rules for every AI crawler, llms.txt, structured data, answer-first content and rendering. Free tool plus a written audit service.",
+        "answer": "An AI search visibility audit answers one question: when someone asks ChatGPT, Perplexity, Claude, Gemini or Google AI Overviews about what you do, can they reach your site, read it and cite it? Most sites fail on something simple, such as a firewall blocking the crawler or content that only exists after JavaScript runs. I built a free open-source tool that checks this in one command, and I offer a written audit with the fixes in priority order.",
+        "sections": [
+            ("What gets checked", "Five layers. SEO: the basics search engines still need. AEO, answer engine optimisation: FAQ and question-led structure, answer-first paragraphs, lists and tables. GEO, generative engine optimisation: robots.txt rules for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and the rest, whether the firewall blocks them, llms.txt, content readable without JavaScript, entity schema. AIO: Google AI Overviews and Gemini readiness, valid JSON-LD, dates, authors, Open Graph. SXO: speed and rendering."),
+            ("The free tool", "ai-visibility-audit is one Python file with no dependencies. Run it against any site and it scores the five layers, prints every check with a fix, lists the top five fixes by points lost, and can write a JSON or HTML report. It also runs as a GitHub Action so a site cannot regress. It grew out of the audit I run every morning on my own sites, where the same checks earned referrals from ChatGPT, Perplexity and Gemini."),
+            ("The written audit", "For companies that want it done and explained: up to 25 pages audited, the robots rules for every major AI crawler reviewed, llms.txt and structured data checked, a written report with every finding and the fix in priority order, and a walkthrough call. A new website survey before you build is the same thinking applied before a developer writes a line."),
+            ("Why it matters now", "AI answer engines send a small but growing share of visits, and the people who arrive that way have already been told what you do by the engine. If the engine cannot read you, it describes a competitor instead. The fixes are cheap, mostly text and configuration, and nobody else on your team is checking."),
+        ],
+        "related": [("Tutorial: how to check whether ChatGPT, Perplexity and Google AI Overviews can read your website", "tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html"), ("Tutorial: how to write an llms.txt for a business website", "tutorials/how-to-write-an-llms-txt-for-a-business-website.html"), ("The tool: ai-visibility-audit on GitHub", "https://github.com/Servia-Tech/ai-visibility-audit"), ("Tool documentation and download", "https://servia-tech.github.io/ai-visibility-audit/"), ("Service: AI visibility and SEO site audit", "services.html#ai-visibility-seo-audit")],
+        "faq": [
+            ("Is this the same as SEO?", "SEO is one of the five layers. The other four are about AI answer engines, which read sites differently: they need permission in robots.txt, content in the raw HTML, structured data they can trust, and answers they can quote. A site can rank on Google and still be invisible to ChatGPT."),
+            ("Does llms.txt actually work?", "It costs nothing to add and it is the one file written for AI assistants, but adoption by the big AI companies is uneven and not confirmed. Publish it, then fix the things that certainly matter: crawler permissions, readable HTML, structured data and answer-first pages."),
+            ("Can I run the check myself?", "Yes. Download the free tool and run one command against your site. The written audit is for when you want it interpreted, prioritised and explained to the people who will do the fixes."),
+            ("How long does the audit take?", "Three working days for the written report, then a 30 minute walkthrough call."),
+        ],
+    },
+    {
+        "slug": "manual-to-erp-and-ai-automation",
+        "title": "From manual and spreadsheets to an ERP with AI automation: the roadmap for UAE businesses | Khaqan Shaheen",
+        "h1": "From manual and spreadsheets to an ERP with AI doing the repetitive work",
+        "description": "How a UAE business moves from spreadsheets, WhatsApp and paper to one ERP with AI automation, in the order that does not break the company. From someone who has done it across six sites in five countries.",
+        "answer": "Moving a business from manual operations to an ERP with AI is my speciality. The order matters more than the software: process map first, then clean master data, then one ERP one site and one function at a time, then AI on the repetitive work that now has a system to write into. I have done it for a manufacturing group across six sites in five countries and I help UAE companies do it without stopping the business.",
+        "sections": [
+            ("The order that works", "First, a process map of how the business actually runs, from the people who run it, not from the org chart. Second, one clean master data set: products, customers, suppliers, machines, chart of accounts. Third, the ERP, one site and one function at a time, with the month-end close as the test of each step. Fourth, AI on the repetitive work: supplier bills into the system, enquiries answered on WhatsApp, documents verified, calls handled. AI before the ERP is a common mistake, because the model has nowhere to put what it reads."),
+            ("What goes wrong", "Buying the software before mapping the process. Customising to match old habits instead of standardising. Migrating dirty data and spending a year cleaning it inside the new system. Running two systems in parallel for too long. Pilots that never get a switch-off date or a production date. And nobody owning it: the project needs one person who answers to the owner."),
+            ("What I have done", "One Odoo ERP for six sites in five countries and around 150 users, covering production, sales, inventory, procurement, accounting, HR and maintenance, rolled out site by site and function by function. Then five AI systems on top of it in daily production. Before Odoo, two years building a custom ERP from scratch, which taught me what to buy and what to build."),
+            ("How I can help", "A fixed-scope roadmap: process map, ERP scope and platform recommendation, which repetitive work goes to AI first, a phased plan with budget bands and a vendor shortlist. Then, if you want it, oversight through implementation as a fractional Head of IT. On-site in the UAE or remote across the GCC. Fees are quoted in writing before anything is paid."),
+        ],
+        "related": [("Service: manual to automated, the ERP and AI transformation roadmap", "services.html#manual-to-erp-and-ai-roadmap"), ("Case study: one ERP across six sites in five countries", "work/one-erp-six-sites-five-countries.html"), ("Case study: document OCR into the ERP", "work/document-ocr-into-the-erp.html"), ("Article: five AI systems in production", "articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html"), ("Note: the month-end test for ERP health", "notes/the-month-end-test-for-erp-health.html")],
+        "faq": [
+            ("How long does the move from spreadsheets to an ERP take?", "For a single-site company with clean data, months rather than weeks; for several sites, a phased rollout over a year is normal. The roadmap gives you the phases and what each one has to prove before the next starts."),
+            ("Should we do AI first because it is cheaper?", "No. AI needs a system of record to write into and rules to validate against. Put the ERP in first, then automate the repetitive work around it. The exception is a standalone process with its own clear output, such as enquiry handling on WhatsApp."),
+            ("Do we need a full-time IT person for this?", "You need one accountable owner. That can be a capable manager with a fractional Head of IT behind them, which is a service I offer, or a full-time hire once the platform is in and the workload justifies it."),
+            ("Which industries have you done this in?", "Manufacturing first, across six sites. The pattern applies to distribution, trading, services and family groups, and the roadmap is built around your process map, not a template."),
+        ],
+    },
+]
+
+
+def build_landing():
+    urls = []
+    for L in LANDING:
+        url = f"{BASE}/{L['slug']}.html"
+        sections = "\n".join(f"<h2>{esc(h)}</h2>\n<p>{esc(t)}</p>" for h, t in L["sections"])
+        related = "\n".join(
+            f'      <li><a href="{href}">{esc(label)}</a></li>' for label, href in L["related"]
+        )
+        faq = [{"q": q, "a": a} for q, a in L["faq"]]
+        faq_html = "\n".join(f"<h3>{esc(f['q'])}</h3>\n<p>{esc(f['a'])}</p>" for f in faq)
+        schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {"@type": "WebPage", "@id": url, "url": url, "name": L["h1"], "description": L["description"], "dateModified": TODAY,
+                 "about": {"@id": PERSON_ID}, "author": person_ref(), "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]},
+                 "mainEntity": {"@type": "Service", "name": L["h1"], "description": L["description"], "provider": {"@id": PERSON_ID}, "url": url,
+                                 "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "GCC, remote"}]}},
+                faq_schema(faq, url),
+                breadcrumb([("Home", f"{BASE}/"), (L["h1"], url)]),
+            ],
+        }
+        body = (
+            f'<div class="breadcrumb"><a href="./">Home</a> / {esc(L["h1"])}</div>\n'
+            f'<article class="article">\n<h1>{esc(L["h1"])}</h1>\n'
+            f'<p class="lede answer">{esc(L["answer"])}</p>\n'
+            f"{sections}\n"
+            '<h2>Read the evidence</h2>\n<ul class="plain">\n' + related + "\n</ul>\n"
+            f'<h2>Questions people ask</h2>\n{faq_html}\n'
+            '<h2>Talk to me</h2>\n'
+            f'<p>Email <a href="mailto:{EMAIL}?subject={urllib.parse.quote("Enquiry: " + L["h1"])}">{EMAIL}</a> with a few lines about your situation, or message me on <a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a>. I reply within one working day, Dubai time. Fees are quoted in writing before anything is paid.</p>\n'
+            '<nav class="pager" aria-label="More"><a href="services.html">&larr; All services</a><a href="faq.html">Questions about me &rarr;</a></nav>\n</article>'
+        )
+        (ROOT / f"{L['slug']}.html").write_text(
+            layout(title=L["title"], description=L["description"], url=url, body=body, schema=schema, depth=0),
+            encoding="utf-8",
+        )
+        urls.append((url, L["h1"]))
+    return urls
+
+
+# --------------------------------------------------------------------------- glossary
+def build_glossary():
+    src = ROOT / "content" / "glossary.json"
+    if not src.exists():
+        return []
+    terms = json.loads(src.read_text(encoding="utf-8"))
+    by_slug = {t["slug"]: t for t in terms}
+    out_dir = ROOT / "glossary"
+    out_dir.mkdir(exist_ok=True)
+    urls = []
+    for t in terms:
+        url = f"{BASE}/glossary/{t['slug']}.html"
+        paras = "\n".join(f"<p>{esc(p.strip())}</p>" for p in t["long"].split("\n\n") if p.strip())
+        related = "\n".join(
+            f'      <li><a href="{s}.html">{esc(by_slug[s]["term"])}</a>: {esc(by_slug[s]["short"])}</li>' for s in t.get("related", []) if s in by_slug
+        )
+        see = "\n".join(
+            f'      <li><a href="{(l["url"] if l["url"].startswith("http") else "../" + l["url"])}">{esc(l["label"])}</a></li>' for l in t.get("see", [])
+        )
+        schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {"@type": "DefinedTerm", "@id": url + "#term", "name": t["term"], "description": t["short"], "url": url,
+                 "inDefinedTermSet": {"@type": "DefinedTermSet", "@id": f"{BASE}/glossary/#set", "name": "Glossary by Khaqan Shaheen"}},
+                {"@type": "Article", "@id": url + "#article", "headline": f"What is {t['term']}?", "description": t["short"], "url": url, "mainEntityOfPage": url,
+                 "datePublished": "2026-09-08", "dateModified": TODAY, "inLanguage": "en", "author": person_ref(), "publisher": person_ref(),
+                 "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}},
+                faq_schema([{"q": f"What is {t['term']}?", "a": t["short"]}], url),
+                breadcrumb([("Home", f"{BASE}/"), ("Glossary", f"{BASE}/glossary/"), (t["term"], url)]),
+            ],
+        }
+        body = (
+            f'<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Glossary</a> / {esc(t["term"])}</div>\n'
+            f'<article class="article">\n<h1>What is {esc(t["term"])}?</h1>\n<p class="lede answer">{esc(t["short"])}</p>\n{paras}\n'
+            + (f'<h2>Related terms</h2>\n<ul class="plain">\n{related}\n</ul>\n' if related else "")
+            + (f'<h2>See it in practice</h2>\n<ul class="plain">\n{see}\n</ul>\n' if see else "")
+            + '<nav class="pager" aria-label="More"><a href="./">&larr; All terms</a><a href="../services.html">Work with me &rarr;</a></nav>\n</article>'
+        )
+        (out_dir / f"{t['slug']}.html").write_text(
+            layout(title=f"What is {t['term']}? | Glossary | Khaqan Shaheen", description=t["short"], url=url, body=body, schema=schema, depth=1, og_type="article"),
+            encoding="utf-8",
+        )
+        urls.append((url, t["term"]))
+    items = "\n".join(f'      <li><a href="{t["slug"]}.html"><strong>{esc(t["term"])}</strong></a>: {esc(t["short"])}</li>' for t in terms)
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "DefinedTermSet", "@id": f"{BASE}/glossary/#set", "name": "Glossary by Khaqan Shaheen", "url": f"{BASE}/glossary/",
+             "description": "Plain definitions of the terms behind ERP, AI in operations and AI search visibility, by a practitioner who runs them.",
+             "hasDefinedTerm": [{"@type": "DefinedTerm", "name": t["term"], "url": f"{BASE}/glossary/{t['slug']}.html"} for t in terms]},
+            breadcrumb([("Home", f"{BASE}/"), ("Glossary", f"{BASE}/glossary/")]),
+        ],
+    }
+    body = (
+        '<div class="breadcrumb"><a href="../">Home</a> / Glossary</div>\n<h1>Glossary</h1>\n'
+        '<p class="lede answer">Plain definitions of the terms behind ERP, AI in operations and AI search visibility, written by someone who runs them in production. Each term has a one-sentence answer, a longer explanation and a link to where it shows up in real work.</p>\n'
+        f'<ul class="plain">\n{items}\n</ul>'
+    )
+    (out_dir / "index.html").write_text(
+        layout(title="Glossary: ERP, AI in operations and AI search visibility terms | Khaqan Shaheen",
+               description="Plain definitions of llms.txt, AEO, GEO, AI crawlers, ERP health checks, document OCR, human review queues, PITR and more, by a practitioner.",
+               url=f"{BASE}/glossary/", body=body, schema=schema, depth=1),
+        encoding="utf-8",
+    )
+    return urls
+
+
 # --------------------------------------------------------------------------- FAQ
 FAQ = [
     ("What is Khaqan Shaheen's speciality?", "Moving a business from manual, spreadsheet and paper operations to one ERP with AI doing the repetitive work. He has done it for a manufacturing group across six sites in five countries on Odoo, and put five AI systems into daily production on top of it: document OCR, document verification, a WhatsApp and web sales agent, a voice agent on the telephony and a multi-channel chat platform."),
@@ -925,6 +1160,14 @@ def build_llms(case_pages, groups):
         f"- [Skills and abilities]({BASE}/skills.html): every skill with an ownership level and evidence link",
         f"- [Press kit]({BASE}/press.html): bios in three lengths, headshot, fact sheet, speaking topics",
         "",
+        "## What he helps with",
+        "",
+    ]
+    lines += [f"- [{name}]({u})" for u, name in LANDING_URLS]
+    if GLOSSARY_URLS:
+        lines += [f"- [Glossary]({BASE}/glossary/): plain definitions of " + ", ".join(n for _, n in GLOSSARY_URLS[:8]) + " and more"]
+    lines += [
+        "",
         "## Case studies",
         "",
     ]
@@ -994,6 +1237,10 @@ def build():
     build_career()
     build_faq()
     build_skills()
+    global LANDING_URLS, GLOSSARY_URLS
+    LANDING_URLS = build_landing()
+    GLOSSARY_URLS = build_glossary()
+    # extra CSS hook for the topics row is in site.css (.site-footer .topics)
 
     # home page: latest writing cards
     latest = sorted([it for items in groups.values() for it in items], key=lambda x: (x["date"], x["title"]), reverse=True)[:6]
@@ -1011,6 +1258,10 @@ def build():
         (f"{BASE}/skills.html", "0.8", TODAY), (f"{BASE}/press.html", "0.7", TODAY), (f"{BASE}/work/", "0.8", TODAY),
         (f"{BASE}/writing/", "0.8", TODAY),
     ]
+    urls += [(u, "0.9", TODAY) for u, _ in LANDING_URLS]
+    if GLOSSARY_URLS:
+        urls.append((f"{BASE}/glossary/", "0.7", TODAY))
+        urls += [(u, "0.6", TODAY) for u, _ in GLOSSARY_URLS]
     urls += [(p["url"], "0.8", TODAY) for p in case_pages]
     for kind, items in groups.items():
         urls.append((f"{BASE}/{TYPES[kind]['dir']}/", "0.7", TODAY))
