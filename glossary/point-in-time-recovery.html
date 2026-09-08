@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is point-in-time recovery (PITR)? | Glossary | Khaqan Shaheen</title>
+<meta name="description" content="Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.">
+<meta name="author" content="Khaqan Shaheen">
+<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Khaqan Shaheen">
+<meta property="og:title" content="What is point-in-time recovery (PITR)? | Glossary | Khaqan Shaheen">
+<meta property="og:description" content="Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.">
+<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html">
+<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What is point-in-time recovery (PITR)? | Glossary | Khaqan Shaheen">
+<meta name="twitter:description" content="Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.">
+<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "DefinedTerm", "@id": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html#term", "name": "point-in-time recovery (PITR)", "description": "Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.", "url": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html", "inDefinedTermSet": {"@type": "DefinedTermSet", "@id": "https://servia-tech.github.io/khaqan-shaheen/glossary/#set", "name": "Glossary by Khaqan Shaheen"}}, {"@type": "Article", "@id": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html#article", "headline": "What is point-in-time recovery (PITR)?", "description": "Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.", "url": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html#faq", "mainEntity": [{"@type": "Question", "name": "What is point-in-time recovery (PITR)?", "acceptedAnswer": {"@type": "Answer", "text": "Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://servia-tech.github.io/khaqan-shaheen/glossary/"}, {"@type": "ListItem", "position": 3, "name": "point-in-time recovery (PITR)", "item": "https://servia-tech.github.io/khaqan-shaheen/glossary/point-in-time-recovery.html"}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href=".././">Khaqan<span>.</span> Shaheen</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../work/">Work</a>
+      <a href="../writing/">Writing</a>
+      <a href="../services.html">Services</a>
+      <a href="../career-advice.html">Career advice</a>
+      <a href="../skills.html">Skills</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<div class="breadcrumb"><a href="../">Home</a> / <a href="./">Glossary</a> / point-in-time recovery (PITR)</div>
+<article class="article">
+<h1>What is point-in-time recovery (PITR)?</h1>
+<p class="lede answer">Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.</p>
+<p>PostgreSQL writes every change to the write-ahead log before applying it to the data files, and PITR relies on that. You take a base backup of the data directory (with pg_basebackup or a tool such as pgBackRest or Barman) and configure archive_command, or a streaming receiver, so that every completed WAL segment is copied to separate storage as it is produced. To recover, you restore the base backup, point the server at the WAL archive, set a recovery target (a timestamp, a transaction ID, a named restore point or a log position) and start it; the server replays the log up to that target and stops.</p>
+<p>It matters because the common failure is not a dead disk but a bad command. A nightly dump gets you back to last night; PITR gets you back to the minute before someone ran an update without a WHERE clause, or before a migration script deleted the wrong records, with a recovery point measured in seconds rather than a day. For an ERP, that is the difference between re-keying a day&#x27;s transactions across every site and losing almost nothing.</p>
+<p>An example: an accountant discovers in the afternoon that a bulk import at half past two corrupted hundreds of invoice lines. With PITR you restore to 14:29 on a spare server, extract the correct rows and repair the live database, or fail over to the restored copy if the damage is wide.</p>
+<p>The common mistake is archiving WAL to the same disk or server as the database, which turns a hardware failure into total loss, closely followed by never performing a restore. An archive that has never been replayed is a hope, not a backup. Test the full restore on a schedule and time it, so the recovery time is a known number rather than a guess.</p>
+<h2>Related terms</h2>
+<ul class="plain">
+      <li><a href="logical-replication.html">logical replication (PostgreSQL major upgrade)</a>: Logical replication is a PostgreSQL feature that streams row-level changes from a publisher database to a subscriber, and because it works across major versions it allows an upgrade with minimal downtime: replicate to the new version, let it catch up, then switch over.</li>
+      <li><a href="erp-health-check.html">ERP health check</a>: An ERP health check is a structured review of an ERP system that tests whether its data, customisations, integrations, backups, performance and user access are sound, and produces a prioritised list of risks and fixes before they turn into outages or wrong numbers.</li>
+      <li><a href="odoo.html">Odoo</a>: Odoo is a modular, open-source ERP and business application suite from Belgium, written in Python on PostgreSQL, that covers accounting, inventory, manufacturing, sales, CRM, HR, websites and more, available as a free Community edition and a paid Enterprise edition.</li>
+</ul>
+<h2>See it in practice</h2>
+<ul class="plain">
+      <li><a href="../tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html">Zero unplanned downtime PostgreSQL major upgrade checklist</a></li>
+      <li><a href="../work/postgresql-9-5-to-16-migration.html">PostgreSQL 9.5 to 16 migration</a></li>
+</ul>
+<nav class="pager" aria-label="More"><a href="./">&larr; All terms</a><a href="../services.html">Work with me &rarr;</a></nav>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="topics">What I help with: <a href="../odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="../erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="../manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="../ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="../fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="../ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="../glossary/">Glossary</a></div>
+    <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -21,6 +21,7 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 - [Fractional Head of IT in the UAE](https://servia-tech.github.io/khaqan-shaheen/fractional-head-of-it-uae.html)
 - [AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?](https://servia-tech.github.io/khaqan-shaheen/ai-search-visibility-audit.html)
 - [From manual and spreadsheets to an ERP with AI doing the repetitive work](https://servia-tech.github.io/khaqan-shaheen/manual-to-erp-and-ai-automation.html)
+- [Glossary](https://servia-tech.github.io/khaqan-shaheen/glossary/): plain definitions of llms.txt, llms-full.txt, AEO (answer engine optimisation), GEO (generative engine optimisation), AI Overviews (Google), AI search visibility, AI crawler (GPTBot, ClaudeBot, PerplexityBot and others), robots.txt for AI crawlers and more
 
 ## Case studies
 
