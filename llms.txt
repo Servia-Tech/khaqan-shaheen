@@ -8,7 +8,7 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 
 - [Home and profile](https://servia-tech.github.io/khaqan-shaheen/): who he is, what he does, experience since 2008, education, contact
 - [Questions people ask](https://servia-tech.github.io/khaqan-shaheen/faq.html): direct answers on consulting, fractional work, mentoring, senior roles, ERP, AI, contact
-- [Services and pricing](https://servia-tech.github.io/khaqan-shaheen/services.html): fixed-price audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles
+- [Services](https://servia-tech.github.io/khaqan-shaheen/services.html): fixed-scope audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles
 - [Career advice and mentoring](https://servia-tech.github.io/khaqan-shaheen/career-advice.html): paid live one-to-one sessions on Google Meet, booked and paid in advance: career strategy, CV and LinkedIn rebuild, interview preparation, engineer to Head of IT mentoring, AI for beginners
 - [Skills and abilities](https://servia-tech.github.io/khaqan-shaheen/skills.html): every skill with an ownership level and evidence link
 - [Press kit](https://servia-tech.github.io/khaqan-shaheen/press.html): bios in three lengths, headshot, fact sheet, speaking topics

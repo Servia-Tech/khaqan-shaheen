@@ -37,6 +37,7 @@ NAV = [
 # Booking plumbing. Leave empty to fall back to a pre-filled email; put a Stripe Payment Link,
 # PayPal.me, Calendly or similar URL here and every Book button switches to it.
 BOOKING = {"payment_link": "", "calendar_link": ""}
+SHOW_PRICES = False  # Khaqan, 8 Sep 2026: fees are quoted by email, never shown on the site
 EMAIL = "khaqanshaheen@yahoo.com"
 AED_PER_USD = 3.67
 
@@ -536,7 +537,7 @@ def book_link(name: str, price: int) -> str:
         return BOOKING["payment_link"]
     subject = urllib.parse.quote(f"Booking: {name}")
     body = urllib.parse.quote(
-        f"Hi Khaqan,\n\nI would like to book: {name} (AED {price:,}).\n\nPreferred dates and times (Dubai time):\n\nA few lines about my situation:\n\nThanks"
+        f"Hi Khaqan,\n\nI would like to book: {name}" + (f" (AED {price:,})" if SHOW_PRICES and price else "") + ".\n\nPreferred dates and times (Dubai time):\n\nA few lines about my situation:\n\nThanks"
     )
     return f"mailto:{EMAIL}?subject={subject}&body={body}"
 
@@ -567,12 +568,16 @@ def reviews_block(reviews, heading="Client feedback"):
 
 
 def offer_schema(name, price, url, description, per=None):
-    o = {"@type": "Offer", "price": str(price), "priceCurrency": "AED", "availability": "https://schema.org/InStock", "url": url, "priceValidUntil": "2027-12-31"}
-    if per:
-        o["priceSpecification"] = {"@type": "UnitPriceSpecification", "price": str(price), "priceCurrency": "AED", "unitText": per}
-    return {"@type": "Service", "name": name, "description": description, "provider": {"@id": PERSON_ID}, "url": url,
-            "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "Remote, worldwide"}],
-            "offers": o}
+    svc = {"@type": "Service", "name": name, "description": description, "provider": {"@id": PERSON_ID}, "url": url,
+           "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "Remote, worldwide"}]}
+    if SHOW_PRICES:
+        o = {"@type": "Offer", "price": str(price), "priceCurrency": "AED", "availability": "https://schema.org/InStock", "url": url, "priceValidUntil": "2027-12-31"}
+        if per:
+            o["priceSpecification"] = {"@type": "UnitPriceSpecification", "price": str(price), "priceCurrency": "AED", "unitText": per}
+        svc["offers"] = o
+    else:
+        svc["offers"] = {"@type": "Offer", "availability": "https://schema.org/InStock", "url": url, "description": "Fee quoted in writing by email within one working day"}
+    return svc
 
 
 def product_card(p):
@@ -580,8 +585,9 @@ def product_card(p):
     return (
         f'      <div class="card plan" id="{p["id"]}">\n        <div class="eyebrow">{esc(p["cat"])}</div>\n        <h3>{esc(p["name"])}</h3>\n'
         f'        <p>{esc(p["tagline"])}</p>\n        <ul class="plain small">\n{gets}\n        </ul>\n'
-        f'        <p class="price">AED {p["price"]:,} <span class="muted small">about USD {usd(p["price"]):,} &middot; {esc(p["turnaround"])}</span></p>\n'
-        f'        <a class="btn primary" href="{book_link(p["name"], p["price"])}">Book this</a>\n      </div>'
+        + (f'        <p class="price">AED {p["price"]:,} <span class="muted small">about USD {usd(p["price"]):,} &middot; {esc(p["turnaround"])}</span></p>\n' if SHOW_PRICES
+           else f'        <p class="price">Fee on request <span class="muted small">quoted in writing within one working day &middot; {esc(p["turnaround"])}</span></p>\n')
+        + f'        <a class="btn primary" href="{book_link(p["name"], p["price"])}">Ask for a quote</a>\n      </div>'
     )
 
 
@@ -597,11 +603,12 @@ def build_services():
         items = "\n".join(f"      <li>{esc(i)}</li>" for i in r["items"])
         retained.append(
             f'<section id="{r["id"]}">\n<h2>{esc(r["name"])}</h2>\n<p class="lede">{esc(r["lead"])}</p>\n<ul class="plain">\n{items}\n</ul>\n'
-            f'<p class="price">{esc(r["price_text"])}</p>\n<a class="btn" href="{book_link(r["name"], 0).replace("(AED%200)", "")}">Ask about this</a>\n</section>'
+            + (f'<p class="price">{esc(r["price_text"])}</p>\n' if SHOW_PRICES else '<p class="price">Scoped and quoted in writing</p>\n')
+            + f'<a class="btn" href="{book_link(r["name"], 0)}">Ask about this</a>\n</section>'
         )
     faq = [
-        {"q": "How do I book and pay?", "a": "Click Book on the service, or email me with the service name. I confirm scope and dates by email, send a payment link or bank details, and work starts once payment is received. A receipt is issued for every payment."},
-        {"q": "Are the prices fixed?", "a": "Yes for the fixed-price services listed, for the scope described. If your situation is bigger than the scope, I say so before you pay and quote the difference in writing."},
+        {"q": "How do I book and pay?", "a": "Click Ask for a quote on the service, or email me with the service name. I reply with the scope, the dates and the fee in writing, then a payment link or bank details. Work starts once payment is received and a receipt is issued for every payment."},
+        {"q": "How is the fee set?", "a": "Every service has a fixed scope. I send the fee in writing together with the scope, usually within one working day, and nothing is paid until you have both. If your situation is bigger than the scope, I say so before you pay."},
         {"q": "Do you work on-site or remotely?", "a": "Both. On-site in Dubai, Sharjah and across the UAE. Remote for the wider Gulf, Pakistan and international companies. Dubai time, GMT+4."},
         {"q": "Can you do this alongside your day job?", "a": "Yes. Work is done outside my employer's hours or by arrangement, never for a competitor of my employer, and every deliverable has a written date you can hold me to."},
         {"q": "What if I need something not listed?", "a": "Email the problem in a few lines. If I am the right person I will scope and quote it; if I am not, I will say so and suggest who is."},
@@ -611,8 +618,8 @@ def build_services():
         "@context": "https://schema.org",
         "@graph": [
             {"@type": "WebPage", "@id": url, "url": url, "dateModified": TODAY, "about": {"@id": PERSON_ID},
-             "name": "Services and pricing: SEO and AI visibility audits, Google Ads design, ERP health checks, IT reviews, fractional Head of IT",
-             "description": "Fixed-price services from Khaqan Shaheen: AI visibility and SEO audits, new website surveys, Google Ads campaign design, marketing automation, app reviews, Odoo health checks, AI readiness, new-site IT plans and IT function reviews. Fractional Head of IT and senior roles.",
+             "name": "Services: SEO and AI visibility audits, Google Ads design, ERP health checks, IT reviews, fractional Head of IT",
+             "description": "Fixed-scope services from Khaqan Shaheen: AI visibility and SEO audits, new website surveys, Google Ads campaign design, marketing automation, app reviews, Odoo health checks, AI readiness, new-site IT plans and IT function reviews. Fractional Head of IT and senior roles.",
              "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": s} for i, s in enumerate(services_schema)]}},
             faq_schema(faq, url),
             breadcrumb([("Home", f"{BASE}/"), ("Services", url)]),
@@ -620,23 +627,23 @@ def build_services():
     }
     faq_html = "\n".join(f'<h3>{esc(f["q"])}</h3>\n<p>{esc(f["a"])}</p>' for f in faq)
     body = (
-        '<div class="breadcrumb"><a href="./">Home</a> / Services</div>\n<h1>Services and pricing</h1>\n'
-        '<p class="lede answer">Fixed-price services you can book today, paid in advance, delivered on a written date: search and AI visibility audits, Google Ads and marketing automation design, app reviews, Odoo health checks, AI readiness, new-site IT plans and full IT function reviews. Below them, fractional Head of IT work, project work and senior roles.</p>\n'
-        f'<p class="muted small">{esc(FOUNDING_NOTE)} Prices exclude VAT where it applies. Work is done outside my employer\'s hours or by arrangement, and never for a competitor of my employer. Career sessions are on their <a href="career-advice.html">own page</a>.</p>\n'
+        '<div class="breadcrumb"><a href="./">Home</a> / Services</div>\n<h1>Services</h1>\n'
+        '<p class="lede answer">Fixed-scope services you can book today, with the fee sent in writing before you pay and delivery on a written date: search and AI visibility audits, Google Ads and marketing automation design, app reviews, Odoo health checks, AI readiness, new-site IT plans and full IT function reviews. Below them, fractional Head of IT work, project work and senior roles.</p>\n'
+        f'<p class="muted small">{esc(FOUNDING_NOTE)} Work is done outside my employer\'s hours or by arrangement, and never for a competitor of my employer. Career sessions are on their <a href="career-advice.html">own page</a>.</p>\n'
         '<ul class="facts" aria-label="Availability"><li><strong>Now</strong><span>available for new bookings</span></li><li><strong>UAE</strong><span>on-site: Dubai, Sharjah, all emirates</span></li><li><strong>Remote</strong><span>Gulf, Pakistan, international</span></li><li><strong>GMT+4</strong><span>Dubai time</span></li></ul>\n'
         + "\n".join(cats)
         + "\n" + "\n".join(retained)
         + "\n" + reviews_block(reviews)
         + '\n<section id="how">\n<h2>How it works</h2>\n<ol class="plain">\n'
-        "<li>Click Book on a service, or email <a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a> with the service name and a few lines about your situation.</li>\n"
-        "<li>I reply within one working day with the scope confirmed, the dates, and a payment link or bank details.</li>\n"
+        "<li>Click Ask for a quote on a service, or email <a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a> with the service name and a few lines about your situation.</li>\n"
+        "<li>I reply within one working day with the scope confirmed, the dates, the fee in writing, and a payment link or bank details.</li>\n"
         "<li>You pay in advance. Work starts on the agreed date and you get written deliverables, not just meetings.</li>\n"
-        "<li>A follow-up call is included with every fixed-price service.</li>\n</ol>\n</section>\n"
+        "<li>A follow-up call is included with every service.</li>\n</ol>\n</section>\n"
         f'<section id="questions">\n<h2>Questions before you book</h2>\n{faq_html}\n</section>'
     )
     (ROOT / "services.html").write_text(
-        layout(title="Services and pricing: SEO and AI audits, Google Ads design, Odoo health checks, IT reviews, fractional Head of IT | Khaqan Shaheen",
-               description="Fixed-price services from Khaqan Shaheen, Head of IT in Dubai: AI visibility and SEO audits, new website surveys, Google Ads campaign design, marketing automation, app reviews, Odoo health checks, AI readiness reviews, new-site IT plans, IT function reviews, fractional Head of IT.",
+        layout(title="Services: SEO and AI audits, Google Ads design, Odoo health checks, IT reviews, fractional Head of IT | Khaqan Shaheen",
+               description="Fixed-scope services from Khaqan Shaheen, Head of IT in Dubai: AI visibility and SEO audits, new website surveys, Google Ads campaign design, marketing automation, app reviews, Odoo health checks, AI readiness reviews, new-site IT plans, IT function reviews, fractional Head of IT.",
                url=url, body=body, schema=schema, depth=0),
         encoding="utf-8",
     )
@@ -652,8 +659,9 @@ def build_career():
         cards.append(
             f'      <div class="card plan" id="{s["id"]}">\n        <h3>{esc(s["name"])}</h3>\n        <p class="muted small">{esc(s["length"])}</p>\n'
             f'        <p><strong>For:</strong> {esc(s["for"])}</p>\n        <ul class="plain small">\n{gets}\n        </ul>\n'
-            f'        <p class="price">AED {s["price"]:,}{per} <span class="muted small">about USD {usd(s["price"]):,}</span></p>\n'
-            f'        <a class="btn primary" href="{book_link(s["name"], s["price"])}">Book and pay in advance</a>\n      </div>'
+            + (f'        <p class="price">AED {s["price"]:,}{per} <span class="muted small">about USD {usd(s["price"]):,}</span></p>\n' if SHOW_PRICES
+               else '        <p class="price">Fee on request <span class="muted small">sent with your booking confirmation</span></p>\n')
+            + f'        <a class="btn primary" href="{book_link(s["name"], s["price"])}">Book a session</a>\n      </div>'
         )
     faq = [
         {"q": "How do the live sessions work?", "a": "You pick a plan and book. I confirm a time on Dubai time (evenings and weekends, GMT+4), you pay in advance through the link I send, and you get a calendar invite with a Google Meet link. Notes follow within 24 hours."},
@@ -682,8 +690,8 @@ def build_career():
         '<section id="plans" style="border-top:0;padding-top:12px">\n<h2>Plans</h2>\n<div class="grid">\n' + "\n".join(cards) + "\n</div>\n"
         f'<p class="muted small">{esc(FOUNDING_NOTE)}</p>\n</section>\n'
         '<section id="how">\n<h2>How booking works</h2>\n<ol class="plain">\n'
-        "<li>Choose a plan and click Book. Your email client opens with the plan filled in; add your preferred times.</li>\n"
-        "<li>I reply within one working day with two or three slots and a payment link.</li>\n"
+        "<li>Choose a plan and click Book a session. Your email client opens with the plan filled in; add your preferred times.</li>\n"
+        "<li>I reply within one working day with two or three slots, the fee in writing, and a payment link.</li>\n"
         "<li>Pay in advance. You get a calendar invite with the Google Meet link and a short questionnaire so the session starts on your situation, not on introductions.</li>\n"
         "<li>After the session, written notes within 24 hours and, where the plan includes it, a written pass on your material.</li>\n</ol>\n</section>\n"
         '<section id="topics">\n<h2>What we can work on</h2>\n<ul class="plain two-col">\n'
@@ -912,7 +920,7 @@ def build_llms(case_pages, groups):
         "",
         f"- [Home and profile]({BASE}/): who he is, what he does, experience since 2008, education, contact",
         f"- [Questions people ask]({BASE}/faq.html): direct answers on consulting, fractional work, mentoring, senior roles, ERP, AI, contact",
-        f"- [Services and pricing]({BASE}/services.html): fixed-price audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles",
+        f"- [Services]({BASE}/services.html): fixed-scope audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles",
         f"- [Career advice and mentoring]({BASE}/career-advice.html): paid live one-to-one sessions on Google Meet, booked and paid in advance: career strategy, CV and LinkedIn rebuild, interview preparation, engineer to Head of IT mentoring, AI for beginners",
         f"- [Skills and abilities]({BASE}/skills.html): every skill with an ownership level and evidence link",
         f"- [Press kit]({BASE}/press.html): bios in three lengths, headshot, fact sheet, speaking topics",
@@ -955,15 +963,16 @@ def build_llms(case_pages, groups):
 
     full = ["# Khaqan Shaheen: full text", "", f"Generated {TODAY}. Source: {BASE}/", ""]
     full += ["## Questions people ask", ""] + [f"### {q}\n\n{a}\n" for q, a in FAQ]
-    full += ["## Services and pricing (AED, paid in advance)", ""]
+    full += ["## Services (fixed scope, fee quoted by email, paid in advance)", ""]
     for p in PRODUCTS:
-        full += [f"### {p['name']}: AED {p['price']:,} (about USD {usd(p['price']):,}), {p['turnaround']}", "", p["tagline"], ""] + [f"- {g}" for g in p["gets"]] + [""]
+        head = f"### {p['name']}: AED {p['price']:,}, {p['turnaround']}" if SHOW_PRICES else f"### {p['name']} ({p['turnaround']}, fee on request)"
+        full += [head, "", p["tagline"], ""] + [f"- {g}" for g in p["gets"]] + [""]
     for r in RETAINED:
-        full += [f"### {r['name']}: {r['price_text']}", "", r["lead"], ""] + [f"- {i}" for i in r["items"]] + [""]
-    full += ["## Career advice and mentoring (live online sessions, paid in advance)", ""]
+        full += [f"### {r['name']}" + (f": {r['price_text']}" if SHOW_PRICES else ""), "", r["lead"], ""] + [f"- {i}" for i in r["items"]] + [""]
+    full += ["## Career advice and mentoring (live online sessions, fee quoted by email, paid in advance)", ""]
     for s in SESSIONS:
         per = f" per {s['per']}" if s.get("per") else ""
-        full += [f"### {s['name']}: AED {s['price']:,}{per}, {s['length']}", "", f"For: {s['for']}", ""] + [f"- {g}" for g in s["gets"]] + [""]
+        full += [f"### {s['name']}" + (f": AED {s['price']:,}{per}" if SHOW_PRICES else "") + f", {s['length']}", "", f"For: {s['for']}", ""] + [f"- {g}" for g in s["gets"]] + [""]
     full += ["## Skills", ""]
     for cat, items in SKILLS:
         full += [f"### {cat}", ""] + [f"- {n} ({lvl}): {d}" for n, lvl, d, _ in items] + [""]

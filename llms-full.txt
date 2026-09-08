@@ -76,9 +76,9 @@ Email khaqanshaheen@yahoo.com or message him on LinkedIn at linkedin.com/in/webs
 
 Every case study has an evidence section that says what the claim rests on, and none of them carries a number he cannot show how he measured. Where a figure would normally sit, the site uses scope: six sites, five countries, around 150 users, eight database major versions, no unplanned downtime at any site.
 
-## Services and pricing (AED, paid in advance)
+## Services (fixed scope, fee quoted by email, paid in advance)
 
-### Manual to automated: ERP and AI transformation roadmap: AED 6,500 (about USD 1,770), 7 working days
+### Manual to automated: ERP and AI transformation roadmap (7 working days, fee on request)
 
 For a business still run on spreadsheets, WhatsApp and paper: a written plan to move to one ERP with AI doing the repetitive work, in the order that will not break the company.
 
@@ -88,7 +88,7 @@ For a business still run on spreadsheets, WhatsApp and paper: a written plan to 
 - Phased rollout plan, budget bands, vendor shortlist and the questions to ask each one
 - A follow-up call after your first vendor conversations
 
-### ERP consultation call: AED 600 (about USD 165), 60 minutes, within 5 working days
+### ERP consultation call (60 minutes, within 5 working days, fee on request)
 
 One hour with someone who has run an ERP for six sites in five countries. Bring the problem; leave with a decision.
 
@@ -97,7 +97,7 @@ One hour with someone who has run an ERP for six sites in five countries. Bring 
 - Written notes within 24 hours
 - Credited against any fixed-price service booked within 30 days
 
-### AI visibility and SEO site audit: AED 1,500 (about USD 410), 3 working days
+### AI visibility and SEO site audit (3 working days, fee on request)
 
 Find out whether Google, ChatGPT, Perplexity and Gemini can crawl, read and cite your site, and what to fix first.
 
@@ -106,7 +106,7 @@ Find out whether Google, ChatGPT, Perplexity and Gemini can crawl, read and cite
 - Written report with every finding and the fix, in priority order
 - 30 minute walkthrough call
 
-### New website survey before you build: AED 1,200 (about USD 325), 3 working days
+### New website survey before you build (3 working days, fee on request)
 
 Get the structure, platform and search plan right before a developer writes a line.
 
@@ -115,7 +115,7 @@ Get the structure, platform and search plan right before a developer writes a li
 - Platform recommendation and a brief you can hand to any developer
 - Budget sanity check and the questions to ask each vendor
 
-### Google Ads campaign design: AED 2,500 (about USD 680), 5 working days
+### Google Ads campaign design (5 working days, fee on request)
 
 A search campaign built the way I run my own: tight keyword structure, hard bid caps, conversion tracking that actually fires.
 
@@ -125,7 +125,7 @@ A search campaign built the way I run my own: tight keyword structure, hard bid 
 - Daily budget and cost-per-click caps, plus what to watch in week one
 - Optional: set it up inside your account (quoted separately)
 
-### Marketing automation and AI content pipeline design: AED 3,500 (about USD 955), 7 working days
+### Marketing automation and AI content pipeline design (7 working days, fee on request)
 
 Enquiry capture on WhatsApp and the web, a content and posting pipeline, and the guardrails so it does not embarrass you.
 
@@ -134,7 +134,7 @@ Enquiry capture on WhatsApp and the web, a content and posting pipeline, and the
 - Tool and model choice with a monthly cost model
 - Guardrails, logging and the switch-off rule
 
-### Mobile and watch app concept review: AED 1,500 (about USD 410), 3 working days
+### Mobile and watch app concept review (3 working days, fee on request)
 
 Before you commission an app: is it a native app, a PWA or a watch companion, and what will it really cost to run?
 
@@ -143,7 +143,7 @@ Before you commission an app: is it a native app, a PWA or a watch companion, an
 - Store readiness and the review pitfalls
 - Build versus outsource, with cost bands
 
-### ERP and Odoo health check: AED 4,500 (about USD 1,225), 2 days plus report
+### ERP and Odoo health check (2 days plus report, fee on request)
 
 A working review of your Odoo: customisation risk, upgrade path, data quality, backups and access.
 
@@ -152,7 +152,7 @@ A working review of your Odoo: customisation risk, upgrade path, data quality, b
 - Backups, recovery, access control and audit trail checked
 - Written plan: fix now, fix next, leave alone
 
-### AI in operations readiness review: AED 5,500 (about USD 1,500), 5 working days
+### AI in operations readiness review (5 working days, fee on request)
 
 Which of your processes are worth automating with AI, and a design that will survive daily use.
 
@@ -161,7 +161,7 @@ Which of your processes are worth automating with AI, and a design that will sur
 - Model and vendor choice with a cost model
 - How you will measure accuracy honestly, month by month
 
-### New factory or site IT plan: AED 6,000 (about USD 1,635), 5 working days
+### New factory or site IT plan (5 working days, fee on request)
 
 The order of operations for bringing a greenfield site online, from connectivity to the day one checklist.
 
@@ -170,7 +170,7 @@ The order of operations for bringing a greenfield site online, from connectivity
 - Day one checklist and the week-before checks
 - Budget bands and the items that always get forgotten
 
-### IT function review: AED 7,500 (about USD 2,045), 5 working days
+### IT function review (5 working days, fee on request)
 
 A structured review of the whole function for an owner who wants to know what they actually have.
 
@@ -179,7 +179,7 @@ A structured review of the whole function for an owner who wants to know what th
 - Written plan in priority order with rough costs
 - Presentation to the owner or board
 
-### Fractional or part-time Head of IT: From AED 8,000 per month for two days a month; AED 15,000 for four
+### Fractional or part-time Head of IT
 
 Ownership of your IT function on an agreed number of days a month, for a company that needs a head of IT's judgement without a full-time hire.
 
@@ -187,7 +187,7 @@ Ownership of your IT function on an agreed number of days a month, for a company
 - A weekly cadence, a standing priority list, written decisions, a monthly review with the owner
 - On-site in Dubai, Sharjah and across the UAE, or remote
 
-### Project and task-based work: Scoped and quoted in writing
+### Project and task-based work
 
 Defined-scope tasks that suit senior experience, delivered part-time.
 
@@ -197,16 +197,16 @@ Defined-scope tasks that suit senior experience, delivered part-time.
 - Tender writing and vendor selection
 - Website, app and marketing builds directed end to end
 
-### Senior leadership roles: Full-time mandates
+### Senior leadership roles
 
 I consider full-time roles as IT Director, Head of IT, or Head of Digital and AI Transformation, in the UAE and internationally, including relocation.
 
 - Best fit: manufacturing, distribution, family groups and mid-sized companies that run on an ERP and want AI to do real work
 - Email or LinkedIn with the scope, the reporting line and the location
 
-## Career advice and mentoring (live online sessions, paid in advance)
+## Career advice and mentoring (live online sessions, fee quoted by email, paid in advance)
 
-### Career strategy call: AED 350, 45 minutes, live on Google Meet
+### Career strategy call, 45 minutes, live on Google Meet
 
 For: Anyone in IT who wants a straight answer about their next move.
 
@@ -214,7 +214,7 @@ For: Anyone in IT who wants a straight answer about their next move.
 - What recruiters in the Gulf actually search for
 - Written notes within 24 hours
 
-### CV and LinkedIn rebuild session: AED 650, 90 minutes, live, plus a written pass
+### CV and LinkedIn rebuild session, 90 minutes, live, plus a written pass
 
 For: IT professionals whose profile reads junior to their real scope.
 
@@ -222,7 +222,7 @@ For: IT professionals whose profile reads junior to their real scope.
 - Scope over adjectives: sites, users, systems, reporting line
 - A written pass on the final version within three days
 
-### Interview preparation for IT leadership roles: AED 900, Two sessions of 60 minutes
+### Interview preparation for IT leadership roles, Two sessions of 60 minutes
 
 For: Candidates with an IT Director, Head of IT or transformation interview coming up.
 
@@ -230,7 +230,7 @@ For: Candidates with an IT Director, Head of IT or transformation interview comi
 - How to talk about ERP, AI and security work without a number you cannot defend
 - Feedback after each round and a final checklist
 
-### Engineer to Head of IT mentoring: AED 1,800 per month, Four sessions of 60 minutes a month
+### Engineer to Head of IT mentoring, Four sessions of 60 minutes a month
 
 For: Engineers and team leads moving into ownership of an IT function.
 
@@ -238,7 +238,7 @@ For: Engineers and team leads moving into ownership of an IT function.
 - Your live problems worked through each week
 - Reading list, templates and written decisions between sessions
 
-### AI for beginners, one to one: AED 1,200, Three sessions of 60 minutes
+### AI for beginners, one to one, Three sessions of 60 minutes
 
 For: People starting out who want to use AI properly at work.
 
@@ -246,7 +246,7 @@ For: People starting out who want to use AI properly at work.
 - Using them safely with company data
 - Your first working automation, built together
 
-### AI for beginners, small group: AED 450 per person, Three sessions of 90 minutes, up to six people
+### AI for beginners, small group, Three sessions of 90 minutes, up to six people
 
 For: Teams or friends who want to learn together at a lower price per head.
 
