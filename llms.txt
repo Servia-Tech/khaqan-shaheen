@@ -6,70 +6,71 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 
 ## Start here
 
-- [Home and profile](https://servia-tech.github.io/khaqan-shaheen/): who he is, what he does, experience since 2008, education, contact
-- [Questions people ask](https://servia-tech.github.io/khaqan-shaheen/faq.html): direct answers on consulting, fractional work, mentoring, senior roles, ERP, AI, contact
-- [Services](https://servia-tech.github.io/khaqan-shaheen/services.html): fixed-scope audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles
-- [Career advice and mentoring](https://servia-tech.github.io/khaqan-shaheen/career-advice.html): paid live one-to-one sessions on Google Meet, booked and paid in advance: career strategy, CV and LinkedIn rebuild, interview preparation, engineer to Head of IT mentoring, AI for beginners
-- [Skills and abilities](https://servia-tech.github.io/khaqan-shaheen/skills.html): every skill with an ownership level and evidence link
-- [Press kit](https://servia-tech.github.io/khaqan-shaheen/press.html): bios in three lengths, headshot, fact sheet, speaking topics
+- [Home and profile](https://khaqanshaheen.com/): who he is, what he does, experience since 2008, education, contact
+- [Questions people ask](https://khaqanshaheen.com/faq.html): direct answers on consulting, fractional work, mentoring, senior roles, ERP, AI, contact
+- [Services](https://khaqanshaheen.com/services.html): fixed-scope audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles
+- [Career advice and mentoring](https://khaqanshaheen.com/career-advice.html): paid live one-to-one sessions on Google Meet, booked and paid in advance: career strategy, CV and LinkedIn rebuild, interview preparation, engineer to Head of IT mentoring, AI for beginners
+- [Book a session](https://khaqanshaheen.com/booking.html): availability calendar in Dubai time, weekday evenings and weekend daytimes, a limited number of sessions a week, priority requests explained
+- [Skills and abilities](https://khaqanshaheen.com/skills.html): every skill with an ownership level and evidence link
+- [Press kit](https://khaqanshaheen.com/press.html): bios in three lengths, headshot, fact sheet, speaking topics
 
 ## What he helps with
 
-- [Odoo ERP consultant in Dubai and the UAE](https://servia-tech.github.io/khaqan-shaheen/odoo-erp-consultant-dubai.html)
-- [ERP consultant for manufacturers in the UAE](https://servia-tech.github.io/khaqan-shaheen/erp-consultant-uae-manufacturing.html)
-- [AI automation for business operations in Dubai and the UAE](https://servia-tech.github.io/khaqan-shaheen/ai-automation-consultant-dubai.html)
-- [Fractional Head of IT in the UAE](https://servia-tech.github.io/khaqan-shaheen/fractional-head-of-it-uae.html)
-- [AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?](https://servia-tech.github.io/khaqan-shaheen/ai-search-visibility-audit.html)
-- [From manual and spreadsheets to an ERP with AI doing the repetitive work](https://servia-tech.github.io/khaqan-shaheen/manual-to-erp-and-ai-automation.html)
-- [Glossary](https://servia-tech.github.io/khaqan-shaheen/glossary/): plain definitions of llms.txt, llms-full.txt, AEO (answer engine optimisation), GEO (generative engine optimisation), AI Overviews (Google), AI search visibility, AI crawler (GPTBot, ClaudeBot, PerplexityBot and others), robots.txt for AI crawlers and more
+- [Odoo ERP consultant in Dubai and the UAE](https://khaqanshaheen.com/odoo-erp-consultant-dubai.html)
+- [ERP consultant for manufacturers in the UAE](https://khaqanshaheen.com/erp-consultant-uae-manufacturing.html)
+- [AI automation for business operations in Dubai and the UAE](https://khaqanshaheen.com/ai-automation-consultant-dubai.html)
+- [Fractional Head of IT in the UAE](https://khaqanshaheen.com/fractional-head-of-it-uae.html)
+- [AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?](https://khaqanshaheen.com/ai-search-visibility-audit.html)
+- [From manual and spreadsheets to an ERP with AI doing the repetitive work](https://khaqanshaheen.com/manual-to-erp-and-ai-automation.html)
+- [Glossary](https://khaqanshaheen.com/glossary/): plain definitions of llms.txt, llms-full.txt, AEO (answer engine optimisation), GEO (generative engine optimisation), AI Overviews (Google), AI search visibility, AI crawler (GPTBot, ClaudeBot, PerplexityBot and others), robots.txt for AI crawlers and more
 
 ## Case studies
 
-- [Machine scheduling and order-overlap prevention in a manufacturing ERP](https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html): A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.
-- [One ERP across six sites in five countries](https://servia-tech.github.io/khaqan-shaheen/work/one-erp-six-sites-five-countries.html): A manufacturing group with six sites in five countries and around 150 users, supported from Dubai.
-- [PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime](https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html): The production database under a group ERP serving six sites in five countries.
-- [Document OCR into the ERP: supplier bills and expense claims read automatically](https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html): A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them.
-- [A 24 hour AI sales agent on WhatsApp and the group websites](https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html): A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers.
-- [An AI voice agent on the corporate phone system](https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html): A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms.
-- [Identity and access: from local passwords to single sign on with two factor](https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html): A manufacturing group with around 150 users across six sites in five countries.
-- [Multi-site biometric attendance, integrated with the ERP](https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html): A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.
-- [Geo-verified security patrol, integrated with the ERP](https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html): A manufacturing group with production and storage sites in five countries.
-- [Bringing a new factory online: the order of operations](https://servia-tech.github.io/khaqan-shaheen/work/bringing-a-new-factory-online.html): A manufacturing group that opens new sites.
+- [Machine scheduling and order-overlap prevention in a manufacturing ERP](https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html): A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.
+- [One ERP across six sites in five countries](https://khaqanshaheen.com/work/one-erp-six-sites-five-countries.html): A manufacturing group with six sites in five countries and around 150 users, supported from Dubai.
+- [PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime](https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html): The production database under a group ERP serving six sites in five countries.
+- [Document OCR into the ERP: supplier bills and expense claims read automatically](https://khaqanshaheen.com/work/document-ocr-into-the-erp.html): A manufacturing group with six sites, buying from suppliers in several countries, with staff submitting expense claims from all of them.
+- [A 24 hour AI sales agent on WhatsApp and the group websites](https://khaqanshaheen.com/work/ai-sales-agent-whatsapp-and-web.html): A manufacturing group selling into several countries, with four brands, four websites and several WhatsApp business numbers.
+- [An AI voice agent on the corporate phone system](https://khaqanshaheen.com/work/ai-voice-agent-on-grandstream.html): A manufacturing group with telephony across six sites, running on Avaya and Grandstream platforms.
+- [Identity and access: from local passwords to single sign on with two factor](https://khaqanshaheen.com/work/identity-and-access-rebuild.html): A manufacturing group with around 150 users across six sites in five countries.
+- [Multi-site biometric attendance, integrated with the ERP](https://khaqanshaheen.com/work/multi-site-biometric-attendance.html): A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.
+- [Geo-verified security patrol, integrated with the ERP](https://khaqanshaheen.com/work/geo-verified-security-patrol.html): A manufacturing group with production and storage sites in five countries.
+- [Bringing a new factory online: the order of operations](https://khaqanshaheen.com/work/bringing-a-new-factory-online.html): A manufacturing group that opens new sites.
 
 ## Articles
 
-- [Why I extended one ERP instead of buying a second system for manufacturing](https://servia-tech.github.io/khaqan-shaheen/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html): A second manufacturing system means a second set of records and an interface to maintain forever; extending one Odoo instance kept six sites on one set.
-- [Replacing local passwords with single sign-on in a mid-sized group](https://servia-tech.github.io/khaqan-shaheen/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html): Identity first, then the application's own access model, then monitoring. That order moved a six-site group onto Google Workspace SSO with two factor.
-- [Five AI systems in production: what breaks when nobody is watching](https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html): Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.
-- [Bringing a new factory online: the order of operations](https://servia-tech.github.io/khaqan-shaheen/articles/bringing-a-new-factory-online-the-order-of-operations.html): Cabling and circuits first, then security, ERP, identity, telephony and site devices. The sequence that puts a new factory on group systems from opening day.
-- [A PostgreSQL upgrade nobody was allowed to notice](https://servia-tech.github.io/khaqan-shaheen/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html): Rehearse on a copy of production, keep a rollback inside the window, move one site at a time. PostgreSQL 9.5 to 16 with no unplanned downtime at any site.
+- [Why I extended one ERP instead of buying a second system for manufacturing](https://khaqanshaheen.com/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html): A second manufacturing system means a second set of records and an interface to maintain forever; extending one Odoo instance kept six sites on one set.
+- [Replacing local passwords with single sign-on in a mid-sized group](https://khaqanshaheen.com/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html): Identity first, then the application's own access model, then monitoring. That order moved a six-site group onto Google Workspace SSO with two factor.
+- [Five AI systems in production: what breaks when nobody is watching](https://khaqanshaheen.com/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html): Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.
+- [Bringing a new factory online: the order of operations](https://khaqanshaheen.com/articles/bringing-a-new-factory-online-the-order-of-operations.html): Cabling and circuits first, then security, ERP, identity, telephony and site devices. The sequence that puts a new factory on group systems from opening day.
+- [A PostgreSQL upgrade nobody was allowed to notice](https://khaqanshaheen.com/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html): Rehearse on a copy of production, keep a rollback inside the window, move one site at a time. PostgreSQL 9.5 to 16 with no unplanned downtime at any site.
 
 ## Tutorials
 
-- [Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production](https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html): Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.
-- [Odoo: how to stop two work orders being booked on the same machine at the same time](https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html): Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.
-- [How to write an llms.txt for a business website](https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html): An llms.txt is a short Markdown map of your site at /llms.txt with an H1, a one-line summary and linked sections. Here is the format and a full worked example.
-- [How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website](https://servia-tech.github.io/khaqan-shaheen/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html): Read robots.txt for GPTBot, OAI-SearchBot and PerplexityBot, fetch your homepage with curl as each bot, check the raw HTML, or run one Python audit script.
-- [Google Workspace single sign-on for Odoo, with two factor authentication and role based access](https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html): Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.
-- [A WhatsApp AI sales agent that hands leads to your ERP: the architecture](https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html): A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo.
-- [A PostgreSQL major-version upgrade with no unplanned downtime: the checklist](https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html): Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.
+- [Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production](https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html): Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.
+- [Odoo: how to stop two work orders being booked on the same machine at the same time](https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html): Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.
+- [How to write an llms.txt for a business website](https://khaqanshaheen.com/tutorials/how-to-write-an-llms-txt-for-a-business-website.html): An llms.txt is a short Markdown map of your site at /llms.txt with an H1, a one-line summary and linked sections. Here is the format and a full worked example.
+- [How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website](https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html): Read robots.txt for GPTBot, OAI-SearchBot and PerplexityBot, fetch your homepage with curl as each bot, check the raw HTML, or run one Python audit script.
+- [Google Workspace single sign-on for Odoo, with two factor authentication and role based access](https://khaqanshaheen.com/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html): Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.
+- [A WhatsApp AI sales agent that hands leads to your ERP: the architecture](https://khaqanshaheen.com/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html): A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo.
+- [A PostgreSQL major-version upgrade with no unplanned downtime: the checklist](https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html): Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.
 
 ## Working notes
 
-- [Why every AI agent I run sits behind a human queue](https://servia-tech.github.io/khaqan-shaheen/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html): Because a language model is confidently wrong in a way a scanner never is, every agent I run creates records for a person to check and none of them post or pay.
-- [Why I published my case studies without numbers](https://servia-tech.github.io/khaqan-shaheen/notes/why-i-published-my-case-studies-without-numbers.html): Because a number I cannot show how I measured is worse than no number; the scope is honest, and measured figures will be added once I have measured them.
-- [What running my own venture taught me about corporate IT](https://servia-tech.github.io/khaqan-shaheen/notes/what-running-my-own-venture-taught-me-about-corporate-it.html): Paying the bill yourself, watching what customers do on a booking page, a pipeline that stops silently and search traffic answering back changed how I run IT.
-- [What OCR gets wrong on supplier bills](https://servia-tech.github.io/khaqan-shaheen/notes/what-ocr-gets-wrong-on-supplier-bills.html): OCR on supplier bills fails on handwritten totals, stamps over numbers, multi-page bills, duplicates and currency; the fix is validation and a review queue.
-- [What I check the week before a factory opens](https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week-before-a-factory-opens.html): Two links with a tested failover, the company and warehouse in the ERP with local tax and numbering, printers on the floor, users logged in once, and a restore.
-- [The month-end test for ERP health](https://servia-tech.github.io/khaqan-shaheen/notes/the-month-end-test-for-erp-health.html): If six sites can close the month from the same ERP records without a spreadsheet, the ERP is healthy; a spreadsheet at month end means a record is missing.
+- [Why every AI agent I run sits behind a human queue](https://khaqanshaheen.com/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html): Because a language model is confidently wrong in a way a scanner never is, every agent I run creates records for a person to check and none of them post or pay.
+- [Why I published my case studies without numbers](https://khaqanshaheen.com/notes/why-i-published-my-case-studies-without-numbers.html): Because a number I cannot show how I measured is worse than no number; the scope is honest, and measured figures will be added once I have measured them.
+- [What running my own venture taught me about corporate IT](https://khaqanshaheen.com/notes/what-running-my-own-venture-taught-me-about-corporate-it.html): Paying the bill yourself, watching what customers do on a booking page, a pipeline that stops silently and search traffic answering back changed how I run IT.
+- [What OCR gets wrong on supplier bills](https://khaqanshaheen.com/notes/what-ocr-gets-wrong-on-supplier-bills.html): OCR on supplier bills fails on handwritten totals, stamps over numbers, multi-page bills, duplicates and currency; the fix is validation and a review queue.
+- [What I check the week before a factory opens](https://khaqanshaheen.com/notes/what-i-check-the-week-before-a-factory-opens.html): Two links with a tested failover, the company and warehouse in the ERP with local tax and numbering, printers on the floor, users logged in once, and a restore.
+- [The month-end test for ERP health](https://khaqanshaheen.com/notes/the-month-end-test-for-erp-health.html): If six sites can close the month from the same ERP records without a spreadsheet, the ERP is healthy; a spreadsheet at month end means a record is missing.
 
 ## Elsewhere
 
 - [LinkedIn](https://www.linkedin.com/in/webshaheen)
 - [GitHub](https://github.com/Servia-Tech)
 - [ai-visibility-audit](https://github.com/Servia-Tech/ai-visibility-audit): open-source tool that checks whether AI search engines can crawl, read and cite a website
-- [RSS feed](https://servia-tech.github.io/khaqan-shaheen/feed.xml)
-- [Full text of every page](https://servia-tech.github.io/khaqan-shaheen/llms-full.txt)
+- [RSS feed](https://khaqanshaheen.com/feed.xml)
+- [Full text of every page](https://khaqanshaheen.com/llms-full.txt)
 
 ## Facts
 
@@ -85,4 +86,4 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 - Speciality: moving a business from manual and spreadsheet operations to one ERP with AI doing the repetitive work; ERP consultation
 - Awards (CXO DX, Dubai): Technology Transformer of the Year, SME Tech Innovation Summit and Awards, 2023 (https://cxodx.com/sme-tech-innovation-summit-awards-highlights-key-themes-of-digital-transformation/); IT Leadership Excellence, CIO Connect Summit and Awards, 2024 (https://cxodx.com/cio-connect-summit-awards-highlights-transformative-trends/); Excellence in CIO Leadership; CIO of the Year, Future Workspace Summit and Awards
 - Languages: English, Urdu
-- Contact: khaqanshaheen@yahoo.com, linkedin.com/in/webshaheen
+- Contact: the contact section at https://khaqanshaheen.com/#contact, book a slot at https://khaqanshaheen.com/booking.html, or linkedin.com/in/webshaheen

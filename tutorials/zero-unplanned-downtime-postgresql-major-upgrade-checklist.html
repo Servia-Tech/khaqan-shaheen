@@ -6,13 +6,13 @@
 <title>A PostgreSQL major-version upgrade with no unplanned downtime: the checklist | Khaqan Shaheen</title>
 <meta name="description" content="Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.">
 <meta name="author" content="Khaqan Shaheen">
-<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html">
+<link rel="canonical" href="https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/img/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../assets/img/brand/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <meta name="theme-color" content="#0f1b2d">
-<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://khaqanshaheen.com/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -21,17 +21,17 @@
 <meta property="og:site_name" content="Khaqan Shaheen">
 <meta property="og:title" content="A PostgreSQL major-version upgrade with no unplanned downtime: the checklist | Khaqan Shaheen">
 <meta property="og:description" content="Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.">
-<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html">
-<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:url" content="https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html">
+<meta property="og:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="A PostgreSQL major-version upgrade with no unplanned downtime: the checklist | Khaqan Shaheen">
 <meta name="twitter:description" content="Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.">
-<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="article:published_time" content="2026-09-08">
 <meta property="article:author" content="Khaqan Shaheen">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#article", "headline": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "description": "Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1700, "keywords": "postgresql, upgrade, logical-replication, backup", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not use pg_upgrade when it is so much faster?", "acceptedAnswer": {"@type": "Answer", "text": "Use it when you can take the window and are staying on the same host; it is less work with fewer moving parts. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, new hardware or a new operating system at the same time, or a rollback that must not depend on a restore."}}, {"@type": "Question", "name": "Can I skip the rehearsal if the database is small?", "acceptedAnswer": {"@type": "Answer", "text": "No. The rehearsal is about the application, not the size. A small database under a customised application has the same query-plan changes and extension gaps as a large one, and the clone is where you time the steps that let you promise a window and keep it."}}, {"@type": "Question", "name": "What happens if someone changes the schema during replication?", "acceptedAnswer": {"@type": "Answer", "text": "A column added on one side but not the other stops the apply worker, and the error count in `pg_stat_subscription_stats` rises. Freeze schema changes for the whole window, application module updates included. If one gets through, apply the same change on the subscriber, then run `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#article", "headline": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "description": "Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.", "url": "https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "mainEntityOfPage": "https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html", "datePublished": "2026-09-08", "dateModified": "2026-09-09", "inLanguage": "en", "wordCount": 1700, "keywords": "postgresql, upgrade, logical-replication, backup", "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://khaqanshaheen.com/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://khaqanshaheen.com/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist", "item": "https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html"}]}, {"@type": "FAQPage", "@id": "https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not use pg_upgrade when it is so much faster?", "acceptedAnswer": {"@type": "Answer", "text": "Use it when you can take the window and are staying on the same host; it is less work with fewer moving parts. Logical replication is for the cases pg_upgrade cannot cover: no acceptable window, new hardware or a new operating system at the same time, or a rollback that must not depend on a restore."}}, {"@type": "Question", "name": "Can I skip the rehearsal if the database is small?", "acceptedAnswer": {"@type": "Answer", "text": "No. The rehearsal is about the application, not the size. A small database under a customised application has the same query-plan changes and extension gaps as a large one, and the clone is where you time the steps that let you promise a window and keep it."}}, {"@type": "Question", "name": "What happens if someone changes the schema during replication?", "acceptedAnswer": {"@type": "Answer", "text": "A column added on one side but not the other stops the apply worker, and the error count in `pg_stat_subscription_stats` rises. Freeze schema changes for the whole window, application module updates included. If one gets through, apply the same change on the subscriber, then run `ALTER SUBSCRIPTION upgrade_sub REFRESH PUBLICATION` to pick up new tables."}}]}]}</script>
 </head>
 <body>
 <header class="site-header">
@@ -256,5 +256,22 @@ pgbackrest --stanza=main --type=full backup
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
 </footer>
+<script>
+(function () {
+  var n = document.querySelectorAll("[data-u][data-d],[data-href]");
+  for (var i = 0; i < n.length; i++) {
+    var e = n[i], h = e.getAttribute("data-href");
+    if (h) { e.setAttribute("href", h); continue; }
+    var a = e.getAttribute("data-u") + String.fromCharCode(64) + e.getAttribute("data-d");
+    if (e.tagName === "A") {
+      var s = e.getAttribute("data-s"), b = e.getAttribute("data-b"), q = [];
+      if (s) { q.push("subject=" + s); }
+      if (b) { q.push("body=" + b); }
+      e.setAttribute("href", "mailto:" + a + (q.length ? "?" + q.join("&") : ""));
+    }
+    if (e.getAttribute("data-show") === "1") { e.textContent = a; }
+  }
+})();
+</script>
 </body>
 </html>

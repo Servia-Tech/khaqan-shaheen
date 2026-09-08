@@ -6,13 +6,13 @@
 <title>Odoo: how to stop two work orders being booked on the same machine at the same time | Khaqan Shaheen</title>
 <meta name="description" content="Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.">
 <meta name="author" content="Khaqan Shaheen">
-<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html">
+<link rel="canonical" href="https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/img/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../assets/img/brand/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <meta name="theme-color" content="#0f1b2d">
-<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://khaqanshaheen.com/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -21,17 +21,17 @@
 <meta property="og:site_name" content="Khaqan Shaheen">
 <meta property="og:title" content="Odoo: how to stop two work orders being booked on the same machine at the same time | Khaqan Shaheen">
 <meta property="og:description" content="Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.">
-<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html">
-<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:url" content="https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html">
+<meta property="og:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Odoo: how to stop two work orders being booked on the same machine at the same time | Khaqan Shaheen">
 <meta name="twitter:description" content="Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.">
-<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="article:published_time" content="2026-09-08">
 <meta property="article:author" content="Khaqan Shaheen">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html#article", "headline": "Odoo: how to stop two work orders being booked on the same machine at the same time", "description": "Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1843, "keywords": "odoo, postgresql, manufacturing", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Odoo: how to stop two work orders being booked on the same machine at the same time", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html#faq", "mainEntity": [{"@type": "Question", "name": "Should the guard sit on the work centre instead of a machine?", "acceptedAnswer": {"@type": "Answer", "text": "Only if every work centre is a single physical machine. In most plants a work centre is a group, and two orders can legitimately run side by side on different machines within it. A constraint that refuses valid plans gets switched off within a month. Model the machine, and let the work centre stay as Odoo's costing and capacity grouping."}}, {"@type": "Question", "name": "What about orders that genuinely share a machine, like a changeover overlapping the next run?", "acceptedAnswer": {"@type": "Answer", "text": "Model the exception rather than weakening the rule. A changeover is its own record with its own window, or the next order's start is set to the end of it. If you find yourself wanting an \"allow overlap\" tick box, the box will be ticked whenever the message is inconvenient, and you are back where you started."}}, {"@type": "Question", "name": "Does the exclusion constraint slow down saving work orders?", "acceptedAnswer": {"@type": "Answer", "text": "Not in any way you will notice. A GiST index on an integer plus a range is small, and the check on insert or update is an index probe. The cost to plan for is organisational: the clean-up of existing overlaps comes first, and the raw database error needs rewording for a planner if the race ever fires."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html#article", "headline": "Odoo: how to stop two work orders being booked on the same machine at the same time", "description": "Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.", "url": "https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html", "mainEntityOfPage": "https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html", "datePublished": "2026-09-08", "dateModified": "2026-09-09", "inLanguage": "en", "wordCount": 1843, "keywords": "odoo, postgresql, manufacturing", "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://khaqanshaheen.com/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://khaqanshaheen.com/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Odoo: how to stop two work orders being booked on the same machine at the same time", "item": "https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html"}]}, {"@type": "FAQPage", "@id": "https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html#faq", "mainEntity": [{"@type": "Question", "name": "Should the guard sit on the work centre instead of a machine?", "acceptedAnswer": {"@type": "Answer", "text": "Only if every work centre is a single physical machine. In most plants a work centre is a group, and two orders can legitimately run side by side on different machines within it. A constraint that refuses valid plans gets switched off within a month. Model the machine, and let the work centre stay as Odoo's costing and capacity grouping."}}, {"@type": "Question", "name": "What about orders that genuinely share a machine, like a changeover overlapping the next run?", "acceptedAnswer": {"@type": "Answer", "text": "Model the exception rather than weakening the rule. A changeover is its own record with its own window, or the next order's start is set to the end of it. If you find yourself wanting an \"allow overlap\" tick box, the box will be ticked whenever the message is inconvenient, and you are back where you started."}}, {"@type": "Question", "name": "Does the exclusion constraint slow down saving work orders?", "acceptedAnswer": {"@type": "Answer", "text": "Not in any way you will notice. A GiST index on an integer plus a range is small, and the check on insert or update is an index probe. The cost to plan for is organisational: the clean-up of existing overlaps comes first, and the raw database error needs rewording for a planner if the race ever fires."}}]}]}</script>
 </head>
 <body>
 <header class="site-header">
@@ -269,5 +269,22 @@ class TestMachineOverlap(TransactionCase):
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
 </footer>
+<script>
+(function () {
+  var n = document.querySelectorAll("[data-u][data-d],[data-href]");
+  for (var i = 0; i < n.length; i++) {
+    var e = n[i], h = e.getAttribute("data-href");
+    if (h) { e.setAttribute("href", h); continue; }
+    var a = e.getAttribute("data-u") + String.fromCharCode(64) + e.getAttribute("data-d");
+    if (e.tagName === "A") {
+      var s = e.getAttribute("data-s"), b = e.getAttribute("data-b"), q = [];
+      if (s) { q.push("subject=" + s); }
+      if (b) { q.push("body=" + b); }
+      e.setAttribute("href", "mailto:" + a + (q.length ? "?" + q.join("&") : ""));
+    }
+    if (e.getAttribute("data-show") === "1") { e.textContent = a; }
+  }
+})();
+</script>
 </body>
 </html>

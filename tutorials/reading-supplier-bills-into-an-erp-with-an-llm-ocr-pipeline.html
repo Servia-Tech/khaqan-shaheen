@@ -6,13 +6,13 @@
 <title>Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production | Khaqan Shaheen</title>
 <meta name="description" content="Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.">
 <meta name="author" content="Khaqan Shaheen">
-<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html">
+<link rel="canonical" href="https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/img/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../assets/img/brand/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <meta name="theme-color" content="#0f1b2d">
-<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://servia-tech.github.io/khaqan-shaheen/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="https://khaqanshaheen.com/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -21,17 +21,17 @@
 <meta property="og:site_name" content="Khaqan Shaheen">
 <meta property="og:title" content="Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production | Khaqan Shaheen">
 <meta property="og:description" content="Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.">
-<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html">
-<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:url" content="https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html">
+<meta property="og:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production | Khaqan Shaheen">
 <meta name="twitter:description" content="Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.">
-<meta name="twitter:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="article:published_time" content="2026-09-08">
 <meta property="article:author" content="Khaqan Shaheen">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html#article", "headline": "Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production", "description": "Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.", "url": "https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html", "mainEntityOfPage": "https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1768, "keywords": "ai, ocr, erp, accounts-payable", "image": "https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "publisher": {"@type": "Person", "@id": "https://servia-tech.github.io/khaqan-shaheen/#person", "name": "Khaqan Shaheen", "url": "https://servia-tech.github.io/khaqan-shaheen/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://servia-tech.github.io/khaqan-shaheen/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production", "item": "https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html"}]}, {"@type": "FAQPage", "@id": "https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not a template-based OCR product instead of a language model?", "acceptedAnswer": {"@type": "Answer", "text": "Templates work when your suppliers are few and their layouts stable. Mine are neither: every supplier invoices differently, in more than one language, and changes its template without warning. A vision model reads an unfamiliar layout on the first attempt, and the rules above decide whether to trust what it read."}}, {"@type": "Question", "name": "Should the pipeline create the vendor when it cannot find one?", "acceptedAnswer": {"@type": "Answer", "text": "No. A vendor record is a control point: someone checked the trade licence, the tax registration and the bank details before it existed. Route the bill to review as \"supplier not found\", let a person create the vendor through the normal path, and reprocess it."}}, {"@type": "Question", "name": "How do I keep the model from inventing line items on a bill that has none?", "acceptedAnswer": {"@type": "Answer", "text": "Say in the prompt that some bills carry only a total and an empty `lines` array is the right answer for them. Invented lines rarely add up to the printed subtotal, so `lines_add_up` fails and the reviewer sees the empty page next to the invented rows."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html#article", "headline": "Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production", "description": "Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.", "url": "https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html", "mainEntityOfPage": "https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html", "datePublished": "2026-09-08", "dateModified": "2026-09-09", "inLanguage": "en", "wordCount": 1768, "keywords": "ai, ocr, erp, accounts-payable", "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://khaqanshaheen.com/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://khaqanshaheen.com/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production", "item": "https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html"}]}, {"@type": "FAQPage", "@id": "https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html#faq", "mainEntity": [{"@type": "Question", "name": "Why not a template-based OCR product instead of a language model?", "acceptedAnswer": {"@type": "Answer", "text": "Templates work when your suppliers are few and their layouts stable. Mine are neither: every supplier invoices differently, in more than one language, and changes its template without warning. A vision model reads an unfamiliar layout on the first attempt, and the rules above decide whether to trust what it read."}}, {"@type": "Question", "name": "Should the pipeline create the vendor when it cannot find one?", "acceptedAnswer": {"@type": "Answer", "text": "No. A vendor record is a control point: someone checked the trade licence, the tax registration and the bank details before it existed. Route the bill to review as \"supplier not found\", let a person create the vendor through the normal path, and reprocess it."}}, {"@type": "Question", "name": "How do I keep the model from inventing line items on a bill that has none?", "acceptedAnswer": {"@type": "Answer", "text": "Say in the prompt that some bills carry only a total and an empty `lines` array is the right answer for them. Invented lines rarely add up to the printed subtotal, so `lines_add_up` fails and the reviewer sees the empty page next to the invented rows."}}]}]}</script>
 </head>
 <body>
 <header class="site-header">
@@ -197,5 +197,22 @@ def validate(doc: dict, vendors, register, today: date) -&gt; list[Check]:
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
 </footer>
+<script>
+(function () {
+  var n = document.querySelectorAll("[data-u][data-d],[data-href]");
+  for (var i = 0; i < n.length; i++) {
+    var e = n[i], h = e.getAttribute("data-href");
+    if (h) { e.setAttribute("href", h); continue; }
+    var a = e.getAttribute("data-u") + String.fromCharCode(64) + e.getAttribute("data-d");
+    if (e.tagName === "A") {
+      var s = e.getAttribute("data-s"), b = e.getAttribute("data-b"), q = [];
+      if (s) { q.push("subject=" + s); }
+      if (b) { q.push("body=" + b); }
+      e.setAttribute("href", "mailto:" + a + (q.length ? "?" + q.join("&") : ""));
+    }
+    if (e.getAttribute("data-show") === "1") { e.textContent = a; }
+  }
+})();
+</script>
 </body>
 </html>

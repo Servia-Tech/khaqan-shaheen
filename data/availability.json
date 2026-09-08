@@ -1,0 +1,15 @@
+{
+  "timezone": "Asia/Dubai",
+  "leadTimeDays": 3,
+  "horizonDays": 60,
+  "weeklyCapacity": 3,
+  "windows": {
+    "weekday": [{"start": "17:00", "end": "24:00"}],
+    "saturday": [{"start": "08:00", "end": "24:00"}],
+    "sunday": [{"start": "08:00", "end": "24:00"}]
+  },
+  "slotMinutes": 60,
+  "blocked": [],
+  "booked": [],
+  "priorityFeeNote": "Priority requests are for work that cannot wait. The fee is higher because the session sits outside the normal windows or inside the lead time, and it is quoted in writing before anything is agreed."
+}

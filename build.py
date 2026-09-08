@@ -3,11 +3,12 @@
 
 Usage:   python build.py
 Inputs:  content/*.md            case studies (H1 = title, no front matter)
+         data/availability.json  booking windows, blocked days and booked slots (edited by hand)
          content/articles/*.md   long-form articles   (front matter)
          content/tutorials/*.md  how-to guides        (front matter)
          content/notes/*.md      short working notes  (front matter)
          index.html, press.html  hand-written pages (nav and marker blocks are refreshed)
-Outputs: work/, articles/, tutorials/, notes/, writing/, services.html, faq.html,
+Outputs: work/, articles/, tutorials/, notes/, writing/, services.html, booking.html, faq.html,
          skills.html, feed.xml, sitemap.xml, llms.txt, llms-full.txt
 """
 import datetime as dt
@@ -19,7 +20,7 @@ import re
 import markdown
 
 ROOT = pathlib.Path(__file__).parent
-BASE = "https://servia-tech.github.io/khaqan-shaheen"
+BASE = "https://khaqanshaheen.com"
 PERSON_ID = f"{BASE}/#person"
 TODAY = dt.date.today().isoformat()
 FONTS = "https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap"
@@ -211,6 +212,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
 </footer>
+{MAIL_JS}
 </body>
 </html>
 """
@@ -539,14 +541,52 @@ def usd(aed: int) -> int:
     return int(round(aed / AED_PER_USD / 5.0) * 5)
 
 
+MAIL_JS = """<script>
+(function () {
+  var n = document.querySelectorAll("[data-u][data-d],[data-href]");
+  for (var i = 0; i < n.length; i++) {
+    var e = n[i], h = e.getAttribute("data-href");
+    if (h) { e.setAttribute("href", h); continue; }
+    var a = e.getAttribute("data-u") + String.fromCharCode(64) + e.getAttribute("data-d");
+    if (e.tagName === "A") {
+      var s = e.getAttribute("data-s"), b = e.getAttribute("data-b"), q = [];
+      if (s) { q.push("subject=" + s); }
+      if (b) { q.push("body=" + b); }
+      e.setAttribute("href", "mailto:" + a + (q.length ? "?" + q.join("&") : ""));
+    }
+    if (e.getAttribute("data-show") === "1") { e.textContent = a; }
+  }
+})();
+</script>"""
+
+
+def mail_attrs(subject=None, body=None, show=False, quoted=False):
+    """Attributes whose address the browser assembles at load, so scrapers read nothing."""
+    user, domain = EMAIL.split("@")
+    out = f'data-u="{user}" data-d="{domain}"'
+    q = (lambda v: v) if quoted else urllib.parse.quote
+    if subject:
+        out += f' data-s="{q(subject)}"'
+    if body:
+        out += f' data-b="{q(body)}"'
+    if show:
+        out += ' data-show="1"'
+    return out
+
+
+def mail_span():
+    """A span the browser fills in. Empty in the served HTML."""
+    return f'<span class="mail" {mail_attrs(show=True)}></span>'
+
+
 def book_link(name: str, price: int) -> str:
     if BOOKING["payment_link"]:
-        return BOOKING["payment_link"]
+        return f'data-href="{BOOKING["payment_link"]}"'
     subject = urllib.parse.quote(f"Booking: {name}")
     body = urllib.parse.quote(
         f"Hi Khaqan,\n\nI would like to book: {name}" + (f" (AED {price:,})" if SHOW_PRICES and price else "") + ".\n\nPreferred dates and times (Dubai time):\n\nA few lines about my situation:\n\nThanks"
     )
-    return f"mailto:{EMAIL}?subject={subject}&body={body}"
+    return mail_attrs(subject, body, quoted=True)
 
 
 def load_reviews():
@@ -594,7 +634,7 @@ def product_card(p):
         f'        <p>{esc(p["tagline"])}</p>\n        <ul class="plain small">\n{gets}\n        </ul>\n'
         + (f'        <p class="price">AED {p["price"]:,} <span class="muted small">about USD {usd(p["price"]):,} &middot; {esc(p["turnaround"])}</span></p>\n' if SHOW_PRICES
            else f'        <p class="price">Fee on request <span class="muted small">quoted in writing within one working day &middot; {esc(p["turnaround"])}</span></p>\n')
-        + f'        <a class="btn primary" href="{book_link(p["name"], p["price"])}">Ask for a quote</a>\n      </div>'
+        + f'        <a class="btn primary" href="#" {book_link(p["name"], p["price"])}>Ask for a quote</a>\n      </div>'
     )
 
 
@@ -611,7 +651,7 @@ def build_services():
         retained.append(
             f'<section id="{r["id"]}">\n<h2>{esc(r["name"])}</h2>\n<p class="lede">{esc(r["lead"])}</p>\n<ul class="plain">\n{items}\n</ul>\n'
             + (f'<p class="price">{esc(r["price_text"])}</p>\n' if SHOW_PRICES else '<p class="price">Scoped and quoted in writing</p>\n')
-            + f'<a class="btn" href="{book_link(r["name"], 0)}">Ask about this</a>\n</section>'
+            + f'<a class="btn" href="#" {book_link(r["name"], 0)}>Ask about this</a>\n</section>'
         )
     faq = [
         {"q": "How do I book and pay?", "a": "Click Ask for a quote on the service, or email me with the service name. I reply with the scope, the dates and the fee in writing, then a payment link or bank details. Work starts once payment is received and a receipt is issued for every payment."},
@@ -642,7 +682,7 @@ def build_services():
         + "\n" + "\n".join(retained)
         + "\n" + reviews_block(reviews)
         + '\n<section id="how">\n<h2>How it works</h2>\n<ol class="plain">\n'
-        "<li>Click Ask for a quote on a service, or email <a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a> with the service name and a few lines about your situation.</li>\n"
+        "<li>Click Ask for a quote on a service, or email " + mail_span() + ' with the service name and a few lines about your situation.</li>\n'
         "<li>I reply within one working day with the scope confirmed, the dates, the fee in writing, and a payment link or bank details.</li>\n"
         "<li>You pay in advance. Work starts on the agreed date and you get written deliverables, not just meetings.</li>\n"
         "<li>A follow-up call is included with every service.</li>\n</ol>\n</section>\n"
@@ -668,7 +708,7 @@ def build_career():
             f'        <p><strong>For:</strong> {esc(s["for"])}</p>\n        <ul class="plain small">\n{gets}\n        </ul>\n'
             + (f'        <p class="price">AED {s["price"]:,}{per} <span class="muted small">about USD {usd(s["price"]):,}</span></p>\n' if SHOW_PRICES
                else '        <p class="price">Fee on request <span class="muted small">sent with your booking confirmation</span></p>\n')
-            + f'        <a class="btn primary" href="{book_link(s["name"], s["price"])}">Book a session</a>\n      </div>'
+            + f'        <a class="btn primary" href="#" {book_link(s["name"], s["price"])}>Book a session</a>\n      </div>'
         )
     faq = [
         {"q": "How do the live sessions work?", "a": "You pick a plan and book. I confirm a time on Dubai time (evenings and weekends, GMT+4), you pay in advance through the link I send, and you get a calendar invite with a Google Meet link. Notes follow within 24 hours."},
@@ -841,6 +881,472 @@ LANDING = [
 ]
 
 
+# --------------------------------------------------------------------------- booking calendar
+AVAILABILITY_DEFAULT = {
+    "timezone": "Asia/Dubai",
+    "leadTimeDays": 3,
+    "horizonDays": 60,
+    "weeklyCapacity": 3,
+    "windows": {
+        "weekday": [{"start": "17:00", "end": "24:00"}],
+        "saturday": [{"start": "08:00", "end": "24:00"}],
+        "sunday": [{"start": "08:00", "end": "24:00"}],
+    },
+    "slotMinutes": 60,
+    "blocked": [],
+    "booked": [],
+    "priorityFeeNote": "Priority requests are quoted in writing before anything is agreed.",
+}
+
+OPENING_DAYS = {
+    "weekday": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "saturday": ["Saturday"],
+    "sunday": ["Sunday"],
+}
+
+
+def load_availability():
+    """data/availability.json is maintained by hand. Fall back to the defaults if it is missing."""
+    p = ROOT / "data" / "availability.json"
+    if p.exists():
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                merged = dict(AVAILABILITY_DEFAULT)
+                merged.update(data)
+                return merged
+        except Exception:
+            pass
+    return dict(AVAILABILITY_DEFAULT)
+
+
+def opening_hours(av):
+    """schema.org openingHoursSpecification built from the same windows the calendar uses."""
+    out = []
+    for key, days in OPENING_DAYS.items():
+        for w in av.get("windows", {}).get(key, []):
+            out.append({
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [f"https://schema.org/{d}" for d in days],
+                "opens": w["start"],
+                "closes": "23:59" if w["end"] == "24:00" else w["end"],
+            })
+    return out
+
+
+def window_sentence(av):
+    w = av.get("windows", {})
+    wk = w.get("weekday", [{}])[0].get("start", "17:00")
+    sa = w.get("saturday", [{}])[0].get("start", "08:00")
+    return (f"I hold a full-time role as Head of IT in Dubai, so consulting happens outside those hours: "
+            f"weekdays from {wk} and weekends from {sa}, Dubai time.")
+
+
+BOOKING_JS = r"""
+(function () {
+  var OFFSET_MS = 4 * 3600 * 1000;
+  var DAY_MS = 86400000;
+  var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  var DOWFULL = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+  var seed = document.getElementById("bk-seed");
+  var cfg = JSON.parse(seed.textContent);
+  var bookedSet = {}, blockedSet = {}, weekBooked = {};
+  var todayIdx = 0, minIdx = 0, maxIdx = 0;
+  var cursorY = 0, cursorM = 0, openKey = null, sel = null;
+
+  var elMonths = document.getElementById("bk-months");
+  var elPanel = document.getElementById("bk-panel");
+  var elPrev = document.getElementById("bk-prev");
+  var elNext = document.getElementById("bk-next");
+  var elGo = document.getElementById("bk-go");
+  var elPriority = document.getElementById("bk-priority");
+  var elAddr = document.getElementById("bk-addr");
+  var elHint = document.getElementById("bk-hint");
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function keyOf(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
+  function partsOf(k) { var a = k.split("-"); return [+a[0], +a[1] - 1, +a[2]]; }
+  function idxOf(k) { var p = partsOf(k); return Math.round(Date.UTC(p[0], p[1], p[2]) / DAY_MS); }
+  function dowOf(k) { var p = partsOf(k); return (new Date(Date.UTC(p[0], p[1], p[2]))).getUTCDay(); }
+  function isoDow(k) { return (dowOf(k) + 6) % 7; }
+  function weekOf(k) { return idxOf(k) - isoDow(k); }
+  function toMin(t) { var a = t.split(":"); return (+a[0]) * 60 + (+a[1]); }
+  function fromMin(m) { return pad(Math.floor(m / 60)) + ":" + pad(m % 60); }
+  function monthNum(y, m) { return y * 12 + m; }
+  function longDate(k) { var p = partsOf(k); return DOWFULL[isoDow(k)] + " " + p[2] + " " + MONTHS[p[1]] + " " + p[0]; }
+  function keyFromIdx(i) { var d = new Date(i * DAY_MS); return keyOf(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()); }
+
+  function windowsFor(k) {
+    var w = cfg.windows || {}, d = dowOf(k);
+    if (d === 6) { return w.saturday || []; }
+    if (d === 0) { return w.sunday || []; }
+    return w.weekday || [];
+  }
+
+  function slotsFor(k) {
+    var out = [], step = cfg.slotMinutes || 60, ws = windowsFor(k), i, t, s, e;
+    for (i = 0; i < ws.length; i++) {
+      s = toMin(ws[i].start);
+      e = toMin(ws[i].end);
+      for (t = s; t + step <= e; t += step) { out.push(fromMin(t)); }
+    }
+    return out;
+  }
+
+  function freeFor(k) {
+    var all = slotsFor(k), out = [], i;
+    for (i = 0; i < all.length; i++) { if (!bookedSet[k + "T" + all[i]]) { out.push(all[i]); } }
+    return out;
+  }
+
+  function reindex() {
+    var i, wk, list, now = new Date(Date.now() + OFFSET_MS);
+    todayIdx = Math.round(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) / DAY_MS);
+    minIdx = todayIdx + (cfg.leadTimeDays || 0);
+    maxIdx = todayIdx + (cfg.horizonDays || 60);
+    bookedSet = {}; blockedSet = {}; weekBooked = {};
+    list = cfg.booked || [];
+    for (i = 0; i < list.length; i++) {
+      bookedSet[list[i]] = true;
+      wk = weekOf(list[i].slice(0, 10));
+      weekBooked[wk] = (weekBooked[wk] || 0) + 1;
+    }
+    list = cfg.blocked || [];
+    for (i = 0; i < list.length; i++) { blockedSet[list[i]] = true; }
+  }
+
+  function capacity() { return cfg.weeklyCapacity || 0; }
+  function usedInWeek(k) { return weekBooked[weekOf(k)] || 0; }
+  function leftInWeek(k) { return capacity() - usedInWeek(k); }
+
+  function stateOf(k) {
+    var idx = idxOf(k), free;
+    if (idx < minIdx || idx > maxIdx) { return { state: "closed", label: "Not available", free: [] }; }
+    if (blockedSet[k]) { return { state: "closed", label: "Not available", free: [] }; }
+    free = freeFor(k);
+    if (!free.length) { return { state: "closed", label: "Not available", free: [] }; }
+    if (leftInWeek(k) <= 0) { return { state: "full", label: "Fully booked", free: [] }; }
+    return { state: "open", label: free.length + (free.length === 1 ? " slot" : " slots"), free: free };
+  }
+
+  function monthGrid(y, m) {
+    var wrap = document.createElement("div");
+    var head = document.createElement("h3");
+    var grid = document.createElement("div");
+    var first, lead, days, d, i, k, st, cell, num, tag;
+    wrap.className = "bk-month";
+    head.className = "bk-month-title";
+    head.textContent = MONTHS[m] + " " + y;
+    wrap.appendChild(head);
+    grid.className = "bk-grid";
+    for (i = 0; i < 7; i++) {
+      tag = document.createElement("span");
+      tag.className = "bk-dow";
+      tag.setAttribute("aria-hidden", "true");
+      tag.textContent = DOW[i];
+      grid.appendChild(tag);
+    }
+    first = (new Date(Date.UTC(y, m, 1))).getUTCDay();
+    lead = (first + 6) % 7;
+    for (i = 0; i < lead; i++) {
+      tag = document.createElement("span");
+      tag.className = "bk-pad";
+      grid.appendChild(tag);
+    }
+    days = (new Date(Date.UTC(y, m + 1, 0))).getUTCDate();
+    for (d = 1; d <= days; d++) {
+      k = keyOf(y, m, d);
+      st = stateOf(k);
+      cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = "bk-day bk-" + st.state + (k === openKey ? " is-open" : "");
+      cell.setAttribute("data-date", k);
+      cell.setAttribute("aria-label", longDate(k) + ", " + st.label);
+      num = document.createElement("span");
+      num.className = "bk-num";
+      num.textContent = String(d);
+      cell.appendChild(num);
+      tag = document.createElement("span");
+      tag.className = "bk-tag";
+      tag.textContent = st.state === "open" ? String(st.free.length) : (st.state === "full" ? "full" : "");
+      cell.appendChild(tag);
+      if (st.state === "closed") {
+        cell.disabled = true;
+      } else {
+        cell.addEventListener("click", function () {
+          openKey = this.getAttribute("data-date");
+          sel = null;
+          render();
+          if (elPanel.scrollIntoView) { elPanel.scrollIntoView({ block: "nearest" }); }
+        });
+      }
+      grid.appendChild(cell);
+    }
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
+  function line(text, cls) {
+    var p = document.createElement("p");
+    if (cls) { p.className = cls; }
+    p.textContent = text;
+    return p;
+  }
+
+  function localLine() {
+    var p, ms, d, out, zone = "";
+    if (!sel) { return null; }
+    if ((new Date()).getTimezoneOffset() === -240) { return null; }
+    p = partsOf(sel.date);
+    ms = Date.UTC(p[0], p[1], p[2], +sel.time.slice(0, 2), +sel.time.slice(3, 5)) - OFFSET_MS;
+    d = new Date(ms);
+    try {
+      out = d.toLocaleString(undefined, { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+    } catch (err) { out = d.toString(); }
+    try { zone = (Intl.DateTimeFormat().resolvedOptions().timeZone) || ""; } catch (err2) { zone = ""; }
+    return line("In your own time that is " + out + (zone ? ", " + zone : "") + ".", "bk-local");
+  }
+
+  function renderPanel() {
+    var st, i, b, row, used, cap;
+    elPanel.innerHTML = "";
+    if (!openKey) {
+      elPanel.appendChild(line("Pick a day with the accent colour to see the times that are free on it.", "muted"));
+      return;
+    }
+    st = stateOf(openKey);
+    elPanel.appendChild(line(longDate(openKey), "bk-panel-title"));
+    cap = capacity();
+    used = usedInWeek(openKey);
+    if (st.state === "full") {
+      elPanel.appendChild(line("That week already has " + used + " of " + cap + " sessions booked, which is the limit I take in a week. The next week may have room, or you can ask about a priority slot.", "muted"));
+      return;
+    }
+    elPanel.appendChild(line((cap - used) + " of " + cap + " sessions are still open in that week. All times are Dubai time, GMT+4.", "muted small"));
+    row = document.createElement("div");
+    row.className = "bk-slots";
+    for (i = 0; i < st.free.length; i++) {
+      b = document.createElement("button");
+      b.type = "button";
+      b.className = "bk-slot" + (sel && sel.date === openKey && sel.time === st.free[i] ? " is-picked" : "");
+      b.setAttribute("data-time", st.free[i]);
+      b.setAttribute("aria-pressed", sel && sel.date === openKey && sel.time === st.free[i] ? "true" : "false");
+      b.textContent = st.free[i] + " to " + fromMin(toMin(st.free[i]) + (cfg.slotMinutes || 60));
+      b.addEventListener("click", function () {
+        sel = { date: openKey, time: this.getAttribute("data-time") };
+        render();
+      });
+      row.appendChild(b);
+    }
+    elPanel.appendChild(row);
+    if (sel && sel.date === openKey) {
+      elPanel.appendChild(line("Chosen: " + longDate(sel.date) + ", " + sel.time + " Dubai time.", "bk-chosen"));
+      b = localLine();
+      if (b) { elPanel.appendChild(b); }
+    }
+  }
+
+  function limits() {
+    var t = new Date(todayIdx * DAY_MS), e = new Date(maxIdx * DAY_MS);
+    return [monthNum(t.getUTCFullYear(), t.getUTCMonth()), monthNum(e.getUTCFullYear(), e.getUTCMonth())];
+  }
+
+  function render() {
+    var i, n, y, m, lim;
+    elMonths.innerHTML = "";
+    for (i = 0; i < 2; i++) {
+      n = monthNum(cursorY, cursorM) + i;
+      y = Math.floor(n / 12);
+      m = n - y * 12;
+      elMonths.appendChild(monthGrid(y, m));
+    }
+    lim = limits();
+    elPrev.disabled = monthNum(cursorY, cursorM) <= lim[0];
+    elNext.disabled = monthNum(cursorY, cursorM) + 1 >= lim[1];
+    renderPanel();
+    elGo.disabled = !sel;
+    elHint.textContent = sel ? "" : "Choose a day and a time first.";
+  }
+
+  function step(n) {
+    var v = monthNum(cursorY, cursorM) + n, lim = limits();
+    if (v < lim[0]) { v = lim[0]; }
+    if (v + 1 > lim[1]) { v = Math.max(lim[0], lim[1] - 1); }
+    cursorY = Math.floor(v / 12);
+    cursorM = v - cursorY * 12;
+    render();
+  }
+
+  function addr() { return elAddr.getAttribute("data-u") + "@" + elAddr.getAttribute("data-d"); }
+  function field(id) { var e = document.getElementById(id); return e ? String(e.value).trim() : ""; }
+  function openMail(subject, body) { window.location.href = "mailto:" + addr() + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); }
+
+  function whoLines(out) {
+    out.push("Name: " + (field("bk-name") || "(not given)"));
+    out.push("Company: " + (field("bk-company") || "(not given)"));
+    out.push("Service: " + field("bk-service"));
+  }
+
+  elPrev.addEventListener("click", function () { step(-1); });
+  elNext.addEventListener("click", function () { step(1); });
+
+  elGo.addEventListener("click", function () {
+    var out = [];
+    if (!sel) { return; }
+    out.push("Hi Khaqan,");
+    out.push("");
+    out.push("I would like this slot from your calendar.");
+    out.push("");
+    out.push("Date: " + longDate(sel.date) + " (" + sel.date + ")");
+    out.push("Time: " + sel.time + " to " + fromMin(toMin(sel.time) + (cfg.slotMinutes || 60)) + ", Dubai time, GMT+4");
+    whoLines(out);
+    out.push("");
+    out.push("Note:");
+    out.push(field("bk-note") || "(none)");
+    out.push("");
+    out.push("Thanks");
+    openMail("Booking request: " + field("bk-service") + ", " + sel.date + " " + sel.time + " Dubai time", out.join("\n"));
+  });
+
+  elPriority.addEventListener("click", function () {
+    var out = [], when = sel ? (longDate(sel.date) + ", " + sel.time + " Dubai time") : (openKey ? longDate(openKey) : "(no date picked yet)");
+    out.push("Hi Khaqan,");
+    out.push("");
+    out.push("I am asking about a priority slot. I understand that means a session outside your normal evening and weekend windows, or at shorter notice than your lead time of " + (cfg.leadTimeDays || 0) + " days, that the fee is higher, and that you will quote it in writing before anything is agreed.");
+    out.push("");
+    out.push("Date or window I have in mind: " + when);
+    whoLines(out);
+    out.push("");
+    out.push("Why this cannot wait:");
+    out.push(field("bk-note") || "(please fill this in)");
+    out.push("");
+    out.push("Thanks");
+    openMail("Priority request: " + field("bk-service"), out.join("\n"));
+  });
+
+  function boot() {
+    var now;
+    reindex();
+    now = new Date(Date.now() + OFFSET_MS);
+    cursorY = now.getUTCFullYear();
+    cursorM = now.getUTCMonth();
+    render();
+  }
+
+  boot();
+
+  if (window.fetch) {
+    fetch("data/availability.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { if (j && typeof j === "object") { cfg = j; sel = null; openKey = null; boot(); } })
+      .catch(function () { return null; });
+  }
+}());
+"""
+
+
+def build_booking():
+    SERVICES_FOR_BOOKING = [p["name"] for p in PRODUCTS] + [s["name"] for s in SESSIONS]
+    av = load_availability()
+    url = f"{BASE}/booking.html"
+    lead = av.get("leadTimeDays", 3)
+    horizon = av.get("horizonDays", 60)
+    cap = av.get("weeklyCapacity", 3)
+    mins = av.get("slotMinutes", 60)
+
+    faq = [
+        {"q": "Why is availability only evenings and weekends?",
+         "a": "Because that is when I am genuinely free. I hold a full-time role as Head of IT in Dubai and I consult around it, so weekday slots start at 17:00 Dubai time and weekend slots start at 08:00. I would rather show you the hours I can keep than book a time I would have to move."},
+        {"q": "How far ahead should I book?",
+         "a": f"The calendar opens {lead} days from today and runs {horizon} days ahead. The {lead} day lead time is there so I can read whatever you send before we speak, which is usually the difference between a useful hour and an introduction."},
+        {"q": "What happens after I pick a slot?",
+         "a": "The button opens your own email client with the date, time, service and your note already written. Nothing is held until I reply. I answer within one working day, confirm the slot or offer the nearest alternative, and send the fee in writing. Once that is agreed you get a calendar invite with the meeting link."},
+        {"q": "What is a priority request?",
+         "a": f"It is a request for a session outside the normal windows, or sooner than the {lead} day lead time, for work that cannot wait. It carries a higher fee because it means rearranging my own commitments. The fee is quoted in writing first, and if I cannot do the work properly in the time available I will say so and turn it down."},
+    ]
+
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "@id": url, "url": url, "dateModified": TODAY, "about": {"@id": PERSON_ID},
+             "name": "Book a session: availability calendar, Dubai time",
+             "description": "Live availability for consulting and career sessions with Khaqan Shaheen, shown in Dubai time. Weekday evenings and weekends, a limited number of sessions a week.",
+             "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}},
+            {"@type": "Service", "@id": url + "#booking", "name": "Consultation booking",
+             "description": "Booking a live consulting or career session with Khaqan Shaheen. Weekday evenings and weekend daytimes, Dubai time, with a written fee before anything is paid.",
+             "provider": {"@id": PERSON_ID}, "url": url,
+             "serviceType": "Consultation booking",
+             "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "Remote, worldwide"}],
+             "hoursAvailable": opening_hours(av),
+             "openingHoursSpecification": opening_hours(av),
+             "offers": {"@type": "Offer", "availability": "https://schema.org/LimitedAvailability", "url": url,
+                        "description": f"A limited number of sessions each week, currently {cap}. Fee quoted in writing before anything is paid."}},
+            faq_schema(faq, url),
+            breadcrumb([("Home", f"{BASE}/"), ("Book a session", url)]),
+        ],
+    }
+
+    options = "\n".join(f'      <option value="{esc(n)}">{esc(n)}</option>' for n in SERVICES_FOR_BOOKING)
+    faq_html = "\n".join(f'<h3>{esc(f["q"])}</h3>\n<p>{esc(f["a"])}</p>' for f in faq)
+    seed = json.dumps(av, ensure_ascii=False).replace("</", "<\\/")
+
+    body = (
+        '<div class="breadcrumb"><a href="./">Home</a> / Book a session</div>\n<h1>Book a session</h1>\n'
+        '<p class="lede answer">Pick a free slot in the calendar below, fill in four short fields, and the button opens your email client with the date, time and service already written. '
+        f'The calendar opens {lead} days from today, runs {horizon} days ahead, and every time on it is Dubai time. '
+        f'I take {cap} sessions a week at most, so once a week is full the rest of it closes.</p>\n'
+        f'<p class="muted">{esc(window_sentence(av))}</p>\n'
+        '<section id="calendar" style="border-top:0;padding-top:12px">\n<h2>Availability</h2>\n'
+        '<p class="bk-tz"><strong>All times are Dubai time, GMT+4.</strong> If you are somewhere else, the equivalent in your own time is shown once you pick a slot.</p>\n'
+        '<div class="bk-nav">\n'
+        '  <button type="button" id="bk-prev" class="btn bk-arrow">Previous</button>\n'
+        '  <button type="button" id="bk-next" class="btn bk-arrow">Next</button>\n'
+        '</div>\n'
+        '<div id="bk-months" class="bk-months"><p class="muted">The calendar needs JavaScript. If it does not appear, email me with the day and time you would like and I will confirm from the same list.</p></div>\n'
+        '<p class="bk-legend"><span class="bk-key bk-key-open"></span> free slots <span class="bk-key bk-key-full"></span> fully booked <span class="bk-key bk-key-closed"></span> not available</p>\n'
+        f'<p class="muted small">I take a limited number of sessions a week, currently {cap}, because they sit around a full-time job. '
+        f'Each slot is {mins} minutes. Days marked not available are inside the {lead} day lead time, days I am away, or days whose hours are already taken.</p>\n'
+        '<div id="bk-panel" class="bk-panel" aria-live="polite"></div>\n'
+        '</section>\n'
+        '<section id="details">\n<h2>Your details</h2>\n'
+        '<div class="bk-form">\n'
+        '  <label for="bk-name">Name</label>\n  <input type="text" id="bk-name" autocomplete="name">\n'
+        '  <label for="bk-company">Company</label>\n  <input type="text" id="bk-company" autocomplete="organization">\n'
+        '  <label for="bk-service">Which service</label>\n  <select id="bk-service">\n' + options + '\n  </select>\n'
+        '  <label for="bk-note">What you want to cover</label>\n  <textarea id="bk-note" rows="4"></textarea>\n'
+        '</div>\n'
+        '<p class="muted small">Nothing is stored and nothing is sent from this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>\n'
+        '<div class="bk-actions" id="bk-addr" data-u="khaqanshaheen" data-d="yahoo.com">\n'
+        '  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot by email</button>\n'
+        '  <button type="button" id="bk-priority" class="btn">Ask about a priority slot</button>\n'
+        '</div>\n'
+        '<p class="muted small" id="bk-hint"></p>\n'
+        '</section>\n'
+        '<section id="priority">\n<h2>Priority requests</h2>\n'
+        f'<p>A priority request is for work that cannot wait: a session outside the normal windows, or sooner than the {lead} day lead time. '
+        'It carries a higher fee, because taking it means rearranging my own commitments. I quote that fee in writing before anything is agreed, and if I cannot give the work the time it needs I will say no rather than do it badly. '
+        'Use the button above and tell me what the deadline is and why.</p>\n'
+        '</section>\n'
+        '<section id="after">\n<h2>What happens next</h2>\n<ol class="plain">\n'
+        '<li>You send the pre-filled email. The slot is not held yet.</li>\n'
+        '<li>I reply within one working day, confirm the slot or offer the nearest alternative, and send the fee in writing.</li>\n'
+        '<li>You pay in advance, then you get a calendar invite with the meeting link.</li>\n'
+        '<li>Written notes follow within 24 hours of the session.</li>\n</ol>\n</section>\n'
+        f'<section id="questions">\n<h2>Questions about booking</h2>\n{faq_html}\n</section>\n'
+        f'<script type="application/json" id="bk-seed">{seed}</script>\n'
+        f'<script>{BOOKING_JS}</script>'
+    )
+
+    (ROOT / "booking.html").write_text(
+        layout(title="Book a session: availability calendar, Dubai time | Khaqan Shaheen",
+               description="Live availability for consulting and career sessions with Khaqan Shaheen, Head of IT in Dubai. Weekday evenings and weekends, Dubai time, a limited number of sessions a week, fee quoted in writing before anything is paid.",
+               url=url, body=body, schema=schema, depth=0),
+        encoding="utf-8",
+    )
+
+
 def build_landing():
     urls = []
     for L in LANDING:
@@ -870,7 +1376,7 @@ def build_landing():
             '<h2>Read the evidence</h2>\n<ul class="plain">\n' + related + "\n</ul>\n"
             f'<h2>Questions people ask</h2>\n{faq_html}\n'
             '<h2>Talk to me</h2>\n'
-            f'<p>Email <a href="mailto:{EMAIL}?subject={urllib.parse.quote("Enquiry: " + L["h1"])}">{EMAIL}</a> with a few lines about your situation, or message me on <a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a>. I reply within one working day, Dubai time. Fees are quoted in writing before anything is paid.</p>\n'
+            f'<p>Email <a href="#" {mail_attrs("Enquiry: " + L["h1"], show=True)}></a> with a few lines about your situation, or message me on <a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a>. I reply within one working day, Dubai time. Fees are quoted in writing before anything is paid.</p>\n'
             '<nav class="pager" aria-label="More"><a href="services.html">&larr; All services</a><a href="faq.html">Questions about me &rarr;</a></nav>\n</article>'
         )
         (ROOT / f"{L['slug']}.html").write_text(
@@ -966,7 +1472,7 @@ FAQ = [
     ("Does Khaqan Shaheen speak at events or write for publications?", "Yes. He speaks and writes on ERP across a multi-country group, AI systems that survive daily operations, database migrations, identity and access, building the IT for a new factory, and AI search visibility. Bios and a headshot are in the press kit."),
     ("What is ai-visibility-audit?", "An open-source tool by Khaqan Shaheen: one Python file with no dependencies that checks whether ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews can crawl, read and cite a website, scores it across five layers, and lists the fixes worth doing first."),
     ("Where is Khaqan Shaheen based, and which languages does he speak?", "Dubai, United Arab Emirates. English and Urdu."),
-    ("How can I contact Khaqan Shaheen?", "Email khaqanshaheen@yahoo.com or message him on LinkedIn at linkedin.com/in/webshaheen."),
+    ("How can I contact Khaqan Shaheen?", "Through the contact section of his site at https://khaqanshaheen.com/#contact, by booking a slot at https://khaqanshaheen.com/booking.html, or on LinkedIn at linkedin.com/in/webshaheen. The email address is shown on the site itself."),
     ("How do I know the claims on this site are true?", "Every case study has an evidence section that says what the claim rests on, and none of them carries a number he cannot show how he measured. Where a figure would normally sit, the site uses scope: six sites, five countries, around 150 users, eight database major versions, no unplanned downtime at any site."),
 ]
 
@@ -1161,6 +1667,7 @@ def build_llms(case_pages, groups):
         f"- [Questions people ask]({BASE}/faq.html): direct answers on consulting, fractional work, mentoring, senior roles, ERP, AI, contact",
         f"- [Services]({BASE}/services.html): fixed-scope audits and reviews (AI visibility and SEO audit, new website survey, Google Ads campaign design, marketing automation, app review, Odoo health check, AI readiness, new-site IT plan, IT function review), fractional Head of IT, projects, senior roles",
         f"- [Career advice and mentoring]({BASE}/career-advice.html): paid live one-to-one sessions on Google Meet, booked and paid in advance: career strategy, CV and LinkedIn rebuild, interview preparation, engineer to Head of IT mentoring, AI for beginners",
+        f"- [Book a session]({BASE}/booking.html): availability calendar in Dubai time, weekday evenings and weekend daytimes, a limited number of sessions a week, priority requests explained",
         f"- [Skills and abilities]({BASE}/skills.html): every skill with an ownership level and evidence link",
         f"- [Press kit]({BASE}/press.html): bios in three lengths, headshot, fact sheet, speaking topics",
         "",
@@ -1203,7 +1710,7 @@ def build_llms(case_pages, groups):
         "- Speciality: moving a business from manual and spreadsheet operations to one ERP with AI doing the repetitive work; ERP consultation",
         "- Awards (CXO DX, Dubai): Technology Transformer of the Year, SME Tech Innovation Summit and Awards, 2023 (https://cxodx.com/sme-tech-innovation-summit-awards-highlights-key-themes-of-digital-transformation/); IT Leadership Excellence, CIO Connect Summit and Awards, 2024 (https://cxodx.com/cio-connect-summit-awards-highlights-transformative-trends/); Excellence in CIO Leadership; CIO of the Year, Future Workspace Summit and Awards",
         "- Languages: English, Urdu",
-        "- Contact: khaqanshaheen@yahoo.com, linkedin.com/in/webshaheen",
+        f"- Contact: the contact section at {BASE}/#contact, book a slot at {BASE}/booking.html, or linkedin.com/in/webshaheen",
         "",
     ]
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
@@ -1239,6 +1746,7 @@ def build():
     build_writing_hub(groups)
     build_services()
     build_career()
+    build_booking()
     build_faq()
     build_skills()
     global LANDING_URLS, GLOSSARY_URLS
@@ -1258,7 +1766,7 @@ def build():
     all_items = sorted([it for items in groups.values() for it in items], key=lambda x: (x["date"], x["title"]), reverse=True)
     build_feed(all_items)
     urls = [
-        (f"{BASE}/", "1.0", TODAY), (f"{BASE}/services.html", "0.9", TODAY), (f"{BASE}/career-advice.html", "0.9", TODAY), (f"{BASE}/faq.html", "0.9", TODAY),
+        (f"{BASE}/", "1.0", TODAY), (f"{BASE}/services.html", "0.9", TODAY), (f"{BASE}/career-advice.html", "0.9", TODAY), (f"{BASE}/booking.html", "0.9", TODAY), (f"{BASE}/faq.html", "0.9", TODAY),
         (f"{BASE}/skills.html", "0.8", TODAY), (f"{BASE}/press.html", "0.7", TODAY), (f"{BASE}/work/", "0.8", TODAY),
         (f"{BASE}/writing/", "0.8", TODAY),
     ]
@@ -1273,7 +1781,7 @@ def build():
     build_sitemap(urls)
     build_llms(case_pages, groups)
     counts = {k: len(v) for k, v in groups.items()}
-    print(f"built {len(case_pages)} case studies, {counts}, services, faq, skills, feed, sitemap ({len(urls)} URLs), llms.txt, llms-full.txt")
+    print(f"built {len(case_pages)} case studies, {counts}, services, booking, faq, skills, feed, sitemap ({len(urls)} URLs), llms.txt, llms-full.txt")
 
 
 if __name__ == "__main__":

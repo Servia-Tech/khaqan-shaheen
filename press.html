@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Press kit | Khaqan Shaheen</title>
 <meta name="description" content="Bios, headshot, fact sheet and speaking topics for Khaqan Shaheen, Head of IT in Dubai. For editors, podcast hosts and event organisers.">
-<link rel="canonical" href="https://servia-tech.github.io/khaqan-shaheen/press.html">
+<link rel="canonical" href="https://khaqanshaheen.com/press.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="assets/img/brand/icon-192.png" type="image/png" sizes="192x192">
@@ -18,22 +18,22 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Press kit | Khaqan Shaheen">
 <meta property="og:description" content="Bios, headshot, fact sheet and speaking topics for Khaqan Shaheen, Head of IT in Dubai.">
-<meta property="og:url" content="https://servia-tech.github.io/khaqan-shaheen/press.html">
-<meta property="og:image" content="https://servia-tech.github.io/khaqan-shaheen/assets/img/og-image.png">
+<meta property="og:url" content="https://khaqanshaheen.com/press.html">
+<meta property="og:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Press kit | Khaqan Shaheen",
-  "url": "https://servia-tech.github.io/khaqan-shaheen/press.html",
-  "about": { "@id": "https://servia-tech.github.io/khaqan-shaheen/#person" },
+  "url": "https://khaqanshaheen.com/press.html",
+  "about": { "@id": "https://khaqanshaheen.com/#person" },
   "dateModified": "2026-09-08",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://servia-tech.github.io/khaqan-shaheen/" },
-      { "@type": "ListItem", "position": 2, "name": "Press kit", "item": "https://servia-tech.github.io/khaqan-shaheen/press.html" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Press kit", "item": "https://khaqanshaheen.com/press.html" }
     ]
   }
 }
@@ -154,7 +154,7 @@
 
   <section>
     <h2>Contact</h2>
-    <p>Email <a href="mailto:khaqanshaheen@yahoo.com">khaqanshaheen@yahoo.com</a> or message on <a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a>. Dubai time (GMT+4).</p>
+    <p>Email <a class="mail" href="#" data-u="khaqanshaheen" data-d="yahoo.com" data-show="1"></a> or message on <a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a>. Dubai time (GMT+4).</p>
   </section>
 </main>
 
@@ -166,5 +166,20 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var n = document.querySelectorAll("[data-u][data-d]");
+  for (var i = 0; i < n.length; i++) {
+    var e = n[i], a = e.getAttribute("data-u") + String.fromCharCode(64) + e.getAttribute("data-d");
+    if (e.tagName === "A") {
+      var s = e.getAttribute("data-s"), b = e.getAttribute("data-b"), q = [];
+      if (s) { q.push("subject=" + s); }
+      if (b) { q.push("body=" + b); }
+      e.setAttribute("href", "mailto:" + a + (q.length ? "?" + q.join("&") : ""));
+    }
+    if (e.getAttribute("data-show") === "1") { e.textContent = a; }
+  }
+})();
+</script>
 </body>
 </html>

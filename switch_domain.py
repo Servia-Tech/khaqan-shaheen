@@ -84,10 +84,10 @@ def rewrite(domain):
 def build_and_push(domain):
     run("python build.py")
     run("git add -A")
-    run(f'git commit -m "Move to {domain}" -m "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"')
+    run(f'git commit -m "Move to {domain}" -m "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"')
     run(f"git push https://Servia-Tech:{token()}@github.com/{REPO}.git main")
     run("git add -A", cwd=ROOT_REPO)
-    run(f'git commit -m "Point host root at {domain}" -m "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"', cwd=ROOT_REPO)
+    run(f'git commit -m "Point host root at {domain}" -m "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"', cwd=ROOT_REPO)
     run(f"git push https://Servia-Tech:{token()}@github.com/Servia-Tech/servia-tech.github.io.git main", cwd=ROOT_REPO)
     print("pushed both repos")
 

@@ -1,6 +1,6 @@
 # Khaqan Shaheen: full text
 
-Generated 2026-09-08. Source: https://servia-tech.github.io/khaqan-shaheen/
+Generated 2026-09-09. Source: https://khaqanshaheen.com/
 
 ## Questions people ask
 
@@ -70,7 +70,7 @@ Dubai, United Arab Emirates. English and Urdu.
 
 ### How can I contact Khaqan Shaheen?
 
-Email khaqanshaheen@yahoo.com or message him on LinkedIn at linkedin.com/in/webshaheen.
+Through the contact section of his site at https://khaqanshaheen.com/#contact, by booking a slot at https://khaqanshaheen.com/booking.html, or on LinkedIn at linkedin.com/in/webshaheen. The email address is shown on the site itself.
 
 ### How do I know the claims on this site are true?
 
@@ -329,7 +329,7 @@ For: Teams or friends who want to learn together at a lower price per head.
 
 # Machine scheduling and order-overlap prevention in a manufacturing ERP
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/machine-scheduling-and-overlap-prevention.html
+Source: https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html
 
 ## Situation
 
@@ -375,7 +375,7 @@ Manufacturing process modelling, capacity planning and machine scheduling, Odoo 
 
 # One ERP across six sites in five countries
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/one-erp-six-sites-five-countries.html
+Source: https://khaqanshaheen.com/work/one-erp-six-sites-five-countries.html
 
 ## Situation
 
@@ -421,7 +421,7 @@ ERP implementation and ownership, multi-country rollout, build-versus-buy judgem
 
 # PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/postgresql-9-5-to-16-migration.html
+Source: https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html
 
 ## Situation
 
@@ -469,7 +469,7 @@ PostgreSQL administration and major-version migration, business continuity and d
 
 # Document OCR into the ERP: supplier bills and expense claims read automatically
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/document-ocr-into-the-erp.html
+Source: https://khaqanshaheen.com/work/document-ocr-into-the-erp.html
 
 ## Situation
 
@@ -515,7 +515,7 @@ Applied AI in production, vision and language model APIs, Python engineering, ER
 
 # A 24 hour AI sales agent on WhatsApp and the group websites
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/ai-sales-agent-whatsapp-and-web.html
+Source: https://khaqanshaheen.com/work/ai-sales-agent-whatsapp-and-web.html
 
 ## Situation
 
@@ -563,7 +563,7 @@ Applied AI in production, conversational system design, WhatsApp and web channel
 
 # An AI voice agent on the corporate phone system
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/ai-voice-agent-on-grandstream.html
+Source: https://khaqanshaheen.com/work/ai-voice-agent-on-grandstream.html
 
 ## Situation
 
@@ -609,7 +609,7 @@ VoIP and telephony administration, applied AI in production, speech interface de
 
 # Identity and access: from local passwords to single sign on with two factor
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/identity-and-access-rebuild.html
+Source: https://khaqanshaheen.com/work/identity-and-access-rebuild.html
 
 ## Situation
 
@@ -657,7 +657,7 @@ Identity and access management, Google Workspace administration, single sign on,
 
 # Multi-site biometric attendance, integrated with the ERP
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/multi-site-biometric-attendance.html
+Source: https://khaqanshaheen.com/work/multi-site-biometric-attendance.html
 
 ## Situation
 
@@ -705,7 +705,7 @@ Device and systems integration, ERP and payroll integration, Android and PWA del
 
 # Geo-verified security patrol, integrated with the ERP
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/geo-verified-security-patrol.html
+Source: https://khaqanshaheen.com/work/geo-verified-security-patrol.html
 
 ## Situation
 
@@ -753,7 +753,7 @@ Android application delivery, location-based system design, ERP integration, phy
 
 # Bringing a new factory online: the order of operations
 
-Source: https://servia-tech.github.io/khaqan-shaheen/work/bringing-a-new-factory-online.html
+Source: https://khaqanshaheen.com/work/bringing-a-new-factory-online.html
 
 ## Situation
 
@@ -808,7 +808,7 @@ Greenfield IT delivery, project sequencing, multi-country vendor and contract ma
 
 # Why I extended one ERP instead of buying a second system for manufacturing
 
-Source: https://servia-tech.github.io/khaqan-shaheen/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html. Published 2026-09-08.
 
 Because a second system means a second set of records and an interface that somebody maintains forever. I had the manufacturing modules the standard package lacked built on top of the ERP the group already ran, to my specification, and kept them upgradable. Six sites now close the month from the same records.
 
@@ -881,7 +881,7 @@ When the gap is a whole discipline the platform was never designed for and the i
 
 # Replacing local passwords with single sign-on in a mid-sized group
 
-Source: https://servia-tech.github.io/khaqan-shaheen/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html. Published 2026-09-08.
 
 Every person now has one identity on Google Workspace, with single sign-on, two factor enforced, and access through role-based groups rather than individual requests. Identity came first, the ERP's own access model second, monitoring last. A leaver is now a role change made in one place on the day they go.
 
@@ -957,7 +957,7 @@ It creates a single point of control, which is what you want. The alternative is
 
 # Five AI systems in production: what breaks when nobody is watching
 
-Source: https://servia-tech.github.io/khaqan-shaheen/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html. Published 2026-09-08.
 
 Five AI systems of my design run in daily production at the group. What breaks when nobody is watching is rarely the model. It is a dropped connection, a confident wrong answer, or a boundary nobody defined. The fix is the same for all five: a person at the edge, a review queue, and an off switch.
 
@@ -1039,7 +1039,7 @@ When it is doing harm that the review queue cannot catch in time: a voice agent 
 
 # Bringing a new factory online: the order of operations
 
-Source: https://servia-tech.github.io/khaqan-shaheen/articles/bringing-a-new-factory-online-the-order-of-operations.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/bringing-a-new-factory-online-the-order-of-operations.html. Published 2026-09-08.
 
 Cable while the builders are there, order the circuits first, secure the perimeter, connect the site to the group ERP, then identity, telephony and site devices, then hand over. Each layer depends on the one before it. Done out of order, you do them twice, and the site opens on spreadsheets it never gives up.
 
@@ -1124,7 +1124,7 @@ With local vendors I select and contract myself for cabling, mounting and hands-
 
 # A PostgreSQL upgrade nobody was allowed to notice
 
-Source: https://servia-tech.github.io/khaqan-shaheen/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html. Published 2026-09-08.
 
 I took the production database under our group ERP from PostgreSQL 9.5 to 16, eight major versions, with no unplanned downtime at any site. The upgrade itself was the small part. The rehearsal, the rollback plan and the backup and recovery estate built around it were the work.
 
@@ -1200,7 +1200,7 @@ Yes. The cost of a major-version upgrade grows with the gap, and so does the fea
 
 # Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html. Published 2026-09-08.
 
 By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules finance would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this in-house.
 
@@ -1380,7 +1380,7 @@ Say in the prompt that some bills carry only a total and an empty `lines` array 
 
 # Odoo: how to stop two work orders being booked on the same machine at the same time
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html. Published 2026-09-08.
 
 By the end of this you will have a small Odoo 17 module that refuses to save a work order overlapping another on the same machine, names the orders it clashes with, and holds even when two planners save at the same moment. It is written for people who own or build a manufacturing ERP.
 
@@ -1640,7 +1640,7 @@ Not in any way you will notice. A GiST index on an integer plus a range is small
 
 # How to write an llms.txt for a business website
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/how-to-write-an-llms-txt-for-a-business-website.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/how-to-write-an-llms-txt-for-a-business-website.html. Published 2026-09-08.
 
 An llms.txt is a short Markdown file at /llms.txt that gives a language model a curated map of your site: a name, a summary and the pages that matter, one line each. It takes about an hour to write. Whether the big AI companies read it yet is an open question, but it costs nothing to add.
 
@@ -1825,7 +1825,7 @@ No. robots.txt says what may be fetched, the sitemap lists everything that exist
 
 # How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html. Published 2026-09-08.
 
 Read your robots.txt for the AI crawler names, fetch your homepage with curl while pretending to be each bot, and confirm your main text is in the raw HTML. That takes ten minutes by hand. Or run one Python script that does all of it and scores the result.
 
@@ -1977,7 +1977,7 @@ Only if you have decided you do not want to be found by AI assistants at all. Th
 
 # Google Workspace single sign-on for Odoo, with two factor authentication and role based access
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html. Published 2026-09-08.
 
 By the end of this your Odoo 17 users will sign in with their Google Workspace account, protected by 2-Step Verification enforced in the Admin console, with access inside Odoo following their job role, and you will still be able to get in if Google cannot. It is for IT heads who run both systems.
 
@@ -2112,7 +2112,7 @@ Yes, for every user who signs in only through Google, because Odoo never sees th
 
 # A WhatsApp AI sales agent that hands leads to your ERP: the architecture
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html. Published 2026-09-08.
 
 A webhook receives each WhatsApp message, a session store keyed by phone number holds the conversation, and a model with four tools answers from a catalogue it cannot contradict. Money, complaints and requests for a person go to a human. Qualified enquiries become leads in the ERP through its API.
 
@@ -2273,7 +2273,7 @@ Yes. Only the channel adapter changes: the webhook and send function become a we
 
 # A PostgreSQL major-version upgrade with no unplanned downtime: the checklist
 
-Source: https://servia-tech.github.io/khaqan-shaheen/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html. Published 2026-09-08.
 
 By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave a better recovery position behind you. It is for engineers who own a production database.
 
@@ -2498,7 +2498,7 @@ A column added on one side but not the other stops the apply worker, and the err
 
 # Why every AI agent I run sits behind a human queue
 
-Source: https://servia-tech.github.io/khaqan-shaheen/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html. Published 2026-09-08.
 
 Because a language model is confidently wrong in a way a broken scanner never is. Every agent I run creates a record, a draft or a lead for a person to check. None of them post a journal entry, pay a supplier or commit the company to a price.
 
@@ -2514,7 +2514,7 @@ The queue narrows over time, by category, as the notes show a category has been 
 
 # Why I published my case studies without numbers
 
-Source: https://servia-tech.github.io/khaqan-shaheen/notes/why-i-published-my-case-studies-without-numbers.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/why-i-published-my-case-studies-without-numbers.html. Published 2026-09-08.
 
 Because a number I cannot show how I measured is worse than no number. The scope is honest: six sites, five countries, one ERP, around 150 users, five AI systems in production. The results will get figures when I have measured them, with the method and the date attached.
 
@@ -2532,7 +2532,7 @@ The rule going forward is short. A number, its method and its date, or nothing.
 
 # What running my own venture taught me about corporate IT
 
-Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-running-my-own-venture-taught-me-about-corporate-it.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/what-running-my-own-venture-taught-me-about-corporate-it.html. Published 2026-09-08.
 
 Paying the bill yourself, watching what real customers do on a booking page, finding a pipeline that had stopped without telling anyone, and having search traffic answer back. Each of those changed how I run IT for an employer.
 
@@ -2550,7 +2550,7 @@ None of this needed a venture to learn. I did not learn it until the bill had my
 
 # What OCR gets wrong on supplier bills
 
-Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-ocr-gets-wrong-on-supplier-bills.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/what-ocr-gets-wrong-on-supplier-bills.html. Published 2026-09-08.
 
 The characters are the easy part. What the pipeline gets wrong is which number on the page is the one you want: a handwritten correction, a stamp across the total, the second page of a bill, the same bill arriving twice, and a currency nobody wrote down.
 
@@ -2568,7 +2568,7 @@ I stopped evaluating models on how often they are right and started evaluating w
 
 # What I check the week before a factory opens
 
-Source: https://servia-tech.github.io/khaqan-shaheen/notes/what-i-check-the-week-before-a-factory-opens.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/what-i-check-the-week-before-a-factory-opens.html. Published 2026-09-08.
 
 Two internet links with a failover I have tested by pulling the cable, the new company and warehouse in the ERP with local tax and numbering, printers and scanners on the floor, every user logged in once, and a backup I have restored from. The list is short because the failures are boring.
 
@@ -2586,7 +2586,7 @@ Then the backup. The new site's data is in it, and I have restored one record fr
 
 # The month-end test for ERP health
 
-Source: https://servia-tech.github.io/khaqan-shaheen/notes/the-month-end-test-for-erp-health.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/the-month-end-test-for-erp-health.html. Published 2026-09-08.
 
 If every site can close the month from the same records without opening a spreadsheet, the ERP is healthy. If a spreadsheet appears, something the business needs is not in the system. Everything else on the dashboard is detail.
 
