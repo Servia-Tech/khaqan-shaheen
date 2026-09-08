@@ -32,7 +32,7 @@ NAV = [
     ("Career advice", "career-advice.html"),
     ("Skills", "skills.html"),
     ("FAQ", "faq.html"),
-    ("Contact", "index.html#contact"),
+    ("Book a session", "booking.html"),
 ]
 
 # Booking plumbing. Leave empty to fall back to a pre-filled email; put a Stripe Payment Link,
@@ -207,7 +207,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="topics">What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}glossary/">Glossary</a></div>
+    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="{r}index.html#contact">Contact</a><br>What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}glossary/">Glossary</a></div>
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
@@ -683,7 +683,7 @@ def build_services():
         + "\n" + "\n".join(retained)
         + "\n" + reviews_block(reviews)
         + '\n<section id="how">\n<h2>How it works</h2>\n<ol class="plain">\n'
-        "<li>Click Ask for a quote on a service, or email " + mail_span() + ' with the service name and a few lines about your situation.</li>\n'
+        "<li>Pick a time on the <a href=\"booking.html\">availability calendar</a>, or click Ask for a quote on a service, or email " + mail_span() + ' with the service name and a few lines about your situation.</li>\n'
         "<li>I reply within one working day with the scope confirmed, the dates, the fee in writing, and a payment link or bank details.</li>\n"
         "<li>You pay in advance. Work starts on the agreed date and you get written deliverables, not just meetings.</li>\n"
         "<li>A follow-up call is included with every service.</li>\n</ol>\n</section>\n"
@@ -739,7 +739,7 @@ def build_career():
         '<section id="plans" style="border-top:0;padding-top:12px">\n<h2>Plans</h2>\n<div class="grid">\n' + "\n".join(cards) + "\n</div>\n"
         f'<p class="muted small">{esc(FOUNDING_NOTE)}</p>\n</section>\n'
         '<section id="how">\n<h2>How booking works</h2>\n<ol class="plain">\n'
-        "<li>Choose a plan and click Book a session. Your email client opens with the plan filled in; add your preferred times.</li>\n"
+        "<li>Choose a plan, then pick a free time on the <a href=\"booking.html\">availability calendar</a>. If you would rather not use the calendar, click Book a session and your email client opens with the plan filled in.</li>\n"
         "<li>I reply within one working day with two or three slots, the fee in writing, and a payment link.</li>\n"
         "<li>Pay in advance. You get a calendar invite with the Google Meet link and a short questionnaire so the session starts on your situation, not on introductions.</li>\n"
         "<li>After the session, written notes within 24 hours and, where the plan includes it, a written pass on your material.</li>\n</ol>\n</section>\n"
