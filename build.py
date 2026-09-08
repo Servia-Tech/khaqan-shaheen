@@ -169,6 +169,10 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 <meta name="author" content="Khaqan Shaheen">
 <link rel="canonical" href="{canonical or url}">
 <link rel="icon" href="{r}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{r}assets/img/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="{r}assets/img/brand/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="{r}assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#0f1b2d">
 <link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="{BASE}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,7 +195,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 <body>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{r}./">Khaqan<span>.</span> Shaheen</a>
+    <a class="brand" href="{r}./"><img class="mark" src="{r}assets/img/brand/icon-64.png" width="28" height="28" alt="">Khaqan<span>.</span> Shaheen</a>
     <nav class="nav" aria-label="Main">
 {nav}
     </nav>

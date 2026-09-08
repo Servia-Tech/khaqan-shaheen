@@ -158,3 +158,6 @@ table.skills td:first-child a:hover { color: var(--accent-ink); }
 
 .site-footer .topics { flex-basis: 100%; line-height: 1.8; }
 .site-footer .topics a { color: var(--ink-soft); }
+
+.brand { display: inline-flex; align-items: center; gap: 9px; }
+.brand .mark { width: 28px; height: 28px; border-radius: 6px; }
