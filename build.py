@@ -23,7 +23,7 @@ ROOT = pathlib.Path(__file__).parent
 BASE = "https://khaqanshaheen.com"
 PERSON_ID = f"{BASE}/#person"
 TODAY = dt.date.today().isoformat()
-FONTS = "https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=swap"
+FONTS = "https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Inter:wght@400;600&display=optional"
 
 NAV = [
     ("Work", "work/"),
@@ -168,6 +168,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 <meta name="author" content="Khaqan Shaheen">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="{canonical or url}">
 <link rel="icon" href="{r}assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{r}assets/img/favicon.ico" sizes="16x16 32x32 48x48">
@@ -177,7 +178,8 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 <link rel="alternate" type="application/rss+xml" title="Khaqan Shaheen: articles, tutorials and notes" href="{BASE}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="{FONTS}" rel="stylesheet">
+<link href="{FONTS}" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="{FONTS}" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="{r}assets/css/site.css">
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Khaqan Shaheen">
@@ -346,7 +348,7 @@ def build_content_type(kind):
             items.append({
                 "kind": kind, "slug": slug, "title": title, "url": url,
                 "description": meta.get("description") or first_sentence(intro),
-                "date": meta.get("date", TODAY), "tags": tags, "md": body_md, "faq": faq,
+                "date": meta.get("date", TODAY), "modified": meta.get("modified", meta.get("date", TODAY)), "tags": tags, "md": body_md, "faq": faq,
                 "words": word_count(body_md), "full_md": text,
             })
     items.sort(key=lambda x: (x["date"], x["title"]), reverse=True)
@@ -361,7 +363,7 @@ def build_content_type(kind):
                 "url": it["url"],
                 "mainEntityOfPage": it["url"],
                 "datePublished": it["date"],
-                "dateModified": it["date"] if it["date"] > TODAY else TODAY,
+                "dateModified": it["modified"],
                 "inLanguage": "en",
                 "wordCount": it["words"],
                 "keywords": ", ".join(it["tags"]),
@@ -675,7 +677,7 @@ def build_services():
     faq_html = "\n".join(f'<h3>{esc(f["q"])}</h3>\n<p>{esc(f["a"])}</p>' for f in faq)
     body = (
         '<div class="breadcrumb"><a href="./">Home</a> / Services</div>\n<h1>Services</h1>\n'
-        '<img class="page-shot" src="assets/img/photos/boardroom-1400.jpg" width="1400" height="933" alt="Khaqan Shaheen in a working session" loading="lazy">\n'
+        '<img class="page-shot" src="assets/img/photos/boardroom-1400.jpg" srcset="assets/img/photos/boardroom-800.jpg 800w, assets/img/photos/boardroom-1400.jpg 1400w" sizes="(max-width: 720px) calc(100vw - 40px), 1000px" width="1400" height="933" alt="Khaqan Shaheen in a working session" loading="lazy">\n'
         '<p class="lede answer">Fixed-scope services you can book today, with the fee sent in writing before you pay and delivery on a written date: search and AI visibility audits, Google Ads and marketing automation design, app reviews, Odoo health checks, AI readiness, new-site IT plans and full IT function reviews. Below them, fractional Head of IT work, project work and senior roles.</p>\n'
         f'<p class="muted small">{esc(FOUNDING_NOTE)} Work is done outside my employer\'s hours or by arrangement, and never for a competitor of my employer. Career sessions are on their <a href="career-advice.html">own page</a>.</p>\n'
         '<ul class="facts" aria-label="Availability"><li><strong>Now</strong><span>available for new bookings</span></li><li><strong>UAE</strong><span>on-site: Dubai, Sharjah, all emirates</span></li><li><strong>Remote</strong><span>Gulf, Pakistan, international</span></li><li><strong>GMT+4</strong><span>Dubai time</span></li></ul>\n'
@@ -733,7 +735,7 @@ def build_career():
     faq_html = "\n".join(f'<h3>{esc(f["q"])}</h3>\n<p>{esc(f["a"])}</p>' for f in faq)
     body = (
         '<div class="breadcrumb"><a href="./">Home</a> / Career advice</div>\n<h1>Career advice and mentoring</h1>\n'
-        '<img class="page-shot" src="assets/img/photos/strategy-1400.jpg" width="1400" height="933" alt="Khaqan Shaheen working through a plan" loading="lazy">\n'
+        '<img class="page-shot" src="assets/img/photos/strategy-1400.jpg" srcset="assets/img/photos/strategy-800.jpg 800w, assets/img/photos/strategy-1400.jpg 1400w" sizes="(max-width: 720px) calc(100vw - 40px), 1000px" width="1400" height="933" alt="Khaqan Shaheen working through a plan" loading="lazy">\n'
         '<p class="lede answer">Live one-to-one sessions on Google Meet, paid in advance, for people in IT who want to move up, for engineers moving into ownership of an IT function, and for beginners who want to use AI properly. I have run an IT function that reports to an owner since 2015 and I know what Gulf recruiters search for, because I have been on both sides of it.</p>\n'
         '<ul class="facts" aria-label="How sessions run"><li><strong>Live</strong><span>Google Meet, one to one</span></li><li><strong>GMT+4</strong><span>evenings and weekends, Dubai time</span></li><li><strong>24h</strong><span>written notes after every session</span></li><li><strong>Advance</strong><span>pay when you book, reschedule up to 24h before</span></li></ul>\n'
         '<section id="plans" style="border-top:0;padding-top:12px">\n<h2>Plans</h2>\n<div class="grid">\n' + "\n".join(cards) + "\n</div>\n"
@@ -1543,7 +1545,7 @@ SKILLS = [
         ("Multi-channel chat platforms", "Owns", "Several WhatsApp numbers and the websites run from one place.", "work/ai-sales-agent-whatsapp-and-web.html"),
         ("Guardrails, review queues and monitoring", "Owns", "Boundaries, human hand-off rules, logging and the decision to switch a system off.", "articles/"),
         ("Autonomous content and SEO agents", "Hands-on", "An agent on my own venture that ships search and content work hourly inside guardrails I set.", "notes/"),
-        ("Teaching AI to beginners", "Hands-on", "What the tools can and cannot do, how to use them safely at work, a first automation.", "services.html#mentoring"),
+        ("Teaching AI to beginners", "Hands-on", "What the tools can and cannot do, how to use them safely at work, a first automation.", "career-advice.html"),
     ]),
     ("Databases and infrastructure", [
         ("PostgreSQL", "Owns", "9.5 to 16 across eight major versions with no unplanned downtime at any site; backups, point in time recovery, replication, monitoring.", "work/postgresql-9-5-to-16-migration.html"),
@@ -1798,7 +1800,7 @@ def build():
     urls += [(p["url"], "0.8", TODAY) for p in case_pages]
     for kind, items in groups.items():
         urls.append((f"{BASE}/{TYPES[kind]['dir']}/", "0.7", TODAY))
-        urls += [(it["url"], "0.7", it["date"]) for it in items]
+        urls += [(it["url"], "0.7", it["modified"]) for it in items]
     build_sitemap(urls)
     build_llms(case_pages, groups)
     counts = {k: len(v) for k, v in groups.items()}
