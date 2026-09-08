@@ -49,7 +49,7 @@
 <main class="wrap">
 <div class="breadcrumb"><a href="./">Home</a> / Book a session</div>
 <h1>Book a session</h1>
-<p class="lede answer">Pick a free slot in the calendar below, fill in four short fields, and the button opens your email client with the date, time and service already written. The calendar opens 3 days from today, runs 60 days ahead, and every time on it is Dubai time. I take 3 sessions a week at most, so once a week is full the rest of it closes.</p>
+<p class="lede answer">Pick a free slot in the calendar below, fill in four short fields, and the button opens your email client with the date, time and service already written. The calendar opens 3 days from today, runs 60 days ahead, and every time on it is Dubai time. I open two or three times a day and they move around, so check the day you want. I take 3 sessions a week at most, so once a week is full the rest of it closes.</p>
 <p class="muted">I hold a full-time role as Head of IT in Dubai, so consulting happens outside those hours: weekdays from 17:00 and weekends from 08:00, Dubai time.</p>
 <section id="calendar" style="border-top:0;padding-top:12px">
 <h2>Availability</h2>
@@ -60,7 +60,7 @@
 </div>
 <div id="bk-months" class="bk-months"><p class="muted">The calendar needs JavaScript. If it does not appear, email me with the day and time you would like and I will confirm from the same list.</p></div>
 <p class="bk-legend"><span class="bk-key bk-key-open"></span> free slots <span class="bk-key bk-key-full"></span> fully booked <span class="bk-key bk-key-closed"></span> not available</p>
-<p class="muted small">I take a limited number of sessions a week, currently 3, because they sit around a full-time job. Each slot is 60 minutes. Days marked not available are inside the 3 day lead time, days I am away, or days whose hours are already taken.</p>
+<p class="muted small">Only a few times a day are open for booking, because these sessions sit around a full-time job and I hold the rest of the evening back. Each slot is 60 minutes. Days marked not available are inside the 3 day lead time, days I am away, or days already taken. If nothing on the calendar suits you, use the priority request and tell me what you need.</p>
 <div id="bk-panel" class="bk-panel" aria-live="polite"></div>
 </section>
 <section id="details">
@@ -124,7 +124,7 @@
 <h3>What is a priority request?</h3>
 <p>It is a request for a session outside the normal windows, or sooner than the 3 day lead time, for work that cannot wait. It carries a higher fee because it means rearranging my own commitments. The fee is quoted in writing first, and if I cannot do the work properly in the time available I will say so and turn it down.</p>
 </section>
-<script type="application/json" id="bk-seed">{"timezone": "Asia/Dubai", "leadTimeDays": 3, "horizonDays": 60, "weeklyCapacity": 3, "windows": {"weekday": [{"start": "17:00", "end": "24:00"}], "saturday": [{"start": "08:00", "end": "24:00"}], "sunday": [{"start": "08:00", "end": "24:00"}]}, "slotMinutes": 60, "blocked": [], "booked": [], "priorityFeeNote": "Priority requests are for work that cannot wait. The fee is higher because the session sits outside the normal windows or inside the lead time, and it is quoted in writing before anything is agreed."}</script>
+<script type="application/json" id="bk-seed">{"timezone": "Asia/Dubai", "leadTimeDays": 3, "horizonDays": 60, "weeklyCapacity": 3, "windows": {"weekday": [{"start": "17:00", "end": "24:00"}], "saturday": [{"start": "08:00", "end": "24:00"}], "sunday": [{"start": "08:00", "end": "24:00"}]}, "slotMinutes": 60, "blocked": [], "booked": [], "priorityFeeNote": "Priority requests are for work that cannot wait. The fee is higher because the session sits outside the hours I have opened, or inside the lead time, which means rearranging my own commitments. I quote it in writing first, and I say no rather than take it on if I cannot do it properly. You get an answer within one working day.", "releasedPerDay": {"min": 2, "max": 3}}</script>
 <script>
 (function () {
   var OFFSET_MS = 4 * 3600 * 1000;
@@ -178,9 +178,28 @@
     return out;
   }
 
+  function hash32(s) {
+    var h = 2166136261, i;
+    for (i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+
+  function releasedCount(k) {
+    var r = cfg.releasedPerDay || {}, lo = r.min || 2, hi = r.max || lo;
+    if (hi < lo) { hi = lo; }
+    return lo + (hash32("count:" + k) % (hi - lo + 1));
+  }
+
   function freeFor(k) {
-    var all = slotsFor(k), out = [], i;
-    for (i = 0; i < all.length; i++) { if (!bookedSet[k + "T" + all[i]]) { out.push(all[i]); } }
+    var all = slotsFor(k), open = [], i, want, ranked, pick, out;
+    for (i = 0; i < all.length; i++) { if (!bookedSet[k + "T" + all[i]]) { open.push(all[i]); } }
+    want = releasedCount(k);
+    if (open.length <= want) { return open; }
+    ranked = open.slice().sort(function (a, b) { return hash32(k + "@" + a) - hash32(k + "@" + b); });
+    pick = {};
+    for (i = 0; i < want; i++) { pick[ranked[i]] = true; }
+    out = [];
+    for (i = 0; i < open.length; i++) { if (pick[open[i]]) { out.push(open[i]); } }
     return out;
   }
 

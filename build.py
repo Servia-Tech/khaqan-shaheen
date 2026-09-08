@@ -675,6 +675,7 @@ def build_services():
     faq_html = "\n".join(f'<h3>{esc(f["q"])}</h3>\n<p>{esc(f["a"])}</p>' for f in faq)
     body = (
         '<div class="breadcrumb"><a href="./">Home</a> / Services</div>\n<h1>Services</h1>\n'
+        '<img class="page-shot" src="assets/img/photos/boardroom-1400.jpg" width="1400" height="933" alt="Khaqan Shaheen in a working session" loading="lazy">\n'
         '<p class="lede answer">Fixed-scope services you can book today, with the fee sent in writing before you pay and delivery on a written date: search and AI visibility audits, Google Ads and marketing automation design, app reviews, Odoo health checks, AI readiness, new-site IT plans and full IT function reviews. Below them, fractional Head of IT work, project work and senior roles.</p>\n'
         f'<p class="muted small">{esc(FOUNDING_NOTE)} Work is done outside my employer\'s hours or by arrangement, and never for a competitor of my employer. Career sessions are on their <a href="career-advice.html">own page</a>.</p>\n'
         '<ul class="facts" aria-label="Availability"><li><strong>Now</strong><span>available for new bookings</span></li><li><strong>UAE</strong><span>on-site: Dubai, Sharjah, all emirates</span></li><li><strong>Remote</strong><span>Gulf, Pakistan, international</span></li><li><strong>GMT+4</strong><span>Dubai time</span></li></ul>\n'
@@ -732,6 +733,7 @@ def build_career():
     faq_html = "\n".join(f'<h3>{esc(f["q"])}</h3>\n<p>{esc(f["a"])}</p>' for f in faq)
     body = (
         '<div class="breadcrumb"><a href="./">Home</a> / Career advice</div>\n<h1>Career advice and mentoring</h1>\n'
+        '<img class="page-shot" src="assets/img/photos/strategy-1400.jpg" width="1400" height="933" alt="Khaqan Shaheen working through a plan" loading="lazy">\n'
         '<p class="lede answer">Live one-to-one sessions on Google Meet, paid in advance, for people in IT who want to move up, for engineers moving into ownership of an IT function, and for beginners who want to use AI properly. I have run an IT function that reports to an owner since 2015 and I know what Gulf recruiters search for, because I have been on both sides of it.</p>\n'
         '<ul class="facts" aria-label="How sessions run"><li><strong>Live</strong><span>Google Meet, one to one</span></li><li><strong>GMT+4</strong><span>evenings and weekends, Dubai time</span></li><li><strong>24h</strong><span>written notes after every session</span></li><li><strong>Advance</strong><span>pay when you book, reschedule up to 24h before</span></li></ul>\n'
         '<section id="plans" style="border-top:0;padding-top:12px">\n<h2>Plans</h2>\n<div class="grid">\n' + "\n".join(cards) + "\n</div>\n"
@@ -995,9 +997,28 @@ BOOKING_JS = r"""
     return out;
   }
 
+  function hash32(s) {
+    var h = 2166136261, i;
+    for (i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+
+  function releasedCount(k) {
+    var r = cfg.releasedPerDay || {}, lo = r.min || 2, hi = r.max || lo;
+    if (hi < lo) { hi = lo; }
+    return lo + (hash32("count:" + k) % (hi - lo + 1));
+  }
+
   function freeFor(k) {
-    var all = slotsFor(k), out = [], i;
-    for (i = 0; i < all.length; i++) { if (!bookedSet[k + "T" + all[i]]) { out.push(all[i]); } }
+    var all = slotsFor(k), open = [], i, want, ranked, pick, out;
+    for (i = 0; i < all.length; i++) { if (!bookedSet[k + "T" + all[i]]) { open.push(all[i]); } }
+    want = releasedCount(k);
+    if (open.length <= want) { return open; }
+    ranked = open.slice().sort(function (a, b) { return hash32(k + "@" + a) - hash32(k + "@" + b); });
+    pick = {};
+    for (i = 0; i < want; i++) { pick[ranked[i]] = true; }
+    out = [];
+    for (i = 0; i < open.length; i++) { if (pick[open[i]]) { out.push(open[i]); } }
     return out;
   }
 
@@ -1296,7 +1317,7 @@ def build_booking():
         '<div class="breadcrumb"><a href="./">Home</a> / Book a session</div>\n<h1>Book a session</h1>\n'
         '<p class="lede answer">Pick a free slot in the calendar below, fill in four short fields, and the button opens your email client with the date, time and service already written. '
         f'The calendar opens {lead} days from today, runs {horizon} days ahead, and every time on it is Dubai time. '
-        f'I take {cap} sessions a week at most, so once a week is full the rest of it closes.</p>\n'
+        f'I open two or three times a day and they move around, so check the day you want. I take {cap} sessions a week at most, so once a week is full the rest of it closes.</p>\n'
         f'<p class="muted">{esc(window_sentence(av))}</p>\n'
         '<section id="calendar" style="border-top:0;padding-top:12px">\n<h2>Availability</h2>\n'
         '<p class="bk-tz"><strong>All times are Dubai time, GMT+4.</strong> If you are somewhere else, the equivalent in your own time is shown once you pick a slot.</p>\n'
@@ -1306,8 +1327,8 @@ def build_booking():
         '</div>\n'
         '<div id="bk-months" class="bk-months"><p class="muted">The calendar needs JavaScript. If it does not appear, email me with the day and time you would like and I will confirm from the same list.</p></div>\n'
         '<p class="bk-legend"><span class="bk-key bk-key-open"></span> free slots <span class="bk-key bk-key-full"></span> fully booked <span class="bk-key bk-key-closed"></span> not available</p>\n'
-        f'<p class="muted small">I take a limited number of sessions a week, currently {cap}, because they sit around a full-time job. '
-        f'Each slot is {mins} minutes. Days marked not available are inside the {lead} day lead time, days I am away, or days whose hours are already taken.</p>\n'
+        f'<p class="muted small">Only a few times a day are open for booking, because these sessions sit around a full-time job and I hold the rest of the evening back. '
+        f'Each slot is {mins} minutes. Days marked not available are inside the {lead} day lead time, days I am away, or days already taken. If nothing on the calendar suits you, use the priority request and tell me what you need.</p>\n'
         '<div id="bk-panel" class="bk-panel" aria-live="polite"></div>\n'
         '</section>\n'
         '<section id="details">\n<h2>Your details</h2>\n'

@@ -4,12 +4,31 @@
   "horizonDays": 60,
   "weeklyCapacity": 3,
   "windows": {
-    "weekday": [{"start": "17:00", "end": "24:00"}],
-    "saturday": [{"start": "08:00", "end": "24:00"}],
-    "sunday": [{"start": "08:00", "end": "24:00"}]
+    "weekday": [
+      {
+        "start": "17:00",
+        "end": "24:00"
+      }
+    ],
+    "saturday": [
+      {
+        "start": "08:00",
+        "end": "24:00"
+      }
+    ],
+    "sunday": [
+      {
+        "start": "08:00",
+        "end": "24:00"
+      }
+    ]
   },
   "slotMinutes": 60,
   "blocked": [],
   "booked": [],
-  "priorityFeeNote": "Priority requests are for work that cannot wait. The fee is higher because the session sits outside the normal windows or inside the lead time, and it is quoted in writing before anything is agreed."
+  "priorityFeeNote": "Priority requests are for work that cannot wait. The fee is higher because the session sits outside the hours I have opened, or inside the lead time, which means rearranging my own commitments. I quote it in writing first, and I say no rather than take it on if I cannot do it properly. You get an answer within one working day.",
+  "releasedPerDay": {
+    "min": 2,
+    "max": 3
+  }
 }
