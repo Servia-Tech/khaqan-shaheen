@@ -129,6 +129,11 @@
   ]
 }
 </script>
+<script defer src="/assets/js/analytics.js"></script>
+<link rel="stylesheet" href="/assets/css/journey.css">
+<script defer src="/assets/js/journey.js"></script>
+<link rel="stylesheet" href="/assets/css/editorial.css">
+<script defer src="/assets/js/editorial.js"></script>
 </head>
 <body>
 
@@ -149,29 +154,40 @@
 
 <main>
 
-<div class="hero">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow">Technology leadership. ERP. AI in daily operations.</div>
-      <h1>Khaqan Shaheen</h1>
-      <p class="lede">My speciality is taking a business from manual and spreadsheet-run operations to one ERP with AI doing the repetitive work. I run the whole technology function for a manufacturing group across six sites in five countries, with five AI systems in daily production.</p>
-      <p>That means the Odoo ERP every site closes its month on, the servers and security underneath it, and AI that does real work rather than pilots. I help businesses connect ERP and AI workflows, with clear technical ownership and human review. Available for consulting, part-time or fractional Head of IT work, and senior technology leadership roles.</p>
-      <p class="muted">Building and running business systems since 2008. Based in Dubai, United Arab Emirates.</p>
-      <div class="cta">
-        <a class="btn primary" href="booking.html">Book a session</a>
-        <a class="btn" href="services.html">Work with me</a>
-        <a class="btn" href="#work">Selected work</a>
-        <a class="btn" href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a>
-      </div>
+<div class="journey-progress" aria-hidden="true"></div>
+<div class="journey-hero">
+ <div class="wrap">
+  <div class="journey-top"><span class="status-chip">Available for consulting &amp; leadership</span><span class="journey-location">Dubai, UAE · Working globally</span></div>
+  <div class="journey-grid">
+   <div class="journey-copy">
+    <p class="eyebrow">Technology leadership / ERP / Applied AI</p>
+    <h1>Khaqan<span>Shaheen.</span></h1>
+    <p class="journey-role">I connect technology to the way a business works.</p>
+    <p class="lede">One ERP across six sites in five countries. Five AI systems in daily use. I bring the strategy, the systems and the hands-on ownership that keep it all moving.</p>
+    <div class="cta"><a class="btn primary" href="#technology-journey">Explore my work ↗</a><a class="btn" href="booking.html">Work with me →</a></div>
+    <div class="person-strip"><img src="assets/img/photos/portrait-executive-260.jpg" width="260" height="260" alt="Khaqan Shaheen" fetchpriority="high"><p><strong>Head of IT · Aalmir / MIR</strong>Building business systems since 2008.</p></div>
+    <p class="journey-caption">Senior roles · Fractional leadership · AI &amp; ERP consulting<br>Open to Australia &amp; New Zealand relocation.</p>
+   </div>
+   <div class="system-shell">
+    <div class="system-map" role="group" aria-label="Explore four areas of Khaqan's technology work">
+     <div class="system-grid" aria-hidden="true"></div>
+     <svg class="system-lines" viewBox="0 0 500 420" preserveAspectRatio="none" aria-hidden="true"><path d="M125 85 L250 210 L385 85 M115 335 L250 210 L390 335"/><circle cx="250" cy="210" r="9"/></svg>
+     <div class="system-core" aria-hidden="true"><strong>KS.</strong><span>SYSTEMS</span></div>
+     <button class="system-node" data-system="erp" aria-pressed="true" aria-controls="system-detail"><span>01 / BUSINESS CORE</span>Odoo ERP ↗</button>
+     <button class="system-node" data-system="ai" aria-pressed="false" aria-controls="system-detail"><span>02 / AUTOMATION</span>Production AI ↗</button>
+     <button class="system-node" data-system="data" aria-pressed="false" aria-controls="system-detail"><span>03 / FOUNDATION</span>Data &amp; platforms ↗</button>
+     <button class="system-node" data-system="security" aria-pressed="false" aria-controls="system-detail"><span>04 / TRUST</span>Identity &amp; security ↗</button>
+     <span class="map-label">CONNECTED OPERATIONS / EXPLORE A SYSTEM</span>
     </div>
-    <figure class="hero-shot">
-      <img class="shot is-on" src="assets/img/photos/portrait-executive-500.jpg" srcset="assets/img/photos/portrait-executive-260.jpg 260w, assets/img/photos/portrait-executive-500.jpg 500w, assets/img/photos/portrait-executive-900.jpg 900w" sizes="(max-width: 720px) min(280px, 70vw), 340px" width="900" height="900" alt="Khaqan Shaheen, Head of IT, Dubai" fetchpriority="high" data-cap="Head of IT, Dubai">
-      <img class="shot" src="assets/img/photos/portrait-dubai-500.jpg" srcset="assets/img/photos/portrait-dubai-260.jpg 260w, assets/img/photos/portrait-dubai-500.jpg 500w, assets/img/photos/portrait-dubai-900.jpg 900w" sizes="(max-width: 720px) min(280px, 70vw), 340px" width="900" height="900" alt="Khaqan Shaheen" loading="lazy" data-cap="One Odoo ERP across six sites in five countries">
-      <img class="shot" src="assets/img/photos/portrait-office-500.jpg" srcset="assets/img/photos/portrait-office-260.jpg 260w, assets/img/photos/portrait-office-500.jpg 500w, assets/img/photos/portrait-office-900.jpg 900w" sizes="(max-width: 720px) min(280px, 70vw), 340px" width="900" height="900" alt="Khaqan Shaheen" loading="lazy" data-cap="Owning the IT function since 2015, reporting to the owner">
-      <figcaption class="shot-cap">Head of IT, Dubai</figcaption>
-    </figure>
+    <div class="system-help"><span>Select a system to explore its case study</span><button class="motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
+   </div>
   </div>
+  <div class="journey-metrics" aria-label="Professional scope"><div><strong>06</strong><span>sites connected</span></div><div><strong>05</strong><span>countries</span></div><div><strong>05</strong><span>production AI systems</span></div><div><strong>2008</strong><span>the journey began</span></div></div>
+ </div>
 </div>
+<section id="technology-journey" class="explore-section">
+ <div class="wrap explore-layout"><div><p class="eyebrow">Explore the connected business</p><h2>From business problem<br>to working system.</h2><p class="muted">Select an area in the system map above. Each story explains the scope, decisions and delivery.</p></div><div id="system-detail" class="system-detail" aria-live="polite"><h3 id="system-title">One ERP. Every site.</h3><p id="system-description">Production, sales, inventory, procurement, accounting, HR and maintenance connected through one Odoo instance. Explore the decisions behind running it across six sites in five countries.</p><a id="system-link" href="work/one-erp-six-sites-five-countries.html">Explore the ERP case study →</a><noscript><p><a href="work/">Browse all case studies</a></p></noscript></div></div>
+</section>
 
 <section id="about">
   <div class="wrap">
@@ -334,12 +350,12 @@
     <p class="lede">Self-published, from work I have done, none with a number I cannot show you how I measured. <a href="writing/">Everything I have written</a>, or subscribe by <a href="feed.xml">RSS</a>.</p>
     <div class="grid">
 <!-- WRITING:START -->
-      <div class="card"><a class="stretch" href="notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html"><div class="eyebrow">Note</div><h3>Why every AI agent I run sits behind a human queue</h3><p>Because a language model is confidently wrong in a way a scanner never is, every agent I run creates records for a person to check and none of them post or pay.</p></a></div>
-      <div class="card"><a class="stretch" href="notes/why-i-published-my-case-studies-without-numbers.html"><div class="eyebrow">Note</div><h3>Why I published my case studies without numbers</h3><p>Because a number I cannot show how I measured is worse than no number; the scope is honest, and measured figures will be added once I have measured them.</p></a></div>
-      <div class="card"><a class="stretch" href="articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html"><div class="eyebrow">Article</div><h3>Why I extended one ERP instead of buying a second system for manufacturing</h3><p>A second manufacturing system means a second set of records and an interface to maintain forever; extending one Odoo instance kept six sites on one set.</p></a></div>
-      <div class="card"><a class="stretch" href="notes/what-running-my-own-venture-taught-me-about-corporate-it.html"><div class="eyebrow">Note</div><h3>What running my own venture taught me about corporate IT</h3><p>Paying the bill yourself, watching what customers do on a booking page, a pipeline that stops silently and search traffic answering back changed how I run IT.</p></a></div>
-      <div class="card"><a class="stretch" href="notes/what-ocr-gets-wrong-on-supplier-bills.html"><div class="eyebrow">Note</div><h3>What OCR gets wrong on supplier bills</h3><p>OCR on supplier bills fails on handwritten totals, stamps over numbers, multi-page bills, duplicates and currency; the fix is validation and a review queue.</p></a></div>
-      <div class="card"><a class="stretch" href="notes/what-i-check-the-week-before-a-factory-opens.html"><div class="eyebrow">Note</div><h3>What I check the week before a factory opens</h3><p>Two links with a tested failover, the company and warehouse in the ERP with local tax and numbering, printers on the floor, users logged in once, and a restore.</p></a></div>
+      <div class="card"><a class="stretch" href="notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html"><img class="editorial-thumb" src="/assets/img/editorial/why-every-ai-agent-i-run-sits-behind-a-human-queue.svg" alt="" width="1200" height="600" loading="lazy" decoding="async"><div class="eyebrow">Note</div><h3>Why every AI agent I run sits behind a human queue</h3><p>Because a language model is confidently wrong in a way a scanner never is, every agent I run creates records for a person to check and none of them post or pay.</p></a></div>
+      <div class="card"><a class="stretch" href="notes/why-i-published-my-case-studies-without-numbers.html"><img class="editorial-thumb" src="/assets/img/editorial/why-i-published-my-case-studies-without-numbers.svg" alt="" width="1200" height="600" loading="lazy" decoding="async"><div class="eyebrow">Note</div><h3>Why I published my case studies without numbers</h3><p>Because a number I cannot show how I measured is worse than no number; the scope is honest, and measured figures will be added once I have measured them.</p></a></div>
+      <div class="card"><a class="stretch" href="articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html"><img class="editorial-thumb" src="/assets/img/editorial/why-i-extended-one-erp-instead-of-buying-a-second-system.svg" alt="" width="1200" height="600" loading="lazy" decoding="async"><div class="eyebrow">Article</div><h3>Why I extended one ERP instead of buying a second system for manufacturing</h3><p>A second manufacturing system means a second set of records and an interface to maintain forever; extending one Odoo instance kept six sites on one set.</p></a></div>
+      <div class="card"><a class="stretch" href="notes/what-running-my-own-venture-taught-me-about-corporate-it.html"><img class="editorial-thumb" src="/assets/img/editorial/what-running-my-own-venture-taught-me-about-corporate-it.svg" alt="" width="1200" height="600" loading="lazy" decoding="async"><div class="eyebrow">Note</div><h3>What running my own venture taught me about corporate IT</h3><p>Paying the bill yourself, watching what customers do on a booking page, a pipeline that stops silently and search traffic answering back changed how I run IT.</p></a></div>
+      <div class="card"><a class="stretch" href="notes/what-ocr-gets-wrong-on-supplier-bills.html"><img class="editorial-thumb" src="/assets/img/editorial/what-ocr-gets-wrong-on-supplier-bills.svg" alt="" width="1200" height="600" loading="lazy" decoding="async"><div class="eyebrow">Note</div><h3>What OCR gets wrong on supplier bills</h3><p>OCR on supplier bills fails on handwritten totals, stamps over numbers, multi-page bills, duplicates and currency; the fix is validation and a review queue.</p></a></div>
+      <div class="card"><a class="stretch" href="notes/what-i-check-the-week-before-a-factory-opens.html"><img class="editorial-thumb" src="/assets/img/editorial/what-i-check-the-week-before-a-factory-opens.svg" alt="" width="1200" height="600" loading="lazy" decoding="async"><div class="eyebrow">Note</div><h3>What I check the week before a factory opens</h3><p>Two links with a tested failover, the company and warehouse in the ERP with local tax and numbering, printers on the floor, users logged in once, and a restore.</p></a></div>
 <!-- WRITING:END -->
     </div>
   </div>
@@ -464,6 +480,7 @@
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="feed.xml">RSS</a> &middot; <a href="llms.txt">llms.txt</a> &middot; <a href="press.html">Press kit</a></div>
   </div>
+<p class="wrap"><a href="/privacy.html">Privacy and analytics</a></p>
 </footer>
 
 <script>

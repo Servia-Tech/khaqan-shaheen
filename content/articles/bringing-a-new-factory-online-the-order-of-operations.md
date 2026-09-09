@@ -2,6 +2,7 @@
 title: "Bringing a new factory online: the order of operations"
 description: Cabling and circuits first, then security, ERP, identity, telephony and site devices. The sequence that puts a new factory on group systems from opening day.
 date: 2026-09-08
+modified: 2026-09-10
 type: article
 tags: [infrastructure, manufacturing, project-delivery]
 ---

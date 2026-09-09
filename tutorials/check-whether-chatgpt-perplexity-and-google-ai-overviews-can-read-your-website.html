@@ -33,7 +33,12 @@
 <meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
 <meta property="article:published_time" content="2026-09-08">
 <meta property="article:author" content="Khaqan Shaheen">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html#article", "headline": "How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website", "description": "Read robots.txt for GPTBot, OAI-SearchBot and PerplexityBot, fetch your homepage with curl as each bot, check the raw HTML, or run one Python audit script.", "url": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html", "mainEntityOfPage": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html", "datePublished": "2026-09-08", "dateModified": "2026-09-08", "inLanguage": "en", "wordCount": 1603, "keywords": "aeo, robots.txt, curl, llms.txt, structured-data", "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://khaqanshaheen.com/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://khaqanshaheen.com/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website", "item": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html"}]}, {"@type": "FAQPage", "@id": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html#faq", "mainEntity": [{"@type": "Question", "name": "Does blocking GPTBot stop my site appearing in ChatGPT answers?", "acceptedAnswer": {"@type": "Answer", "text": "No. GPTBot is the training crawler. ChatGPT search uses OAI-SearchBot, and live browsing on a user's request uses ChatGPT-User. If you want to stay out of training but remain citable, block GPTBot only and leave the other two alone."}}, {"@type": "Question", "name": "Does Google-Extended affect AI Overviews?", "acceptedAnswer": {"@type": "Answer", "text": "No. Google-Extended only controls use of your content for Gemini training and grounding. AI Overviews are a feature of Google Search and rely on Googlebot, so the only way to stay out of them is to stay out of Search, which is rarely what a business wants."}}, {"@type": "Question", "name": "My CDN has an \"AI bots\" toggle. Should I turn it on?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you have decided you do not want to be found by AI assistants at all. These toggles usually block search crawlers such as OAI-SearchBot and PerplexityBot along with the training crawlers, and some block on behaviour rather than user agent. Run the curl loop above after any change."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TechArticle", "@id": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html#article", "headline": "How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website", "description": "Read robots.txt for GPTBot, OAI-SearchBot and PerplexityBot, fetch your homepage with curl as each bot, check the raw HTML, or run one Python audit script.", "url": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html", "mainEntityOfPage": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html", "datePublished": "2026-09-08", "dateModified": "2026-09-10", "inLanguage": "en", "wordCount": 1603, "keywords": "aeo, robots.txt, curl, llms.txt, structured-data", "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "isAccessibleForFree": true, "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://khaqanshaheen.com/writing/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://khaqanshaheen.com/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website", "item": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html"}]}, {"@type": "FAQPage", "@id": "https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html#faq", "mainEntity": [{"@type": "Question", "name": "Does blocking GPTBot stop my site appearing in ChatGPT answers?", "acceptedAnswer": {"@type": "Answer", "text": "No. GPTBot is the training crawler. ChatGPT search uses OAI-SearchBot, and live browsing on a user's request uses ChatGPT-User. If you want to stay out of training but remain citable, block GPTBot only and leave the other two alone."}}, {"@type": "Question", "name": "Does Google-Extended affect AI Overviews?", "acceptedAnswer": {"@type": "Answer", "text": "No. Google-Extended only controls use of your content for Gemini training and grounding. AI Overviews are a feature of Google Search and rely on Googlebot, so the only way to stay out of them is to stay out of Search, which is rarely what a business wants."}}, {"@type": "Question", "name": "My CDN has an \"AI bots\" toggle. Should I turn it on?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you have decided you do not want to be found by AI assistants at all. These toggles usually block search crawlers such as OAI-SearchBot and PerplexityBot along with the training crawlers, and some block on behaviour rather than user agent. Run the curl loop above after any change."}}]}]}</script>
+<script defer src="/assets/js/analytics.js"></script>
+<link rel="stylesheet" href="/assets/css/journey.css">
+<script defer src="/assets/js/journey.js"></script>
+<link rel="stylesheet" href="/assets/css/editorial.css">
+<script defer src="/assets/js/editorial.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -55,9 +60,9 @@
 <article class="article">
 <h1>How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website</h1>
 <p class="meta">Tutorial by Khaqan Shaheen. Published 8 September 2026. About 1,603 words. Topics: aeo, robots.txt, curl, llms.txt, structured-data.</p>
-<p class="answer">Read your robots.txt for the AI crawler names, fetch your homepage with curl while pretending to be each bot, and confirm your main text is in the raw HTML. That takes ten minutes by hand. Or run one Python script that does all of it and scores the result.</p>
+<div class="reading-topline"><span>FIELD NOTES / SEARCH</span><span>9 min read</span></div><p class="reading-hook">Before optimising for an AI answer, check whether the answer is actually on your page.</p><aside class="reading-brief"><span class="eyebrow">The idea to take away</span><p>Crawler access is a prerequisite, not a promise of a citation.</p></aside><details class="reading-toc"><summary>In this story</summary><ol><li><a href="#read-1">Step 1: read robots.txt for the AI user agents</a></li><li><a href="#read-2">Step 2: fetch the homepage as each bot and compare status codes</a></li><li><a href="#read-3">Step 3: confirm the text is in the raw HTML</a></li><li><a href="#read-4">Step 4: check for JSON-LD structured data</a></li><li><a href="#read-5">Step 5: check for /llms.txt</a></li><li><a href="#read-6">Step 6: check the sitemap has real lastmod dates</a></li><li><a href="#read-7">Step 7: the one-command method</a></li><li><a href="#read-8">Common questions</a></li></ol></details><div class="reading-body"><figure class="editorial-figure"><img src="/assets/img/editorial/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.svg" alt="Can the answer be found?: Discover → fetch → understand → measure" width="1200" height="600" fetchpriority="high"><figcaption><strong>Can the answer be found?</strong><span>Concept diagram. Read the four stages below.</span></figcaption></figure><ol class="reading-stages"><li><span>01</span>Discover the URL</li><li><span>02</span>Fetch the page</li><li><span>03</span>Read the evidence</li><li><span>04</span>Measure referrals</li></ol><p class="answer">Read your robots.txt for the AI crawler names, fetch your homepage with curl while pretending to be each bot, and confirm your main text is in the raw HTML. That takes ten minutes by hand. Or run one Python script that does all of it and scores the result.</p>
 <p>Traffic from AI assistants started showing up in the analytics for a site I run, and I wanted to know which of them could read it and which were being turned away at the door. These are the checks I still run. They use curl and grep, so they work on a laptop, a server or inside a scheduled job.</p>
-<h2>Step 1: read robots.txt for the AI user agents</h2>
+<h2 id="read-1">Step 1: read robots.txt for the AI user agents</h2>
 <pre><code class="language-bash">curl -s https://your-site.com/robots.txt
 </code></pre>
 <p>Look for these names. Each one controls a different product, and they are easy to confuse.</p>
@@ -73,7 +78,7 @@
 <li>CCBot: Common Crawl, a public corpus used by many training pipelines.</li>
 </ul>
 <p>A robots.txt that says nothing about these agents allows them all. A <code>User-agent: *</code> block with <code>Disallow: /</code> shuts out every one of them. The common mistake is a block on GPTBot, added to stop training, that a later edit widens into <code>Disallow: /</code> under the wildcard.</p>
-<h2>Step 2: fetch the homepage as each bot and compare status codes</h2>
+<h2 id="read-2">Step 2: fetch the homepage as each bot and compare status codes</h2>
 <p>robots.txt is a request. A CDN or web application firewall enforces its own rules, and those often ship with a "block AI bots" toggle that somebody switched on without telling you. The only way to know is to ask for the page as the bot and read the status code.</p>
 <pre><code class="language-bash">curl -s -o /dev/null -w &quot;%{http_code}\n&quot; -A &quot;Mozilla/5.0 (compatible; GPTBot/1.0; +https://openai.com/gptbot)&quot; https://your-site.com/
 </code></pre>
@@ -94,7 +99,7 @@ do
 done
 </code></pre>
 <p>If the browser string gets 200 and a bot string gets 403, you have found a block that robots.txt never mentioned. On one of my own sites I went looking for that and found no block at all; the likely cause was a slow server that exhausted a crawler's patience. So check response time too, with <code>-w "%{http_code} %{time_total}\n"</code>.</p>
-<h2>Step 3: confirm the text is in the raw HTML</h2>
+<aside class="reading-fact"><span class="eyebrow">Search fact</span><p>Google says AI Overviews and AI Mode require no special additional optimisation. Eligibility still depends on indexing and snippet access; inclusion is not guaranteed.</p><a href="https://developers.google.com/search/docs/appearance/ai-features">Google Search Central: AI features ↗</a><small>Documentation checked 10 September 2026.</small></aside><h2 id="read-3">Step 3: confirm the text is in the raw HTML</h2>
 <p>Most AI crawlers do not run JavaScript. Googlebot does, eventually; the others read what the server sends and nothing more. If your homepage is an empty shell a framework fills in on the client, a crawler sees a title and a spinner.</p>
 <p>Pick a phrase from your main content, something a customer would search for, and grep for it in the raw response.</p>
 <pre><code class="language-bash">curl -s -A &quot;Mozilla/5.0 (compatible; GPTBot/1.0)&quot; https://your-site.com/ | grep -i -c &quot;emergency plumber&quot;
@@ -103,7 +108,7 @@ done
 <pre><code class="language-bash">curl -s https://your-site.com/ | sed 's/&lt;[^&gt;]*&gt;//g' | tr -s '[:space:]' ' ' | wc -w
 </code></pre>
 <p>That strips the tags and counts words. A homepage that shows three hundred words in a browser but returns forty from curl is being built by JavaScript. The fix is server-side rendering or static generation, a framework decision rather than a tweak.</p>
-<h2>Step 4: check for JSON-LD structured data</h2>
+<h2 id="read-4">Step 4: check for JSON-LD structured data</h2>
 <p>Structured data tells a machine what your business is without guessing from prose. Check that at least one block exists and parses.</p>
 <pre><code class="language-bash">curl -s https://your-site.com/ | grep -c 'application/ld+json'
 </code></pre>
@@ -118,7 +123,7 @@ for b in blocks:
 &quot;
 </code></pre>
 <p>For a services business you want <code>LocalBusiness</code> or one of its subtypes, <code>Service</code> for each thing you sell, and <code>FAQPage</code> if the page carries questions and answers. If <code>json.loads</code> throws, the block is broken and every consumer will ignore it silently.</p>
-<h2>Step 5: check for /llms.txt</h2>
+<h2 id="read-5">Step 5: check for /llms.txt</h2>
 <p>llms.txt is a plain Markdown file at the site root that gives a language model a curated map of your pages. Adoption is uneven, but the file costs nothing and I have seen crawlers request it.</p>
 <pre><code class="language-bash">curl -s -o /dev/null -w &quot;%{http_code} %{content_type}\n&quot; https://your-site.com/llms.txt
 </code></pre>
@@ -127,12 +132,12 @@ for b in blocks:
   echo &quot;$(curl -s -o /dev/null -w '%{http_code}' -L &quot;$u&quot;)  $u&quot;
 done
 </code></pre>
-<h2>Step 6: check the sitemap has real lastmod dates</h2>
+<h2 id="read-6">Step 6: check the sitemap has real lastmod dates</h2>
 <p>A sitemap tells crawlers what changed. If every URL carries the same lastmod, or a date from the week you launched, crawlers learn to ignore it.</p>
 <pre><code class="language-bash">curl -s https://your-site.com/sitemap.xml | grep -o '&lt;lastmod&gt;[^&lt;]*&lt;/lastmod&gt;' | sort | uniq -c | sort -rn | head
 </code></pre>
 <p>If the output is one line with a large count, the dates are hardcoded. I have found that on a site I was responsible for. Generate lastmod from the record's real modified time, and for a sitemap index run the same check on each child sitemap.</p>
-<h2>Step 7: the one-command method</h2>
+<h2 id="read-7">Step 7: the one-command method</h2>
 <p>Everything above is what my audit script does, plus a scoring pass. It is one open-source Python file with no dependencies beyond the standard library.</p>
 <pre><code class="language-bash">git clone https://github.com/Servia-Tech/ai-visibility-audit.git
 cd ai-visibility-audit
@@ -140,13 +145,13 @@ python ai_visibility_audit.py https://your-site.com
 </code></pre>
 <p>It scores the site on five layers: SEO (can search engines index it), AEO (does it give direct answers, with FAQ content and structured data), GEO (can generative engines fetch and cite it, including robots rules and llms.txt), AIO (is the content shaped so an AI system can use it) and SXO (what a visitor gets after the click, speed and mobile included). It prints a score for each layer and the top fixes in order. I run it daily from a scheduled job and keep the output, so I can see when a deployment moves a score.</p>
 <p>The script is a starting point. It can tell you whether ChatGPT is able to read you, not whether it will choose to cite you. Being readable is the entry ticket. Being worth citing is content.</p>
-<h2>Common questions</h2>
+<h2 id="read-8">Common questions</h2>
 <h3>Does blocking GPTBot stop my site appearing in ChatGPT answers?</h3>
 <p>No. GPTBot is the training crawler. ChatGPT search uses OAI-SearchBot, and live browsing on a user's request uses ChatGPT-User. If you want to stay out of training but remain citable, block GPTBot only and leave the other two alone.</p>
 <h3>Does Google-Extended affect AI Overviews?</h3>
 <p>No. Google-Extended only controls use of your content for Gemini training and grounding. AI Overviews are a feature of Google Search and rely on Googlebot, so the only way to stay out of them is to stay out of Search, which is rarely what a business wants.</p>
 <h3>My CDN has an "AI bots" toggle. Should I turn it on?</h3>
-<p>Only if you have decided you do not want to be found by AI assistants at all. These toggles usually block search crawlers such as OAI-SearchBot and PerplexityBot along with the training crawlers, and some block on behaviour rather than user agent. Run the curl loop above after any change.</p>
+<p>Only if you have decided you do not want to be found by AI assistants at all. These toggles usually block search crawlers such as OAI-SearchBot and PerplexityBot along with the training crawlers, and some block on behaviour rather than user agent. Run the curl loop above after any change.</p><figure class="editorial-photo"><img src="/assets/img/photos/strategy-800.jpg" srcset="/assets/img/photos/strategy-800.jpg 800w, /assets/img/photos/strategy-1400.jpg 1400w" sizes="(max-width:800px) 100vw, 800px" alt="Illustrative strategy scene accompanying this technology article" width="1400" height="933" loading="lazy" decoding="async"><figcaption>Illustrative scene. The case evidence is described in the text.</figcaption></figure><aside class="reading-practice"><span class="eyebrow">Try this with your team</span><p>Open the raw HTML and find the sentence that answers the customer’s question. Then check whether its supporting evidence is visible and linked.</p></aside></div>
 <nav class="pager" aria-label="More"><a href="./">&larr; All tutorials</a><a href="../services.html">Work with me &rarr;</a></nav>
 </article>
 </main>
@@ -156,6 +161,7 @@ python ai_visibility_audit.py https://your-site.com
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
+<p class="wrap"><a href="/privacy.html">Privacy and analytics</a></p>
 </footer>
 <script>
 (function () {

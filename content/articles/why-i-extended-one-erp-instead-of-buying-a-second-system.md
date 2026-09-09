@@ -2,6 +2,7 @@
 title: Why I extended one ERP instead of buying a second system for manufacturing
 description: A second manufacturing system means a second set of records and an interface to maintain forever; extending one Odoo instance kept six sites on one set.
 date: 2026-09-08
+modified: 2026-09-10
 type: article
 tags: [erp, odoo, manufacturing]
 ---

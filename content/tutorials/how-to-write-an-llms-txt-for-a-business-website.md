@@ -2,6 +2,7 @@
 title: How to write an llms.txt for a business website
 description: An llms.txt is a short Markdown map of your site at /llms.txt with an H1, a one-line summary and linked sections. Here is the format and a full worked example.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [llms.txt, aeo, markdown, nginx]
 ---

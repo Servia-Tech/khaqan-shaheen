@@ -2,6 +2,7 @@
 title: "Odoo: how to stop two work orders being booked on the same machine at the same time"
 description: Add a server-side overlap constraint to Odoo 17 work orders, back it with a PostgreSQL exclusion constraint, and give planners a drill-through to the clashes.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [odoo, postgresql, manufacturing]
 ---

@@ -2,6 +2,7 @@
 title: "A WhatsApp AI sales agent that hands leads to your ERP: the architecture"
 description: A WhatsApp webhook, a session store keyed by phone, a model with four tools, a catalogue it cannot contradict, a hand-off rule and a lead created in Odoo.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [whatsapp, ai-agent, odoo, xml-rpc, python]
 ---

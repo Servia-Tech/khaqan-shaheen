@@ -2,6 +2,7 @@
 title: How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website
 description: Read robots.txt for GPTBot, OAI-SearchBot and PerplexityBot, fetch your homepage with curl as each bot, check the raw HTML, or run one Python audit script.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [aeo, robots.txt, curl, llms.txt, structured-data]
 ---

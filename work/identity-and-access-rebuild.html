@@ -31,7 +31,12 @@
 <meta name="twitter:title" content="Identity and access: from local passwords to single sign on with two factor | Khaqan Shaheen">
 <meta name="twitter:description" content="A manufacturing group with around 150 users across six sites in five countries.">
 <meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html#article", "headline": "Identity and access: from local passwords to single sign on with two factor", "description": "A manufacturing group with around 150 users across six sites in five countries.", "url": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html", "mainEntityOfPage": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html", "datePublished": "2026-09-08", "dateModified": "2026-09-09", "inLanguage": "en", "wordCount": 541, "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "about": ["ERP", "Manufacturing IT", "AI in operations", "IT leadership"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://khaqanshaheen.com/work/"}, {"@type": "ListItem", "position": 3, "name": "Identity and access: from local passwords to single sign on with two factor", "item": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html#article", "headline": "Identity and access: from local passwords to single sign on with two factor", "description": "A manufacturing group with around 150 users across six sites in five countries.", "url": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html", "mainEntityOfPage": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html", "datePublished": "2026-09-08", "dateModified": "2026-09-10", "inLanguage": "en", "wordCount": 541, "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "about": ["ERP", "Manufacturing IT", "AI in operations", "IT leadership"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://khaqanshaheen.com/work/"}, {"@type": "ListItem", "position": 3, "name": "Identity and access: from local passwords to single sign on with two factor", "item": "https://khaqanshaheen.com/work/identity-and-access-rebuild.html"}]}]}</script>
+<script defer src="/assets/js/analytics.js"></script>
+<link rel="stylesheet" href="/assets/css/journey.css">
+<script defer src="/assets/js/journey.js"></script>
+<link rel="stylesheet" href="/assets/css/editorial.css">
+<script defer src="/assets/js/editorial.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -53,28 +58,28 @@
 <article class="article">
 <h1>Identity and access: from local passwords to single sign on with two factor</h1>
 <p class="meta">Case study 7 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
-<h2>Situation</h2>
+<div class="reading-topline"><span>FIELD NOTES / IDENTITY</span><span>3 min read</span></div><p class="reading-hook">Access should follow a person’s job, not the history of their passwords.</p><aside class="reading-brief"><span class="eyebrow">The idea to take away</span><p>Authentication and authorisation answer different questions.</p></aside><details class="reading-toc"><summary>In this note</summary><ol><li><a href="#read-1">Situation</a></li><li><a href="#read-2">Business problem</a></li><li><a href="#read-3">My responsibility</a></li><li><a href="#read-4">Solution</a></li><li><a href="#read-5">Technology</a></li><li><a href="#read-6">Implementation</a></li><li><a href="#read-7">Challenges</a></li><li><a href="#read-8">Result</a></li><li><a href="#read-9">Verified evidence</a></li><li><a href="#read-10">Skills demonstrated</a></li></ol></details><div class="reading-body"><figure class="editorial-figure"><img src="/assets/img/editorial/identity-and-access-rebuild.svg" alt="A login is only the first gate: Identity → second factor → role → record" width="1200" height="600" fetchpriority="high"><figcaption><strong>A login is only the first gate</strong><span>Concept diagram. Read the four stages below.</span></figcaption></figure><ol class="reading-stages"><li><span>01</span>Known identity</li><li><span>02</span>Second factor</li><li><span>03</span>Application role</li><li><span>04</span>Permitted records</li></ol><h2 id="read-1">Situation</h2>
 <p class="answer">A manufacturing group with around 150 users across six sites in five countries. Each site had bought and set up its own systems locally over the years, so identity had never been designed. It had accumulated.</p>
-<h2>Business problem</h2>
+<h2 id="read-2">Business problem</h2>
 <p>Passwords were held per system and per site. The same person had separate credentials for the ERP, for mail and for whatever else their site had bought, which guarantees one weak password reused across all of them. There was no central control and no reliable way to answer the basic questions: who has access to what, and who still has access who should not. Leavers were the sharp edge. Removing access meant remembering every system a person had touched, so accounts survived departures. Inside the ERP, everybody could see everything.</p>
-<h2>My responsibility</h2>
+<aside class="reading-fact"><span class="eyebrow">Access fact</span><p>Odoo separates access rights from record rules. Signing in successfully does not define which business records a person may access.</p><a href="https://www.odoo.com/documentation/17.0/applications/general/users/access_rights.html">Odoo 17: access rights ↗</a><small>Documentation checked 10 September 2026.</small></aside><h2 id="read-3">My responsibility</h2>
 <p>I own the security and identity estate for the group and report to the owner. This rebuild was my proposal, my design and my delivery, across all sites.</p>
-<h2>Solution</h2>
+<h2 id="read-4">Solution</h2>
 <p>One identity per person on Google Workspace, with single sign on and OAuth, two factor authentication enforced, and access granted through role-based groups rather than individually.</p>
 <p>Access inside the ERP was rebuilt on the same principle. Odoo expresses access as user groups, record rules and per-model access lists, so I defined those properly: a salesperson sees the records their role allows and nothing else.</p>
 <p>Joiners and leavers became a role change instead of a search. Somebody leaves and access is withdrawn the same day, in one place, rather than site by site from memory. On top sits login and activity monitoring with automated alerts, so unusual access is visible as it happens rather than discovered afterwards.</p>
-<h2>Technology</h2>
+<h2 id="read-5">Technology</h2>
 <p>Google Workspace administration, single sign on, OAuth, two factor authentication, role-based access control, Odoo security groups and record rules, logging and monitoring tooling.</p>
-<h2>Implementation</h2>
+<h2 id="read-6">Implementation</h2>
 <p>Identity first, then the application layer, then monitoring. Two factor was introduced with the enrolment support a factory workforce actually needs, not as an announcement. Roles were defined with the managers who own the data, because a role model nobody agreed to gets bypassed within a month.</p>
-<h2>Challenges</h2>
+<h2 id="read-7">Challenges</h2>
 <p>Two factor across a manufacturing workforce is a practical problem before it is a technical one. Not everybody sits at a desk or has a company handset, and shop-floor patterns are not office patterns. Tightening access also always takes something away from somebody, so every restriction needs a person who will defend it. I could do that because the mandate came from the owner.</p>
-<h2>Result</h2>
+<h2 id="read-8">Result</h2>
 <p>One identity per person, with a second factor. Access follows the role and is withdrawn on the day someone leaves rather than whenever it is noticed. Unusual access raises an alert instead of surfacing later.</p>
-<h2>Verified evidence</h2>
+<h2 id="read-9">Verified evidence</h2>
 <p>Access control inside the ERP is defined in the custom module tree I hold, as user security groups, record rules and per-model access lists. The identity layer is the group's live Google Workspace tenant, which I administer. I publish no policy detail, no role model, no monitoring rules and no tenant detail, because that is the part an attacker would want.</p>
-<h2>Skills demonstrated</h2>
-<p>Identity and access management, Google Workspace administration, single sign on, OAuth and two factor authentication, role-based access control, security monitoring.</p>
+<h2 id="read-10">Skills demonstrated</h2>
+<p>Identity and access management, Google Workspace administration, single sign on, OAuth and two factor authentication, role-based access control, security monitoring.</p><aside class="reading-practice"><span class="eyebrow">Try this with your team</span><p>Test the same record with a finance user, a plant user and a disabled account. Check access to the underlying record, not only whether a menu is hidden.</p></aside></div>
 <nav class="pager" aria-label="Case studies"><a href="ai-voice-agent-on-grandstream.html">&larr; An AI voice agent on the corporate phone system</a><a href="multi-site-biometric-attendance.html">Multi-site biometric attendance, integrated with the ERP &rarr;</a></nav>
 </article>
 </main>
@@ -84,6 +89,7 @@
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
+<p class="wrap"><a href="/privacy.html">Privacy and analytics</a></p>
 </footer>
 <script>
 (function () {

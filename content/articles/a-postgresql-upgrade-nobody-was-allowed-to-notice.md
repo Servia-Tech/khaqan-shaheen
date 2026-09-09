@@ -2,6 +2,7 @@
 title: A PostgreSQL upgrade nobody was allowed to notice
 description: Rehearse on a copy of production, keep a rollback inside the window, move one site at a time. PostgreSQL 9.5 to 16 with no unplanned downtime at any site.
 date: 2026-09-08
+modified: 2026-09-10
 type: article
 tags: [postgresql, database, business-continuity]
 ---

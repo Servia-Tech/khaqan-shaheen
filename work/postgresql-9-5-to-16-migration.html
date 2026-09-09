@@ -31,7 +31,12 @@
 <meta name="twitter:title" content="PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime | Khaqan Shaheen">
 <meta name="twitter:description" content="The production database under a group ERP serving six sites in five countries.">
 <meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html#article", "headline": "PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime", "description": "The production database under a group ERP serving six sites in five countries.", "url": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html", "mainEntityOfPage": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html", "datePublished": "2026-09-08", "dateModified": "2026-09-09", "inLanguage": "en", "wordCount": 549, "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "about": ["ERP", "Manufacturing IT", "AI in operations", "IT leadership"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://khaqanshaheen.com/work/"}, {"@type": "ListItem", "position": 3, "name": "PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime", "item": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html#article", "headline": "PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime", "description": "The production database under a group ERP serving six sites in five countries.", "url": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html", "mainEntityOfPage": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html", "datePublished": "2026-09-08", "dateModified": "2026-09-10", "inLanguage": "en", "wordCount": 549, "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "about": ["ERP", "Manufacturing IT", "AI in operations", "IT leadership"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://khaqanshaheen.com/work/"}, {"@type": "ListItem", "position": 3, "name": "PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime", "item": "https://khaqanshaheen.com/work/postgresql-9-5-to-16-migration.html"}]}]}</script>
+<script defer src="/assets/js/analytics.js"></script>
+<link rel="stylesheet" href="/assets/css/journey.css">
+<script defer src="/assets/js/journey.js"></script>
+<link rel="stylesheet" href="/assets/css/editorial.css">
+<script defer src="/assets/js/editorial.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -53,28 +58,28 @@
 <article class="article">
 <h1>PostgreSQL 9.5 to 16: eight major versions, no unplanned downtime</h1>
 <p class="meta">Case study 3 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
-<h2>Situation</h2>
+<div class="reading-topline"><span>FIELD NOTES / DATABASE</span><span>3 min read</span></div><p class="reading-hook">A major upgrade earns its value when the people using the system can keep working.</p><aside class="reading-brief"><span class="eyebrow">The idea to take away</span><p>The rollback decision belongs in the runbook before the cutover starts.</p></aside><details class="reading-toc"><summary>In this note</summary><ol><li><a href="#read-1">Situation</a></li><li><a href="#read-2">Business problem</a></li><li><a href="#read-3">My responsibility</a></li><li><a href="#read-4">Solution</a></li><li><a href="#read-5">Technology</a></li><li><a href="#read-6">Implementation</a></li><li><a href="#read-7">Challenges</a></li><li><a href="#read-8">Result</a></li><li><a href="#read-9">Verified evidence</a></li><li><a href="#read-10">Skills demonstrated</a></li></ol></details><div class="reading-body"><figure class="editorial-figure"><img src="/assets/img/editorial/postgresql-9-5-to-16-migration.svg" alt="A migration is a recovery plan: Rehearse → synchronise → validate → switch" width="1200" height="600" fetchpriority="high"><figcaption><strong>A migration is a recovery plan</strong><span>Concept diagram. Read the four stages below.</span></figcaption></figure><ol class="reading-stages"><li><span>01</span>Rehearsal clone</li><li><span>02</span>Data synchronisation</li><li><span>03</span>Validation gate</li><li><span>04</span>Controlled cutover</li></ol><h2 id="read-1">Situation</h2>
 <p class="answer">The production database under a group ERP serving six sites in five countries. Everything the group does commercially lives in it. If it stops, six sites stop.</p>
-<h2>Business problem</h2>
+<h2 id="read-2">Business problem</h2>
 <p>The database was eight major versions behind, on PostgreSQL 9.5. That is a support problem and a security problem at once: security fixes had stopped arriving, and newer tooling assumed a database far ahead of ours. The reason it had been left alone is the usual one. It was the most business-critical thing in the company and nobody wanted to be the person who touched it. There was also no dependable recovery position, so nothing answered the question a manufacturer needs answered: if this server dies on a Tuesday morning, what happens.</p>
-<h2>My responsibility</h2>
+<aside class="reading-fact"><span class="eyebrow">Technical fact</span><p>PostgreSQL 16 logical replication does not copy schema changes or sequence state. Both need an explicit migration step.</p><a href="https://www.postgresql.org/docs/16/logical-replication-restrictions.html">PostgreSQL 16: logical replication restrictions ↗</a><small>Documentation checked 10 September 2026.</small></aside><h2 id="read-3">My responsibility</h2>
 <p>Mine alone, as owner of the platform. I planned the upgrade, rehearsed it, executed it across every site and built the recovery estate around it. There was nobody above me in IT to sign it off, so the risk assessment and the rollback decision were mine too.</p>
-<h2>Solution</h2>
+<h2 id="read-4">Solution</h2>
 <p>I took the database from 9.5 to 16, eight major versions, with no unplanned downtime at any site.</p>
 <p>The work was not the upgrade. The work was everything around it. I rehearsed the migration on a copy of production and ran the application against the result, because a heavily customised ERP is where major-version behaviour changes bite: query plans move, deprecated behaviour disappears, and every extension has to exist on the new version before you find out live that one does not. Each step had a rollback position I could reach inside the planned window, and sites moved one at a time.</p>
 <p>Around the database I built the resilience layer that had not existed: automated backups, point in time recovery, off-site and NAS replication, and monitoring with automated alerts. Recovery stopped being a question about the last backup and became a question about a chosen moment.</p>
-<h2>Technology</h2>
+<h2 id="read-5">Technology</h2>
 <p>PostgreSQL, Ubuntu Linux, Nginx, replication and backup tooling, monitoring, Odoo as the application above it.</p>
-<h2>Implementation</h2>
+<h2 id="read-6">Implementation</h2>
 <p>Rehearse, verify the application, plan the rollback, take a planned window, move, verify again, and keep the old position available until the new one had proved itself. Repeated per site. Deliberately unexciting.</p>
-<h2>Challenges</h2>
+<h2 id="read-7">Challenges</h2>
 <p>The exposure is asymmetric. A good upgrade is invisible; a bad one is the worst day the company has had. Customisation makes it harder, because the tests that matter are the group's own workflows rather than generic benchmarks. So do time zones: a window that is comfortable in one country is the middle of a working day in another.</p>
-<h2>Result</h2>
+<h2 id="read-8">Result</h2>
 <p>The production database is current and supported. No site suffered unplanned downtime. A failed server is now a documented restore rather than an incident with an unknown outcome.</p>
-<h2>Verified evidence</h2>
+<h2 id="read-9">Verified evidence</h2>
 <p>This work leaves an operational record rather than a code artefact. The estate for six sites runs on the current major version, and the backup, replication and monitoring estate runs daily. I hold the change and maintenance records and can produce the window detail in an interview. I do not publish backup locations, retention windows or the recovery runbook.</p>
-<h2>Skills demonstrated</h2>
-<p>PostgreSQL administration and major-version migration, business continuity and disaster recovery design, risk assessment and rollback planning, Linux administration, change management across time zones.</p>
+<h2 id="read-10">Skills demonstrated</h2>
+<p>PostgreSQL administration and major-version migration, business continuity and disaster recovery design, risk assessment and rollback planning, Linux administration, change management across time zones.</p><aside class="reading-fact"><span class="eyebrow">Three separate checks</span><h2>“Caught up” does not mean “ready”.</h2><div class="table-scroll" tabindex="0" role="region" aria-label="Migration readiness checks"><table><thead><tr><th>Check</th><th>What it answers</th></tr></thead><tbody><tr><td>Row synchronisation</td><td>Have changes reached the target?</td></tr><tr><td>Schema and sequences</td><td>Will the next write work correctly?</td></tr><tr><td>Application transaction</td><td>Can a real user complete the business process?</td></tr></tbody></table></div><p>These are distinct acceptance gates, not a measured migration timeline.</p></aside><aside class="reading-practice"><span class="eyebrow">Try this with your team</span><p>Ask the team to demonstrate a restore, then time a complete business transaction on the restored application. A backup file alone does not answer either question.</p></aside></div>
 <nav class="pager" aria-label="Case studies"><a href="one-erp-six-sites-five-countries.html">&larr; One ERP across six sites in five countries</a><a href="document-ocr-into-the-erp.html">Document OCR into the ERP: supplier bills and expense claims read automatically &rarr;</a></nav>
 </article>
 </main>
@@ -84,6 +89,7 @@
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
+<p class="wrap"><a href="/privacy.html">Privacy and analytics</a></p>
 </footer>
 <script>
 (function () {

@@ -31,7 +31,12 @@
 <meta name="twitter:title" content="Machine scheduling and order-overlap prevention in a manufacturing ERP | Khaqan Shaheen">
 <meta name="twitter:description" content="A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.">
 <meta name="twitter:image" content="https://khaqanshaheen.com/assets/img/og-image.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html#article", "headline": "Machine scheduling and order-overlap prevention in a manufacturing ERP", "description": "A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.", "url": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html", "mainEntityOfPage": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html", "datePublished": "2026-09-08", "dateModified": "2026-09-09", "inLanguage": "en", "wordCount": 537, "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "about": ["ERP", "Manufacturing IT", "AI in operations", "IT leadership"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://khaqanshaheen.com/work/"}, {"@type": "ListItem", "position": 3, "name": "Machine scheduling and order-overlap prevention in a manufacturing ERP", "item": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html#article", "headline": "Machine scheduling and order-overlap prevention in a manufacturing ERP", "description": "A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct.", "url": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html", "mainEntityOfPage": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html", "datePublished": "2026-09-08", "dateModified": "2026-09-10", "inLanguage": "en", "wordCount": 537, "image": "https://khaqanshaheen.com/assets/img/og-image.png", "author": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "publisher": {"@type": "Person", "@id": "https://khaqanshaheen.com/#person", "name": "Khaqan Shaheen", "url": "https://khaqanshaheen.com/"}, "about": ["ERP", "Manufacturing IT", "AI in operations", "IT leadership"], "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://khaqanshaheen.com/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://khaqanshaheen.com/work/"}, {"@type": "ListItem", "position": 3, "name": "Machine scheduling and order-overlap prevention in a manufacturing ERP", "item": "https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html"}]}]}</script>
+<script defer src="/assets/js/analytics.js"></script>
+<link rel="stylesheet" href="/assets/css/journey.css">
+<script defer src="/assets/js/journey.js"></script>
+<link rel="stylesheet" href="/assets/css/editorial.css">
+<script defer src="/assets/js/editorial.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -53,27 +58,27 @@
 <article class="article">
 <h1>Machine scheduling and order-overlap prevention in a manufacturing ERP</h1>
 <p class="meta">Case study 1 of 10. Written by Khaqan Shaheen. The employer is deliberately not named; every claim is one I can evidence.</p>
-<h2>Situation</h2>
+<div class="reading-topline"><span>FIELD NOTES / SCHEDULING</span><span>3 min read</span></div><p class="reading-hook">A factory schedule needs a rule that survives simultaneous bookings.</p><aside class="reading-brief"><span class="eyebrow">The idea to take away</span><p>Two valid-looking requests can still collide when they arrive together.</p></aside><details class="reading-toc"><summary>In this note</summary><ol><li><a href="#read-1">Situation</a></li><li><a href="#read-2">Business problem</a></li><li><a href="#read-3">My responsibility</a></li><li><a href="#read-4">Solution</a></li><li><a href="#read-5">Technology</a></li><li><a href="#read-6">Implementation</a></li><li><a href="#read-7">Challenges</a></li><li><a href="#read-8">Result</a></li><li><a href="#read-9">Verified evidence</a></li><li><a href="#read-10">Skills demonstrated</a></li></ol></details><div class="reading-body"><figure class="editorial-figure"><img src="/assets/img/editorial/machine-scheduling-and-overlap-prevention.svg" alt="One machine, one commitment: Choose → calculate → check → reserve" width="1200" height="600" fetchpriority="high"><figcaption><strong>One machine, one commitment</strong><span>Concept diagram. Read the four stages below.</span></figcaption></figure><ol class="reading-stages"><li><span>01</span>Choose a machine</li><li><span>02</span>Calculate interval</li><li><span>03</span>Check overlaps</li><li><span>04</span>Reserve atomically</li></ol><h2 id="read-1">Situation</h2>
 <p class="answer">A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct. Machines are the constraint. Every promise to a customer is really a promise about a machine being free.</p>
-<h2>Business problem</h2>
+<h2 id="read-2">Business problem</h2>
 <p>Scheduling happened outside the system, in planners' own working notes. Nothing stopped two work orders being committed to the same machine for the same window, and nobody found out at the point of booking. They found out on the shop floor, with material staged and an operator waiting, after sales had already given the customer a date.</p>
-<h2>My responsibility</h2>
+<aside class="reading-fact"><span class="eyebrow">Database fact</span><p>PostgreSQL range types can express time intervals; exclusion constraints can prevent overlapping reservations.</p><a href="https://www.postgresql.org/docs/16/rangetypes.html">PostgreSQL 16: range types and constraints ↗</a><small>Documentation checked 10 September 2026.</small></aside><h2 id="read-3">My responsibility</h2>
 <p>I own the ERP function and I own and direct its custom development. This was mine end to end as the owner: I specified the data model, the Python and the views, reviewed the build, ran the testing and the rollout to planners on shifts.</p>
-<h2>Solution</h2>
+<h2 id="read-4">Solution</h2>
 <p>I modelled the machines first. Each carries a capacity type and a capacity figure, and work orders are assigned to a named machine rather than a vague work centre. Shifts are records, so a long order splits across shifts on the real shift length. Duration and end date are then calculated rather than typed, from quantity, machine capacity, machine start and stop time and the shift boundaries.</p>
 <p>On top sits the guard. Three points in the booking flow check whether the machine is already committed for that window. If it is, the save is refused, with an error naming the conflicting work order and its manufacturing order. For clashes already sitting in live data I added a computed conflict count with a drill-through that opens them, so a planner sees a number and clicks it. Machine change and order split are controlled wizards, so a re-plan recalculates the dependent dates instead of moving a label.</p>
-<h2>Technology</h2>
+<h2 id="read-5">Technology</h2>
 <p>Python, the Odoo ORM, computed fields and server-side constraints, XML views and wizards, QWeb, JavaScript, PostgreSQL, Linux.</p>
-<h2>Implementation</h2>
+<h2 id="read-6">Implementation</h2>
 <p>Built incrementally against real planning data. The conflict count shipped before the hard block, so planners could clear the existing clashes before the system began refusing saves.</p>
-<h2>Challenges</h2>
+<h2 id="read-7">Challenges</h2>
 <p>Retrofitting a rule into a live plant is the hard part. A blocking constraint that is slightly wrong stops production, so the guard had to be right about split orders, machine changes mid-run and orders that legitimately share a window. An error saying only "machine busy" also gets worked around, which is why the message names the other order.</p>
-<h2>Result</h2>
+<h2 id="read-8">Result</h2>
 <p>Double-booking is refused at save time rather than discovered on the floor. End dates are calculated. A plan change recalculates the dates that depend on it.</p>
-<h2>Verified evidence</h2>
+<h2 id="read-9">Verified evidence</h2>
 <p><code>gt_order_mgnt/models/mrp_machine.py</code>, 2,990 lines, in a custom Odoo module tree I hold. Three separate machine-busy guards raise a user-facing error naming the conflicting work order and manufacturing order. A computed conflict-count field with its compute method, and an action that opens the conflicting orders. Machine change and order split exist as wizards. The code is my employer's and is not published here.</p>
-<h2>Skills demonstrated</h2>
-<p>Manufacturing process modelling, capacity planning and machine scheduling, Odoo module engineering, server-side constraint design, working with shop-floor users.</p>
+<h2 id="read-10">Skills demonstrated</h2>
+<p>Manufacturing process modelling, capacity planning and machine scheduling, Odoo module engineering, server-side constraint design, working with shop-floor users.</p><section class="reading-demo" data-demo="schedule"><span class="eyebrow">Interactive example · one machine</span><h2>Would these two orders collide?</h2><p>Order A runs from 09:00 to 11:00. Order B lasts two hours. Move its start time to test the overlap rule.</p><label>Order B start<input name="start" type="range" min="8" max="14" step="0.5" value="10"><output data-start>10:00</output></label><div class="schedule-line"><span style="left:12.5%;width:25%">A</span></div><div class="schedule-line"><span data-order style="left:25%;width:25%">B</span></div><p class="demo-result" role="status" data-result>Conflict: both orders use the machine from 10:00 to 11:00.</p><p class="small muted">Demonstration assumes half-open intervals [start, end): a job may start when the previous one ends. Add setup time if your process requires it.</p></section><aside class="reading-practice"><span class="eyebrow">Try this with your team</span><p>Submit two overlapping orders at the same time in a test environment. The system must reject one consistently, rather than relying on a planner to notice.</p></aside></div>
 <nav class="pager" aria-label="Case studies"><span></span><a href="one-erp-six-sites-five-countries.html">One ERP across six sites in five countries &rarr;</a></nav>
 </article>
 </main>
@@ -83,6 +88,7 @@
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="../feed.xml">RSS</a> &middot; <a href="../llms.txt">llms.txt</a> &middot; <a href="../press.html">Press kit</a></div>
   </div>
+<p class="wrap"><a href="/privacy.html">Privacy and analytics</a></p>
 </footer>
 <script>
 (function () {

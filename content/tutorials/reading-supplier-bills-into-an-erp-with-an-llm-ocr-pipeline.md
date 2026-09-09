@@ -2,6 +2,7 @@
 title: "Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production"
 description: Design a supplier bill OCR pipeline with a vision model, strict JSON, validation rules, a review queue, idempotency and honest monthly accuracy checks.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [ai, ocr, erp, accounts-payable]
 ---

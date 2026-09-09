@@ -2,6 +2,7 @@
 title: "A PostgreSQL major-version upgrade with no unplanned downtime: the checklist"
 description: Upgrade a production PostgreSQL database to 16 using logical replication, a rehearsed cutover and a rollback window, then rebuild backups and monitoring.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [postgresql, upgrade, logical-replication, backup]
 ---

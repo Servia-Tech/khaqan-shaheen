@@ -2,6 +2,7 @@
 title: Replacing local passwords with single sign-on in a mid-sized group
 description: Identity first, then the application's own access model, then monitoring. That order moved a six-site group onto Google Workspace SSO with two factor.
 date: 2026-09-08
+modified: 2026-09-10
 type: article
 tags: [identity, security, google-workspace]
 ---

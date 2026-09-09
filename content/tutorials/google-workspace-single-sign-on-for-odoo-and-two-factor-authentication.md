@@ -2,6 +2,7 @@
 title: Google Workspace single sign-on for Odoo, with two factor authentication and role based access
 description: Configure Google sign-in for Odoo 17 with auth_oauth, enforce 2-Step Verification in Workspace, map groups to job roles and keep a break-glass admin.
 date: 2026-09-08
+modified: 2026-09-10
 type: tutorial
 tags: [odoo, google-workspace, sso, security]
 ---

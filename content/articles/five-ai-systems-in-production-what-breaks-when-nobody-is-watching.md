@@ -2,6 +2,7 @@
 title: "Five AI systems in production: what breaks when nobody is watching"
 description: Connections drop, inputs drift and confident wrong answers get through. Running five AI systems in daily production taught me the rules that keep them safe.
 date: 2026-09-08
+modified: 2026-09-10
 type: article
 tags: [ai, production-systems, erp]
 ---

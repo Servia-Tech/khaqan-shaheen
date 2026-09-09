@@ -18,6 +18,7 @@ import pathlib
 import re
 
 import markdown
+from editorial import reading, card_image, make_visuals
 
 ROOT = pathlib.Path(__file__).parent
 BASE = "https://khaqanshaheen.com"
@@ -83,7 +84,20 @@ def parse_front_matter(text: str):
 def split_sections(text: str):
     """(title, intro_md, [(h2, body_md), ...]) with the H1 removed."""
     title, sections, current, body, intro = "", [], None, [], []
+    fence = None
     for line in text.splitlines():
+        marker = re.match(r'^\s*(`{3,}|~{3,})', line)
+        if marker:
+            token = marker.group(1)
+            if fence is None:
+                fence = token
+            elif token[0] == fence[0] and len(token) >= len(fence):
+                fence = None
+            body.append(line)
+            continue
+        if fence:
+            body.append(line)
+            continue
         if line.startswith("# ") and not title:
             title = line[2:].strip()
             continue
@@ -283,7 +297,7 @@ def build_case_studies():
             f'<article class="article">\n<h1>{esc(p["title"])}</h1>\n'
             f'<p class="meta">Case study {i + 1} of {len(pages)}. Written by Khaqan Shaheen. '
             f"The employer is deliberately not named; every claim is one I can evidence.</p>\n"
-            f'{mark_answer(render_md(p["md"]))}\n'
+            f'{reading(p["slug"], mark_answer(render_md(p["md"])), word_count(p["md"]))}\n'
             f'<nav class="pager" aria-label="Case studies">{left}{right}</nav>\n</article>'
         )
         (ROOT / "work" / f'{p["slug"]}.html').write_text(
@@ -292,7 +306,7 @@ def build_case_studies():
         )
 
     cards = "\n".join(
-        f'      <div class="card"><a class="stretch" href="{p["slug"]}.html"><h3>{esc(p["title"])}</h3><p>{esc(p["description"])}</p></a></div>'
+        f'      <div class="card"><a class="stretch" href="{p["slug"]}.html">{card_image(p["slug"])}<h3>{esc(p["title"])}</h3><p>{esc(p["description"])}</p></a></div>'
         for p in pages
     )
     schema = {
@@ -386,7 +400,7 @@ def build_content_type(kind):
             f'<p class="meta">{spec["one"]} by Khaqan Shaheen. Published {nice_date}. About {it["words"]:,} words.'
             + (f" Topics: {tag_html}." if tag_html else "")
             + "</p>\n"
-            f'{mark_answer(render_md(it["md"]))}\n'
+            f'{reading(it["slug"], mark_answer(render_md(it["md"])), it["words"])}\n'
             f'<nav class="pager" aria-label="More"><a href="./">&larr; All {spec["label"].lower()}</a><a href="../services.html">Work with me &rarr;</a></nav>\n</article>'
         )
         extra = f'<meta property="article:published_time" content="{it["date"]}">\n<meta property="article:author" content="Khaqan Shaheen">\n'
@@ -397,7 +411,7 @@ def build_content_type(kind):
 
     # per-type index
     cards = "\n".join(
-        f'      <div class="card"><a class="stretch" href="{it["slug"]}.html"><h3>{esc(it["title"])}</h3><p>{esc(it["description"])}</p>'
+        f'      <div class="card"><a class="stretch" href="{it["slug"]}.html">{card_image(it["slug"])}<h3>{esc(it["title"])}</h3><p>{esc(it["description"])}</p>'
         f'<p class="muted small">{it["date"]} &middot; {it["words"]:,} words</p></a></div>'
         for it in items
     ) or '      <p class="muted">Nothing here yet.</p>'
@@ -436,7 +450,7 @@ def build_writing_hub(groups):
     for kind, items in groups.items():
         spec = TYPES[kind]
         cards = "\n".join(
-            f'      <div class="card"><a class="stretch" href="../{spec["dir"]}/{it["slug"]}.html"><h3>{esc(it["title"])}</h3><p>{esc(it["description"])}</p></a></div>'
+            f'      <div class="card"><a class="stretch" href="../{spec["dir"]}/{it["slug"]}.html">{card_image(it["slug"])}<h3>{esc(it["title"])}</h3><p>{esc(it["description"])}</p></a></div>'
             for it in items
         ) or '      <p class="muted">Nothing here yet.</p>'
         parts.append(
@@ -1340,7 +1354,7 @@ def build_booking():
         '  <label for="bk-service">Which service</label>\n  <select id="bk-service">\n' + options + '\n  </select>\n'
         '  <label for="bk-note">What you want to cover</label>\n  <textarea id="bk-note" rows="4"></textarea>\n'
         '</div>\n'
-        '<p class="muted small">Nothing is stored and nothing is sent from this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>\n'
+        '<p class="muted small">Your form answers are not stored or sent by this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>\n'
         '<div class="bk-actions" id="bk-addr" ' + mail_attrs() + '>\n'
         '  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot by email</button>\n'
         '  <button type="button" id="bk-priority" class="btn">Ask about a priority slot</button>\n'
@@ -1763,7 +1777,41 @@ def build_llms(case_pages, groups):
     (ROOT / "llms-full.txt").write_text("\n".join(full), encoding="utf-8")
 
 
+
+def build_privacy():
+    body = """<h1>Privacy and analytics</h1>
+<p>Updated 9 September 2026. This page describes analytics on khaqanshaheen.com, the professional website of Khaqan Shaheen.</p>
+<h2>Your choice</h2><p>Google Analytics 4 is loaded only after you accept analytics. Rejecting analytics leaves the website and booking tools available. Use Analytics preferences in the footer to change your choice. Your choice is stored in this browser for up to 180 days.</p>
+<h2>What is measured</h2><p>For consenting visitors, Google Analytics measures page visits, approximate geography, device and browser information, traffic sources, engagement, scroll depth, downloads, outbound destination domains, and contact or booking interactions. It uses pseudonymous analytics cookies to distinguish browsers and sessions. Cookies can persist for up to 180 days, subject to browser controls.</p>
+<p>Booking and email clicks measure intent, not a completed booking, sent email or confirmed sale. The site does not send booking form answers, email contents, names, phone numbers or payment details to Analytics. Page URLs are reduced to the canonical page; referrers are reduced to their origin. Only simple campaign source, medium and name labels are permitted. Do not put personal data in campaign labels.</p>
+<h2>Google and data use</h2><p>Google processes the analytics information to provide reports to the site owner. Advertising personalisation and Google signals are disabled in this implementation. No session replay, keystroke recording or cross-site fingerprinting is installed. See <a href="https://policies.google.com/privacy">Google's privacy policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites using its services</a>.</p>
+<h2>Booking and contact</h2><p>The booking calendar prepares a request in your email application. Information you choose to send by email is handled separately from Analytics to respond to your enquiry. Following an external link takes you to another provider's site and privacy practices.</p>
+<h2>Contact and withdrawal</h2><p>For a privacy question, contact <a href="mailto:support@khaqanshaheen.com">support@khaqanshaheen.com</a>. Reject analytics in Analytics preferences to stop subsequent collection in this browser and remove this site's accessible Analytics cookies. Previously collected reports are not automatically erased by withdrawing consent.</p>"""
+    url=f"{BASE}/privacy.html"
+    (ROOT/'privacy.html').write_text(layout(title="Privacy and analytics | Khaqan Shaheen", description="How khaqanshaheen.com measures visits and respects your analytics choice.",url=url,body=body,schema={"@context":"https://schema.org","@type":"WebPage","name":"Privacy and analytics","url":url},depth=0),encoding='utf-8')
+
+
+def install_analytics():
+    tag='<script defer src="/assets/js/analytics.js"></script>'
+    theme='<link rel="stylesheet" href="/assets/css/journey.css">'
+    motion='<script defer src="/assets/js/journey.js"></script>'
+    for path in ROOT.rglob('*.html'):
+        if 'r' in path.relative_to(ROOT).parts:
+            continue
+        content=path.read_text(encoding='utf-8')
+        if tag not in content:
+            content=content.replace('</head>',tag+'\n</head>',1)
+        for asset in (theme, motion, '<link rel="stylesheet" href="/assets/css/editorial.css">', '<script defer src="/assets/js/editorial.js"></script>'):
+            if asset not in content:
+                content=content.replace('</head>',asset+'\n</head>',1)
+        # Absolute privacy link also works on the custom 404 page.
+        if 'href="/privacy.html"' not in content:
+            content=content.replace('</footer>','<p class="wrap"><a href="/privacy.html">Privacy and analytics</a></p>\n</footer>',1)
+        path.write_text(content,encoding='utf-8')
+
+
 def build():
+    make_visuals()
     case_pages = build_case_studies()
     groups = {k: build_content_type(k) for k in TYPES}
     build_writing_hub(groups)
@@ -1771,6 +1819,7 @@ def build():
     build_career()
     build_booking()
     build_faq()
+    build_privacy()
     build_skills()
     global LANDING_URLS, GLOSSARY_URLS
     LANDING_URLS = build_landing()
@@ -1780,7 +1829,7 @@ def build():
     # home page: latest writing cards
     latest = sorted([it for items in groups.values() for it in items], key=lambda x: (x["date"], x["title"]), reverse=True)[:6]
     cards = "\n".join(
-        f'      <div class="card"><a class="stretch" href="{TYPES[it["kind"]]["dir"]}/{it["slug"]}.html"><div class="eyebrow">{TYPES[it["kind"]]["one"]}</div><h3>{esc(it["title"])}</h3><p>{esc(it["description"])}</p></a></div>'
+        f'      <div class="card"><a class="stretch" href="{TYPES[it["kind"]]["dir"]}/{it["slug"]}.html">{card_image(it["slug"])}<div class="eyebrow">{TYPES[it["kind"]]["one"]}</div><h3>{esc(it["title"])}</h3><p>{esc(it["description"])}</p></a></div>'
         for it in latest
     ) or '      <p class="muted">First pieces are being published this week.</p>'
     refresh_markers(ROOT / "index.html", {"WRITING": cards})
@@ -1801,8 +1850,10 @@ def build():
     for kind, items in groups.items():
         urls.append((f"{BASE}/{TYPES[kind]['dir']}/", "0.7", TODAY))
         urls += [(it["url"], "0.7", it["modified"]) for it in items]
+    urls.append((f"{BASE}/privacy.html", "0.2", "2026-09-09"))
     build_sitemap(urls)
     build_llms(case_pages, groups)
+    install_analytics()
     counts = {k: len(v) for k, v in groups.items()}
     print(f"built {len(case_pages)} case studies, {counts}, services, booking, faq, skills, feed, sitemap ({len(urls)} URLs), llms.txt, llms-full.txt")
 
