@@ -26,7 +26,8 @@
     var query = new URLSearchParams(location.search);
     [['utm_source','campaign_source'],['utm_medium','campaign_medium'],['utm_campaign','campaign_name']].forEach(function(pair) {
       var value = query.get(pair[0]);
-      if (value && /^[a-zA-Z0-9_-]{1,64}$/.test(value)) config[pair[1]] = value;
+      var knownSource = pair[0] === 'utm_source' && ['chatgpt.com','perplexity.ai','gemini.google.com','copilot.microsoft.com','claude.ai'].indexOf(value) !== -1;
+      if (value && (/^[a-zA-Z0-9_-]{1,64}$/.test(value) || knownSource)) config[pair[1]] = value;
     });
     gtag('config', ID, config);
     event('page_view', {page_title:document.title});
