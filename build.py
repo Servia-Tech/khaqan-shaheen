@@ -324,12 +324,12 @@ def build_case_studies():
     }
     body = (
         '<div class="breadcrumb"><a href="../">Home</a> / Work</div>\n<h1>Case studies</h1>\n'
-        '<p class="lede">Ten pieces of work, strongest first, written for a reader who is technical but is not an ERP specialist. '
+        '<p class="lede">Eleven pieces of work, strongest first, written for a reader who is technical but is not an ERP specialist. '
         "Each covers the situation, the problem, my responsibility, the solution, the technology, the challenges, the result and the evidence.</p>\n"
         f'<div class="grid">\n{cards}\n</div>'
     )
     (ROOT / "work" / "index.html").write_text(
-        layout(title="Case studies | Khaqan Shaheen", description="Ten case studies from running IT, ERP and AI systems for a manufacturing group across six sites in five countries.", url=f"{BASE}/work/", body=body, schema=schema, depth=1),
+        layout(title="Case studies | Khaqan Shaheen", description="Eleven case studies from running IT, ERP and AI systems for a manufacturing group across six sites in five countries.", url=f"{BASE}/work/", body=body, schema=schema, depth=1),
         encoding="utf-8",
     )
     return pages
@@ -851,7 +851,7 @@ LANDING = [
             ("What I have run", "Document OCR into the ERP in daily production. Automated certificate and document verification. A WhatsApp and web sales agent that qualifies enquiries into the CRM. An AI voice agent on Grandstream telephony. One chat platform running several WhatsApp numbers and the group websites. Plus, on my own venture, an autonomous search and content agent that ships work hourly inside guardrails I set."),
             ("How an engagement runs", "An AI readiness review picks the processes worth automating and designs the pipeline, the validation rules and the measurement. Then design oversight through build and the first month in production, with a switch-off rule agreed up front. Remote across the GCC or on-site in the UAE. Fees are quoted in writing before anything is paid."),
         ],
-        "related": [("Case study: document OCR into the ERP", "work/document-ocr-into-the-erp.html"), ("Case study: AI sales agent on WhatsApp and the web", "work/ai-sales-agent-whatsapp-and-web.html"), ("Article: five AI systems in production, what breaks when nobody is watching", "articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html"), ("Tutorial: reading supplier bills into an ERP with an LLM OCR pipeline", "tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html"), ("Service: AI in operations readiness review", "services.html#ai-operations-readiness")],
+        "related": [("Case study: five AI systems in daily production at a UAE plastics manufacturer", "work/five-ai-systems-in-daily-production-at-a-uae-plastics-manufacturer.html"), ("Case study: document OCR into the ERP", "work/document-ocr-into-the-erp.html"), ("Case study: AI sales agent on WhatsApp and the web", "work/ai-sales-agent-whatsapp-and-web.html"), ("Article: five AI systems in production, what breaks when nobody is watching", "articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html"), ("Tutorial: reading supplier bills into an ERP with an LLM OCR pipeline", "tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html"), ("Service: AI in operations readiness review", "services.html#ai-operations-readiness")],
         "faq": [
             ("Which AI models do you use?", "Vision-capable models such as Gemini and Claude for document work, and current language models for agents, chosen per task on accuracy and cost. The model is the least important part of the design; the validation rules and the review queue are what make it safe."),
             ("Will AI replace our accounts or sales staff?", "No. It removes the typing and the waiting. A person still approves every bill and takes over every conversation about money. The staff spend their time on exceptions and customers instead of data entry."),

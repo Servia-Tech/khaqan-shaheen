@@ -5,7 +5,7 @@ Source for the personal site of Khaqan Shaheen, Head of IT in Dubai. Static HTML
 Live website: [khaqanshaheen.com](https://khaqanshaheen.com/).
 
 - `index.html`, `press.html`: hand-written pages
-- `content/*.md`: the ten case studies, one Markdown file each
+- `content/*.md`: the eleven case studies, one Markdown file each
 - `build.py`: renders `content/` into `work/`, and writes `sitemap.xml` and `llms.txt`
 - `assets/`: stylesheet and images
 

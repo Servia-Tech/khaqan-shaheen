@@ -36,6 +36,7 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 - [Multi-site biometric attendance, integrated with the ERP](https://khaqanshaheen.com/work/multi-site-biometric-attendance.html): A manufacturing group with six sites in five countries and around 150 staff, most of them working shifts in production rather than at desks.
 - [Geo-verified security patrol, integrated with the ERP](https://khaqanshaheen.com/work/geo-verified-security-patrol.html): A manufacturing group with production and storage sites in five countries.
 - [Bringing a new factory online: the order of operations](https://khaqanshaheen.com/work/bringing-a-new-factory-online.html): A manufacturing group that opens new sites.
+- [Five AI systems in daily production at a UAE plastics manufacturer](https://khaqanshaheen.com/work/five-ai-systems-in-daily-production-at-a-uae-plastics-manufacturer.html): A plastics manufacturing group in the UAE with six sites in five countries, four brands and four websites, around 150 users, and one Odoo ERP that every site works from.
 
 ## Articles
 
