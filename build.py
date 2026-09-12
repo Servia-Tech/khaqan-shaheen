@@ -781,7 +781,14 @@ LANDING = [
         "title": "Odoo ERP consultant in Dubai and the UAE | Khaqan Shaheen",
         "h1": "Odoo ERP consultant in Dubai and the UAE",
         "description": "Independent Odoo ERP consultant in Dubai who has run one Odoo instance across six sites in five countries. Selection, implementation oversight, customisation done safely, upgrades, health checks.",
-        "answer": "I am an independent Odoo consultant in Dubai, not a reseller. I implemented one Odoo instance for a manufacturing group across six sites in five countries and I direct its custom development. I help UAE and GCC companies choose Odoo, get a stalled rollout moving, customise it without breaking upgrades, and check the health of what they already have.",
+        "answer": "Odoo ERP consultant in Dubai for manufacturing, and Head of IT of a UAE plastics group that runs on Odoo. I am independent, not a reseller. I implemented one Odoo ERP for six sites in five countries and I direct its custom development. I help UAE and GCC companies choose Odoo, get a stalled rollout moving, customise it without breaking upgrades, and check the health of what they already have.",
+        "deployments": [
+            "One Odoo ERP across six sites in five countries and around 150 users: production, sales, inventory, procurement, accounting, HR and maintenance on one set of records, so every site closes its month from the same data.",
+            "PostgreSQL 9.5 to 16 under the live ERP, eight major versions, with no unplanned downtime at any site.",
+            "Custom Odoo development to my specification and kept upgradable: 256 models, 1,187 custom fields and 686 access rules, including machine scheduling that refuses to book two work orders on the same machine at the same time.",
+            "Five AI systems on top of the ERP in daily production: document OCR that reads supplier bills into Odoo, automated document verification, a WhatsApp and web sales agent that writes leads into the CRM, an AI voice agent on Grandstream telephony, and one chat platform for several WhatsApp numbers and the websites.",
+            "Biometric attendance across sites and a geo-verified security patrol application, both delivered as mobile apps integrated with the ERP.",
+        ],
         "sections": [
             ("Who this is for", "Manufacturers, distributors, trading companies and family groups in the UAE and GCC that run Odoo or are deciding whether to. Typically 50 to 600 people, one or several sites, an owner or managing director who wants the month to close from one set of records."),
             ("What I have actually done with Odoo", "One instance covering production, sales, inventory, procurement, accounting, HR and maintenance for six sites in five countries and around 150 users. Machine scheduling with overlap prevention, batch and barcode control, approval workflows and role-specific dashboards, all built to my specification and kept upgradable. The database underneath it moved from PostgreSQL 9.5 to 16 with no unplanned downtime at any site. Five AI systems sit on top of it in daily production, from document OCR to a WhatsApp sales agent that creates leads in the CRM."),
@@ -801,7 +808,15 @@ LANDING = [
         "title": "ERP consultant for manufacturers in the UAE: from manual to one ERP | Khaqan Shaheen",
         "h1": "ERP consultant for manufacturers in the UAE",
         "description": "ERP consulting for UAE and GCC manufacturers from someone who runs one ERP across six factories in five countries: selection, implementation oversight, machine scheduling, upgrades, and the move from spreadsheets to a system.",
-        "answer": "I advise manufacturers in the UAE and GCC on ERP from the customer's side of the table. I run one ERP for a plastics group across six sites in five countries, and I have done the move from spreadsheets and paper to a single system that every site closes its month on. Selection, implementation oversight, manufacturing-specific modules and upgrades are the usual work.",
+        "answer": "ERP consultant for manufacturers in the UAE, and Head of IT in Dubai with Odoo ERP and AI in production. I advise from the customer's side of the table: I run one ERP for a plastics group across six sites in five countries, and I have done the move from spreadsheets and paper to a single system every site closes its month on. Selection, implementation oversight, manufacturing modules and upgrades are the usual work.",
+        "deployments": [
+            "One Odoo ERP for six sites in five countries and around 150 users, covering production, sales, inventory, procurement, accounting, HR and maintenance, rolled out site by site.",
+            "Machine scheduling built into the ERP: work orders on named machines with capacity type and shift, calculated end dates, and a server-side block on booking two orders on the same machine at the same time.",
+            "PostgreSQL 9.5 to 16 under the live system, eight major versions, with no unplanned downtime at any site.",
+            "Custom development directed and kept upgradable: 256 models, 1,187 custom fields and 686 access rules, plus barcode batch labels and an Android ERP client on the shop floor.",
+            "Five AI systems in daily production on top of the ERP: document OCR, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.",
+            "Biometric attendance across sites and a geo-verified security patrol application, both integrated with the ERP.",
+        ],
         "sections": [
             ("The manufacturing problems an ERP has to solve", "Work orders on named machines with real capacity and shifts, and a hard block on booking two orders on the same machine at the same time. Batch issue and validation, barcodes and labels on the floor. The path from enquiry to manufacturing order to delivery. Purchasing and vendor bills with an approval trail. And the finance close, from the same records the plant uses, without a spreadsheet in between."),
             ("Extend or replace", "The decision that matters most is whether to extend the ERP you have or buy a second system for manufacturing and maintain an interface forever. I extended one platform for six sites, built the manufacturing modules the standard package did not reach to my specification, and kept them upgradable. I can tell you when that is right and when it is not."),
@@ -821,7 +836,15 @@ LANDING = [
         "title": "AI automation for business operations in Dubai: OCR, agents, verification | Khaqan Shaheen",
         "h1": "AI automation for business operations in Dubai and the UAE",
         "description": "AI automation consultant in Dubai with five AI systems running in daily production: document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, and a multi-channel chat platform.",
-        "answer": "I put AI to work inside business operations, in production rather than in pilots. Five systems I designed run every day in a manufacturing group: document OCR that reads supplier bills into the ERP, automated document verification, a 24 hour sales agent on WhatsApp and the web, a voice agent on the corporate telephony, and one chat platform for every channel. I help UAE companies choose the right first process and design the pipeline so it survives daily use.",
+        "answer": "AI automation consultant in Dubai with five AI systems in daily production, not pilots. I am Head of IT of a UAE plastics manufacturing group, where systems of my design run every day: document OCR that reads supplier bills into the ERP, automated document verification, a 24 hour sales agent on WhatsApp and the web, a voice agent on the corporate telephony, and one chat platform for every channel. I help UAE companies pick the first process and design a pipeline that survives daily use.",
+        "deployments": [
+            "Document OCR into the ERP: supplier bills and expense claims read by vision-capable models and created as records in Odoo for a person to approve. Finance stopped retyping invoices.",
+            "Automated certificate and document verification that runs every time, leaves a record, and flags rather than decides.",
+            "A 24 hour AI sales agent on WhatsApp and the group websites that answers, qualifies and creates the lead in the Odoo CRM pipeline.",
+            "An AI voice agent on Grandstream telephony, built on a phone platform inside my own IT estate rather than a third-party cloud.",
+            "One AI chat platform running several WhatsApp numbers and the websites from a single place, so adding a brand is configuration rather than a project.",
+            "Underneath all five: one Odoo ERP across six sites in five countries, on PostgreSQL 9.5 to 16 with no unplanned downtime, with biometric attendance and geo-verified patrol integrated with the same ERP.",
+        ],
         "sections": [
             ("Where AI pays back first", "Repetitive work with a paper trail: supplier bills and expense claims typed into the system, documents checked by eye, enquiries answered at midnight, calls that only need a fact. Those are the processes where a model plus a validation layer removes hours without removing control. Strategy decks and chatbots on the home page are not where it pays back."),
             ("The design that survives production", "Capture, extraction with a vision-capable model returning strict JSON, validation rules that reject anything that does not add up, a confidence threshold, a human review queue for everything below it, idempotency so the same bill cannot post twice, an audit log, and a way to measure accuracy honestly every month. Agents get a small set of tools, a catalogue they cannot contradict, and a hand-off rule for anything about money or complaints. Every agent I run creates records for a person to check; none of them post or pay."),
@@ -841,7 +864,15 @@ LANDING = [
         "title": "Fractional Head of IT in the UAE: part-time IT leadership for growing companies | Khaqan Shaheen",
         "h1": "Fractional Head of IT in the UAE",
         "description": "Part-time, fractional Head of IT for UAE and GCC companies that need the judgement of an IT leader without a full-time hire: vendors, budget, security, the ERP roadmap and direction for developers, on an agreed number of days a month.",
-        "answer": "A fractional Head of IT gives a company the judgement and ownership of an IT leader on an agreed number of days a month instead of a full-time salary. I offer it to UAE and GCC companies from the experience of running the whole IT function for a manufacturing group across six sites in five countries, reporting directly to the owner.",
+        "answer": "Fractional Head of IT in Dubai and the UAE: the judgement and ownership of an IT leader on an agreed number of days a month instead of a full-time salary. I offer it to UAE and GCC companies from running the whole IT function of a plastics manufacturing group across six sites in five countries since December 2015, reporting directly to the owner, with Odoo ERP and AI in production.",
+        "deployments": [
+            "The whole IT function of a manufacturing group since December 2015: six sites, five countries, around 150 users, a team of six plus outsourced developers, the IT budget and every vendor contract.",
+            "One Odoo ERP for the group, implemented and its custom development directed: 256 models, 1,187 custom fields and 686 access rules, kept upgradable.",
+            "PostgreSQL 9.5 to 16 with no unplanned downtime at any site, with automated backups, point in time recovery, off-site replication and monitoring built around it.",
+            "Five AI systems in daily production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.",
+            "Google Workspace single sign-on, two factor authentication and role based access across the group, and one security standard across five countries.",
+            "Biometric attendance and a geo-verified security patrol application integrated with the ERP, and the complete IT setup for each new factory the group has opened.",
+        ],
         "sections": [
             ("Who needs one", "Companies of roughly 50 to 600 people with an IT support person or an outsourced provider but nobody who owns the function: nobody deciding what to buy, nobody accountable for backups and access, nobody directing the ERP roadmap, nobody translating between the owner and the vendors. Also companies between two full-time heads of IT, or preparing for one."),
             ("What it covers", "Vendors, contracts and IT purchasing. Budget and priorities. Security, identity and backups that are actually tested. The ERP roadmap and direction for in-house or outsourced developers. AI projects chosen for payback. Hiring the full-time person when the time comes. A weekly cadence, a standing priority list, written decisions, and a monthly review with the owner or managing director."),
@@ -861,7 +892,13 @@ LANDING = [
         "title": "AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site? | Khaqan Shaheen",
         "h1": "AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?",
         "description": "An AI search visibility audit checks whether AI answer engines can crawl, read and cite your website: robots rules for every AI crawler, llms.txt, structured data, answer-first content and rendering. Free tool plus a written audit service.",
-        "answer": "An AI search visibility audit answers one question: when someone asks ChatGPT, Perplexity, Claude, Gemini or Google AI Overviews about what you do, can they reach your site, read it and cite it? Most sites fail on something simple, such as a firewall blocking the crawler or content that only exists after JavaScript runs. I built a free open-source tool that checks this in one command, and I offer a written audit with the fixes in priority order.",
+        "answer": "AI search visibility audit for a website in Dubai, the UAE or anywhere else. It answers one question: when someone asks ChatGPT, Perplexity, Claude, Gemini or Google AI Overviews about what you do, can they reach your site, read it and cite it? Most sites fail on something simple, such as a firewall blocking the crawler or content that only exists after JavaScript runs. I built a free open-source tool that checks this in one command, and I offer a written audit with the fixes in priority order.",
+        "deployments": [
+            "ai-visibility-audit: one Python file with no dependencies that scores a site across SEO, AEO, GEO, AIO and SXO, lists the fixes by points lost, and runs as a GitHub Action. Open source on GitHub.",
+            "The same five-layer audit runs every morning on the websites I own, and this site is built on its findings: llms.txt, llms-full.txt, Person, Service and FAQ schema, and answer-first pages.",
+            "The day job behind the advice: Head of IT of a UAE plastics manufacturing group, one Odoo ERP across six sites in five countries, PostgreSQL 9.5 to 16 with no unplanned downtime, and five AI systems in daily production (document OCR, document verification, a WhatsApp and web sales agent, a voice agent on Grandstream telephony, one multi-channel chat platform).",
+            "Four brand websites for that group, with their search and paid campaigns, owned since 2015.",
+        ],
         "sections": [
             ("What gets checked", "Five layers. SEO: the basics search engines still need. AEO, answer engine optimisation: FAQ and question-led structure, answer-first paragraphs, lists and tables. GEO, generative engine optimisation: robots.txt rules for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and the rest, whether the firewall blocks them, llms.txt, content readable without JavaScript, entity schema. AIO: Google AI Overviews and Gemini readiness, valid JSON-LD, dates, authors, Open Graph. SXO: speed and rendering."),
             ("The free tool", "ai-visibility-audit is one Python file with no dependencies. Run it against any site and it scores the five layers, prints every check with a fix, lists the top five fixes by points lost, and can write a JSON or HTML report. It also runs as a GitHub Action so a site cannot regress. It grew out of the audit I run every morning on my own sites, where the same checks earned referrals from ChatGPT, Perplexity and Gemini."),
@@ -881,7 +918,14 @@ LANDING = [
         "title": "From manual and spreadsheets to an ERP with AI automation: the roadmap for UAE businesses | Khaqan Shaheen",
         "h1": "From manual and spreadsheets to an ERP with AI doing the repetitive work",
         "description": "How a UAE business moves from spreadsheets, WhatsApp and paper to one ERP with AI automation, in the order that does not break the company. From someone who has done it across six sites in five countries.",
-        "answer": "Moving a business from manual operations to an ERP with AI is my speciality. The order matters more than the software: process map first, then clean master data, then one ERP one site and one function at a time, then AI on the repetitive work that now has a system to write into. I have done it for a manufacturing group across six sites in five countries and I help UAE companies do it without stopping the business.",
+        "answer": "From manual and spreadsheets to an ERP with AI automation: that move is my speciality, done as Head of IT in Dubai for a plastics manufacturing group across six sites in five countries. The order matters more than the software: process map first, then clean master data, then one ERP one site and one function at a time, then AI on the repetitive work that now has a system to write into. I help UAE companies do it without stopping the business.",
+        "deployments": [
+            "One Odoo ERP for six sites in five countries and around 150 users, rolled out site by site and function by function: production, sales, inventory, procurement, accounting, HR and maintenance.",
+            "Custom development kept upgradable: 256 models, 1,187 custom fields and 686 access rules, including machine scheduling with overlap prevention and barcode batch labels printed from the same record.",
+            "PostgreSQL 9.5 to 16 under the live system, eight major versions, with no unplanned downtime at any site.",
+            "Five AI systems on top of the ERP in daily production: document OCR, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.",
+            "Biometric attendance across sites and a geo-verified security patrol application, both mobile apps integrated with the ERP.",
+        ],
         "sections": [
             ("The order that works", "First, a process map of how the business actually runs, from the people who run it, not from the org chart. Second, one clean master data set: products, customers, suppliers, machines, chart of accounts. Third, the ERP, one site and one function at a time, with the month-end close as the test of each step. Fourth, AI on the repetitive work: supplier bills into the system, enquiries answered on WhatsApp, documents verified, calls handled. AI before the ERP is a common mistake, because the model has nowhere to put what it reads."),
             ("What goes wrong", "Buying the software before mapping the process. Customising to match old habits instead of standardising. Migrating dirty data and spending a year cleaning it inside the new system. Running two systems in parallel for too long. Pilots that never get a switch-off date or a production date. And nobody owning it: the project needs one person who answers to the owner."),
@@ -1394,6 +1438,12 @@ def build_landing():
         )
         faq = [{"q": q, "a": a} for q, a in L["faq"]]
         faq_html = "\n".join(f"<h3>{esc(f['q'])}</h3>\n<p>{esc(f['a'])}</p>" for f in faq)
+        deployments = L.get("deployments") or []
+        deploy_html = (
+            '<h2 id="deployments">Deployments</h2>\n<ol class="deployments">\n'
+            + "\n".join(f"  <li>{esc(d)}</li>" for d in deployments)
+            + "\n</ol>\n"
+        ) if deployments else ""
         schema = {
             "@context": "https://schema.org",
             "@graph": [
@@ -1409,6 +1459,7 @@ def build_landing():
             f'<div class="breadcrumb"><a href="./">Home</a> / {esc(L["h1"])}</div>\n'
             f'<article class="article">\n<h1>{esc(L["h1"])}</h1>\n'
             f'<p class="lede answer">{esc(L["answer"])}</p>\n'
+            f"{deploy_html}"
             f"{sections}\n"
             '<h2>Read the evidence</h2>\n<ul class="plain">\n' + related + "\n</ul>\n"
             f'<h2>Questions people ask</h2>\n{faq_html}\n'
