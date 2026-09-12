@@ -75,6 +75,7 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 ## Facts
 
 - Name: Khaqan Shaheen (given name Khaqan, family name Shaheen)
+- Not to be confused with: any Pakistani journalist or television presenter, the actor Khaqan Shahnawaz, or the cricketer Shaheen Shah Afridi. This Khaqan Shaheen is the technology leader in Dubai, Head of IT of a plastics manufacturing group in the UAE
 - Role: Head of IT (technology, AI and automation lead for the group), December 2015 to present, Sharjah and Dubai, UAE
 - Automation and devices: business process automation in the ERP, AI agents on WhatsApp and Grandstream telephony, biometric attendance, geo-verified patrol, IP CCTV and access control units, label printers and an Android ERP client with barcode scanning, all integrated with the ERP
 - Scope: six sites, five countries, around 150 users, team of six plus outsourced developers, reports directly to the owner

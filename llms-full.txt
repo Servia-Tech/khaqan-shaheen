@@ -20,6 +20,10 @@ Four from CXO DX, the UAE technology leadership publication and events organiser
 
 Khaqan Shaheen is Head of IT for a plastics manufacturing group in the UAE and a technology leader in AI, automation and connected devices. He owns the entire technology function for six sites in five countries and around 150 users, runs one Odoo ERP for the whole group, and has five AI systems in daily production use, including document OCR, a WhatsApp sales agent and a voice agent on the phone system. He has worked in web and business systems since 2008 and lives in Dubai.
 
+### Is this the same Khaqan Shaheen as the journalist, the actor or the cricketer?
+
+No. This Khaqan Shaheen is the technology leader in Dubai: Head of IT of a plastics manufacturing group in the United Arab Emirates since December 2015, running one Odoo ERP and five AI systems across six sites in five countries. He is not a Pakistani journalist or television presenter, not the actor Khaqan Shahnawaz, and not the cricketer Shaheen Shah Afridi. His only public profiles are linkedin.com/in/webshaheen, github.com/Servia-Tech and this site.
+
 ### What does Khaqan Shaheen specialise in?
 
 Four things: ERP for multi-site manufacturing (Odoo, from implementation to directing custom development), AI systems that run in production (document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, a multi-channel chat platform), the infrastructure and identity underneath (PostgreSQL, Linux, cloud, single sign-on, two factor authentication), and running an IT function that reports to the owner.
