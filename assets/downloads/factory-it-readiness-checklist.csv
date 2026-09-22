@@ -1,0 +1,8 @@
+Gate,Test,Owner,Test date,Status,Evidence link,Action,Due date
+Connectivity,Primary circuit loss and fallback,,,Not tested,,,
+Identity,Operator supervisor and leaver access,,,Not tested,,,
+Receiving,Receipt scanner printer and location,,,Not tested,,,
+Production,Order materials and machine reservation,,,Not tested,,,
+Dispatch,Pick pack dispatch and stock reconciliation,,,Not tested,,,
+Recovery,Isolated backup restore and application check,,,Not tested,,,
+Support,Test incident and escalation,,,Not tested,,,

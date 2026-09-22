@@ -21,6 +21,24 @@ A defined order of operations, because the sequence is the method. Each layer de
 7. Physical security and site devices: IP CCTV, access control, biometric attendance readers and label printers, each connected to the system it feeds.
 8. Support handover. Local hands contracted, documentation done, the site inside the normal support arrangement.
 
+## A practical opening-day acceptance checklist
+
+This is a reusable planning template, not a claim that every site has identical requirements. Assign an owner, record the test date and keep evidence for each gate before approving the opening.
+
+| Gate | Demonstration to run | Evidence to retain |
+| --- | --- | --- |
+| Connectivity | Disconnect the primary circuit during an agreed test window and check the fallback | Outage duration, affected applications and recovery steps |
+| Identity | Sign in as a new operator, supervisor and leaver test account | Correct access for active roles; revoked access for the leaver |
+| Receiving | Receive a test delivery with the site's actual scanner and printer | ERP receipt, readable label and correct warehouse location |
+| Production | Release a representative order to the intended machine | Materials, machine reservation and operator permissions checked |
+| Dispatch | Complete a test pick, pack and dispatch with the business owner | Stock movement and document chain reconciled |
+| Recovery | Restore a recent backup into an isolated test environment | Restore duration and application-level verification |
+| Support | Raise a test incident through the agreed support channel | Named owner, escalation route and local contact |
+
+Download the [factory readiness worksheet](../assets/downloads/factory-it-readiness-checklist.csv). Record **Not tested**, **Pass** or **Needs action** rather than converting an unknown into a green status. Agree acceptable interruption and recovery limits with the business before testing.
+
+For the scheduling gate, see the [Odoo overlap-prevention tutorial](../tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html). For a scoped review before opening, see [ERP consulting in Dubai](../odoo-erp-consultant-dubai.html).
+
 ## Technology
 Structured cabling and site networking, firewalls and site to site VPNs, Linux servers, ERP and database connectivity, Google Workspace identity, Avaya and Grandstream telephony, IP CCTV and access control.
 

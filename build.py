@@ -225,7 +225,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
   <div class="wrap">
     <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="{r}index.html#contact">Contact</a><br>What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}glossary/">Glossary</a></div>
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
-    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech">GitHub</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
+    <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech" rel="me">GitHub</a> &middot; <a href="https://sessionize.com/khaqan-shaheen/" rel="me">Speaker profile</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
 </footer>
 {MAIL_JS}
@@ -235,7 +235,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 
 
 def person_ref():
-    return {"@type": "Person", "@id": PERSON_ID, "name": "Khaqan Shaheen", "url": f"{BASE}/"}
+    return {"@type": "Person", "@id": PERSON_ID, "name": "Khaqan Shaheen", "url": f"{BASE}/", "sameAs": ["https://www.linkedin.com/in/webshaheen", "https://github.com/Servia-Tech", "https://sessionize.com/khaqan-shaheen/"]}
 
 
 def breadcrumb(items):
@@ -324,12 +324,12 @@ def build_case_studies():
     }
     body = (
         '<div class="breadcrumb"><a href="../">Home</a> / Work</div>\n<h1>Case studies</h1>\n'
-        '<p class="lede">Eleven pieces of work, strongest first, written for a reader who is technical but is not an ERP specialist. '
+        f'<p class="lede">{len(pages)} pieces of work, strongest first, written for a reader who is technical but is not an ERP specialist. '
         "Each covers the situation, the problem, my responsibility, the solution, the technology, the challenges, the result and the evidence.</p>\n"
         f'<div class="grid">\n{cards}\n</div>'
     )
     (ROOT / "work" / "index.html").write_text(
-        layout(title="Case studies | Khaqan Shaheen", description="Eleven case studies from running IT, ERP and AI systems for a manufacturing group across six sites in five countries.", url=f"{BASE}/work/", body=body, schema=schema, depth=1),
+        layout(title="Case studies | Khaqan Shaheen", description=f"{len(pages)} case studies from running IT, ERP and AI systems for a manufacturing group across six sites in five countries.", url=f"{BASE}/work/", body=body, schema=schema, depth=1),
         encoding="utf-8",
     )
     return pages
@@ -790,6 +790,8 @@ LANDING = [
             "Biometric attendance across sites and a geo-verified security patrol application, both delivered as mobile apps integrated with the ERP.",
         ],
         "sections": [
+            ("What to prepare for the first ERP review", "Bring one real order-to-cash example, a stock adjustment, a supplier bill and the steps used to close the month. Redact customer and employee details. List the modules, integrations and customisations you depend on, plus the decision you need to make. An initial review should produce a prioritised issue list, the evidence still needed, and a recommended next step with an owner."),
+            ("Choosing between a health check, rollout and fractional leadership", "A health check fits a running system whose figures or workflows no longer agree. Implementation oversight fits a defined rollout that needs scope, acceptance tests and coordination with the delivery partner. Fractional IT leadership fits an ongoing ownership gap across ERP, infrastructure, vendors and business priorities. Start with the smallest engagement that can answer the business decision; scope and fees are agreed in writing."),
             ("Who this is for", "Manufacturers, distributors, trading companies and family groups in the UAE and GCC that run Odoo or are deciding whether to. Typically 50 to 600 people, one or several sites, an owner or managing director who wants the month to close from one set of records."),
             ("What I have actually done with Odoo", "One instance covering production, sales, inventory, procurement, accounting, HR and maintenance for six sites in five countries and around 150 users. Machine scheduling with overlap prevention, batch and barcode control, approval workflows and role-specific dashboards, all built to my specification and kept upgradable. The database underneath it moved from PostgreSQL 9.5 to 16 with no unplanned downtime at any site. Five AI systems sit on top of it in daily production, from document OCR to a WhatsApp sales agent that creates leads in the CRM."),
             ("What an Odoo consultant should do for you", "Tell you what to leave standard and what to customise, and why. Write the specification developers build from, so that what arrives is what the business needs. Keep an eye on upgrade risk, because heavily modified Odoo is how companies get stranded on an old version. Check backups, access control and the audit trail, which most implementations skip. And explain all of it to the owner in plain language."),
@@ -1548,7 +1550,7 @@ FAQ = [
     ("Does Khaqan Shaheen offer ERP consultation?", "Yes. A one-hour ERP consultation call for a specific decision, and a fixed-price roadmap for a business moving from manual operations to an ERP with AI automation. Larger ERP work, such as implementation oversight or a health check of an existing Odoo, is on the services page."),
     ("What awards has Khaqan Shaheen won?", "Four from CXO DX, the UAE technology leadership publication and events organiser: Excellence in CIO Leadership 2024 at the Future Workspace Summit and Awards 2024 (JW Marriott Hotel Marina, Dubai, November 2024, shown in the organiser's highlights video), IT Leadership Excellence 2024 at the CIO Connect Summit and Awards (JW Marriott Dubai Marina, May 2024, listed in the organiser's published event report), Technology Transformer of the Year 2023 at the SME Tech Innovation Summit and Awards (Conrad Dubai, February 2023, listed in the organiser's published event report), and CIO of the Year 2023 at the Future Workspace Summit and Awards 2023 (Address Sky View, Downtown Dubai, September 2023). The press kit links each one to the organiser's page or video."),
     ("Who is Khaqan Shaheen?","Khaqan Shaheen is Head of IT for a plastics manufacturing group in the UAE and a technology leader in AI, automation and connected devices. He owns the entire technology function for six sites in five countries and around 150 users, runs one Odoo ERP for the whole group, and has five AI systems in daily production use, including document OCR, a WhatsApp sales agent and a voice agent on the phone system. He has worked in web and business systems since 2008 and lives in Dubai."),
-    ("Is this the same Khaqan Shaheen as the journalist, the actor or the cricketer?", "No. This Khaqan Shaheen is the technology leader in Dubai: Head of IT of a plastics manufacturing group in the United Arab Emirates since December 2015, running one Odoo ERP and five AI systems across six sites in five countries. He is not a Pakistani journalist or television presenter, not the actor Khaqan Shahnawaz, and not the cricketer Shaheen Shah Afridi. His only public profiles are linkedin.com/in/webshaheen, github.com/Servia-Tech and this site."),
+    ("Is this the same Khaqan Shaheen as the journalist, the actor or the cricketer?", "No. This Khaqan Shaheen is the technology leader in Dubai: Head of IT of a plastics manufacturing group in the United Arab Emirates since December 2015, running one Odoo ERP and five AI systems across six sites in five countries. He is not a Pakistani journalist or television presenter, not the actor Khaqan Shahnawaz, and not the cricketer Shaheen Shah Afridi. His public profiles include linkedin.com/in/webshaheen, github.com/Servia-Tech, sessionize.com/khaqan-shaheen/ and this site."),
     ("What does Khaqan Shaheen specialise in?", "Four things: ERP for multi-site manufacturing (Odoo, from implementation to directing custom development), AI systems that run in production (document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, a multi-channel chat platform), the infrastructure and identity underneath (PostgreSQL, Linux, cloud, single sign-on, two factor authentication), and running an IT function that reports to the owner."),
     ("Is Khaqan Shaheen available for consulting?", "Yes. He takes advisory and project engagements in ERP and Odoo, AI in operations, IT function reviews, new-site IT and identity and security, on-site in the UAE or remote. Details and how an engagement starts are on the services page. Fees are agreed in writing before work starts and are not published."),
     ("Does Khaqan Shaheen take part-time or fractional Head of IT work?", "Yes. A fractional engagement means ownership of a company's IT function on an agreed number of days a month, with a weekly cadence and a monthly review with the owner. It suits companies that need a head of IT's judgement without a full-time hire."),
@@ -1784,6 +1786,7 @@ def build_llms(case_pages, groups):
         "",
         "- [LinkedIn](https://www.linkedin.com/in/webshaheen)",
         "- [GitHub](https://github.com/Servia-Tech)",
+        "- [Speaker profile](https://sessionize.com/khaqan-shaheen/): biography, expertise and speaking topics",
         "- [ai-visibility-audit](https://github.com/Servia-Tech/ai-visibility-audit): open-source tool that checks whether AI search engines can crawl, read and cite a website",
         f"- [RSS feed]({BASE}/feed.xml)",
         f"- [Full text of every page]({BASE}/llms-full.txt)",

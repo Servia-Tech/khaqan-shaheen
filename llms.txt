@@ -69,6 +69,7 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 
 - [LinkedIn](https://www.linkedin.com/in/webshaheen)
 - [GitHub](https://github.com/Servia-Tech)
+- [Speaker profile](https://sessionize.com/khaqan-shaheen/): biography, expertise and speaking topics
 - [ai-visibility-audit](https://github.com/Servia-Tech/ai-visibility-audit): open-source tool that checks whether AI search engines can crawl, read and cite a website
 - [RSS feed](https://khaqanshaheen.com/feed.xml)
 - [Full text of every page](https://khaqanshaheen.com/llms-full.txt)
