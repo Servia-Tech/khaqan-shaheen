@@ -22,6 +22,8 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 - [Fractional Head of IT in the UAE](https://khaqanshaheen.com/fractional-head-of-it-uae.html)
 - [AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?](https://khaqanshaheen.com/ai-search-visibility-audit.html)
 - [From manual and spreadsheets to an ERP with AI doing the repetitive work](https://khaqanshaheen.com/manual-to-erp-and-ai-automation.html)
+- [Senior IT roles: Head of IT, IT Director, CIO and technology leadership](https://khaqanshaheen.com/senior-it-leadership-roles.html)
+- [Khaqan Shaheen: CV and career history](https://khaqanshaheen.com/khaqan-shaheen-cv.html)
 - [Glossary](https://khaqanshaheen.com/glossary/): plain definitions of llms.txt, llms-full.txt, AEO (answer engine optimisation), GEO (generative engine optimisation), AI Overviews (Google), AI search visibility, AI crawler (GPTBot, ClaudeBot, PerplexityBot and others), robots.txt for AI crawlers and more
 
 ## Case studies

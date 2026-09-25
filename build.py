@@ -223,7 +223,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="{r}index.html#contact">Contact</a><br>What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}glossary/">Glossary</a></div>
+    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="{r}index.html#contact">Contact</a><br>What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}senior-it-leadership-roles.html">Senior IT roles</a> &middot; <a href="{r}khaqan-shaheen-cv.html">CV</a> &middot; <a href="{r}glossary/">Glossary</a></div>
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech" rel="me">GitHub</a> &middot; <a href="https://sessionize.com/khaqan-shaheen/" rel="me">Speaker profile</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
@@ -643,9 +643,19 @@ def offer_schema(name, price, url, description, per=None):
     return svc
 
 
+def role_list(L, url):
+    """The role titles a profile page maps to, as an ItemList an engine can read."""
+    return {"@type": "ItemList", "@id": url + "#roles", "name": "Roles this experience maps to",
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": r}
+                                for i, r in enumerate(L["roles"])]}
+
+
 def landing_service(L, url):
     """The Service a landing page offers. serviceType and alternateName let an engine match the
-    same role under the names clients actually search for (fractional CIO, part-time CIO)."""
+    same role under the names clients actually search for (fractional CIO, part-time CIO).
+    A profile page is about the person, not a service, so it points at the Person instead."""
+    if L.get("kind") == "profile":
+        return {"@id": PERSON_ID}
     svc = {
         "@type": "Service",
         "name": L["h1"],
@@ -859,7 +869,9 @@ LANDING = [
     {
         "slug": "ai-automation-consultant-dubai",
         "serviceType": "AI automation consulting",
-        "aliases": ["AI consultant", "Business process automation consultant", "AI implementation advisor"],
+        "aliases": ["AI consultant", "Agentic AI consultant", "AI bot developer", "Conversational AI consultant",
+                    "Voice AI consultant", "AI calling system consultant", "AI agent developer",
+                    "Business process automation consultant", "AI implementation advisor", "AI strategy consultant"],
         "title": "AI automation for business operations in Dubai: OCR, agents, verification | Khaqan Shaheen",
         "h1": "AI automation for business operations in Dubai and the UAE",
         "description": "AI automation consultant in Dubai with five AI systems running in daily production: document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, and a multi-channel chat platform.",
@@ -873,6 +885,7 @@ LANDING = [
             "Underneath all five: one Odoo ERP across six sites in five countries, on PostgreSQL 9.5 to 16 with no unplanned downtime, with biometric attendance and geo-verified patrol integrated with the same ERP.",
         ],
         "sections": [
+            ("What I build: AI bots, AI calling, agentic AI and document AI", "Four kinds of system, all in daily production. AI bots: conversational agents on WhatsApp and websites that answer, qualify and write the lead straight into the CRM, plus one chat platform running several numbers and brands from a single place. AI calling systems: a voice AI agent that answers real inbound calls on Grandstream telephony, hosted inside the company's own estate rather than a third-party cloud, so the call recordings and the customer data stay put. Agentic AI: goal-driven systems that pick the next step from a small tool set, with a catalogue they cannot contradict, a hand-off rule for anything about money, and an agreed stopping rule. Document AI: vision-capable models reading supplier bills, expense claims and certificates into the ERP with strict JSON and a human review queue. If you are looking for an AI chatbot, an AI calling agent or an agentic workflow, these are the same four patterns under different names."),
             ("Where AI pays back first", "Repetitive work with a paper trail: supplier bills and expense claims typed into the system, documents checked by eye, enquiries answered at midnight, calls that only need a fact. Those are the processes where a model plus a validation layer removes hours without removing control. Strategy decks and chatbots on the home page are not where it pays back."),
             ("The design that survives production", "Capture, extraction with a vision-capable model returning strict JSON, validation rules that reject anything that does not add up, a confidence threshold, a human review queue for everything below it, idempotency so the same bill cannot post twice, an audit log, and a way to measure accuracy honestly every month. Agents get a small set of tools, a catalogue they cannot contradict, and a hand-off rule for anything about money or complaints. Every agent I run creates records for a person to check; none of them post or pay."),
             ("What I have run", "Document OCR into the ERP in daily production. Automated certificate and document verification. A WhatsApp and web sales agent that qualifies enquiries into the CRM. An AI voice agent on Grandstream telephony. One chat platform running several WhatsApp numbers and the group websites. Plus, on my own venture, an autonomous search and content agent that ships work hourly inside guardrails I set."),
@@ -883,6 +896,8 @@ LANDING = [
             ("Which AI models do you use?", "Vision-capable models such as Gemini and Claude for document work, and current language models for agents, chosen per task on accuracy and cost. The model is the least important part of the design; the validation rules and the review queue are what make it safe."),
             ("Will AI replace our accounts or sales staff?", "No. It removes the typing and the waiting. A person still approves every bill and takes over every conversation about money. The staff spend their time on exceptions and customers instead of data entry."),
             ("What does a first project look like?", "Usually supplier bills or expense claims into the ERP, because the paper trail makes accuracy measurable. Four to eight weeks from review to the first month in production, with a labelled sample re-checked monthly."),
+            ("Do you build agentic AI, or just chatbots?", "Both, and the difference matters. A chatbot answers; an agent decides and acts. The agents I run pick the next step from a small tool set, write records into the ERP or CRM, hand off to a person for anything about money or a complaint, and stop when a rule says stop. On my own venture an autonomous search and content agent ships work hourly inside guardrails I set. Agentic AI without a stopping rule, an audit log and a human review queue is not a system, it is a liability."),
+            ("Can you build an AI calling system for our phones?", "Yes, and I run one. A voice AI agent on Grandstream telephony that answers inbound calls, handles what it can from a catalogue it cannot contradict, and hands the rest to a person. It sits inside the company's own telephony estate, which keeps call data in your control and avoids per-minute pricing from a third-party voice cloud. The same pattern works on other SIP platforms."),
             ("Can you work with our existing ERP?", "Yes. The pipeline writes into the ERP through its API. I run this on Odoo and the pattern is the same for other systems with an API."),
         ],
     },
@@ -975,6 +990,90 @@ LANDING = [
             ("Should we do AI first because it is cheaper?", "No. AI needs a system of record to write into and rules to validate against. Put the ERP in first, then automate the repetitive work around it. The exception is a standalone process with its own clear output, such as enquiry handling on WhatsApp."),
             ("Do we need a full-time IT person for this?", "You need one accountable owner. That can be a capable manager with a fractional Head of IT behind them, which is a service I offer, or a full-time hire once the platform is in and the workload justifies it."),
             ("Which industries have you done this in?", "Manufacturing first, across six sites. The pattern applies to distribution, trading, services and family groups, and the roadmap is built around your process map, not a template."),
+        ],
+    },
+    {
+        "slug": "senior-it-leadership-roles",
+        "kind": "profile",
+        "title": "Senior IT roles: Head of IT, IT Manager, IT Director, CIO, ERP and AI leadership | Khaqan Shaheen",
+        "h1": "Senior IT roles: Head of IT, IT Director, CIO and technology leadership",
+        "description": "Khaqan Shaheen is open to senior technology roles in Dubai, the UAE and the GCC, and to relocation: Head of IT, IT Manager, Group IT Manager, IT Director, CIO, ERP Manager, Head of AI, and infrastructure, networking and IT operations leadership. Since 2015 he has owned one IT function across six sites in five countries.",
+        "roles": [
+            "Head of IT", "IT Manager", "Group IT Manager", "IT Director", "Head of Information Technology",
+            "CIO", "Chief Information Officer", "Interim CIO", "CTO", "Chief Technology Officer",
+            "Head of Technology", "Fractional CTO", "Fractional Head of IT",
+            "ERP Manager", "Odoo Manager", "ERP Project Manager", "Digital Transformation Manager",
+            "Head of Digital Transformation", "Head of AI", "Head of AI and Automation", "AI Lead",
+            "Agentic AI Lead", "Conversational AI Lead", "Voice AI Lead", "AI Solutions Architect",
+            "AI Transformation Lead", "AI Automation Consultant", "AI Strategy Lead", "Automation Lead",
+            "IT Operations Manager", "Infrastructure Manager", "Systems Manager", "IT Security Manager",
+            "Network Manager", "IT Consultant", "Technology Consultant",
+            "Digital Marketing Manager", "SEO Manager", "Webmaster",
+        ],
+        "answer": "Senior IT roles I am open to, with the evidence behind each: Head of IT, IT Manager, Group IT Manager, IT Director, Head of Information Technology, CIO, ERP Manager, Odoo Manager, Digital Transformation Manager, Head of AI, IT Operations Manager, Infrastructure Manager and Network Manager. Since December 2015 I have owned the entire IT function of a plastics manufacturing group across six sites in five countries, around 150 users, reporting directly to the owner: the Odoo ERP, the servers and the network behind it, identity and security, telephony, connected devices, the group websites and the marketing. Based in Dubai, available across the GCC, and open to relocation to Australia and New Zealand.",
+        "deployments": [
+            "The whole IT function of a manufacturing group since December 2015: six sites, five countries, around 150 users, a team of six plus outsourced developers, the IT budget and every vendor contract, reporting directly to the owner.",
+            "One Odoo ERP for the group, implemented and its custom development directed: 256 models, 1,187 custom fields and 686 access rules, kept upgradable.",
+            "PostgreSQL 9.5 to 16 across eight major versions with no unplanned downtime at any site, with automated backups, point in time recovery, off-site replication and monitoring.",
+            "Networks, firewalls, site to site VPNs and endpoint protection across five countries, plus IP CCTV and access control integrated with the site setup.",
+            "Five AI systems in daily production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.",
+            "Google Workspace single sign-on, two factor authentication and role based access across the group, replacing local passwords with one security standard.",
+            "The complete IT build for each new factory the group has opened: connectivity, identity, ERP site record, devices, telephony and a day one checklist.",
+        ],
+        "sections": [
+            ("The roles this experience maps to", "Companies write the same job under different titles, so here is the honest mapping. What I hold today is Head of IT, and before that IT Manager and Web Projects Manager. What the work is equivalent to, and what I am open to, is IT Manager, Group IT Manager, IT Director, Head of Information Technology, Head of Technology, and CIO or Chief Information Officer at a company of this size; in smaller or product-led companies the same scope is often written as CTO or Head of Technology. On the delivery side: ERP Manager, Odoo Manager, ERP Project Manager, Digital Transformation Manager or Head of Digital Transformation. On the newer side: Head of AI, AI Lead or Automation Lead. On the platform side: IT Operations Manager, Infrastructure Manager, Systems Manager, Network Manager or IT Security Manager. I have not held a CIO or CTO title, and I will not claim one; the scope, the reporting line and the awards are the evidence, and you can judge the fit yourself."),
+            ("Networking, infrastructure and IT operations", "The network and the platform are mine, not a vendor's. Firewalls, site to site VPNs between five countries, endpoint protection, and the connectivity for each new factory from the day the lease is signed. Ubuntu servers on-premise and across AWS, Google Cloud and DigitalOcean, with Nginx in front of the ERP and the websites. PostgreSQL through eight major versions with no unplanned downtime, backed by automated backups, point in time recovery, off-site and NAS replication, monitoring and alerts. Identity on Google Workspace single sign-on with two factor authentication and role based access, and login and activity monitoring so it is clear who did what."),
+            ("Connected devices, telephony and building systems", "IP CCTV, access control units, biometric readers, label printers and machine records all integrated with the same ERP rather than sitting in their own silos. Corporate telephony on Avaya and Grandstream, including the AI voice agent running on the Grandstream platform inside my own estate. Multi-site biometric attendance feeding payroll without retyping, and a geo-verified security patrol application that records guard rounds by location from a phone. This is the same integration and automation work that building and home automation asks for, done where it has to survive a factory."),
+            ("ERP and digital transformation", "One Odoo ERP for six sites in five countries and around 150 users, covering production, sales, inventory, procurement, accounting, HR and maintenance, rolled out site by site and function by function. Custom development specified by me and kept upgrade-safe: 256 models, 1,187 custom fields, 686 access rules, machine scheduling with server-side overlap prevention, barcode batch labels. Two years building a custom ERP from scratch before that, which is where the build versus buy judgement comes from."),
+            ("AI: agents, bots, voice and agentic systems", "AI is now a primary domain, not a sideline, and all of it is in production rather than in a slide deck. AI bots: a 24 hour conversational agent on WhatsApp and the group websites that answers, qualifies and writes the lead into the Odoo CRM, plus one multi-channel chat platform running several WhatsApp numbers and every brand site from a single place. AI calling: a voice AI agent answering and handling inbound calls on the corporate Grandstream telephony, built inside my own IT estate rather than rented from a third-party cloud. Agentic AI: systems that take a goal, use a small set of tools, decide the next step and stop when a rule says stop, including an autonomous search and content agent on my own venture that ships work hourly inside guardrails I set. Document AI: vision-capable models reading supplier bills and expense claims into the ERP with strict JSON output, and automated certificate verification. The part that matters is never the model. It is the validation rules, the confidence threshold, the human review queue, the idempotency, the audit log, the hand-off rule for anything about money, and an agreed switch-off rule. Every agent I run creates records for a person to approve; none of them post or pay."),
+            ("Search, marketing and the web", "The group websites are mine too, from build to search to paid campaigns: WordPress and corporate sites, technical SEO and structured data, Google Ads with keyword structure, bidding controls and conversion tracking, and GA4 and Search Console reporting. I wrote ai-visibility-audit, an open-source tool that checks whether AI answer engines can crawl, read and cite a site. My earlier title at the group was IT Manager, SEO, Digital Marketing and Webmaster, and that side of the work never stopped."),
+            ("Where I work, and relocation", "Based in Dubai. On-site across the UAE, and remote for Saudi Arabia, Oman, Qatar, Bahrain, Kuwait and Pakistan on Dubai time. Open to relocation to Australia and New Zealand, and to the right role elsewhere. Pakistani national, in the UAE since 2015."),
+            ("Full-time, fractional, or a project", "Three ways to work with me. A senior full-time role, which is what this page is mainly about. A fractional or part-time Head of IT retainer, for companies that need the judgement without the salary. Or a fixed-scope project: an ERP health check, an IT function review, an AI readiness review or a transformation roadmap. Whichever it is, fees or terms are agreed in writing before anything starts."),
+        ],
+        "related": [("Every skill, with the evidence for each", "skills.html"), ("Case studies: what I have actually built", "work/"), ("Experience since 2008", "index.html#experience"), ("Press kit: bios, headshot, fact sheet", "press.html"), ("Fractional or part-time Head of IT", "fractional-head-of-it-uae.html"), ("Questions people ask about me", "faq.html")],
+        "faq": [
+            ("Are you open to CIO or IT Director roles?", "Yes. I have not held either title, and I will not pretend otherwise. What I have is the scope: the entire IT function of a group across six sites in five countries since December 2015, reporting directly to the owner, with the budget and the vendor contracts. CXO DX recognised it as CIO of the Year 2023 and Excellence in CIO Leadership 2024. Judge the fit on the scope rather than the title."),
+            ("Would you take an IT Manager or Group IT Manager role?", "Yes. IT Manager was my own title at the group before it became Head of IT, and Group IT Manager is the closest description of what the job actually is across six sites. The title matters less to me than what is owned."),
+            ("Do you cover networking and infrastructure, or only ERP and AI?", "Both. Firewalls, site to site VPNs across five countries, endpoint protection, Ubuntu and Nginx, cloud across AWS, Google Cloud and DigitalOcean, PostgreSQL through eight major versions, backups and replication, and the connectivity for each new factory. The ERP and the AI sit on top of that platform, and I own the platform."),
+            ("Do you do ERP Manager or Odoo Manager roles?", "Yes. One Odoo instance for six sites in five countries, implemented and then owned: I write the specifications, review the builds and keep the extensions upgrade-safe. Before Odoo I spent two years building a custom ERP from scratch."),
+            ("Are you open to relocation?", "Yes, to Australia and New Zealand in particular, and to the right role elsewhere. I am based in Dubai now and can start a remote or hybrid arrangement while a move is organised."),
+            ("Are you available full-time, or only for consulting?", "Both. I am open to a senior full-time role, and separately I take fractional Head of IT retainers and fixed-scope projects. Consulting work is done outside my employer's hours or by arrangement, and never for a competitor of my employer."),
+            ("What kind of AI work do you actually do?", "Four kinds, all running in daily production. AI bots: a conversational sales agent on WhatsApp and the websites, and a multi-channel chat platform behind several numbers. AI calling: a voice AI agent on the corporate Grandstream telephony that answers real inbound calls. Agentic AI: goal-driven systems with a tool set, a stopping rule and guardrails, including an autonomous search and content agent that ships work hourly. Document AI: OCR and verification pipelines that write into the ERP. I design the pipeline, the validation and the review queue, direct the build, and own the result in production."),
+            ("Would you take a pure AI role rather than an IT leadership one?", "Yes. Head of AI, Head of AI and Automation, AI Lead, Agentic AI Lead, Conversational AI Lead, AI Solutions Architect or AI Transformation Lead all fit. The difference between me and most people applying for those titles is that mine have been running every day inside a business with real money and real customers, not in a pilot."),
+            ("What about smart home and building automation?", "The same work, in a different building. Access control, IP CCTV, biometric readers, telephony and machine sensors integrated into one system with rules and an audit trail is exactly what I run across six factory sites. If a role or project is about connected devices and automation rather than plastics, the skills transfer directly."),
+        ],
+    },
+    {
+        "slug": "khaqan-shaheen-cv",
+        "kind": "profile",
+        "title": "Khaqan Shaheen CV and resume: Head of IT in Dubai, ERP and AI leadership since 2008",
+        "h1": "Khaqan Shaheen: CV and career history",
+        "description": "The CV of Khaqan Shaheen, Head of IT in Dubai: career history since 2008, education and courses, four CXO DX awards, what he owns today across six sites in five countries, and the senior roles he is open to.",
+        "deployments_heading": "Career history",
+        "answer": "Khaqan Shaheen has worked in web and business systems since 2008 and has been Head of IT of Aalmir / MIR Plastic Industries in Sharjah and Dubai since December 2015, where he owns the entire IT function for a plastics manufacturing group across six sites in five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. Before that: Web Projects Manager and Webmaster for The City School Group in Lahore, Webmaster and Project Manager at Infobyte Solutions, and web and design delivery at All In One Technology in Abu Dhabi. Bachelor of Arts from the University of the Punjab, a PMP course in Abu Dhabi, and four CXO DX awards between 2023 and 2024. Based in Dubai, open to senior roles and to relocation.",
+        "deployments": [
+            "December 2015 to present. Head of IT, Aalmir / MIR Plastic Industries LLC, Sharjah and Dubai, United Arab Emirates. Owns the entire IT function for a plastics manufacturing group: six sites in five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo ERP implemented and owned across production, sales, inventory, procurement, accounting, HR and maintenance. PostgreSQL 9.5 to 16 across eight major versions with no unplanned downtime. Five AI systems in daily production. Networks, firewalls, site to site VPNs, identity, telephony, CCTV and access control. Vendor selection, negotiation and IT purchasing. The full IT setup from nothing whenever the group opens a new factory. The group's four brand websites and their search and paid marketing.",
+            "July 2012 to December 2015. Web Projects Manager and Webmaster, The City School Group Head Office, Lahore, Pakistan. Planned and delivered web projects and managed the web presence and social media for a national school network.",
+            "January 2012 to August 2012. Webmaster and Project Manager, Infobyte Solutions, Pakistan. Web delivery and project management for client work.",
+            "August 2009 to 2011. Web and design delivery, All In One Technology, Abu Dhabi, United Arab Emirates.",
+            "2008 to 2009. Web and graphic design roles, Lahore, Pakistan. Started as a web design intern in July 2008, then design and web roles at Lahore studios before moving to the UAE.",
+            "Alongside the day job: a small technology venture of his own, built end to end. The web application, the booking flow, the mobile and Wear OS watch apps, the customer messaging automation, the search and content systems, the analytics and the paid search. Most of the AI and automation work now running in the day job was built and broken there first.",
+        ],
+        "sections": [
+            ("Education and courses", "Bachelor of Arts, University of the Punjab, Lahore, 2009. Project Management Professional (PMP) course, Al Khawarizmi Institute, Abu Dhabi, 2010, 38 hours. iPhone 360 mobile development, SAE Institute Dubai, 2010. Diploma in Graphics Designing, Brains College, Lahore, 2008. Google Fundamentals of Digital Marketing, 2023."),
+            ("Awards and recognition", "Excellence in CIO Leadership, CXO DX Future Workspace Summit and Awards, Dubai, 2024. IT Leadership Excellence, CXO DX CIO Connect Summit and Awards, Dubai, 2024. Technology Transformer of the Year, CXO DX SME Tech Innovation Summit and Awards, Dubai, 2023. CIO of the Year, CXO DX Future Workspace Summit and Awards, Dubai, 2023."),
+            ("What the current role actually covers", "ERP: one Odoo instance for six sites in five countries, with custom development specified and kept upgrade-safe, 256 models, 1,187 custom fields and 686 access rules. Infrastructure: Ubuntu and Nginx on-premise and across AWS, Google Cloud and DigitalOcean, PostgreSQL through eight major versions, backups, point in time recovery, off-site replication and monitoring. Security and identity: Google Workspace single sign-on, two factor authentication, role based access, firewalls, site to site VPNs and endpoint protection across five countries. AI: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, a voice AI agent on Grandstream telephony, and one multi-channel chat platform, all in daily production. Devices: biometric attendance, geo-verified patrol, IP CCTV, access control and machine records integrated with the ERP. Web and marketing: four brand websites with their SEO, Google Ads and GA4 reporting."),
+            ("Languages and location", "English and Urdu. Pakistani national, based in Dubai, United Arab Emirates, and in the UAE since 2015. Available on-site across the UAE and remote across the GCC on Dubai time."),
+            ("What he is open to", "Senior full-time roles, from Head of IT and IT Manager through IT Director, Group IT Manager and CIO, and on the newer side Head of AI or Head of Digital and AI Transformation, in the UAE, the wider Gulf, or with relocation to Australia and New Zealand. Separately: fractional or part-time Head of IT retainers, and fixed-scope projects such as an ERP health check, an IT function review or an AI readiness review."),
+            ("References and evidence", "Every claim on this CV has a page behind it. The case studies describe what was built and what went wrong. The skills page gives each skill an honest ownership level with a link to the evidence. The press kit carries bios in three lengths, a headshot and a fact sheet. References are available on request."),
+        ],
+        "related": [("Senior IT roles: the full mapping", "senior-it-leadership-roles.html"), ("Every skill, with the evidence for each", "skills.html"), ("Eleven case studies", "work/"), ("Press kit: bios, headshot, fact sheet", "press.html"), ("Questions people ask about me", "faq.html"), ("Contact and booking", "booking.html")],
+        "faq": [
+            ("Can I download Khaqan Shaheen's CV or resume as a PDF?", "This page is the current CV, curriculum vitae and resume in one, and it is always the most up to date version, because it is built from the same evidence as the rest of the site. For a formatted copy, email a request and it will be sent the same working day. The press kit also carries bios in three lengths and a headshot."),
+            ("How many years of experience does he have?", "Since July 2008 in web and business systems, and since December 2015 owning an entire IT function. That is roughly eighteen years in technology and ten years in IT leadership."),
+            ("What is his current job title?", "Head of IT at Aalmir / MIR Plastic Industries LLC, Sharjah and Dubai. Before it was retitled, the same role was IT Manager, SEO, Digital Marketing and Webmaster, which is still the title on some external profiles."),
+            ("Is he available for interviews?", "Yes, for senior roles in the UAE, the GCC, or with relocation to Australia and New Zealand. Email a few lines about the role and he replies within one working day, Dubai time."),
+            ("What is his notice period?", "It depends on the role and is discussed at offer stage. For fractional or project work he can usually start within two weeks."),
         ],
     },
 ]
@@ -1477,7 +1576,7 @@ def build_landing():
         faq_html = "\n".join(f"<h3>{esc(f['q'])}</h3>\n<p>{esc(f['a'])}</p>" for f in faq)
         deployments = L.get("deployments") or []
         deploy_html = (
-            '<h2 id="deployments">Deployments</h2>\n<ol class="deployments">\n'
+            f'<h2 id="deployments">{esc(L.get("deployments_heading", "Deployments"))}</h2>\n<ol class="deployments">\n'
             + "\n".join(f"  <li>{esc(d)}</li>" for d in deployments)
             + "\n</ol>\n"
         ) if deployments else ""
@@ -1491,6 +1590,8 @@ def build_landing():
                 breadcrumb([("Home", f"{BASE}/"), (L["h1"], url)]),
             ],
         }
+        if L.get("roles"):
+            schema["@graph"].append(role_list(L, url))
         body = (
             f'<div class="breadcrumb"><a href="./">Home</a> / {esc(L["h1"])}</div>\n'
             f'<article class="article">\n<h1>{esc(L["h1"])}</h1>\n'
@@ -1590,7 +1691,8 @@ FAQ = [
     ("Does Khaqan Shaheen take part-time or fractional Head of IT work?", "Yes. A fractional engagement means ownership of a company's IT function on an agreed number of days a month, with a weekly cadence and a monthly review with the owner. It suits companies that need a head of IT's judgement without a full-time hire."),
     ("Does he work on-site or remotely?", "Both. On-site in Dubai, Sharjah and across the UAE, and remote for the wider Gulf, Pakistan and international companies. He works on Dubai time, GMT+4."),
     ("Does Khaqan Shaheen offer career advice or mentoring?", "Yes. One-to-one sessions for engineers moving into IT leadership, for IT professionals targeting leadership roles in the Gulf, and for beginners who want to get started with AI. He also teaches AI to people starting out."),
-    ("Is Khaqan Shaheen open to senior IT leadership roles?", "Yes. He considers full-time mandates as IT Director, Head of IT, or Head of Digital and AI Transformation, in the UAE and internationally, including relocation. The best fit is a manufacturing, distribution or family group that runs on an ERP and wants AI to do real work."),
+    ("Is Khaqan Shaheen open to senior IT leadership roles?", "Yes. Head of IT, IT Manager, Group IT Manager, IT Director, Head of Information Technology, CIO, ERP Manager, Digital Transformation Manager, Head of AI, IT Operations Manager and Infrastructure Manager all fit the work he does now. He is in Dubai, available across the GCC, and open to relocation, including Australia and New Zealand. The full mapping, with the evidence for each and a plain statement of which titles he has and has not held, is on the senior IT roles page."),
+    ("What is Khaqan Shaheen's background and CV?", "Working in web and business systems since 2008: web and graphic design in Lahore, web and design delivery in Abu Dhabi, Webmaster and Project Manager in Pakistan, Web Projects Manager and Webmaster for The City School Group in Lahore from 2012 to 2015, and Head of IT of Aalmir / MIR Plastic Industries in Sharjah and Dubai since December 2015. Bachelor of Arts from the University of the Punjab, a PMP course at Al Khawarizmi Institute in Abu Dhabi, iPhone development at SAE Institute Dubai, a diploma in graphics design, and Google Fundamentals of Digital Marketing. Four CXO DX awards between 2023 and 2024. The full CV is on the site."),
     ("Which industries does Khaqan Shaheen know?", "Manufacturing first: he has run IT for a plastics group since 2015. Before that, web projects for a national school network in Pakistan and web and design delivery for a technology company in Abu Dhabi. He has also built and run a consumer web platform of his own."),
     ("Which ERP does Khaqan Shaheen work with?", "Odoo. He implemented a single instance covering production, sales, inventory, procurement, accounting, HR and maintenance for six sites, and directs its custom development, including machine scheduling with overlap prevention. Before Odoo he spent two years building a custom ERP from scratch."),
     ("What AI systems has Khaqan Shaheen put into production?", "Five: document OCR that reads supplier bills and expense claims into the ERP, automated certificate and document verification, a 24 hour sales agent on WhatsApp and the web, an AI voice agent on Grandstream telephony, and one chat platform running several WhatsApp numbers and the group websites."),
