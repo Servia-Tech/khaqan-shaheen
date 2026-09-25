@@ -643,6 +643,25 @@ def offer_schema(name, price, url, description, per=None):
     return svc
 
 
+def landing_service(L, url):
+    """The Service a landing page offers. serviceType and alternateName let an engine match the
+    same role under the names clients actually search for (fractional CIO, part-time CIO)."""
+    svc = {
+        "@type": "Service",
+        "name": L["h1"],
+        "serviceType": L.get("serviceType", L["h1"]),
+        "description": L["description"],
+        "provider": {"@id": PERSON_ID},
+        "url": url,
+        "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "GCC, remote"}],
+        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "url": url,
+                   "description": "Fee quoted in writing by email within one working day"},
+    }
+    if L.get("aliases"):
+        svc["alternateName"] = L["aliases"]
+    return svc
+
+
 def product_card(p):
     gets = "\n".join(f"        <li>{esc(g)}</li>" for g in p["gets"])
     return (
@@ -778,6 +797,8 @@ def build_career():
 LANDING = [
     {
         "slug": "odoo-erp-consultant-dubai",
+        "serviceType": "Odoo ERP consulting",
+        "aliases": ["Odoo consultant", "Odoo ERP specialist", "Odoo implementation advisor"],
         "title": "Odoo ERP consultant in Dubai and the UAE | Khaqan Shaheen",
         "h1": "Odoo ERP consultant in Dubai and the UAE",
         "description": "Independent Odoo ERP consultant in Dubai who has run one Odoo instance across six sites in five countries. Selection, implementation oversight, customisation done safely, upgrades, health checks.",
@@ -807,6 +828,8 @@ LANDING = [
     },
     {
         "slug": "erp-consultant-uae-manufacturing",
+        "serviceType": "ERP consulting for manufacturers",
+        "aliases": ["Manufacturing ERP consultant", "ERP advisor for factories"],
         "title": "ERP consultant for manufacturers in the UAE: from manual to one ERP | Khaqan Shaheen",
         "h1": "ERP consultant for manufacturers in the UAE",
         "description": "ERP consulting for UAE and GCC manufacturers from someone who runs one ERP across six factories in five countries: selection, implementation oversight, machine scheduling, upgrades, and the move from spreadsheets to a system.",
@@ -835,6 +858,8 @@ LANDING = [
     },
     {
         "slug": "ai-automation-consultant-dubai",
+        "serviceType": "AI automation consulting",
+        "aliases": ["AI consultant", "Business process automation consultant", "AI implementation advisor"],
         "title": "AI automation for business operations in Dubai: OCR, agents, verification | Khaqan Shaheen",
         "h1": "AI automation for business operations in Dubai and the UAE",
         "description": "AI automation consultant in Dubai with five AI systems running in daily production: document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, and a multi-channel chat platform.",
@@ -865,6 +890,8 @@ LANDING = [
         "slug": "fractional-head-of-it-uae",
         "title": "Fractional Head of IT in the UAE: part-time IT leadership for growing companies | Khaqan Shaheen",
         "h1": "Fractional Head of IT in the UAE",
+        "serviceType": "Fractional IT leadership",
+        "aliases": ["Fractional CIO", "Part-time CIO", "Virtual CIO", "Interim Head of IT", "Interim IT director", "Part-time Head of IT"],
         "description": "Part-time, fractional Head of IT for UAE and GCC companies that need the judgement of an IT leader without a full-time hire: vendors, budget, security, the ERP roadmap and direction for developers, on an agreed number of days a month.",
         "answer": "Fractional Head of IT in Dubai and the UAE: the judgement and ownership of an IT leader on an agreed number of days a month instead of a full-time salary. I offer it to UAE and GCC companies from running the whole IT function of a plastics manufacturing group across six sites in five countries since December 2015, reporting directly to the owner, with Odoo ERP and AI in production.",
         "deployments": [
@@ -877,9 +904,10 @@ LANDING = [
         ],
         "sections": [
             ("Who needs one", "Companies of roughly 50 to 600 people with an IT support person or an outsourced provider but nobody who owns the function: nobody deciding what to buy, nobody accountable for backups and access, nobody directing the ERP roadmap, nobody translating between the owner and the vendors. Also companies between two full-time heads of IT, or preparing for one."),
+            ("Fractional CIO, part-time CIO, virtual CIO: one role, several names", "Companies in Dubai and the wider Gulf ask for this under different titles: fractional CIO, part-time CIO, virtual CIO, interim Head of IT, interim IT director. They all describe the same arrangement, one accountable technology leader on an agreed number of days a month instead of a full-time salary, and I take the work under whichever name your board uses. What separates it from advisory work is ownership: an advisor recommends, a fractional head decides, holds the vendors to it and answers for backups, access and the budget. I use Head of IT because that is the job I do full time, at a manufacturing group, rather than a title adopted for consulting."),
             ("What it covers", "Vendors, contracts and IT purchasing. Budget and priorities. Security, identity and backups that are actually tested. The ERP roadmap and direction for in-house or outsourced developers. AI projects chosen for payback. Hiring the full-time person when the time comes. A weekly cadence, a standing priority list, written decisions, and a monthly review with the owner or managing director."),
             ("What I bring", "Since December 2015 I have owned the IT function of a plastics manufacturing group: six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo ERP for the group, five AI systems in production, a PostgreSQL migration across eight major versions with no unplanned downtime, Google Workspace single sign-on across the group, and the IT for each new factory built from nothing."),
-            ("How it runs", "Two or four days a month, on-site in Dubai, Sharjah and across the UAE or remote for the wider Gulf. Work is done outside my employer's hours or by arrangement, and never for a competitor of my employer. Fees are quoted in writing before anything is paid, and the engagement can end with a month's notice."),
+            ("How it runs", "A monthly retainer of two or four days, booked in advance: on-site in Dubai, Sharjah and across the UAE, or remote for the wider Gulf. A short IT function review comes first, so the priority list reflects what is actually there rather than what the org chart says. Decisions are written down as they are made, so the company keeps them when the engagement ends. Work is done outside my employer's hours or by arrangement, and never for a competitor of my employer. Fees are quoted in writing before anything is paid, and the retainer can end with a month's notice on either side, with no lock-in beyond that."),
         ],
         "related": [("Service: fractional or part-time Head of IT", "services.html#fractional"), ("Case study: identity and access rebuild", "work/identity-and-access-rebuild.html"), ("Case study: PostgreSQL 9.5 to 16 with no unplanned downtime", "work/postgresql-9-5-to-16-migration.html"), ("Article: bringing a new factory online, the order of operations", "articles/bringing-a-new-factory-online-the-order-of-operations.html"), ("Skills, with the evidence for each", "skills.html")],
         "faq": [
@@ -887,10 +915,15 @@ LANDING = [
             ("How many days a month?", "Two days a month covers vendors, priorities and a monthly review. Four days adds hands-on direction of an ERP or AI project. More than that and you should hire a full-time head, and I will help you do it."),
             ("Can you start quickly?", "Usually within two weeks, with a short IT function review first so the priority list is based on what is actually there."),
             ("Do you work with companies outside the UAE?", "Yes, remotely, on Dubai time. Saudi Arabia, Oman, Qatar, Bahrain, Kuwait and Pakistan are the usual ones."),
+            ("Is a fractional CIO the same thing?", "In practice, yes. Fractional CIO, part-time CIO, virtual CIO and interim Head of IT all describe one accountable technology leader on an agreed number of days a month. If your board writes the role as CIO, the work is the same and so is the arrangement."),
+            ("What does it cost?", "A monthly fee set by the number of days, quoted in writing before anything is agreed, with the short IT function review priced separately. No lock-in beyond a month's notice on either side."),
+            ("Do you work with SMEs and family businesses in Dubai?", "Those are most of the enquiries. A growing Dubai SME or family group usually has support covered, by a technician or an outsourced provider, and ownership missing. That gap is what this fills, and it is cheaper to fill part-time than to hire for it too early."),
         ],
     },
     {
         "slug": "ai-search-visibility-audit",
+        "serviceType": "AI search visibility audit",
+        "aliases": ["AEO audit", "GEO audit", "Answer engine optimisation audit", "Generative engine optimisation audit"],
         "title": "AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site? | Khaqan Shaheen",
         "h1": "AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?",
         "description": "An AI search visibility audit checks whether AI answer engines can crawl, read and cite your website: robots rules for every AI crawler, llms.txt, structured data, answer-first content and rendering. Free tool plus a written audit service.",
@@ -917,6 +950,8 @@ LANDING = [
     },
     {
         "slug": "manual-to-erp-and-ai-automation",
+        "serviceType": "ERP and AI transformation roadmap",
+        "aliases": ["Digital transformation roadmap", "ERP readiness roadmap"],
         "title": "From manual and spreadsheets to an ERP with AI automation: the roadmap for UAE businesses | Khaqan Shaheen",
         "h1": "From manual and spreadsheets to an ERP with AI doing the repetitive work",
         "description": "How a UAE business moves from spreadsheets, WhatsApp and paper to one ERP with AI automation, in the order that does not break the company. From someone who has done it across six sites in five countries.",
@@ -1451,8 +1486,7 @@ def build_landing():
             "@graph": [
                 {"@type": "WebPage", "@id": url, "url": url, "name": L["h1"], "description": L["description"], "dateModified": TODAY,
                  "about": {"@id": PERSON_ID}, "author": person_ref(), "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]},
-                 "mainEntity": {"@type": "Service", "name": L["h1"], "description": L["description"], "provider": {"@id": PERSON_ID}, "url": url,
-                                 "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "GCC, remote"}]}},
+                 "mainEntity": landing_service(L, url)},
                 faq_schema(faq, url),
                 breadcrumb([("Home", f"{BASE}/"), (L["h1"], url)]),
             ],
