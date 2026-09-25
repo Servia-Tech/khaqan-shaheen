@@ -12,6 +12,7 @@ Outputs: work/, articles/, tutorials/, notes/, writing/, services.html, booking.
          skills.html, feed.xml, sitemap.xml, llms.txt, llms-full.txt
 """
 import datetime as dt
+import hashlib
 import html
 import json
 import pathlib
@@ -128,6 +129,47 @@ def word_count(md_text: str) -> int:
     return len(re.findall(r"\b\w+\b", md_text))
 
 
+# Search results cut a description off around 155-160 characters. The JSON-LD description stays
+# full; only the meta, og and twitter description is trimmed, and always on a word boundary.
+META_LIMIT = 160
+TRAILING_WORDS = {
+    "a", "an", "and", "are", "as", "at", "by", "each", "every", "for", "from", "in", "into", "is",
+    "its", "most", "of", "on", "or", "so", "such", "that", "the", "their", "to", "which", "who",
+    "with",
+}
+
+
+def meta_description(text: str, limit: int = META_LIMIT) -> str:
+    """Trim a description to search-result length: whole sentence if one fits, else a clean clause."""
+    text = " ".join(str(text).split())
+    if len(text) <= limit:
+        return text
+    head = text[:limit]
+    ends = [m.end() for m in re.finditer(r"[.!?](?=\s)", head)]
+    if ends and ends[-1] >= limit * 0.5:
+        return head[:ends[-1]]
+    marks = [m.start() for m in re.finditer(r"[,;:](?=\s)", head)]
+    if marks and marks[-1] >= limit * 0.7:
+        return head[:marks[-1]] + "…"
+    cut = head[:head.rfind(" ")]
+    while True:
+        cut = cut.rstrip(" ,;:–—-")
+        last = cut.rsplit(" ", 1)[-1].lower()
+        if " " not in cut or last not in TRAILING_WORDS:
+            break
+        cut = cut.rsplit(" ", 1)[0]
+    return cut + "…"
+
+
+def plain_text(md_text: str) -> str:
+    """Drop inline Markdown so schema text reads the way the rendered page does."""
+    md_text = re.sub(r"`([^`]*)`", r"\1", md_text)
+    md_text = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", md_text)
+    md_text = re.sub(r"\*\*([^*]+)\*\*", r"\1", md_text)
+    md_text = re.sub(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])", r"\1", md_text)
+    return md_text
+
+
 def extract_faq(sections):
     """Pull '## Common questions' (### question + answer) out into a list of dicts."""
     kept, faq = [], []
@@ -137,12 +179,12 @@ def extract_faq(sections):
             for line in b.splitlines():
                 if line.startswith("### "):
                     if q:
-                        faq.append({"q": q, "a": " ".join(ans).strip()})
+                        faq.append({"q": plain_text(q), "a": plain_text(" ".join(ans).strip())})
                     q, ans = line[4:].strip(), []
                 elif line.strip():
                     ans.append(line.strip())
             if q:
-                faq.append({"q": q, "a": " ".join(ans).strip()})
+                faq.append({"q": plain_text(q), "a": plain_text(" ".join(ans).strip())})
         kept.append((h, b))
     return kept, faq
 
@@ -302,7 +344,7 @@ def build_case_studies():
             f'<nav class="pager" aria-label="Case studies">{left}{right}</nav>\n</article>'
         )
         (ROOT / "work" / f'{p["slug"]}.html').write_text(
-            layout(title=f'{p["title"]} | Khaqan Shaheen', description=p["description"], url=p["url"], body=body, schema=schema, depth=1, og_type="article"),
+            layout(title=f'Case study: {p["title"]} | Khaqan Shaheen', description=meta_description(p["description"]), url=p["url"], body=body, schema=schema, depth=1, og_type="article"),
             encoding="utf-8",
         )
 
@@ -406,7 +448,7 @@ def build_content_type(kind):
         )
         extra = f'<meta property="article:published_time" content="{it["date"]}">\n<meta property="article:author" content="Khaqan Shaheen">\n'
         (out_dir / f'{it["slug"]}.html').write_text(
-            layout(title=f'{it["title"]} | Khaqan Shaheen', description=it["description"], url=it["url"], body=body, schema=schema, depth=1, og_type="article", extra_head=extra),
+            layout(title=f'{it["title"]} | Khaqan Shaheen', description=meta_description(it["description"]), url=it["url"], body=body, schema=schema, depth=1, og_type="article", extra_head=extra),
             encoding="utf-8",
         )
 
@@ -737,7 +779,7 @@ def build_services():
     )
     (ROOT / "services.html").write_text(
         layout(title="Services: SEO and AI audits, Google Ads design, Odoo health checks, IT reviews, fractional Head of IT | Khaqan Shaheen",
-               description="Fixed-scope services from Khaqan Shaheen, Head of IT in Dubai: AI visibility and SEO audits, new website surveys, Google Ads campaign design, marketing automation, app reviews, Odoo health checks, AI readiness reviews, new-site IT plans, IT function reviews, fractional Head of IT.",
+               description=meta_description("Fixed-scope services from Khaqan Shaheen, Head of IT in Dubai: AI visibility and SEO audits, new website surveys, Google Ads campaign design, marketing automation, app reviews, Odoo health checks, AI readiness reviews, new-site IT plans, IT function reviews, fractional Head of IT."),
                url=url, body=body, schema=schema, depth=0),
         encoding="utf-8",
     )
@@ -798,7 +840,7 @@ def build_career():
     )
     (ROOT / "career-advice.html").write_text(
         layout(title="Career advice and mentoring for IT professionals: live online sessions | Khaqan Shaheen",
-               description="Paid one-to-one sessions live on Google Meet with Khaqan Shaheen, Head of IT in Dubai: career strategy, CV and LinkedIn rebuild, interview preparation for IT leadership roles, engineer to Head of IT mentoring, AI for beginners. Book and pay in advance.",
+               description=meta_description("Paid one-to-one sessions live on Google Meet with Khaqan Shaheen, Head of IT in Dubai: career strategy, CV and LinkedIn rebuild, interview preparation for IT leadership roles, engineer to Head of IT mentoring, AI for beginners. Book and pay in advance."),
                url=url, body=body, schema=schema, depth=0),
         encoding="utf-8",
     )
@@ -1559,7 +1601,7 @@ def build_booking():
 
     (ROOT / "booking.html").write_text(
         layout(title="Book a session: availability calendar, Dubai time | Khaqan Shaheen",
-               description="Live availability for consulting and career sessions with Khaqan Shaheen, Head of IT in Dubai. Weekday evenings and weekends, Dubai time, a limited number of sessions a week, fee quoted in writing before anything is paid.",
+               description=meta_description("Live availability for consulting and career sessions with Khaqan Shaheen, Head of IT in Dubai. Weekday evenings and weekends, Dubai time, a limited number of sessions a week, fee quoted in writing before anything is paid."),
                url=url, body=body, schema=schema, depth=0),
         encoding="utf-8",
     )
@@ -1606,7 +1648,7 @@ def build_landing():
             '<nav class="pager" aria-label="More"><a href="services.html">&larr; All services</a><a href="faq.html">Questions about me &rarr;</a></nav>\n</article>'
         )
         (ROOT / f"{L['slug']}.html").write_text(
-            layout(title=L["title"], description=L["description"], url=url, body=body, schema=schema, depth=0),
+            layout(title=L["title"], description=meta_description(L["description"]), url=url, body=body, schema=schema, depth=0),
             encoding="utf-8",
         )
         urls.append((url, L["h1"]))
@@ -1614,11 +1656,15 @@ def build_landing():
 
 
 # --------------------------------------------------------------------------- glossary
-def build_glossary():
+def load_glossary():
     src = ROOT / "content" / "glossary.json"
-    if not src.exists():
+    return json.loads(src.read_text(encoding="utf-8")) if src.exists() else []
+
+
+def build_glossary():
+    terms = load_glossary()
+    if not terms:
         return []
-    terms = json.loads(src.read_text(encoding="utf-8"))
     by_slug = {t["slug"]: t for t in terms}
     out_dir = ROOT / "glossary"
     out_dir.mkdir(exist_ok=True)
@@ -1652,7 +1698,7 @@ def build_glossary():
             + '<nav class="pager" aria-label="More"><a href="./">&larr; All terms</a><a href="../services.html">Work with me &rarr;</a></nav>\n</article>'
         )
         (out_dir / f"{t['slug']}.html").write_text(
-            layout(title=f"What is {t['term']}? | Glossary | Khaqan Shaheen", description=t["short"], url=url, body=body, schema=schema, depth=1, og_type="article"),
+            layout(title=f"What is {t['term']}? | Glossary | Khaqan Shaheen", description=meta_description(t["short"]), url=url, body=body, schema=schema, depth=1, og_type="article"),
             encoding="utf-8",
         )
         urls.append((url, t["term"]))
@@ -1728,7 +1774,7 @@ def build_faq():
     )
     (ROOT / "faq.html").write_text(
         layout(title="Questions about Khaqan Shaheen: consulting, roles, ERP, AI, contact",
-               description="Who Khaqan Shaheen is, what he specialises in, whether he is available for consulting, fractional Head of IT work, mentoring or senior roles, and how to contact him.",
+               description=meta_description("Who Khaqan Shaheen is, what he specialises in, whether he is available for consulting, fractional Head of IT work, mentoring or senior roles, and how to contact him."),
                url=url, body=body, schema=schema, depth=0),
         encoding="utf-8",
     )
@@ -1835,7 +1881,7 @@ def build_skills():
     )
     (ROOT / "skills.html").write_text(
         layout(title="Skills and abilities: ERP, AI in production, infrastructure, security, leadership | Khaqan Shaheen",
-               description="Every skill Khaqan Shaheen uses in production: Odoo ERP, AI document OCR and agents, PostgreSQL, Linux, cloud, single sign-on, telephony, new-site IT, and running an IT function.",
+               description=meta_description("Every skill Khaqan Shaheen uses in production: Odoo ERP, AI document OCR and agents, PostgreSQL, Linux, cloud, single sign-on, telephony, new-site IT, and running an IT function."),
                url=url, body=body, schema=schema, depth=0),
         encoding="utf-8",
     )
@@ -1874,6 +1920,45 @@ def build_feed(items):
         f"{entries}\n</channel>\n</rss>\n"
     )
     (ROOT / "feed.xml").write_text(feed, encoding="utf-8")
+
+
+LASTMOD_FILE = ROOT / "data" / "lastmod.json"
+
+
+def page_file(url: str):
+    """The generated file behind a sitemap URL, or None if there is not one."""
+    path = url[len(BASE) + 1:]
+    if path == "" or path.endswith("/"):
+        path += "index.html"
+    p = ROOT / path
+    return p if p.exists() else None
+
+
+def resolve_lastmod(urls):
+    """Stamp lastmod with the date a page's content last changed, not the date of the build.
+
+    Pages with a real date in the source (front matter, privacy) keep it. For the rest the page is
+    fingerprinted with the build stamp removed, and the stored date is only moved on when the
+    fingerprint moves. Run this after every pass that rewrites HTML.
+    """
+    state = json.loads(LASTMOD_FILE.read_text(encoding="utf-8")) if LASTMOD_FILE.exists() else {}
+    out, now = [], {}
+    for u, pr, fixed in urls:
+        if fixed:
+            out.append((u, pr, fixed))
+            continue
+        f = page_file(u)
+        if f is None:
+            out.append((u, pr, TODAY))
+            continue
+        digest = hashlib.sha256(f.read_text(encoding="utf-8").replace(TODAY, "").encode("utf-8")).hexdigest()[:16]
+        prev = state.get(u) or {}
+        lm = prev.get("lastmod") if prev.get("hash") == digest and prev.get("lastmod") else TODAY
+        now[u] = {"hash": digest, "lastmod": lm}
+        out.append((u, pr, lm))
+    LASTMOD_FILE.parent.mkdir(exist_ok=True)
+    LASTMOD_FILE.write_text(json.dumps(now, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    return out
 
 
 def build_sitemap(urls):
@@ -1953,27 +2038,42 @@ def build_llms(case_pages, groups):
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
 
     full = ["# Khaqan Shaheen: full text", "", f"Generated {TODAY}. Source: {BASE}/", ""]
-    full += ["## Questions people ask", ""] + [f"### {q}\n\n{a}\n" for q, a in FAQ]
-    full += ["## Services (fixed scope, fee quoted by email, paid in advance)", ""]
+    full += ["## Questions people ask", "", f"Source: {BASE}/faq.html", ""] + [f"### {q}\n\n{a}\n" for q, a in FAQ]
+    full += ["## Services (fixed scope, fee quoted by email, paid in advance)", "", f"Source: {BASE}/services.html", ""]
     for p in PRODUCTS:
         head = f"### {p['name']}: AED {p['price']:,}, {p['turnaround']}" if SHOW_PRICES else f"### {p['name']} ({p['turnaround']}, fee on request)"
         full += [head, "", p["tagline"], ""] + [f"- {g}" for g in p["gets"]] + [""]
     for r in RETAINED:
         full += [f"### {r['name']}" + (f": {r['price_text']}" if SHOW_PRICES else ""), "", r["lead"], ""] + [f"- {i}" for i in r["items"]] + [""]
-    full += ["## Career advice and mentoring (live online sessions, fee quoted by email, paid in advance)", ""]
+    full += ["## Career advice and mentoring (live online sessions, fee quoted by email, paid in advance)", "", f"Source: {BASE}/career-advice.html", ""]
     for s in SESSIONS:
         per = f" per {s['per']}" if s.get("per") else ""
         full += [f"### {s['name']}" + (f": AED {s['price']:,}{per}" if SHOW_PRICES else "") + f", {s['length']}", "", f"For: {s['for']}", ""] + [f"- {g}" for g in s["gets"]] + [""]
-    full += ["## Skills", ""]
+    full += ["## Skills", "", f"Source: {BASE}/skills.html", ""]
     for cat, items in SKILLS:
         full += [f"### {cat}", ""] + [f"- {n} ({lvl}): {d}" for n, lvl, d, _ in items] + [""]
+    full += ["## What I help with", ""]
+    for L in LANDING:
+        full += [f"# {L['h1']}", "", f"Source: {BASE}/{L['slug']}.html", "", L["answer"], ""]
+        if L.get("deployments"):
+            full += [f"## {L.get('deployments_heading', 'Deployments')}", ""]
+            full += [f"- {d}" for d in L["deployments"]] + [""]
+        for h, t in L["sections"]:
+            full += [f"## {h}", "", t, ""]
+        if L.get("faq"):
+            full += ["## Questions people ask", ""] + [f"### {q}\n\n{a}\n" for q, a in L["faq"]]
     full += ["## Case studies", ""]
     for p in case_pages:
         full += [f"# {p['title']}", "", f"Source: {p['url']}", "", p["md"], ""]
     for kind, items in groups.items():
         full += [f"## {TYPES[kind]['label']}", ""]
         for it in items:
-            full += [f"# {it['title']}", "", f"Source: {it['url']}. Published {it['date']}.", "", it["md"], ""]
+            full += [f"# {it['title']}", "", f"Source: {it['url']}", f"Published: {it['date']}", "", it["md"], ""]
+    terms = load_glossary()
+    if terms:
+        full += ["## Glossary", "", f"Source: {BASE}/glossary/", ""]
+        for t in terms:
+            full += [f"# What is {t['term']}?", "", f"Source: {BASE}/glossary/{t['slug']}.html", "", t["short"], "", t["long"], ""]
     (ROOT / "llms-full.txt").write_text("\n".join(full), encoding="utf-8")
 
 
@@ -2052,24 +2152,26 @@ def build():
 
     all_items = sorted([it for items in groups.values() for it in items], key=lambda x: (x["date"], x["title"]), reverse=True)
     build_feed(all_items)
+    # (url, priority, lastmod): a date here is one the source states, None means derive it from
+    # the page content in resolve_lastmod() once every pass that rewrites HTML has run.
     urls = [
-        (f"{BASE}/", "1.0", TODAY), (f"{BASE}/services.html", "0.9", TODAY), (f"{BASE}/career-advice.html", "0.9", TODAY), (f"{BASE}/booking.html", "0.9", TODAY), (f"{BASE}/faq.html", "0.9", TODAY),
-        (f"{BASE}/skills.html", "0.8", TODAY), (f"{BASE}/press.html", "0.7", TODAY), (f"{BASE}/work/", "0.8", TODAY),
-        (f"{BASE}/writing/", "0.8", TODAY),
+        (f"{BASE}/", "1.0", None), (f"{BASE}/services.html", "0.9", None), (f"{BASE}/career-advice.html", "0.9", None), (f"{BASE}/booking.html", "0.9", None), (f"{BASE}/faq.html", "0.9", None),
+        (f"{BASE}/skills.html", "0.8", None), (f"{BASE}/press.html", "0.7", None), (f"{BASE}/work/", "0.8", None),
+        (f"{BASE}/writing/", "0.8", None),
     ]
-    urls += [(u, "0.9", TODAY) for u, _ in LANDING_URLS]
+    urls += [(u, "0.9", None) for u, _ in LANDING_URLS]
     if GLOSSARY_URLS:
-        urls.append((f"{BASE}/glossary/", "0.7", TODAY))
-        urls += [(u, "0.6", TODAY) for u, _ in GLOSSARY_URLS]
-    urls += [(p["url"], "0.8", TODAY) for p in case_pages]
+        urls.append((f"{BASE}/glossary/", "0.7", None))
+        urls += [(u, "0.6", None) for u, _ in GLOSSARY_URLS]
+    urls += [(p["url"], "0.8", None) for p in case_pages]
     for kind, items in groups.items():
-        urls.append((f"{BASE}/{TYPES[kind]['dir']}/", "0.7", TODAY))
+        urls.append((f"{BASE}/{TYPES[kind]['dir']}/", "0.7", None))
         urls += [(it["url"], "0.7", it["modified"]) for it in items]
     urls.append((f"{BASE}/privacy.html", "0.2", "2026-09-09"))
-    build_sitemap(urls)
     build_llms(case_pages, groups)
     normalise_contact()
     install_analytics()
+    build_sitemap(resolve_lastmod(urls))
     counts = {k: len(v) for k, v in groups.items()}
     print(f"built {len(case_pages)} case studies, {counts}, services, booking, faq, skills, feed, sitemap ({len(urls)} URLs), llms.txt, llms-full.txt")
 

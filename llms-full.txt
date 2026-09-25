@@ -4,6 +4,8 @@ Generated 2026-09-26. Source: https://khaqanshaheen.com/
 
 ## Questions people ask
 
+Source: https://khaqanshaheen.com/faq.html
+
 ### What is Khaqan Shaheen's speciality?
 
 Moving a business from manual, spreadsheet and paper operations to one ERP with AI doing the repetitive work. He has done it for a manufacturing group across six sites in five countries on Odoo, and put five AI systems into daily production on top of it: document OCR, document verification, a WhatsApp and web sales agent, a voice agent on the telephony and a multi-channel chat platform.
@@ -97,6 +99,8 @@ Through the contact section of his site at https://khaqanshaheen.com/#contact, b
 Every case study has an evidence section that says what the claim rests on, and none of them carries a number he cannot show how he measured. Where a figure would normally sit, the site uses scope: six sites, five countries, around 150 users, eight database major versions, no unplanned downtime at any site.
 
 ## Services (fixed scope, fee quoted by email, paid in advance)
+
+Source: https://khaqanshaheen.com/services.html
 
 ### Manual to automated: ERP and AI transformation roadmap (7 working days, fee on request)
 
@@ -226,6 +230,8 @@ I consider full-time roles as IT Director, Head of IT, or Head of Digital and AI
 
 ## Career advice and mentoring (live online sessions, fee quoted by email, paid in advance)
 
+Source: https://khaqanshaheen.com/career-advice.html
+
 ### Career strategy call, 45 minutes, live on Google Meet
 
 For: Anyone in IT who wants a straight answer about their next move.
@@ -275,6 +281,8 @@ For: Teams or friends who want to learn together at a lower price per head.
 - A recording of each session
 
 ## Skills
+
+Source: https://khaqanshaheen.com/skills.html
 
 ### ERP and business systems
 
@@ -344,6 +352,481 @@ For: Teams or friends who want to learn together at a lower price per head.
 - Standardising across sites (Owns): Persuading six sites that a group standard is worth what they give up.
 - Project management (Hands-on): Project Management Professional (PMP) course, Al Khawarizmi Institute, Abu Dhabi, 2010 (38 hours), applied since on every rollout.
 - Web project management (Owns): Web Projects Manager and Webmaster for a national school network, 2012 to 2015.
+
+## What I help with
+
+# Odoo ERP consultant in Dubai and the UAE
+
+Source: https://khaqanshaheen.com/odoo-erp-consultant-dubai.html
+
+Odoo ERP consultant in Dubai for manufacturing, and Head of IT of a UAE plastics group that runs on Odoo. I am independent, not a reseller. I implemented one Odoo ERP for six sites in five countries and I direct its custom development. I help UAE and GCC companies choose Odoo, get a stalled rollout moving, customise it without breaking upgrades, and check the health of what they already have.
+
+## Deployments
+
+- One Odoo ERP across six sites in five countries and around 150 users: production, sales, inventory, procurement, accounting, HR and maintenance on one set of records, so every site closes its month from the same data.
+- PostgreSQL 9.5 to 16 under the live ERP, eight major versions, with no unplanned downtime at any site.
+- Custom Odoo development to my specification and kept upgradable: 256 models, 1,187 custom fields and 686 access rules, including machine scheduling that refuses to book two work orders on the same machine at the same time.
+- Five AI systems on top of the ERP in daily production: document OCR that reads supplier bills into Odoo, automated document verification, a WhatsApp and web sales agent that writes leads into the CRM, an AI voice agent on Grandstream telephony, and one chat platform for several WhatsApp numbers and the websites.
+- Biometric attendance across sites and a geo-verified security patrol application, both delivered as mobile apps integrated with the ERP.
+
+## What to prepare for the first ERP review
+
+Bring one real order-to-cash example, a stock adjustment, a supplier bill and the steps used to close the month. Redact customer and employee details. List the modules, integrations and customisations you depend on, plus the decision you need to make. An initial review should produce a prioritised issue list, the evidence still needed, and a recommended next step with an owner.
+
+## Choosing between a health check, rollout and fractional leadership
+
+A health check fits a running system whose figures or workflows no longer agree. Implementation oversight fits a defined rollout that needs scope, acceptance tests and coordination with the delivery partner. Fractional IT leadership fits an ongoing ownership gap across ERP, infrastructure, vendors and business priorities. Start with the smallest engagement that can answer the business decision; scope and fees are agreed in writing.
+
+## Who this is for
+
+Manufacturers, distributors, trading companies and family groups in the UAE and GCC that run Odoo or are deciding whether to. Typically 50 to 600 people, one or several sites, an owner or managing director who wants the month to close from one set of records.
+
+## What I have actually done with Odoo
+
+One instance covering production, sales, inventory, procurement, accounting, HR and maintenance for six sites in five countries and around 150 users. Machine scheduling with overlap prevention, batch and barcode control, approval workflows and role-specific dashboards, all built to my specification and kept upgradable. The database underneath it moved from PostgreSQL 9.5 to 16 with no unplanned downtime at any site. Five AI systems sit on top of it in daily production, from document OCR to a WhatsApp sales agent that creates leads in the CRM.
+
+## What an Odoo consultant should do for you
+
+Tell you what to leave standard and what to customise, and why. Write the specification developers build from, so that what arrives is what the business needs. Keep an eye on upgrade risk, because heavily modified Odoo is how companies get stranded on an old version. Check backups, access control and the audit trail, which most implementations skip. And explain all of it to the owner in plain language.
+
+## How I work
+
+Remote across the GCC or on-site in Dubai, Sharjah and the other emirates. A one-hour consultation call for a specific decision, a two-day health check of an existing Odoo, implementation oversight through go-live, or a roadmap for a business moving from spreadsheets to Odoo with AI doing the repetitive work. I do not sell licences and I am not paid by any Odoo partner, so the advice is only about what works for you. Fees are quoted in writing before anything is paid.
+
+## Questions people ask
+
+### Are you an official Odoo partner?
+
+No. I am an independent consultant who has run Odoo as the customer for a multi-site group. I do not sell licences or implementation hours for a partner, which means my advice about which partner to hire, or whether to hire one, is not tied to anyone's commission.
+
+### Which Odoo versions do you work with?
+
+Current supported versions, and the older ones companies are usually stuck on. Much of the work is getting a customised older version to a supported one without losing what the business relies on.
+
+### Can you help if our Odoo rollout has stalled?
+
+Yes. That is one of the most common calls. The usual causes are a specification nobody wrote down, customisation that outran the budget, and data nobody cleaned. A health check finds which of the three you have and what to do first.
+
+### Do you work outside Dubai?
+
+Yes. On-site across the UAE, and remote for Saudi Arabia, Oman, Qatar, Bahrain, Kuwait, Pakistan and further afield, on Dubai time.
+
+# ERP consultant for manufacturers in the UAE
+
+Source: https://khaqanshaheen.com/erp-consultant-uae-manufacturing.html
+
+ERP consultant for manufacturers in the UAE, and Head of IT in Dubai with Odoo ERP and AI in production. I advise from the customer's side of the table: I run one ERP for a plastics group across six sites in five countries, and I have done the move from spreadsheets and paper to a single system every site closes its month on. Selection, implementation oversight, manufacturing modules and upgrades are the usual work.
+
+## Deployments
+
+- One Odoo ERP for six sites in five countries and around 150 users, covering production, sales, inventory, procurement, accounting, HR and maintenance, rolled out site by site.
+- Machine scheduling built into the ERP: work orders on named machines with capacity type and shift, calculated end dates, and a server-side block on booking two orders on the same machine at the same time.
+- PostgreSQL 9.5 to 16 under the live system, eight major versions, with no unplanned downtime at any site.
+- Custom development directed and kept upgradable: 256 models, 1,187 custom fields and 686 access rules, plus barcode batch labels and an Android ERP client on the shop floor.
+- Five AI systems in daily production on top of the ERP: document OCR, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.
+- Biometric attendance across sites and a geo-verified security patrol application, both integrated with the ERP.
+
+## The manufacturing problems an ERP has to solve
+
+Work orders on named machines with real capacity and shifts, and a hard block on booking two orders on the same machine at the same time. Batch issue and validation, barcodes and labels on the floor. The path from enquiry to manufacturing order to delivery. Purchasing and vendor bills with an approval trail. And the finance close, from the same records the plant uses, without a spreadsheet in between.
+
+## Extend or replace
+
+The decision that matters most is whether to extend the ERP you have or buy a second system for manufacturing and maintain an interface forever. I extended one platform for six sites, built the manufacturing modules the standard package did not reach to my specification, and kept them upgradable. I can tell you when that is right and when it is not.
+
+## What I have run
+
+Six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo instance for production, sales, inventory, procurement, accounting, HR and maintenance. The full IT setup, from nothing, each time the group opened a new factory. PostgreSQL 9.5 to 16 underneath it all with no unplanned downtime at any site.
+
+## How an engagement runs
+
+A process map of how the plant actually runs, from the people who run it. A written scope: what to standardise, what to customise, what to leave alone. Vendor and partner selection with the questions to ask. Oversight through go-live and the first month-end. On-site in the UAE or remote across the GCC. Fees are quoted in writing before anything is paid.
+
+## Questions people ask
+
+### Which ERP do you recommend for a UAE manufacturer?
+
+It depends on size, product mix and budget. I run Odoo and know it deeply, and I have seen where it fits and where it does not. For many 50 to 600 person manufacturers it is the right answer; for some it is not, and I will say so.
+
+### We run the factory on spreadsheets. Where do we start?
+
+With a process map and one clean master data set: products, machines, customers, suppliers. Then one site and one function at a time, not a single switch-over. The roadmap service on this site is built for exactly this situation.
+
+### Can you handle the finance side as well as the plant?
+
+The ERP has to do both from the same records or it fails the month-end test. I work with your finance lead on the close, the approval trail and the audit requirements, and with the plant on scheduling and stock.
+
+### Do you do the implementation yourself?
+
+I direct it. I write the specification, choose and manage the partner or developers, and check what they deliver. That is how the six-site rollout was done.
+
+# AI automation for business operations in Dubai and the UAE
+
+Source: https://khaqanshaheen.com/ai-automation-consultant-dubai.html
+
+AI automation consultant in Dubai with five AI systems in daily production, not pilots. I am Head of IT of a UAE plastics manufacturing group, where systems of my design run every day: document OCR that reads supplier bills into the ERP, automated document verification, a 24 hour sales agent on WhatsApp and the web, a voice agent on the corporate telephony, and one chat platform for every channel. I help UAE companies pick the first process and design a pipeline that survives daily use.
+
+## Deployments
+
+- Document OCR into the ERP: supplier bills and expense claims read by vision-capable models and created as records in Odoo for a person to approve. Finance stopped retyping invoices.
+- Automated certificate and document verification that runs every time, leaves a record, and flags rather than decides.
+- A 24 hour AI sales agent on WhatsApp and the group websites that answers, qualifies and creates the lead in the Odoo CRM pipeline.
+- An AI voice agent on Grandstream telephony, built on a phone platform inside my own IT estate rather than a third-party cloud.
+- One AI chat platform running several WhatsApp numbers and the websites from a single place, so adding a brand is configuration rather than a project.
+- Underneath all five: one Odoo ERP across six sites in five countries, on PostgreSQL 9.5 to 16 with no unplanned downtime, with biometric attendance and geo-verified patrol integrated with the same ERP.
+
+## What I build: AI bots, AI calling, agentic AI and document AI
+
+Four kinds of system, all in daily production. AI bots: conversational agents on WhatsApp and websites that answer, qualify and write the lead straight into the CRM, plus one chat platform running several numbers and brands from a single place. AI calling systems: a voice AI agent that answers real inbound calls on Grandstream telephony, hosted inside the company's own estate rather than a third-party cloud, so the call recordings and the customer data stay put. Agentic AI: goal-driven systems that pick the next step from a small tool set, with a catalogue they cannot contradict, a hand-off rule for anything about money, and an agreed stopping rule. Document AI: vision-capable models reading supplier bills, expense claims and certificates into the ERP with strict JSON and a human review queue. If you are looking for an AI chatbot, an AI calling agent or an agentic workflow, these are the same four patterns under different names.
+
+## Where AI pays back first
+
+Repetitive work with a paper trail: supplier bills and expense claims typed into the system, documents checked by eye, enquiries answered at midnight, calls that only need a fact. Those are the processes where a model plus a validation layer removes hours without removing control. Strategy decks and chatbots on the home page are not where it pays back.
+
+## The design that survives production
+
+Capture, extraction with a vision-capable model returning strict JSON, validation rules that reject anything that does not add up, a confidence threshold, a human review queue for everything below it, idempotency so the same bill cannot post twice, an audit log, and a way to measure accuracy honestly every month. Agents get a small set of tools, a catalogue they cannot contradict, and a hand-off rule for anything about money or complaints. Every agent I run creates records for a person to check; none of them post or pay.
+
+## What I have run
+
+Document OCR into the ERP in daily production. Automated certificate and document verification. A WhatsApp and web sales agent that qualifies enquiries into the CRM. An AI voice agent on Grandstream telephony. One chat platform running several WhatsApp numbers and the group websites. Plus, on my own venture, an autonomous search and content agent that ships work hourly inside guardrails I set.
+
+## How an engagement runs
+
+An AI readiness review picks the processes worth automating and designs the pipeline, the validation rules and the measurement. Then design oversight through build and the first month in production, with a switch-off rule agreed up front. Remote across the GCC or on-site in the UAE. Fees are quoted in writing before anything is paid.
+
+## Questions people ask
+
+### Which AI models do you use?
+
+Vision-capable models such as Gemini and Claude for document work, and current language models for agents, chosen per task on accuracy and cost. The model is the least important part of the design; the validation rules and the review queue are what make it safe.
+
+### Will AI replace our accounts or sales staff?
+
+No. It removes the typing and the waiting. A person still approves every bill and takes over every conversation about money. The staff spend their time on exceptions and customers instead of data entry.
+
+### What does a first project look like?
+
+Usually supplier bills or expense claims into the ERP, because the paper trail makes accuracy measurable. Four to eight weeks from review to the first month in production, with a labelled sample re-checked monthly.
+
+### Do you build agentic AI, or just chatbots?
+
+Both, and the difference matters. A chatbot answers; an agent decides and acts. The agents I run pick the next step from a small tool set, write records into the ERP or CRM, hand off to a person for anything about money or a complaint, and stop when a rule says stop. On my own venture an autonomous search and content agent ships work hourly inside guardrails I set. Agentic AI without a stopping rule, an audit log and a human review queue is not a system, it is a liability.
+
+### Can you build an AI calling system for our phones?
+
+Yes, and I run one. A voice AI agent on Grandstream telephony that answers inbound calls, handles what it can from a catalogue it cannot contradict, and hands the rest to a person. It sits inside the company's own telephony estate, which keeps call data in your control and avoids per-minute pricing from a third-party voice cloud. The same pattern works on other SIP platforms.
+
+### Can you work with our existing ERP?
+
+Yes. The pipeline writes into the ERP through its API. I run this on Odoo and the pattern is the same for other systems with an API.
+
+# Fractional Head of IT in the UAE
+
+Source: https://khaqanshaheen.com/fractional-head-of-it-uae.html
+
+Fractional Head of IT in Dubai and the UAE: the judgement and ownership of an IT leader on an agreed number of days a month instead of a full-time salary. I offer it to UAE and GCC companies from running the whole IT function of a plastics manufacturing group across six sites in five countries since December 2015, reporting directly to the owner, with Odoo ERP and AI in production.
+
+## Deployments
+
+- The whole IT function of a manufacturing group since December 2015: six sites, five countries, around 150 users, a team of six plus outsourced developers, the IT budget and every vendor contract.
+- One Odoo ERP for the group, implemented and its custom development directed: 256 models, 1,187 custom fields and 686 access rules, kept upgradable.
+- PostgreSQL 9.5 to 16 with no unplanned downtime at any site, with automated backups, point in time recovery, off-site replication and monitoring built around it.
+- Five AI systems in daily production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.
+- Google Workspace single sign-on, two factor authentication and role based access across the group, and one security standard across five countries.
+- Biometric attendance and a geo-verified security patrol application integrated with the ERP, and the complete IT setup for each new factory the group has opened.
+
+## Who needs one
+
+Companies of roughly 50 to 600 people with an IT support person or an outsourced provider but nobody who owns the function: nobody deciding what to buy, nobody accountable for backups and access, nobody directing the ERP roadmap, nobody translating between the owner and the vendors. Also companies between two full-time heads of IT, or preparing for one.
+
+## Fractional CIO, part-time CIO, virtual CIO: one role, several names
+
+Companies in Dubai and the wider Gulf ask for this under different titles: fractional CIO, part-time CIO, virtual CIO, interim Head of IT, interim IT director. They all describe the same arrangement, one accountable technology leader on an agreed number of days a month instead of a full-time salary, and I take the work under whichever name your board uses. What separates it from advisory work is ownership: an advisor recommends, a fractional head decides, holds the vendors to it and answers for backups, access and the budget. I use Head of IT because that is the job I do full time, at a manufacturing group, rather than a title adopted for consulting.
+
+## What it covers
+
+Vendors, contracts and IT purchasing. Budget and priorities. Security, identity and backups that are actually tested. The ERP roadmap and direction for in-house or outsourced developers. AI projects chosen for payback. Hiring the full-time person when the time comes. A weekly cadence, a standing priority list, written decisions, and a monthly review with the owner or managing director.
+
+## What I bring
+
+Since December 2015 I have owned the IT function of a plastics manufacturing group: six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo ERP for the group, five AI systems in production, a PostgreSQL migration across eight major versions with no unplanned downtime, Google Workspace single sign-on across the group, and the IT for each new factory built from nothing.
+
+## How it runs
+
+A monthly retainer of two or four days, booked in advance: on-site in Dubai, Sharjah and across the UAE, or remote for the wider Gulf. A short IT function review comes first, so the priority list reflects what is actually there rather than what the org chart says. Decisions are written down as they are made, so the company keeps them when the engagement ends. Work is done outside my employer's hours or by arrangement, and never for a competitor of my employer. Fees are quoted in writing before anything is paid, and the retainer can end with a month's notice on either side, with no lock-in beyond that.
+
+## Questions people ask
+
+### How is a fractional Head of IT different from an outsourced IT provider?
+
+The provider does the work: tickets, servers, licences. The fractional head decides what work should be done, holds the provider to it, and answers to the owner for the result. Most companies need both.
+
+### How many days a month?
+
+Two days a month covers vendors, priorities and a monthly review. Four days adds hands-on direction of an ERP or AI project. More than that and you should hire a full-time head, and I will help you do it.
+
+### Can you start quickly?
+
+Usually within two weeks, with a short IT function review first so the priority list is based on what is actually there.
+
+### Do you work with companies outside the UAE?
+
+Yes, remotely, on Dubai time. Saudi Arabia, Oman, Qatar, Bahrain, Kuwait and Pakistan are the usual ones.
+
+### Is a fractional CIO the same thing?
+
+In practice, yes. Fractional CIO, part-time CIO, virtual CIO and interim Head of IT all describe one accountable technology leader on an agreed number of days a month. If your board writes the role as CIO, the work is the same and so is the arrangement.
+
+### What does it cost?
+
+A monthly fee set by the number of days, quoted in writing before anything is agreed, with the short IT function review priced separately. No lock-in beyond a month's notice on either side.
+
+### Do you work with SMEs and family businesses in Dubai?
+
+Those are most of the enquiries. A growing Dubai SME or family group usually has support covered, by a technician or an outsourced provider, and ownership missing. That gap is what this fills, and it is cheaper to fill part-time than to hire for it too early.
+
+# AI search visibility audit: can ChatGPT, Perplexity and Google AI Overviews cite your site?
+
+Source: https://khaqanshaheen.com/ai-search-visibility-audit.html
+
+AI search visibility audit for a website in Dubai, the UAE or anywhere else. It answers one question: when someone asks ChatGPT, Perplexity, Claude, Gemini or Google AI Overviews about what you do, can they reach your site, read it and cite it? Most sites fail on something simple, such as a firewall blocking the crawler or content that only exists after JavaScript runs. I built a free open-source tool that checks this in one command, and I offer a written audit with the fixes in priority order.
+
+## Deployments
+
+- ai-visibility-audit: one Python file with no dependencies that scores a site across SEO, AEO, GEO, AIO and SXO, lists the fixes by points lost, and runs as a GitHub Action. Open source on GitHub.
+- The same five-layer audit runs every morning on the websites I own, and this site is built on its findings: llms.txt, llms-full.txt, Person, Service and FAQ schema, and answer-first pages.
+- The day job behind the advice: Head of IT of a UAE plastics manufacturing group, one Odoo ERP across six sites in five countries, PostgreSQL 9.5 to 16 with no unplanned downtime, and five AI systems in daily production (document OCR, document verification, a WhatsApp and web sales agent, a voice agent on Grandstream telephony, one multi-channel chat platform).
+- Four brand websites for that group, with their search and paid campaigns, owned since 2015.
+
+## What gets checked
+
+Five layers. SEO: the basics search engines still need. AEO, answer engine optimisation: FAQ and question-led structure, answer-first paragraphs, lists and tables. GEO, generative engine optimisation: robots.txt rules for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and the rest, whether the firewall blocks them, llms.txt, content readable without JavaScript, entity schema. AIO: Google AI Overviews and Gemini readiness, valid JSON-LD, dates, authors, Open Graph. SXO: speed and rendering.
+
+## The free tool
+
+ai-visibility-audit is one Python file with no dependencies. Run it against any site and it scores the five layers, prints every check with a fix, lists the top five fixes by points lost, and can write a JSON or HTML report. It also runs as a GitHub Action so a site cannot regress. It grew out of the audit I run every morning on my own sites, where the same checks earned referrals from ChatGPT, Perplexity and Gemini.
+
+## The written audit
+
+For companies that want it done and explained: up to 25 pages audited, the robots rules for every major AI crawler reviewed, llms.txt and structured data checked, a written report with every finding and the fix in priority order, and a walkthrough call. A new website survey before you build is the same thinking applied before a developer writes a line.
+
+## Why it matters now
+
+AI answer engines send a small but growing share of visits, and the people who arrive that way have already been told what you do by the engine. If the engine cannot read you, it describes a competitor instead. The fixes are cheap, mostly text and configuration, and nobody else on your team is checking.
+
+## Questions people ask
+
+### Is this the same as SEO?
+
+SEO is one of the five layers. The other four are about AI answer engines, which read sites differently: they need permission in robots.txt, content in the raw HTML, structured data they can trust, and answers they can quote. A site can rank on Google and still be invisible to ChatGPT.
+
+### Does llms.txt actually work?
+
+It costs nothing to add and it is the one file written for AI assistants, but adoption by the big AI companies is uneven and not confirmed. Publish it, then fix the things that certainly matter: crawler permissions, readable HTML, structured data and answer-first pages.
+
+### Can I run the check myself?
+
+Yes. Download the free tool and run one command against your site. The written audit is for when you want it interpreted, prioritised and explained to the people who will do the fixes.
+
+### How long does the audit take?
+
+Three working days for the written report, then a 30 minute walkthrough call.
+
+# From manual and spreadsheets to an ERP with AI doing the repetitive work
+
+Source: https://khaqanshaheen.com/manual-to-erp-and-ai-automation.html
+
+From manual and spreadsheets to an ERP with AI automation: that move is my speciality, done as Head of IT in Dubai for a plastics manufacturing group across six sites in five countries. The order matters more than the software: process map first, then clean master data, then one ERP one site and one function at a time, then AI on the repetitive work that now has a system to write into. I help UAE companies do it without stopping the business.
+
+## Deployments
+
+- One Odoo ERP for six sites in five countries and around 150 users, rolled out site by site and function by function: production, sales, inventory, procurement, accounting, HR and maintenance.
+- Custom development kept upgradable: 256 models, 1,187 custom fields and 686 access rules, including machine scheduling with overlap prevention and barcode batch labels printed from the same record.
+- PostgreSQL 9.5 to 16 under the live system, eight major versions, with no unplanned downtime at any site.
+- Five AI systems on top of the ERP in daily production: document OCR, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.
+- Biometric attendance across sites and a geo-verified security patrol application, both mobile apps integrated with the ERP.
+
+## The order that works
+
+First, a process map of how the business actually runs, from the people who run it, not from the org chart. Second, one clean master data set: products, customers, suppliers, machines, chart of accounts. Third, the ERP, one site and one function at a time, with the month-end close as the test of each step. Fourth, AI on the repetitive work: supplier bills into the system, enquiries answered on WhatsApp, documents verified, calls handled. AI before the ERP is a common mistake, because the model has nowhere to put what it reads.
+
+## What goes wrong
+
+Buying the software before mapping the process. Customising to match old habits instead of standardising. Migrating dirty data and spending a year cleaning it inside the new system. Running two systems in parallel for too long. Pilots that never get a switch-off date or a production date. And nobody owning it: the project needs one person who answers to the owner.
+
+## What I have done
+
+One Odoo ERP for six sites in five countries and around 150 users, covering production, sales, inventory, procurement, accounting, HR and maintenance, rolled out site by site and function by function. Then five AI systems on top of it in daily production. Before Odoo, two years building a custom ERP from scratch, which taught me what to buy and what to build.
+
+## How I can help
+
+A fixed-scope roadmap: process map, ERP scope and platform recommendation, which repetitive work goes to AI first, a phased plan with budget bands and a vendor shortlist. Then, if you want it, oversight through implementation as a fractional Head of IT. On-site in the UAE or remote across the GCC. Fees are quoted in writing before anything is paid.
+
+## Questions people ask
+
+### How long does the move from spreadsheets to an ERP take?
+
+For a single-site company with clean data, months rather than weeks; for several sites, a phased rollout over a year is normal. The roadmap gives you the phases and what each one has to prove before the next starts.
+
+### Should we do AI first because it is cheaper?
+
+No. AI needs a system of record to write into and rules to validate against. Put the ERP in first, then automate the repetitive work around it. The exception is a standalone process with its own clear output, such as enquiry handling on WhatsApp.
+
+### Do we need a full-time IT person for this?
+
+You need one accountable owner. That can be a capable manager with a fractional Head of IT behind them, which is a service I offer, or a full-time hire once the platform is in and the workload justifies it.
+
+### Which industries have you done this in?
+
+Manufacturing first, across six sites. The pattern applies to distribution, trading, services and family groups, and the roadmap is built around your process map, not a template.
+
+# Senior IT roles: Head of IT, IT Director, CIO and technology leadership
+
+Source: https://khaqanshaheen.com/senior-it-leadership-roles.html
+
+Senior IT roles I am open to, with the evidence behind each: Head of IT, IT Manager, Group IT Manager, IT Director, Head of Information Technology, CIO, ERP Manager, Odoo Manager, Digital Transformation Manager, Head of AI, IT Operations Manager, Infrastructure Manager and Network Manager. Since December 2015 I have owned the entire IT function of a plastics manufacturing group across six sites in five countries, around 150 users, reporting directly to the owner: the Odoo ERP, the servers and the network behind it, identity and security, telephony, connected devices, the group websites and the marketing. Based in Dubai, available across the GCC, and open to relocation to Australia and New Zealand.
+
+## Deployments
+
+- The whole IT function of a manufacturing group since December 2015: six sites, five countries, around 150 users, a team of six plus outsourced developers, the IT budget and every vendor contract, reporting directly to the owner.
+- One Odoo ERP for the group, implemented and its custom development directed: 256 models, 1,187 custom fields and 686 access rules, kept upgradable.
+- PostgreSQL 9.5 to 16 across eight major versions with no unplanned downtime at any site, with automated backups, point in time recovery, off-site replication and monitoring.
+- Networks, firewalls, site to site VPNs and endpoint protection across five countries, plus IP CCTV and access control integrated with the site setup.
+- Five AI systems in daily production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.
+- Google Workspace single sign-on, two factor authentication and role based access across the group, replacing local passwords with one security standard.
+- The complete IT build for each new factory the group has opened: connectivity, identity, ERP site record, devices, telephony and a day one checklist.
+
+## The roles this experience maps to
+
+Companies write the same job under different titles, so here is the honest mapping. What I hold today is Head of IT, and before that IT Manager and Web Projects Manager. What the work is equivalent to, and what I am open to, is IT Manager, Group IT Manager, IT Director, Head of Information Technology, Head of Technology, and CIO or Chief Information Officer at a company of this size; in smaller or product-led companies the same scope is often written as CTO or Head of Technology. On the delivery side: ERP Manager, Odoo Manager, ERP Project Manager, Digital Transformation Manager or Head of Digital Transformation. On the newer side: Head of AI, AI Lead or Automation Lead. On the platform side: IT Operations Manager, Infrastructure Manager, Systems Manager, Network Manager or IT Security Manager. I have not held a CIO or CTO title, and I will not claim one; the scope, the reporting line and the awards are the evidence, and you can judge the fit yourself.
+
+## Networking, infrastructure and IT operations
+
+The network and the platform are mine, not a vendor's. Firewalls, site to site VPNs between five countries, endpoint protection, and the connectivity for each new factory from the day the lease is signed. Ubuntu servers on-premise and across AWS, Google Cloud and DigitalOcean, with Nginx in front of the ERP and the websites. PostgreSQL through eight major versions with no unplanned downtime, backed by automated backups, point in time recovery, off-site and NAS replication, monitoring and alerts. Identity on Google Workspace single sign-on with two factor authentication and role based access, and login and activity monitoring so it is clear who did what.
+
+## Connected devices, telephony and building systems
+
+IP CCTV, access control units, biometric readers, label printers and machine records all integrated with the same ERP rather than sitting in their own silos. Corporate telephony on Avaya and Grandstream, including the AI voice agent running on the Grandstream platform inside my own estate. Multi-site biometric attendance feeding payroll without retyping, and a geo-verified security patrol application that records guard rounds by location from a phone. This is the same integration and automation work that building and home automation asks for, done where it has to survive a factory.
+
+## ERP and digital transformation
+
+One Odoo ERP for six sites in five countries and around 150 users, covering production, sales, inventory, procurement, accounting, HR and maintenance, rolled out site by site and function by function. Custom development specified by me and kept upgrade-safe: 256 models, 1,187 custom fields, 686 access rules, machine scheduling with server-side overlap prevention, barcode batch labels. Two years building a custom ERP from scratch before that, which is where the build versus buy judgement comes from.
+
+## AI: agents, bots, voice and agentic systems
+
+AI is now a primary domain, not a sideline, and all of it is in production rather than in a slide deck. AI bots: a 24 hour conversational agent on WhatsApp and the group websites that answers, qualifies and writes the lead into the Odoo CRM, plus one multi-channel chat platform running several WhatsApp numbers and every brand site from a single place. AI calling: a voice AI agent answering and handling inbound calls on the corporate Grandstream telephony, built inside my own IT estate rather than rented from a third-party cloud. Agentic AI: systems that take a goal, use a small set of tools, decide the next step and stop when a rule says stop, including an autonomous search and content agent on my own venture that ships work hourly inside guardrails I set. Document AI: vision-capable models reading supplier bills and expense claims into the ERP with strict JSON output, and automated certificate verification. The part that matters is never the model. It is the validation rules, the confidence threshold, the human review queue, the idempotency, the audit log, the hand-off rule for anything about money, and an agreed switch-off rule. Every agent I run creates records for a person to approve; none of them post or pay.
+
+## Search, marketing and the web
+
+The group websites are mine too, from build to search to paid campaigns: WordPress and corporate sites, technical SEO and structured data, Google Ads with keyword structure, bidding controls and conversion tracking, and GA4 and Search Console reporting. I wrote ai-visibility-audit, an open-source tool that checks whether AI answer engines can crawl, read and cite a site. My earlier title at the group was IT Manager, SEO, Digital Marketing and Webmaster, and that side of the work never stopped.
+
+## Where I work, and relocation
+
+Based in Dubai. On-site across the UAE, and remote for Saudi Arabia, Oman, Qatar, Bahrain, Kuwait and Pakistan on Dubai time. Open to relocation to Australia and New Zealand, and to the right role elsewhere. Pakistani national, in the UAE since 2015.
+
+## Full-time, fractional, or a project
+
+Three ways to work with me. A senior full-time role, which is what this page is mainly about. A fractional or part-time Head of IT retainer, for companies that need the judgement without the salary. Or a fixed-scope project: an ERP health check, an IT function review, an AI readiness review or a transformation roadmap. Whichever it is, fees or terms are agreed in writing before anything starts.
+
+## Questions people ask
+
+### Are you open to CIO or IT Director roles?
+
+Yes. I have not held either title, and I will not pretend otherwise. What I have is the scope: the entire IT function of a group across six sites in five countries since December 2015, reporting directly to the owner, with the budget and the vendor contracts. CXO DX recognised it as CIO of the Year 2023 and Excellence in CIO Leadership 2024. Judge the fit on the scope rather than the title.
+
+### Would you take an IT Manager or Group IT Manager role?
+
+Yes. IT Manager was my own title at the group before it became Head of IT, and Group IT Manager is the closest description of what the job actually is across six sites. The title matters less to me than what is owned.
+
+### Do you cover networking and infrastructure, or only ERP and AI?
+
+Both. Firewalls, site to site VPNs across five countries, endpoint protection, Ubuntu and Nginx, cloud across AWS, Google Cloud and DigitalOcean, PostgreSQL through eight major versions, backups and replication, and the connectivity for each new factory. The ERP and the AI sit on top of that platform, and I own the platform.
+
+### Do you do ERP Manager or Odoo Manager roles?
+
+Yes. One Odoo instance for six sites in five countries, implemented and then owned: I write the specifications, review the builds and keep the extensions upgrade-safe. Before Odoo I spent two years building a custom ERP from scratch.
+
+### Are you open to relocation?
+
+Yes, to Australia and New Zealand in particular, and to the right role elsewhere. I am based in Dubai now and can start a remote or hybrid arrangement while a move is organised.
+
+### Are you available full-time, or only for consulting?
+
+Both. I am open to a senior full-time role, and separately I take fractional Head of IT retainers and fixed-scope projects. Consulting work is done outside my employer's hours or by arrangement, and never for a competitor of my employer.
+
+### What kind of AI work do you actually do?
+
+Four kinds, all running in daily production. AI bots: a conversational sales agent on WhatsApp and the websites, and a multi-channel chat platform behind several numbers. AI calling: a voice AI agent on the corporate Grandstream telephony that answers real inbound calls. Agentic AI: goal-driven systems with a tool set, a stopping rule and guardrails, including an autonomous search and content agent that ships work hourly. Document AI: OCR and verification pipelines that write into the ERP. I design the pipeline, the validation and the review queue, direct the build, and own the result in production.
+
+### Would you take a pure AI role rather than an IT leadership one?
+
+Yes. Head of AI, Head of AI and Automation, AI Lead, Agentic AI Lead, Conversational AI Lead, AI Solutions Architect or AI Transformation Lead all fit. The difference between me and most people applying for those titles is that mine have been running every day inside a business with real money and real customers, not in a pilot.
+
+### What about smart home and building automation?
+
+The same work, in a different building. Access control, IP CCTV, biometric readers, telephony and machine sensors integrated into one system with rules and an audit trail is exactly what I run across six factory sites. If a role or project is about connected devices and automation rather than plastics, the skills transfer directly.
+
+# Khaqan Shaheen: CV and career history
+
+Source: https://khaqanshaheen.com/khaqan-shaheen-cv.html
+
+Khaqan Shaheen has worked in web and business systems since 2008 and has been Head of IT of Aalmir / MIR Plastic Industries in Sharjah and Dubai since December 2015, where he owns the entire IT function for a plastics manufacturing group across six sites in five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. Before that: Web Projects Manager and Webmaster for The City School Group in Lahore, Webmaster and Project Manager at Infobyte Solutions, and web and design delivery at All In One Technology in Abu Dhabi. Bachelor of Arts from the University of the Punjab, a PMP course in Abu Dhabi, and four CXO DX awards between 2023 and 2024. Based in Dubai, open to senior roles and to relocation.
+
+## Career history
+
+- December 2015 to present. Head of IT, Aalmir / MIR Plastic Industries LLC, Sharjah and Dubai, United Arab Emirates. Owns the entire IT function for a plastics manufacturing group: six sites in five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo ERP implemented and owned across production, sales, inventory, procurement, accounting, HR and maintenance. PostgreSQL 9.5 to 16 across eight major versions with no unplanned downtime. Five AI systems in daily production. Networks, firewalls, site to site VPNs, identity, telephony, CCTV and access control. Vendor selection, negotiation and IT purchasing. The full IT setup from nothing whenever the group opens a new factory. The group's four brand websites and their search and paid marketing.
+- July 2012 to December 2015. Web Projects Manager and Webmaster, The City School Group Head Office, Lahore, Pakistan. Planned and delivered web projects and managed the web presence and social media for a national school network.
+- January 2012 to August 2012. Webmaster and Project Manager, Infobyte Solutions, Pakistan. Web delivery and project management for client work.
+- August 2009 to 2011. Web and design delivery, All In One Technology, Abu Dhabi, United Arab Emirates.
+- 2008 to 2009. Web and graphic design roles, Lahore, Pakistan. Started as a web design intern in July 2008, then design and web roles at Lahore studios before moving to the UAE.
+- Alongside the day job: a small technology venture of his own, built end to end. The web application, the booking flow, the mobile and Wear OS watch apps, the customer messaging automation, the search and content systems, the analytics and the paid search. Most of the AI and automation work now running in the day job was built and broken there first.
+
+## Education and courses
+
+Bachelor of Arts, University of the Punjab, Lahore, 2009. Project Management Professional (PMP) course, Al Khawarizmi Institute, Abu Dhabi, 2010, 38 hours. iPhone 360 mobile development, SAE Institute Dubai, 2010. Diploma in Graphics Designing, Brains College, Lahore, 2008. Google Fundamentals of Digital Marketing, 2023.
+
+## Awards and recognition
+
+Excellence in CIO Leadership, CXO DX Future Workspace Summit and Awards, Dubai, 2024. IT Leadership Excellence, CXO DX CIO Connect Summit and Awards, Dubai, 2024. Technology Transformer of the Year, CXO DX SME Tech Innovation Summit and Awards, Dubai, 2023. CIO of the Year, CXO DX Future Workspace Summit and Awards, Dubai, 2023.
+
+## What the current role actually covers
+
+ERP: one Odoo instance for six sites in five countries, with custom development specified and kept upgrade-safe, 256 models, 1,187 custom fields and 686 access rules. Infrastructure: Ubuntu and Nginx on-premise and across AWS, Google Cloud and DigitalOcean, PostgreSQL through eight major versions, backups, point in time recovery, off-site replication and monitoring. Security and identity: Google Workspace single sign-on, two factor authentication, role based access, firewalls, site to site VPNs and endpoint protection across five countries. AI: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, a voice AI agent on Grandstream telephony, and one multi-channel chat platform, all in daily production. Devices: biometric attendance, geo-verified patrol, IP CCTV, access control and machine records integrated with the ERP. Web and marketing: four brand websites with their SEO, Google Ads and GA4 reporting.
+
+## Languages and location
+
+English and Urdu. Pakistani national, based in Dubai, United Arab Emirates, and in the UAE since 2015. Available on-site across the UAE and remote across the GCC on Dubai time.
+
+## What he is open to
+
+Senior full-time roles, from Head of IT and IT Manager through IT Director, Group IT Manager and CIO, and on the newer side Head of AI or Head of Digital and AI Transformation, in the UAE, the wider Gulf, or with relocation to Australia and New Zealand. Separately: fractional or part-time Head of IT retainers, and fixed-scope projects such as an ERP health check, an IT function review or an AI readiness review.
+
+## References and evidence
+
+Every claim on this CV has a page behind it. The case studies describe what was built and what went wrong. The skills page gives each skill an honest ownership level with a link to the evidence. The press kit carries bios in three lengths, a headshot and a fact sheet. References are available on request.
+
+## Questions people ask
+
+### Can I download Khaqan Shaheen's CV or resume as a PDF?
+
+This page is the current CV, curriculum vitae and resume in one, and it is always the most up to date version, because it is built from the same evidence as the rest of the site. For a formatted copy, email a request and it will be sent the same working day. The press kit also carries bios in three lengths and a headshot.
+
+### How many years of experience does he have?
+
+Since July 2008 in web and business systems, and since December 2015 owning an entire IT function. That is roughly eighteen years in technology and ten years in IT leadership.
+
+### What is his current job title?
+
+Head of IT at Aalmir / MIR Plastic Industries LLC, Sharjah and Dubai. Before it was retitled, the same role was IT Manager, SEO, Digital Marketing and Webmaster, which is still the title on some external profiles.
+
+### Is he available for interviews?
+
+Yes, for senior roles in the UAE, the GCC, or with relocation to Australia and New Zealand. Email a few lines about the role and he replies within one working day, Dubai time.
+
+### What is his notice period?
+
+It depends on the role and is discussed at offer stage. For fractional or project work he can usually start within two weeks.
 
 ## Case studies
 
@@ -896,7 +1379,8 @@ Applied AI in production, pipeline and validation design, ERP integration, conve
 
 # Why I extended one ERP instead of buying a second system for manufacturing
 
-Source: https://khaqanshaheen.com/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html
+Published: 2026-09-08
 
 Because a second system means a second set of records and an interface that somebody maintains forever. I had the manufacturing modules the standard package lacked built on top of the ERP the group already ran, to my specification, and kept them upgradable. Six sites now close the month from the same records.
 
@@ -969,7 +1453,8 @@ When the gap is a whole discipline the platform was never designed for and the i
 
 # Replacing local passwords with single sign-on in a mid-sized group
 
-Source: https://khaqanshaheen.com/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/replacing-local-passwords-with-single-sign-on-in-a-mid-sized-group.html
+Published: 2026-09-08
 
 Every person now has one identity on Google Workspace, with single sign-on, two factor enforced, and access through role-based groups rather than individual requests. Identity came first, the ERP's own access model second, monitoring last. A leaver is now a role change made in one place on the day they go.
 
@@ -1045,7 +1530,8 @@ It creates a single point of control, which is what you want. The alternative is
 
 # Five AI systems in production: what breaks when nobody is watching
 
-Source: https://khaqanshaheen.com/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/five-ai-systems-in-production-what-breaks-when-nobody-is-watching.html
+Published: 2026-09-08
 
 Five AI systems of my design run in daily production at the group. What breaks when nobody is watching is rarely the model. It is a dropped connection, a confident wrong answer, or a boundary nobody defined. The fix is the same for all five: a person at the edge, a review queue, and an off switch.
 
@@ -1127,7 +1613,8 @@ When it is doing harm that the review queue cannot catch in time: a voice agent 
 
 # Bringing a new factory online: the order of operations
 
-Source: https://khaqanshaheen.com/articles/bringing-a-new-factory-online-the-order-of-operations.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/bringing-a-new-factory-online-the-order-of-operations.html
+Published: 2026-09-08
 
 Cable while the builders are there, order the circuits first, secure the perimeter, connect the site to the group ERP, then identity, telephony and site devices, then hand over. Each layer depends on the one before it. Done out of order, you do them twice, and the site opens on spreadsheets it never gives up.
 
@@ -1212,7 +1699,8 @@ With local vendors I select and contract myself for cabling, mounting and hands-
 
 # A PostgreSQL upgrade nobody was allowed to notice
 
-Source: https://khaqanshaheen.com/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/articles/a-postgresql-upgrade-nobody-was-allowed-to-notice.html
+Published: 2026-09-08
 
 I took the production database under our group ERP from PostgreSQL 9.5 to 16, eight major versions, with no unplanned downtime at any site. The upgrade itself was the small part. The rehearsal, the rollback plan and the backup and recovery estate built around it were the work.
 
@@ -1288,7 +1776,8 @@ Yes. The cost of a major-version upgrade grows with the gap, and so does the fea
 
 # Reading supplier bills into an ERP with an LLM OCR pipeline: a design that survives production
 
-Source: https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/reading-supplier-bills-into-an-erp-with-an-llm-ocr-pipeline.html
+Published: 2026-09-08
 
 By the end of this you will have a design for a pipeline that takes supplier bills from wherever they arrive, reads them with a vision-capable model, checks the result against rules finance would apply, and creates a draft bill in the ERP or hands it to a person. It is for IT heads and engineers building this in-house.
 
@@ -1468,7 +1957,8 @@ Say in the prompt that some bills carry only a total and an empty `lines` array 
 
 # Odoo: how to stop two work orders being booked on the same machine at the same time
 
-Source: https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/odoo-stop-two-work-orders-booking-the-same-machine.html
+Published: 2026-09-08
 
 By the end of this you will have a small Odoo 17 module that refuses to save a work order overlapping another on the same machine, names the orders it clashes with, and holds even when two planners save at the same moment. It is written for people who own or build a manufacturing ERP.
 
@@ -1728,7 +2218,8 @@ Not in any way you will notice. A GiST index on an integer plus a range is small
 
 # How to write an llms.txt for a business website
 
-Source: https://khaqanshaheen.com/tutorials/how-to-write-an-llms-txt-for-a-business-website.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/how-to-write-an-llms-txt-for-a-business-website.html
+Published: 2026-09-08
 
 An llms.txt is a short Markdown file at /llms.txt that gives a language model a curated map of your site: a name, a summary and the pages that matter, one line each. It takes about an hour to write. Whether the big AI companies read it yet is an open question, but it costs nothing to add.
 
@@ -1913,7 +2404,8 @@ No. robots.txt says what may be fetched, the sitemap lists everything that exist
 
 # How to check whether ChatGPT, Perplexity and Google AI Overviews can read your website
 
-Source: https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/check-whether-chatgpt-perplexity-and-google-ai-overviews-can-read-your-website.html
+Published: 2026-09-08
 
 Read your robots.txt for the AI crawler names, fetch your homepage with curl while pretending to be each bot, and confirm your main text is in the raw HTML. That takes ten minutes by hand. Or run one Python script that does all of it and scores the result.
 
@@ -2065,7 +2557,8 @@ Only if you have decided you do not want to be found by AI assistants at all. Th
 
 # Google Workspace single sign-on for Odoo, with two factor authentication and role based access
 
-Source: https://khaqanshaheen.com/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/google-workspace-single-sign-on-for-odoo-and-two-factor-authentication.html
+Published: 2026-09-08
 
 By the end of this your Odoo 17 users will sign in with their Google Workspace account, protected by 2-Step Verification enforced in the Admin console, with access inside Odoo following their job role, and you will still be able to get in if Google cannot. It is for IT heads who run both systems.
 
@@ -2200,7 +2693,8 @@ Yes, for every user who signs in only through Google, because Odoo never sees th
 
 # A WhatsApp AI sales agent that hands leads to your ERP: the architecture
 
-Source: https://khaqanshaheen.com/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/whatsapp-ai-sales-agent-that-hands-leads-to-your-erp.html
+Published: 2026-09-08
 
 A webhook receives each WhatsApp message, a session store keyed by phone number holds the conversation, and a model with four tools answers from a catalogue it cannot contradict. Money, complaints and requests for a person go to a human. Qualified enquiries become leads in the ERP through its API.
 
@@ -2361,7 +2855,8 @@ Yes. Only the channel adapter changes: the webhook and send function become a we
 
 # A PostgreSQL major-version upgrade with no unplanned downtime: the checklist
 
-Source: https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/tutorials/zero-unplanned-downtime-postgresql-major-upgrade-checklist.html
+Published: 2026-09-08
 
 By the end of this you will be able to plan and run a PostgreSQL major-version upgrade on a database the business cannot do without, choose between pg_upgrade and logical replication with your eyes open, and leave a better recovery position behind you. It is for engineers who own a production database.
 
@@ -2586,7 +3081,8 @@ A column added on one side but not the other stops the apply worker, and the err
 
 # Why every AI agent I run sits behind a human queue
 
-Source: https://khaqanshaheen.com/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html
+Published: 2026-09-08
 
 Because a language model is confidently wrong in a way a broken scanner never is. Every agent I run creates a record, a draft or a lead for a person to check. None of them post a journal entry, pay a supplier or commit the company to a price.
 
@@ -2604,7 +3100,8 @@ The queue narrows over time, by category, as the notes show a category has been 
 
 # Why I published my case studies without numbers
 
-Source: https://khaqanshaheen.com/notes/why-i-published-my-case-studies-without-numbers.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/why-i-published-my-case-studies-without-numbers.html
+Published: 2026-09-08
 
 Because a number I cannot show how I measured is worse than no number. The scope is honest: six sites, five countries, one ERP, around 150 users, five AI systems in production. The results will get figures when I have measured them, with the method and the date attached.
 
@@ -2626,7 +3123,8 @@ The rule going forward is short. A number, its method and its date, or nothing.
 
 # What running my own venture taught me about corporate IT
 
-Source: https://khaqanshaheen.com/notes/what-running-my-own-venture-taught-me-about-corporate-it.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/what-running-my-own-venture-taught-me-about-corporate-it.html
+Published: 2026-09-08
 
 Paying the bill yourself, watching what real customers do on a booking page, finding a pipeline that had stopped without telling anyone, and having search traffic answer back. Each of those changed how I run IT for an employer.
 
@@ -2648,7 +3146,8 @@ None of this needed a venture to learn. I did not learn it until the bill had my
 
 # What OCR gets wrong on supplier bills
 
-Source: https://khaqanshaheen.com/notes/what-ocr-gets-wrong-on-supplier-bills.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/what-ocr-gets-wrong-on-supplier-bills.html
+Published: 2026-09-08
 
 The characters are the easy part. What the pipeline gets wrong is which number on the page is the one you want: a handwritten correction, a stamp across the total, the second page of a bill, the same bill arriving twice, and a currency nobody wrote down.
 
@@ -2670,7 +3169,8 @@ I stopped evaluating models on how often they are right and started evaluating w
 
 # What I check the week before a factory opens
 
-Source: https://khaqanshaheen.com/notes/what-i-check-the-week-before-a-factory-opens.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/what-i-check-the-week-before-a-factory-opens.html
+Published: 2026-09-08
 
 Two internet links with a failover I have tested by pulling the cable, the new company and warehouse in the ERP with local tax and numbering, printers and scanners on the floor, every user logged in once, and a backup I have restored from. The list is short because the failures are boring.
 
@@ -2692,7 +3192,8 @@ Then the backup. The new site's data is in it, and I have restored one record fr
 
 # The month-end test for ERP health
 
-Source: https://khaqanshaheen.com/notes/the-month-end-test-for-erp-health.html. Published 2026-09-08.
+Source: https://khaqanshaheen.com/notes/the-month-end-test-for-erp-health.html
+Published: 2026-09-08
 
 If every site can close the month from the same records without opening a spreadsheet, the ERP is healthy. If a spreadsheet appears, something the business needs is not in the system. Everything else on the dashboard is detail.
 
@@ -2711,3 +3212,341 @@ There have been closes where the spreadsheet was the honest answer, and I would 
 ## Fix the missing workflow
 
 Ticket counts, dashboards and satisfaction surveys all measure something. Month end measures whether the records are true. A spreadsheet at close is a bug report, and I read it like one.
+
+## Glossary
+
+Source: https://khaqanshaheen.com/glossary/
+
+# What is llms.txt?
+
+Source: https://khaqanshaheen.com/glossary/llms-txt.html
+
+llms.txt is a plain Markdown file placed at a website's root (/llms.txt) that gives AI assistants a short summary of the site and a curated list of its most useful pages, so a language model can find the right content quickly.
+
+The llms.txt proposal was published by Jeremy Howard of Answer.AI in September 2024. It asks site owners to put a Markdown file at /llms.txt with a fixed shape: an H1 with the site or project name, a blockquote with a one-sentence summary, optional paragraphs of context, and then H2 sections that each hold a list of links written as a dash, the title in square brackets, the URL in round brackets, and a short description after a colon. A final section headed Optional marks links that can be skipped when an assistant is short of context.
+
+The idea matters because most business websites are built for browsers, not for models. Navigation menus, cookie banners and scripts get in the way, and a model with a limited context window cannot read a whole site. A well-written llms.txt is a table of contents for machines: it points to the pages that answer real questions, such as services, pricing, locations and contact details.
+
+Adoption is uneven and worth stating plainly. Documentation-heavy companies publish one, and a number of documentation tools generate it automatically, but none of the major AI companies has confirmed that its crawlers or assistants use llms.txt, and Google's search advocates have said publicly that Google does not. I publish one on every site I run because it takes ten minutes, it doubles as a content audit, and the audit tool I wrote, ai-visibility-audit, checks that it exists and that its links resolve.
+
+The common mistake is treating it as a sitemap and listing every URL. A good llms.txt is short, curated and honest about what each page contains; a bad one is a dump of links with no descriptions.
+
+# What is llms-full.txt?
+
+Source: https://khaqanshaheen.com/glossary/llms-full-txt.html
+
+llms-full.txt is a companion to llms.txt that holds the complete text of a site's key pages in one Markdown file, so an AI assistant can load everything it needs in a single request instead of following links page by page.
+
+Where llms.txt is an index, llms-full.txt is the book. The convention grew out of the original llms.txt proposal, which suggested that sites also publish clean Markdown versions of their pages. Documentation teams found it simpler to concatenate those pages into one file at /llms-full.txt, and the name stuck. There is no formal specification for it beyond that: it is plain Markdown, usually with each page separated by a heading, served with a text content type.
+
+It matters for a business because assistants and developer tools often work with a single pasted document. A prospect can drop the file into a chat and ask what you sell, where you operate and how to contact you, and the answers come from your own words rather than from a scraped fragment. For an ERP integrator, a consultancy or a services company, that is the difference between being cited and being guessed at.
+
+As an example, a company with a services page, three case studies and a pricing FAQ could publish an llms-full.txt that contains all five, regenerated by the same build step that renders the HTML. Keep it small enough that a model with a modest context window can take it whole; anything larger is simply truncated.
+
+The same caution applies as for llms.txt: no major AI company has confirmed reading it, so treat it as a low-cost courtesy rather than a ranking lever. The common mistake is generating it once and never again, so it drifts away from the live site and ends up contradicting the pages it is meant to summarise.
+
+# What is AEO (answer engine optimisation)?
+
+Source: https://khaqanshaheen.com/glossary/aeo-answer-engine-optimisation.html
+
+Answer engine optimisation (AEO) is the practice of structuring web content so that answer engines, meaning AI assistants, voice assistants and featured snippets, can extract a direct, accurate answer to a question and attribute it to your site.
+
+Traditional SEO aims to get a page ranked in a list of links. AEO aims to get a passage chosen as the answer. The engine might be a chat assistant, a voice assistant reading one result aloud, or Google's featured snippet and People Also Ask boxes. In every case the engine wants a question, a short self-contained answer near it, and enough surrounding context to trust the source.
+
+In practice that means writing headings as the questions customers ask, answering each in the first sentence or two beneath the heading, using lists and tables where the answer is a set of steps or options, and marking up genuine FAQs with FAQPage structured data. It also means being specific: a page that says a service is available in two named cities with a stated response time gives an engine something to quote, while a page that says the service is available across the region gives it nothing.
+
+For a business running an ERP or a services website, AEO is mostly a matter of putting facts you already know into a shape a machine can lift. An example is a laundry company whose page on collection areas lists each area under a heading of its own; an assistant asked whether the company collects from a given area can answer yes and cite the page.
+
+The common mistake is writing a question heading and then burying the answer three paragraphs later, after the marketing copy. The audit tool I published, ai-visibility-audit, scores this layer separately from classic SEO precisely because sites pass one and fail the other.
+
+# What is GEO (generative engine optimisation)?
+
+Source: https://khaqanshaheen.com/glossary/geo-generative-engine-optimisation.html
+
+Generative engine optimisation (GEO) is the practice of making a website easy for generative AI systems such as ChatGPT, Perplexity, Claude and Gemini to crawl, understand and cite, so that the site appears as a source in AI-generated answers.
+
+The term was introduced in a 2023 academic paper that measured which changes to a page made generative search engines more likely to include it in their answers. Citing sources, adding statistics, quoting experts and writing in a clear, authoritative register all helped; keyword stuffing did not. Since then the phrase has come to cover the whole technical and editorial job of being visible to AI answer systems.
+
+GEO overlaps with AEO but sits underneath it. AEO is about the shape of the answer on the page; GEO is about whether the generative engine can reach the page at all and whether it trusts what it finds. That starts with plumbing: robots.txt must not block the crawlers that feed AI search, the web application firewall must not return 403 to GPTBot or PerplexityBot, the main text must be readable without JavaScript, and an llms.txt at the root helps an assistant find the right pages. It continues with trust: named authors, dates, organisation schema with sameAs links, and outbound citations to reputable sources.
+
+Consider a manufacturer whose site is invisible to Perplexity because the CDN's bot protection blocks every non-browser user agent. Allowing the named AI search bots while keeping the block for unknown scrapers puts the site back into answers. The fix is one rule, but nobody had looked.
+
+The common mistake is switching on a one-click block for AI bots to stop training crawlers and unknowingly blocking the search crawlers as well. Training and search are separate user agents; you can refuse one without refusing the other. I wrote ai-visibility-audit to check exactly this class of problem in one command.
+
+# What is AI Overviews (Google)?
+
+Source: https://khaqanshaheen.com/glossary/google-ai-overviews.html
+
+AI Overviews are the AI-generated summaries Google shows at the top of some search results, built by its Gemini models from pages in Google's index, with links to the sources it used; they launched in 2024 and now appear for many queries.
+
+AI Overviews grew out of Google's Search Generative Experience, which ran in Search Labs during 2023, and became a standard part of results in the United States in May 2024 before spreading to well over a hundred countries. When Google judges that a query benefits from a synthesised answer, it generates a short summary with a Gemini model and shows it above the organic results, with a panel of source links. A separate AI Mode offers a fuller conversational version of the same idea.
+
+For a business this changes what a click is worth. If the overview answers the question, many people never scroll to the links, so the goal shifts from ranking to being one of the cited sources. Eligibility works like ordinary search: if Googlebot can crawl and index a page, and the page is not marked noindex or nosnippet, it can be used. The Google-Extended robots token controls Gemini training and grounding in other products and has no effect on Search or on AI Overviews, a point misunderstood often enough to be worth repeating.
+
+An example: a company that installs CCTV writes a page answering what the local compliance rules require, with the steps as a numbered list, a named author and a last-updated date. That page is exactly the kind of thing an overview quotes, because it is specific, structured and attributable.
+
+The common mistake is chasing overviews with thin, generic content. Google's own guidance is that no special optimisation exists; the pages it cites are the ones that would have ranked anyway, written clearly enough to be summarised without distortion.
+
+# What is AI search visibility?
+
+Source: https://khaqanshaheen.com/glossary/ai-search-visibility.html
+
+AI search visibility is how often, and how accurately, a website is used and cited by AI-driven search products such as ChatGPT search, Perplexity, Google AI Overviews, Copilot and Claude when people ask questions the site could answer.
+
+Classic search visibility is measured in rankings and impressions. AI search visibility has no equivalent console yet, so it has to be measured indirectly: does the assistant cite your site when asked the questions your customers ask, does it describe your business correctly, and do the visits it sends show up in analytics as referrals from the AI products' own domains?
+
+It matters because a growing share of research now happens inside an assistant rather than on a results page. A buyer asking which ERP integrator works with a given industry in the UAE may never see a results page at all; they see a paragraph with three names in it. If yours is not among them, or the description is wrong, there is no second page to fall back to.
+
+Visibility rests on layers that can each fail independently. The crawler has to be allowed in (robots.txt, firewall rules), the page has to be readable as text rather than rendered only by JavaScript, the content has to contain quotable answers, and the site has to carry enough entity signals (organisation schema, a consistent name and address, sameAs links) for the model to be confident about who you are. I run a daily check across these layers on the sites I look after, and ai-visibility-audit is the open-source version of that check.
+
+An example measurement: filter your analytics for referrals from chatgpt.com, perplexity.ai and similar hosts, and track the count weekly. The common mistake is to assume that good Google rankings carry over automatically. They help, but a site that blocks GPTBot at the firewall can rank first on Google and be absent from ChatGPT entirely.
+
+# What is AI crawler (GPTBot, ClaudeBot, PerplexityBot and others)?
+
+Source: https://khaqanshaheen.com/glossary/ai-crawler.html
+
+An AI crawler is a bot that fetches web pages for an AI vendor to train models, to build a search index for an assistant, or to fetch a page live when a user asks; most vendors use a separate user agent for each purpose.
+
+The names matter because each one controls something different. For OpenAI, GPTBot gathers pages for training, OAI-SearchBot builds the index behind ChatGPT search, and ChatGPT-User fetches a page when a person asks the assistant to look at it. Anthropic mirrors this with ClaudeBot for training, Claude-SearchBot for its search index and Claude-User for user-initiated fetches. Perplexity uses PerplexityBot for its index and Perplexity-User for live fetches. Google's search products, including AI Overviews, use the ordinary Googlebot crawl; Google-Extended is a robots.txt token rather than a separate crawler, and it only governs whether crawled content may train or ground Gemini. Bingbot's index powers Copilot and is one of the sources behind ChatGPT search. CCBot belongs to Common Crawl, the non-profit archive whose data has trained many models. Apple, Meta, Amazon and ByteDance run crawlers of their own.
+
+The distinction between training, indexing and user fetches is the whole point. A business may reasonably refuse to donate its content to model training while still wanting to be found and cited by AI search. That is only possible if the two are treated separately in robots.txt. User-initiated fetchers are a special case: because a person asked for the page, some vendors state that these agents do not follow robots.txt at all.
+
+An example: a services company blocks GPTBot and ClaudeBot, allows OAI-SearchBot, Claude-SearchBot and PerplexityBot, and leaves Google-Extended alone. It stays visible in every assistant's search results while opting out of training. The common mistake is the reverse: a blanket block on anything with bot in the name, usually via a CDN toggle, which removes the site from AI search in one click. The robots.txt table in ai-visibility-audit exists to make this visible.
+
+# What is robots.txt for AI crawlers?
+
+Source: https://khaqanshaheen.com/glossary/robots-txt-for-ai-crawlers.html
+
+robots.txt for AI crawlers means adding User-agent rules to the standard robots.txt file at a site's root that allow or disallow named AI bots individually, so a site can, for example, refuse model training while still allowing AI search engines to index it.
+
+robots.txt is a plain text file at /robots.txt that well-behaved crawlers read before fetching anything else. It lists groups of rules, each starting with a User-agent line that names a bot (or an asterisk for all), followed by Disallow and Allow lines with path prefixes. The AI companies publish the user agent tokens their crawlers use, so a site can address each one by name.
+
+It matters because the defaults are all-or-nothing. With no rules, every crawler is welcome, including training bots. With a single Disallow of the root under the wildcard user agent, everything is refused, including Googlebot and the AI search bots that would have cited you. The useful position for most businesses sits between those: allow the search and user-fetch agents, decide deliberately about the training agents, and never block Googlebot or Bingbot by accident.
+
+A worked example for a company that wants AI search visibility but not training use: one group with User-agent: GPTBot and Disallow: /, another with User-agent: ClaudeBot and Disallow: /, and separate groups for OAI-SearchBot, Claude-SearchBot and PerplexityBot with Allow: /. Leave Google-Extended out unless you want to opt out of Gemini training, and remember that it has no effect on Google Search either way.
+
+Two cautions. First, robots.txt is a request, not a lock; a crawler that ignores it can still fetch the page, and enforcement needs the firewall. Second, a firewall or CDN rule that blocks AI bots as a category usually blocks the search agents too, and the site then vanishes from answers while its robots.txt looks fine. That is why ai-visibility-audit refetches the homepage as GPTBot, PerplexityBot and ClaudeBot. The common mistake is copying a block list written for news publishers and applying it to a business that depends on being found.
+
+# What is JSON-LD structured data?
+
+Source: https://khaqanshaheen.com/glossary/json-ld-structured-data.html
+
+JSON-LD structured data is a block of JSON, placed in a script tag with type application/ld+json, that describes a page's content using schema.org vocabulary (organisation, article, product, FAQ) so search engines and AI systems can read the facts without parsing the visible HTML.
+
+JSON-LD stands for JavaScript Object Notation for Linked Data. It is a W3C standard, and it is the format Google recommends for structured data because it sits in one block, usually in the head, rather than being woven through the HTML as Microdata or RDFa attributes. The vocabulary almost everyone uses is schema.org, a shared set of types such as Organization, LocalBusiness, Article, Product, FAQPage and BreadcrumbList, each with named properties.
+
+It matters because it removes guesswork. A crawler can work out from the HTML that a page is probably about a company that installs CCTV in a particular emirate, but the JSON-LD says so directly, with the legal name, address, phone number, opening hours and links to the same entity on other sites through the sameAs property. Search engines use it for rich results, and AI systems use it as a source of clean facts about who you are. For a business that wants to be described correctly by an assistant, entity schema is the cheapest signal available.
+
+A minimal example is an Organization block with name, url, logo, telephone, address and sameAs, placed on every page and expanded on the home page. A blog post adds Article with headline, author, datePublished and dateModified. Several types can be grouped under a single @graph array so the page carries one script block rather than many.
+
+The common mistake is invalid JSON, typically a trailing comma or an unescaped quote, which fails silently: the browser ignores it and so does every crawler. The second is describing content that is not on the page, which Google treats as a violation. Validate with the Schema Markup Validator after every template change; ai-visibility-audit parses the blocks, including nested @graph, and reports any that fail.
+
+# What is FAQPage schema?
+
+Source: https://khaqanshaheen.com/glossary/faqpage-schema.html
+
+FAQPage schema is a schema.org structured data type that marks up a page's questions and answers as a list of Question items, each with an acceptedAnswer, so search engines and AI assistants can identify the exact answer text to a specific question.
+
+In JSON-LD, an FAQPage has a mainEntity array; each element is a Question with a name (the question text) and an acceptedAnswer of type Answer whose text property holds the answer. The questions and answers must also appear visibly on the page, in the same wording, because the markup describes the page rather than replacing it.
+
+Its status has changed. From 2019 Google showed FAQ rich results, the expandable question list under a search listing, for any site that used the markup, and it became a tactic. In August 2023 Google restricted those rich results to well-known, authoritative government and health sites, so for a typical business the visual reward in Google is gone. What remains is the machine-readable value: the markup tells any parser, including the retrieval systems behind AI assistants, precisely which sentence answers which question. That is why an answer-engine audit still checks for it.
+
+A useful example is a services page with five real questions customers ask by phone: what areas do you cover, how quickly can you attend, what does a callout cost, do you work weekends, and how do I pay. Answer each in two or three plain sentences on the page, then mirror them exactly in the FAQPage block.
+
+The common mistake is inventing questions nobody asks in order to have more markup, or marking up a page as an FAQ when it is really an article with one question in it. Another is letting the visible text and the JSON-LD drift apart after an edit, so the page says one price and the schema says another; a contradiction like that is worse than no markup at all.
+
+# What is speakable schema?
+
+Source: https://khaqanshaheen.com/glossary/speakable-schema.html
+
+Speakable schema is a schema.org property (speakable, with a SpeakableSpecification) that points, using CSS selectors or XPath, to the sections of a page best suited to being read aloud by a voice assistant, typically the headline and a short summary.
+
+The speakable property can be added to an Article or WebPage in JSON-LD. Its value is a SpeakableSpecification with either a cssSelector array (for example the H1 and a paragraph with a given class) or an xpath array. The intent is that a text-to-speech assistant answering a query with your page reads only those passages, rather than the navigation, the byline and the cookie notice.
+
+Google introduced support for it in 2018 for news publishers, aimed at Google Assistant and limited to English in the United States, and it has stayed in that beta state since. The honest summary is that adoption is thin, Google has never extended it to general business content, and no AI assistant has confirmed using it. It earns a place in an audit because it is cheap, it is harmless, and it forces a useful editorial habit: deciding which two or three sentences on a page are the answer.
+
+For a business, that habit is the real value. If you can point a selector at a short passage that states what the page is about, that passage is also what a chat assistant is most likely to quote. An example is a case study page whose speakable selector targets the H1 and the summary paragraph directly beneath it, which is also the paragraph the answer-engine checks look for.
+
+The common mistake is pointing the selector at the whole body, or at a class that a later redesign renames, so the markup references nothing. Keep the selectors simple and check them after every template change.
+
+# What is IndexNow?
+
+Source: https://khaqanshaheen.com/glossary/indexnow.html
+
+IndexNow is an open protocol, launched by Microsoft Bing and Yandex in 2021, that lets a website notify participating search engines the moment a URL is added, updated or deleted, by sending the URL and a site-owned key to a single API endpoint.
+
+The mechanism is simple. You generate a key (a string of letters and digits), host it as a text file at the site root so the engines can confirm you control the domain, and then send changed URLs to api.indexnow.org, either one at a time as a GET request or in a batch as a JSON POST. A submission to any participating engine is shared with all of them. The engines that participate include Bing, Yandex, Naver and Seznam, which means Microsoft Copilot and the Bing-backed part of ChatGPT search see your changes quickly. Google does not participate; it announced a test of the protocol in 2021 and has stayed with its own crawl scheduling.
+
+It matters to a business because crawl delay is invisible and costly. A price change, a new service page or a corrected address can sit unnoticed for days or weeks while the old version keeps being served in answers. Pinging on publish closes that gap for the engines that listen, at no cost.
+
+An example is a job board that publishes new listings daily; each new or expired listing URL is submitted at the moment the page is generated, so Bing's index tracks the site's state instead of lagging behind it. Most content platforms have a plugin or a setting for this, and a site with its own build script needs only a few lines of code.
+
+The common mistake is expecting IndexNow to affect Google, and the second is submitting the whole sitemap on every build, which the engines treat as noise. Submit only what changed, keep the key file in place, and remember that it complements a sitemap rather than replacing it.
+
+# What is ERP (enterprise resource planning)?
+
+Source: https://khaqanshaheen.com/glossary/erp-enterprise-resource-planning.html
+
+Enterprise resource planning (ERP) software runs a company's core operations, such as finance, purchasing, inventory, sales, manufacturing and HR, from one shared database, so a transaction entered once in one department is visible and correct everywhere else.
+
+The term was coined by the analyst firm Gartner in 1990 to describe the successor to manufacturing resource planning (MRP II) systems, which had grown from planning materials to planning the whole business. The defining feature is not any one module but the shared database underneath them: when a warehouse receives goods against a purchase order, the stock, the supplier's account, the cost of inventory and the pending bill all update from that one event.
+
+It matters because the alternative is reconciliation. A company running separate accounting, stock and sales tools spends its month-end matching them to each other, and every mismatch is a decision made on wrong numbers. An ERP does not remove the work of keeping data clean, but it moves that work to the point of entry, where the person who knows the facts is sitting.
+
+An example from my own work: one Odoo ERP serves a manufacturing group across six sites, and the value of that is that stock, orders and accounts are one set of numbers rather than six. It only works if the master data (products, partners, units of measure, taxes) is governed once rather than per site, which is a discipline before it is a feature.
+
+The common mistake is buying an ERP and then using it as an accounting system with a warehouse bolted on, leaving planning, quality and maintenance in spreadsheets. The test is simple: if the month-end close still depends on files outside the system, the ERP is not yet the system of record. Modern ERPs range from large proprietary suites to open-source products such as Odoo; the choice matters less than whether the business is willing to change its processes to match one system.
+
+# What is Odoo?
+
+Source: https://khaqanshaheen.com/glossary/odoo.html
+
+Odoo is a modular, open-source ERP and business application suite from Belgium, written in Python on PostgreSQL, that covers accounting, inventory, manufacturing, sales, CRM, HR, websites and more, available as a free Community edition and a paid Enterprise edition.
+
+Odoo began in 2005 as TinyERP, became OpenERP and took its current name in 2014. It is built as a set of apps (modules) on a shared Python framework and a single PostgreSQL database, so a company can start with accounting and invoicing and add inventory, manufacturing, purchasing, projects, helpdesk or e-commerce later without changing platform. The Community edition is published under the LGPL and can be self-hosted at no licence cost; the Enterprise edition adds features and official hosting under a subscription. A new major version is released each year.
+
+It matters to mid-sized businesses because it makes a full ERP affordable and adaptable. The framework's inheritance model lets developers extend any screen, model or workflow in a separate module rather than editing the core, which is what makes customisation upgrade-safe when it is done properly and dangerous when it is not.
+
+In practice I run one Odoo ERP for a manufacturing group across six sites, and the discipline I value most is a written inventory of every custom module and what it touches, because that list is the upgrade plan.
+
+The common mistake is treating the yearly release cycle as optional. Each version is supported for a limited window, and a company that stays on an old version for years accumulates customisations against an API that no longer exists, until the upgrade becomes a re-implementation. The second mistake is granting broad administrator rights to get past a permissions problem and never taking them back; single sign-on and two-factor authentication are worth setting up on the first day.
+
+# What is ERP health check?
+
+Source: https://khaqanshaheen.com/glossary/erp-health-check.html
+
+An ERP health check is a structured review of an ERP system that tests whether its data, customisations, integrations, backups, performance and user access are sound, and produces a prioritised list of risks and fixes before they turn into outages or wrong numbers.
+
+An ERP rarely fails all at once. It degrades: a scheduled job stops silently, a custom module blocks the next upgrade, a backup has not been restored in years, a former employee's account still has administrator rights, and month-end takes a little longer each quarter. A health check is a deliberate walk through those areas with evidence rather than opinions, so that the business knows where it stands.
+
+The areas I cover are the same every time. Data: duplicates, negative stock, unreconciled bank lines, open orders that will never ship. Customisation: an inventory of every custom module and edited core file, and which ones would break on upgrade. Integrations: what talks to the ERP, over which credentials, and what happens when it fails. Infrastructure: database version and support status, a backup and restore test, point-in-time recovery, monitoring. Security: who has what access, single sign-on, two-factor authentication, audit logs. Performance: the slowest reports and screens, measured. Process: how long the month-end close takes and what happens outside the system.
+
+The most telling single test is the month-end close. If the finance team exports to spreadsheets to produce the accounts, the ERP is not the system of record, whatever the licence says. An example finding is a manufacturer whose stock valuation drifts further from the general ledger each month because of a costing method changed years ago; nobody was wrong, but nobody had looked.
+
+The common mistake is asking the implementer to do the check. They audit their own work, and they find what they expect. A health check is more useful when it is done by someone who does not sell the fix.
+
+# What is ERP customisation risk (upgrade-safe customisation)?
+
+Source: https://khaqanshaheen.com/glossary/erp-customisation-risk.html
+
+ERP customisation risk is the danger that changes made to fit an ERP to a business (custom code, edited core files, database tweaks, undocumented workflows) will break, block or inflate the cost of the next upgrade; upgrade-safe customisation is the discipline of avoiding that.
+
+Every ERP gets customised, because no product matches a business exactly. The risk is not customisation itself but how it is done. A change that lives in its own module, extends the standard model through the platform's supported mechanisms, has a test, and is written down can be carried through an upgrade in hours. A change made by editing a core file, or by a direct SQL update that nobody recorded, is a landmine that goes off at the next version.
+
+It matters because upgrades are how an ERP stays supported, secure and compatible with the operating system and database underneath it. When customisations make an upgrade frightening, companies postpone it, and each postponement makes the next attempt larger. The end state is an ERP several versions behind, on an unsupported database, where the only person who understood the changes has left.
+
+In Odoo, upgrade-safe means inheriting models and views in a separate addon rather than modifying the standard modules, keeping business logic in code a developer can read and test rather than in point-and-click customisations, pinning each custom module's dependencies, and keeping the list of modules with a one-line purpose for each. An example: a rule that stops two work orders booking the same machine belongs in a small module with a constraint and a test, not in a manual check someone performs against a spreadsheet.
+
+The common mistake is measuring customisation by volume. Ten small, well-placed modules are safer than one large one that patches the core, and a customisation that replaces a standard feature the business could have adopted instead is the most expensive kind, because it has to be re-justified at every upgrade.
+
+# What is machine scheduling in an ERP?
+
+Source: https://khaqanshaheen.com/glossary/machine-scheduling-in-an-erp.html
+
+Machine scheduling in an ERP is the planning of manufacturing work orders onto specific machines or work centres over time, respecting each machine's capacity and availability, so that the schedule is realistic and no two orders claim the same machine at once.
+
+A manufacturing ERP models the factory as work centres (machines, lines or teams), each with a capacity in hours per day and a calendar of working time. A manufacturing order is broken into work orders, one per operation, and each work order is planned onto a work centre for a duration. Scheduling is the act of placing those work orders in time. Infinite-capacity scheduling ignores whether the machine is already busy; finite-capacity scheduling pushes a job later when the machine is taken.
+
+It matters because the schedule is the promise the factory makes to the sales team. A schedule that allows overlaps produces delivery dates that cannot be met, and the shop floor reverts to a whiteboard that the ERP knows nothing about. Once that happens, every downstream figure (planned completion, capacity utilisation, on-time delivery) is fiction.
+
+Many ERPs, Odoo included, will happily plan two work orders on the same work centre in the same slot unless the business adds a rule. In practice I treat this as one of the first customisations worth making in a manufacturing deployment: a constraint that checks, when a work order is planned or its dates are moved, whether the work centre already has a confirmed work order in that window, and refuses the overlap with a message that names the clashing order. A small module with that constraint and a test is enough.
+
+The common mistake is solving it with people rather than with a rule, by asking a planner to check the Gantt view before confirming. That works until the day the planner is on leave. The second mistake is setting every work centre's capacity to a round number that nobody has measured, which makes the schedule look full while the machine is idle.
+
+# What is month-end close (as an ERP health test)?
+
+Source: https://khaqanshaheen.com/glossary/month-end-close.html
+
+Month-end close is the accounting routine of finalising a month's transactions, reconciling bank and control accounts, posting adjustments and locking the period; used as an ERP health test, it asks how much of that work happens inside the ERP and how much in spreadsheets.
+
+Every finance team closes the month: bank statements are reconciled, supplier bills and customer invoices for the period are posted, accruals, prepayments and depreciation are booked, stock is valued, intercompany balances are agreed, the period is locked and the management accounts are produced. The close has a duration, usually measured in working days after month end, and it has a method, which is either the ERP or a collection of exports and spreadsheets around it.
+
+As a health test it is unusually honest, because it cannot be faked. If the accountant's first act on the first of the month is to export the general ledger to a spreadsheet, the ERP is not producing the accounts; a spreadsheet is, and the ERP is a data source for it. That tells you more about the state of the system than any feature checklist. It usually points to a specific cause: a costing method nobody trusts, a bank feed that was never set up, an intercompany process done by email, or a report the system cannot produce because a customisation broke it.
+
+In practice I ask three questions. How many working days does the close take? Which steps happen outside the system, and why? And what would break if the spreadsheets were deleted? The answers become the first items on any ERP improvement list, ahead of new modules or dashboards.
+
+The common mistake is treating a slow close as a finance problem to be solved with more finance staff. It is almost always a systems problem: a missing configuration, a broken automation, or data that was never cleaned, and each of those is cheaper to fix than a permanent extra day of every month.
+
+# What is document OCR into an ERP?
+
+Source: https://khaqanshaheen.com/glossary/document-ocr-into-an-erp.html
+
+Document OCR into an ERP is the pipeline that turns scanned or emailed documents, most often supplier bills, into structured ERP records: extract the text with optical character recognition, interpret the fields, match them to existing data and queue the result for human approval.
+
+The classic version used OCR alone, with a template per supplier that mapped fixed positions on the page to fields, and it broke whenever a supplier changed its layout. The current version pairs OCR (or a PDF's own text layer) with a large language model that reads the extracted text and returns the fields as structured data: supplier, bill number, date, currency, line items, tax and total. The ERP side then matches the supplier to a partner record, the lines to a purchase order where one exists, and the totals to each other, before creating a draft bill.
+
+It matters because supplier bills are high-volume, repetitive and consequential. Keying them by hand is slow and produces errors that surface at payment time or at audit; automating them badly produces the same errors faster. The design goal is not zero human time but human time spent only on the exceptions.
+
+An example pipeline: bills arrive in a mailbox; a job fetches the attachments, runs extraction, validates the arithmetic (do the lines sum to the total, does the tax match the rate), checks the supplier against the ERP, and creates a draft with a confidence score. Anything below the threshold, or any bill with no matching purchase order, goes to a review queue where a person confirms or corrects it on a single screen. Corrections are logged, because they show which suppliers and which fields fail most.
+
+The common mistake is to post bills automatically because the extraction looked accurate in testing. Handwritten notes, credit notes that look like invoices, duplicate submissions and a supplier's new bank details are exactly the cases a model gets confidently wrong. In practice every bill from an automated pipeline I run passes a person before it is posted.
+
+# What is AI agent in business operations?
+
+Source: https://khaqanshaheen.com/glossary/ai-agent-in-business-operations.html
+
+An AI agent in business operations is software that uses a large language model to complete a defined task, such as answering a sales enquiry or processing a bill, by reading inputs, choosing actions and calling business systems such as an ERP through tools.
+
+A chatbot answers; an agent acts. The difference is tools: an agent is given functions it may call (look up a customer, create a lead, draft a reply, fetch a stock level, create a draft bill) and a goal, and the model decides which calls to make and in what order until the goal is met or it has to stop. The business defines the tools, so the business defines the limits. An agent with read-only tools cannot damage anything; an agent that can post journal entries can.
+
+It matters because most operational work is not creative, it is procedural with exceptions, and that is where a model earns its keep. Answering the same twenty questions on WhatsApp, reading supplier bills, chasing a missing delivery note, summarising a support thread: each is a small task with a clear success condition that previously needed a person's attention at an inconvenient hour.
+
+I have five AI systems in production for the group I work for, and the pattern that has held up is the same in each: a narrow task, a small set of tools, the ERP as the single source of truth, every action logged, and a human review queue in front of anything irreversible. A sales agent, for example, might qualify a WhatsApp enquiry and hand a lead to the ERP, while a person confirms any quotation before it goes out.
+
+The common mistake is starting with the most ambitious agent, the one that runs a whole process end to end, and discovering that a single confident error early in the chain contaminates everything after it. Start with one step, measure how often a person overrides it, and widen the agent's tools only when that rate is low and stable.
+
+# What is human review queue (human in the loop)?
+
+Source: https://khaqanshaheen.com/glossary/human-review-queue.html
+
+A human review queue is a holding area where an AI system's outputs wait for a person to approve, correct or reject them before they take effect, keeping the system's speed while catching its mistakes before they reach customers or the accounts.
+
+Human in the loop is the general principle; the review queue is its concrete form. An agent or pipeline produces a proposed action (a draft bill, a reply to a customer, a lead with a suggested owner, a stock adjustment) together with its evidence and a confidence score. The proposal lands in a list. A person opens it, sees the source document beside the extracted result, and approves, edits or rejects it with one action. Only then does the ERP change or the message send.
+
+It matters because language models are fluent when they are wrong. A pipeline that is right most of the time and confidently wrong the rest will, without a queue, post wrong numbers into the accounts at machine speed, and the errors are found weeks later by someone who has no idea where they came from. The queue converts that into a few minutes of checking per day, and the corrections it collects are the best data for improving the pipeline.
+
+I keep every AI system I run behind a queue of this kind. The design details matter: show the evidence next to the proposal so the check is fast, sort by risk (value, novelty of the supplier, low confidence) rather than by arrival, record who approved what, and measure the override rate per category so you know what to fix.
+
+The common mistake is a queue that is too easy to approve. If the reviewer can clear a hundred items with a hundred clicks and no evidence on screen, the queue is theatre; people rubber-stamp under time pressure. The second mistake is never graduating anything: a category with a near-zero override rate over a long period can be auto-approved with sampling, so the reviewer's attention stays on the cases that need it.
+
+# What is fractional Head of IT?
+
+Source: https://khaqanshaheen.com/glossary/fractional-head-of-it.html
+
+A fractional Head of IT is an experienced IT leader who works for a company part time, typically a fixed number of days a month, taking ownership of the IT strategy, systems, suppliers and risks that a full-time Head of IT would own.
+
+The word fractional comes from finance, where a fractional CFO has been common for years. The model is the same: a business that has outgrown ad hoc IT support, but is not large enough to employ a senior technologist full time, retains one for a fraction of their week. The role is leadership, not helpdesk. It covers the ERP roadmap, security and access, backups and recovery, supplier and licence management, the decision about what to build and what to buy, and the honest conversation with the owners about risk.
+
+It matters because the gap it fills is real and expensive. A company of a few dozen to a few hundred people typically has an outsourced support provider who fixes laptops and a software vendor who sells modules, and nobody whose job is to say no, to sequence the work, or to notice that the database is out of support and the last restore test was never done. Those are the failures that stop a business, and they are leadership failures rather than technical ones.
+
+An example engagement: two days a month, starting with an ERP health check, then a twelve-month plan with the three or four changes that matter, then a monthly review in which the fractional head chairs the meetings with the ERP partner, the support provider and finance. The company gets a senior person accountable for outcomes without paying for a full-time seat.
+
+The common mistake is buying hours rather than ownership. If the engagement is measured in tickets closed, it is outsourced support with a grander title. The other is choosing someone who has never run systems inside a real company; a fractional head is useful precisely because they have carried responsibility for an ERP that whole sites depend on.
+
+# What is point-in-time recovery (PITR)?
+
+Source: https://khaqanshaheen.com/glossary/point-in-time-recovery.html
+
+Point-in-time recovery (PITR) is a database backup method, standard in PostgreSQL, that combines a base backup with a continuous archive of write-ahead log (WAL) files, so the database can be restored to any chosen moment, not only to the time of the last backup.
+
+PostgreSQL writes every change to the write-ahead log before applying it to the data files, and PITR relies on that. You take a base backup of the data directory (with pg_basebackup or a tool such as pgBackRest or Barman) and configure archive_command, or a streaming receiver, so that every completed WAL segment is copied to separate storage as it is produced. To recover, you restore the base backup, point the server at the WAL archive, set a recovery target (a timestamp, a transaction ID, a named restore point or a log position) and start it; the server replays the log up to that target and stops.
+
+It matters because the common failure is not a dead disk but a bad command. A nightly dump gets you back to last night; PITR gets you back to the minute before someone ran an update without a WHERE clause, or before a migration script deleted the wrong records, with a recovery point measured in seconds rather than a day. For an ERP, that is the difference between re-keying a day's transactions across every site and losing almost nothing.
+
+An example: an accountant discovers in the afternoon that a bulk import at half past two corrupted hundreds of invoice lines. With PITR you restore to 14:29 on a spare server, extract the correct rows and repair the live database, or fail over to the restored copy if the damage is wide.
+
+The common mistake is archiving WAL to the same disk or server as the database, which turns a hardware failure into total loss, closely followed by never performing a restore. An archive that has never been replayed is a hope, not a backup. Test the full restore on a schedule and time it, so the recovery time is a known number rather than a guess.
+
+# What is logical replication (PostgreSQL major upgrade)?
+
+Source: https://khaqanshaheen.com/glossary/logical-replication.html
+
+Logical replication is a PostgreSQL feature that streams row-level changes from a publisher database to a subscriber, and because it works across major versions it allows an upgrade with minimal downtime: replicate to the new version, let it catch up, then switch over.
+
+PostgreSQL has two kinds of replication. Physical (streaming) replication copies the write-ahead log byte for byte, so the standby is an exact copy and must run the same major version. Logical replication, built into the core since PostgreSQL 10, decodes the log into row changes (insert, update, delete) for a chosen set of tables and sends them to a subscriber, which applies them as ordinary SQL. The subscriber can be a different major version, a different operating system, or a database with extra indexes and a different physical layout.
+
+That is what makes it useful for upgrades. The traditional routes are pg_dump and restore, which takes the system down for the whole copy, or pg_upgrade, which is fast but still needs an outage and a rehearsed rollback. With logical replication you build the new server, take an initial copy while the old one keeps running, let the subscriber catch up to within seconds, and then, in a short window, stop writes, confirm the lag is zero, repoint the application and resume. The old server is untouched, so rollback is switching back.
+
+There are rules. Every replicated table needs a primary key or a replica identity for updates and deletes to work. Schema changes are not replicated, so the schema must be created on the subscriber first and frozen during the copy. Sequences are not replicated either, so their current values must be set on the new server before it takes writes; forgetting this produces duplicate key errors on the first insert. Because the feature needs PostgreSQL 10 or newer on the publisher, an older source needs the pglogical extension or a dump and restore instead.
+
+The common mistake is skipping the rehearsal. Run the whole switch-over against a copy, time it and script it, and the real one becomes boring, which is what a major upgrade of an ERP database should be.
