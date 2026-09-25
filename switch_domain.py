@@ -10,8 +10,11 @@ What it does, in order, stopping at the first failure:
   4. Waits for HTTPS, then resubmits every URL to IndexNow with a key file on the new host.
 The old github.io URLs keep working: GitHub redirects them to the new domain.
 
-Needs: the Servia-Tech PAT in C:/Users/Lenovo/servia_credentials/SERVIA-CREDENTIALS.md, git on PATH, requests.
+Needs: git on PATH, requests, and the Servia-Tech PAT. The PAT comes from $SERVIA_PAT, or from the
+credentials file at $SERVIA_CREDENTIALS (default: ~/servia_credentials/SERVIA-CREDENTIALS.md).
+The host-root repo checkout comes from $SERVIA_ROOT_REPO (default: ~/github/servia-tech.github.io).
 """
+import os
 import pathlib
 import re
 import socket
@@ -25,12 +28,22 @@ ROOT = pathlib.Path(__file__).parent
 OLD = "https://servia-tech.github.io/khaqan-shaheen"
 GH_IPS = {"185.199.108.153", "185.199.109.153", "185.199.110.153", "185.199.111.153"}
 REPO = "Servia-Tech/khaqan-shaheen"
-ROOT_REPO = pathlib.Path(r"C:/Users/Lenovo/github/servia-tech.github.io")
+HOME = pathlib.Path.home()
+ROOT_REPO = pathlib.Path(os.environ.get("SERVIA_ROOT_REPO") or HOME / "github/servia-tech.github.io")
+CREDENTIALS = pathlib.Path(os.environ.get("SERVIA_CREDENTIALS") or HOME / "servia_credentials/SERVIA-CREDENTIALS.md")
 
 
 def token():
-    creds = pathlib.Path(r"C:/Users/Lenovo/servia_credentials/SERVIA-CREDENTIALS.md").read_text(encoding="utf-8", errors="replace")
-    return re.search(r"ghp_[A-Za-z0-9]+", creds).group(0)
+    pat = os.environ.get("SERVIA_PAT")
+    if pat:
+        return pat.strip()
+    if not CREDENTIALS.exists():
+        sys.exit(f"No PAT: set $SERVIA_PAT, or put the credentials file at {CREDENTIALS} (override with $SERVIA_CREDENTIALS).")
+    creds = CREDENTIALS.read_text(encoding="utf-8", errors="replace")
+    m = re.search(r"ghp_[A-Za-z0-9]+", creds)
+    if not m:
+        sys.exit(f"No ghp_ token found in {CREDENTIALS}.")
+    return m.group(0)
 
 
 def run(cmd, cwd=ROOT):
@@ -105,8 +118,19 @@ def wait_https(domain):
     print("HTTPS not live after 20 minutes; GitHub may still be provisioning the certificate. Re-run the IndexNow step later.")
 
 
+def indexnow_key():
+    """The key is the stem of the <key>.txt file at the repo root, which is what the site serves."""
+    env = os.environ.get("INDEXNOW_KEY")
+    if env:
+        return env.strip()
+    for f in sorted(ROOT.glob("*.txt")):
+        if re.fullmatch(r"[0-9a-f]{32}", f.stem):
+            return f.read_text(encoding="utf-8").strip()
+    sys.exit("No IndexNow key file at the repo root. Set $INDEXNOW_KEY or add <key>.txt.")
+
+
 def indexnow(domain):
-    key = pathlib.Path(r"C:/Users/Lenovo/servia_credentials/indexnow_key_khaqan_site.txt").read_text().strip()
+    key = indexnow_key()
     keyfile = ROOT / f"{key}.txt"
     if not keyfile.exists():
         keyfile.write_text(key + "\n", encoding="utf-8")
