@@ -40,7 +40,8 @@ NAV = [
 # PayPal.me, Calendly or similar URL here and every Book button switches to it.
 BOOKING = {"payment_link": "", "calendar_link": ""}
 SHOW_PRICES = False  # Khaqan, 8 Sep 2026: fees are quoted by email, never shown on the site
-EMAIL = "support@khaqanshaheen.com"
+EMAIL = "contact@khaqanshaheen.com"  # every enquiry route on the site
+PRIVACY_EMAIL = "support@khaqanshaheen.com"  # published data-protection contact on privacy.html
 AED_PER_USD = 3.67
 
 LANDING_URLS = []
@@ -1985,9 +1986,24 @@ def build_privacy():
 <p>Booking and email clicks measure intent, not a completed booking, sent email or confirmed sale. The site does not send booking form answers, email contents, names, phone numbers or payment details to Analytics. Page URLs are reduced to the canonical page; referrers are reduced to their origin. Only simple campaign source, medium and name labels are permitted. Do not put personal data in campaign labels.</p>
 <h2>Google and data use</h2><p>Google processes the analytics information to provide reports to the site owner. Advertising personalisation and Google signals are disabled in this implementation. No session replay, keystroke recording or cross-site fingerprinting is installed. See <a href="https://policies.google.com/privacy">Google's privacy policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites using its services</a>.</p>
 <h2>Booking and contact</h2><p>The booking calendar prepares a request in your email application. Information you choose to send by email is handled separately from Analytics to respond to your enquiry. Following an external link takes you to another provider's site and privacy practices.</p>
-<h2>Contact and withdrawal</h2><p>For a privacy question, contact <a href="mailto:support@khaqanshaheen.com">support@khaqanshaheen.com</a>. Reject analytics in Analytics preferences to stop subsequent collection in this browser and remove this site's accessible Analytics cookies. Previously collected reports are not automatically erased by withdrawing consent.</p>"""
+<h2>Contact and withdrawal</h2><p>For a privacy question, contact <a href="mailto:__PRIVACY_EMAIL__">__PRIVACY_EMAIL__</a>. Reject analytics in Analytics preferences to stop subsequent collection in this browser and remove this site's accessible Analytics cookies. Previously collected reports are not automatically erased by withdrawing consent.</p>"""
+    body = body.replace("__PRIVACY_EMAIL__", PRIVACY_EMAIL)
     url=f"{BASE}/privacy.html"
     (ROOT/'privacy.html').write_text(layout(title="Privacy and analytics | Khaqan Shaheen", description="How khaqanshaheen.com measures visits and respects your analytics choice.",url=url,body=body,schema={"@context":"https://schema.org","@type":"WebPage","name":"Privacy and analytics","url":url},depth=0),encoding='utf-8')
+
+
+def normalise_contact():
+    """Point every mail link at EMAIL, including the hand-written index.html and press.html."""
+    user, domain = EMAIL.split("@")
+    pattern = re.compile(r'data-u="[^"]*" data-d="[^"]*"')
+    replacement = f'data-u="{user}" data-d="{domain}"'
+    for path in ROOT.rglob("*.html"):
+        if "r" in path.relative_to(ROOT).parts:
+            continue
+        content = path.read_text(encoding="utf-8")
+        updated = pattern.sub(replacement, content)
+        if updated != content:
+            path.write_text(updated, encoding="utf-8")
 
 
 def install_analytics():
@@ -2052,6 +2068,7 @@ def build():
     urls.append((f"{BASE}/privacy.html", "0.2", "2026-09-09"))
     build_sitemap(urls)
     build_llms(case_pages, groups)
+    normalise_contact()
     install_analytics()
     counts = {k: len(v) for k, v in groups.items()}
     print(f"built {len(case_pages)} case studies, {counts}, services, booking, faq, skills, feed, sitemap ({len(urls)} URLs), llms.txt, llms-full.txt")
