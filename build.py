@@ -269,7 +269,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="{r}index.html#contact">Contact</a><br>What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}senior-it-leadership-roles.html">Senior IT roles</a> &middot; <a href="{r}khaqan-shaheen-cv.html">CV</a> &middot; <a href="{r}glossary/">Glossary</a></div>
+    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="/#contact">Contact</a><br>What I help with: <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}senior-it-leadership-roles.html">Senior IT roles</a> &middot; <a href="{r}khaqan-shaheen-cv.html">CV</a> &middot; <a href="{r}glossary/">Glossary</a></div>
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech" rel="me">GitHub</a> &middot; <a href="https://sessionize.com/khaqan-shaheen/" rel="me">Speaker profile</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
@@ -1076,7 +1076,7 @@ LANDING = [
             ("Where I work, and relocation", "Based in Dubai. On-site across the UAE, and remote for Saudi Arabia, Oman, Qatar, Bahrain, Kuwait and Pakistan on Dubai time. Open to relocation to Australia and New Zealand, and to the right role elsewhere. Pakistani national, in the UAE since 2015."),
             ("Full-time, fractional, or a project", "Three ways to work with me. A senior full-time role, which is what this page is mainly about. A fractional or part-time Head of IT retainer, for companies that need the judgement without the salary. Or a fixed-scope project: an ERP health check, an IT function review, an AI readiness review or a transformation roadmap. Whichever it is, fees or terms are agreed in writing before anything starts."),
         ],
-        "related": [("Every skill, with the evidence for each", "skills.html"), ("Case studies: what I have actually built", "work/"), ("Experience since 2008", "index.html#experience"), ("Press kit: bios, headshot, fact sheet", "press.html"), ("Fractional or part-time Head of IT", "fractional-head-of-it-uae.html"), ("Questions people ask about me", "faq.html")],
+        "related": [("Every skill, with the evidence for each", "skills.html"), ("Case studies: what I have actually built", "work/"), ("Experience since 2008", "/#experience"), ("Press kit: bios, headshot, fact sheet", "press.html"), ("Fractional or part-time Head of IT", "fractional-head-of-it-uae.html"), ("Questions people ask about me", "faq.html")],
         "faq": [
             ("Are you open to CIO or IT Director roles?", "Yes. I have not held either title, and I will not pretend otherwise. What I have is the scope: the entire IT function of a group across six sites in five countries since December 2015, reporting directly to the owner, with the budget and the vendor contracts. CXO DX recognised it as CIO of the Year 2023 and Excellence in CIO Leadership 2024. Judge the fit on the scope rather than the title."),
             ("Would you take an IT Manager or Group IT Manager role?", "Yes. IT Manager was my own title at the group before it became Head of IT, and Group IT Manager is the closest description of what the job actually is across six sites. The title matters less to me than what is owned."),
@@ -1458,6 +1458,7 @@ BOOKING_JS = r"""
     if (!validEmail(email)) { hint("Please add an email address I can reply to."); document.getElementById("bk-email").focus(); return; }
     sending = true; hint("Sending your request...");
     fetch(endpoint, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify({
+      site: "khaqanshaheen.com", form: "booking", page: location.pathname,
       subject: subject, body: body, email: email, name: field("bk-name"),
       website: field("bk-website"), elapsed: Date.now() - openedAt
     })}).then(function (r) { return r.json(); }).then(function (res) {
@@ -1860,8 +1861,8 @@ SKILLS = [
     ("Applications, mobile and web", [
         ("Android apps and PWAs", "Directs", "Attendance and patrol applications, verified by build artefacts.", "work/multi-site-biometric-attendance.html"),
         ("Web applications and booking flows", "Hands-on", "Built end to end for my own venture, including a mobile app and Wear OS watch apps.", "notes/"),
-        ("WordPress and corporate websites", "Owns", "The group websites, from build to search and marketing.", "index.html#experience"),
-        ("Graphic and web design", "Hands-on", "Where I started in 2008; a diploma in graphics design and early design roles in Lahore.", "index.html#experience"),
+        ("WordPress and corporate websites", "Owns", "The group websites, from build to search and marketing.", "/#experience"),
+        ("Graphic and web design", "Hands-on", "Where I started in 2008; a diploma in graphics design and early design roles in Lahore.", "/#experience"),
     ]),
     ("Search, marketing and AI visibility", [
         ("SEO and structured data", "Hands-on", "Technical SEO, JSON-LD schema, sitemaps, canonicalisation, Search Console.", "tutorials/"),
@@ -1870,13 +1871,13 @@ SKILLS = [
         ("Content systems", "Hands-on", "Structured data and content generation pipelines for my own venture.", "notes/"),
     ]),
     ("Leadership and commercial", [
-        ("Owning an IT function", "Owns", "Six sites, five countries, around 150 users, reporting directly to the owner since December 2015.", "index.html#experience"),
-        ("Team leadership", "Owns", "A team of six plus outsourced development teams; hiring in-house and outsourced developers.", "index.html#experience"),
+        ("Owning an IT function", "Owns", "Six sites, five countries, around 150 users, reporting directly to the owner since December 2015.", "/#experience"),
+        ("Team leadership", "Owns", "A team of six plus outsourced development teams; hiring in-house and outsourced developers.", "/#experience"),
         ("Vendor selection, negotiation and IT purchasing", "Owns", "From requirement to contract to renewal.", "services.html#projects"),
         ("Build versus buy judgement", "Owns", "Extending one platform rather than buying a second and maintaining an interface forever.", "work/one-erp-six-sites-five-countries.html"),
         ("Standardising across sites", "Owns", "Persuading six sites that a group standard is worth what they give up.", "work/one-erp-six-sites-five-countries.html"),
-        ("Project management", "Hands-on", "Project Management Professional (PMP) course, Al Khawarizmi Institute, Abu Dhabi, 2010 (38 hours), applied since on every rollout.", "index.html#experience"),
-        ("Web project management", "Owns", "Web Projects Manager and Webmaster for a national school network, 2012 to 2015.", "index.html#experience"),
+        ("Project management", "Hands-on", "Project Management Professional (PMP) course, Al Khawarizmi Institute, Abu Dhabi, 2010 (38 hours), applied since on every rollout.", "/#experience"),
+        ("Web project management", "Owns", "Web Projects Manager and Webmaster for a national school network, 2012 to 2015.", "/#experience"),
     ]),
 ]
 
