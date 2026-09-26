@@ -43,6 +43,9 @@ BOOKING = {"payment_link": "", "calendar_link": ""}
 SHOW_PRICES = False  # Khaqan, 8 Sep 2026: fees are quoted by email, never shown on the site
 EMAIL = "contact@khaqanshaheen.com"  # every enquiry route on the site
 PRIVACY_EMAIL = "support@khaqanshaheen.com"  # published data-protection contact on privacy.html
+# Google Apps Script web app that emails booking requests to EMAIL. Empty: the booking buttons
+# fall back to opening the visitor's own email client, as before.
+BOOKING_ENDPOINT = ""
 AED_PER_USD = 3.67
 
 LANDING_URLS = []
@@ -1442,9 +1445,35 @@ BOOKING_JS = r"""
   function addr() { return elAddr.getAttribute("data-u") + "@" + elAddr.getAttribute("data-d"); }
   function field(id) { var e = document.getElementById(id); return e ? String(e.value).trim() : ""; }
   function openMail(subject, body) { window.location.href = "mailto:" + addr() + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); }
+  var elHint = document.getElementById("bk-hint");
+  var endpoint = elAddr.getAttribute("data-endpoint") || "";
+  var openedAt = Date.now(), sending = false;
+  function hint(text) { if (elHint) { elHint.textContent = text; } }
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) && v.length <= 254; }
+  function send(subject, body) {
+    if (!endpoint) { openMail(subject, body); return; }
+    if (sending) { return; }
+    var email = field("bk-email");
+    if (!field("bk-name")) { hint("Please add your name so I know who to reply to."); document.getElementById("bk-name").focus(); return; }
+    if (!validEmail(email)) { hint("Please add an email address I can reply to."); document.getElementById("bk-email").focus(); return; }
+    sending = true; hint("Sending your request...");
+    fetch(endpoint, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify({
+      subject: subject, body: body, email: email, name: field("bk-name"),
+      website: field("bk-website"), elapsed: Date.now() - openedAt
+    })}).then(function (r) { return r.json(); }).then(function (res) {
+      sending = false;
+      if (res && res.ok) { hint("Thank you. Your request has reached my inbox and I will reply to " + email + " within one working day."); return; }
+      if (res && res.error === "rate") { hint("Several requests have come from this address recently. Please email me directly instead."); openMail(subject, body); return; }
+      hint("The request could not be sent from this page, so your email client is opening with it written out."); openMail(subject, body);
+    }).catch(function () {
+      sending = false;
+      hint("The request could not be sent from this page, so your email client is opening with it written out."); openMail(subject, body);
+    });
+  }
 
   function whoLines(out) {
     out.push("Name: " + (field("bk-name") || "(not given)"));
+    out.push("Email: " + (field("bk-email") || "(not given)"));
     out.push("Company: " + (field("bk-company") || "(not given)"));
     out.push("Service: " + field("bk-service"));
   }
@@ -1467,7 +1496,7 @@ BOOKING_JS = r"""
     out.push(field("bk-note") || "(none)");
     out.push("");
     out.push("Thanks");
-    openMail("Booking request: " + field("bk-service") + ", " + sel.date + " " + sel.time + " Dubai time", out.join("\n"));
+    send("Booking request: " + field("bk-service") + ", " + sel.date + " " + sel.time + " Dubai time", out.join("\n"));
   });
 
   elPriority.addEventListener("click", function () {
@@ -1483,7 +1512,7 @@ BOOKING_JS = r"""
     out.push(field("bk-note") || "(please fill this in)");
     out.push("");
     out.push("Thanks");
-    openMail("Priority request: " + field("bk-service"), out.join("\n"));
+    send("Priority request: " + field("bk-service"), out.join("\n"));
   });
 
   function boot() {
@@ -1572,14 +1601,20 @@ def build_booking():
         '</section>\n'
         '<section id="details">\n<h2>Your details</h2>\n'
         '<div class="bk-form">\n'
-        '  <label for="bk-name">Name</label>\n  <input type="text" id="bk-name" autocomplete="name">\n'
+        '  <label for="bk-name">Name</label>\n  <input type="text" id="bk-name" autocomplete="name" required>\n'
+        '  <label for="bk-email">Email</label>\n  <input type="email" id="bk-email" autocomplete="email" required>\n'
         '  <label for="bk-company">Company</label>\n  <input type="text" id="bk-company" autocomplete="organization">\n'
         '  <label for="bk-service">Which service</label>\n  <select id="bk-service">\n' + options + '\n  </select>\n'
         '  <label for="bk-note">What you want to cover</label>\n  <textarea id="bk-note" rows="4"></textarea>\n'
+        '  <div class="bk-hp" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label for="bk-website">Leave this empty</label><input type="text" id="bk-website" tabindex="-1" autocomplete="off"></div>\n'
         '</div>\n'
-        '<p class="muted small">Your form answers are not stored or sent by this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>\n'
-        '<div class="bk-actions" id="bk-addr" ' + mail_attrs() + '>\n'
-        '  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot by email</button>\n'
+        + (
+            '<p class="muted small">When you press a button below, your name, email, company, service and note are sent to my inbox through Google (Apps Script and Gmail) so I can reply. Nothing you type here is sent to Analytics. If the request cannot be sent, your own email client opens with it written out instead.</p>\n'
+            if BOOKING_ENDPOINT else
+            '<p class="muted small">Your form answers are not stored or sent by this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>\n'
+        ) +
+        '<div class="bk-actions" id="bk-addr" ' + mail_attrs() + (f' data-endpoint="{BOOKING_ENDPOINT}"' if BOOKING_ENDPOINT else '') + '>\n'
+        + ('  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot</button>\n' if BOOKING_ENDPOINT else '  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot by email</button>\n') +
         '  <button type="button" id="bk-priority" class="btn">Ask about a priority slot</button>\n'
         '</div>\n'
         '<p class="muted small" id="bk-hint"></p>\n'
@@ -1590,7 +1625,7 @@ def build_booking():
         'Use the button above and tell me what the deadline is and why.</p>\n'
         '</section>\n'
         '<section id="after">\n<h2>What happens next</h2>\n<ol class="plain">\n'
-        '<li>You send the pre-filled email. The slot is not held yet.</li>\n'
+        + ('<li>You send the request. The slot is not held yet.</li>\n' if BOOKING_ENDPOINT else '<li>You send the pre-filled email. The slot is not held yet.</li>\n') +
         '<li>I reply within one working day, confirm the slot or offer the nearest alternative, and send the fee in writing.</li>\n'
         '<li>You pay in advance, then you get a calendar invite with the meeting link.</li>\n'
         '<li>Written notes follow within 24 hours of the session.</li>\n</ol>\n</section>\n'
@@ -2085,9 +2120,14 @@ def build_privacy():
 <h2>What is measured</h2><p>For consenting visitors, Google Analytics measures page visits, approximate geography, device and browser information, traffic sources, engagement, scroll depth, downloads, outbound destination domains, and contact or booking interactions. It uses pseudonymous analytics cookies to distinguish browsers and sessions. Cookies can persist for up to 180 days, subject to browser controls.</p>
 <p>Booking and email clicks measure intent, not a completed booking, sent email or confirmed sale. The site does not send booking form answers, email contents, names, phone numbers or payment details to Analytics. Page URLs are reduced to the canonical page; referrers are reduced to their origin. Only simple campaign source, medium and name labels are permitted. Do not put personal data in campaign labels.</p>
 <h2>Google and data use</h2><p>Google processes the analytics information to provide reports to the site owner. Advertising personalisation and Google signals are disabled in this implementation. No session replay, keystroke recording or cross-site fingerprinting is installed. See <a href="https://policies.google.com/privacy">Google's privacy policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites using its services</a>.</p>
-<h2>Booking and contact</h2><p>The booking calendar prepares a request in your email application. Information you choose to send by email is handled separately from Analytics to respond to your enquiry. Following an external link takes you to another provider's site and privacy practices.</p>
+<h2>Booking and contact</h2><p>__BOOKING_PRIVACY__ Information you choose to send is handled separately from Analytics and is used only to respond to your enquiry. Following an external link takes you to another provider's site and privacy practices.</p>
 <h2>Contact and withdrawal</h2><p>For a privacy question, contact <a href="mailto:__PRIVACY_EMAIL__">__PRIVACY_EMAIL__</a>. Reject analytics in Analytics preferences to stop subsequent collection in this browser and remove this site's accessible Analytics cookies. Previously collected reports are not automatically erased by withdrawing consent.</p>"""
     body = body.replace("__PRIVACY_EMAIL__", PRIVACY_EMAIL)
+    body = body.replace("__BOOKING_PRIVACY__", (
+        "The booking form sends your name, email address, company, chosen service and note to Khaqan Shaheen's inbox through Google Apps Script and Gmail, so that he can reply. If sending fails, the page opens your own email application instead."
+        if BOOKING_ENDPOINT else
+        "The booking calendar prepares a request in your email application."
+    ))
     url=f"{BASE}/privacy.html"
     (ROOT/'privacy.html').write_text(layout(title="Privacy and analytics | Khaqan Shaheen", description="How khaqanshaheen.com measures visits and respects your analytics choice.",url=url,body=body,schema={"@context":"https://schema.org","@type":"WebPage","name":"Privacy and analytics","url":url},depth=0),encoding='utf-8')
 

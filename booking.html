@@ -74,7 +74,9 @@
 <h2>Your details</h2>
 <div class="bk-form">
   <label for="bk-name">Name</label>
-  <input type="text" id="bk-name" autocomplete="name">
+  <input type="text" id="bk-name" autocomplete="name" required>
+  <label for="bk-email">Email</label>
+  <input type="email" id="bk-email" autocomplete="email" required>
   <label for="bk-company">Company</label>
   <input type="text" id="bk-company" autocomplete="organization">
   <label for="bk-service">Which service</label>
@@ -99,6 +101,7 @@
   </select>
   <label for="bk-note">What you want to cover</label>
   <textarea id="bk-note" rows="4"></textarea>
+  <div class="bk-hp" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label for="bk-website">Leave this empty</label><input type="text" id="bk-website" tabindex="-1" autocomplete="off"></div>
 </div>
 <p class="muted small">Your form answers are not stored or sent by this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>
 <div class="bk-actions" id="bk-addr" data-u="contact" data-d="khaqanshaheen.com">
@@ -391,9 +394,35 @@
   function addr() { return elAddr.getAttribute("data-u") + "@" + elAddr.getAttribute("data-d"); }
   function field(id) { var e = document.getElementById(id); return e ? String(e.value).trim() : ""; }
   function openMail(subject, body) { window.location.href = "mailto:" + addr() + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); }
+  var elHint = document.getElementById("bk-hint");
+  var endpoint = elAddr.getAttribute("data-endpoint") || "";
+  var openedAt = Date.now(), sending = false;
+  function hint(text) { if (elHint) { elHint.textContent = text; } }
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) && v.length <= 254; }
+  function send(subject, body) {
+    if (!endpoint) { openMail(subject, body); return; }
+    if (sending) { return; }
+    var email = field("bk-email");
+    if (!field("bk-name")) { hint("Please add your name so I know who to reply to."); document.getElementById("bk-name").focus(); return; }
+    if (!validEmail(email)) { hint("Please add an email address I can reply to."); document.getElementById("bk-email").focus(); return; }
+    sending = true; hint("Sending your request...");
+    fetch(endpoint, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify({
+      subject: subject, body: body, email: email, name: field("bk-name"),
+      website: field("bk-website"), elapsed: Date.now() - openedAt
+    })}).then(function (r) { return r.json(); }).then(function (res) {
+      sending = false;
+      if (res && res.ok) { hint("Thank you. Your request has reached my inbox and I will reply to " + email + " within one working day."); return; }
+      if (res && res.error === "rate") { hint("Several requests have come from this address recently. Please email me directly instead."); openMail(subject, body); return; }
+      hint("The request could not be sent from this page, so your email client is opening with it written out."); openMail(subject, body);
+    }).catch(function () {
+      sending = false;
+      hint("The request could not be sent from this page, so your email client is opening with it written out."); openMail(subject, body);
+    });
+  }
 
   function whoLines(out) {
     out.push("Name: " + (field("bk-name") || "(not given)"));
+    out.push("Email: " + (field("bk-email") || "(not given)"));
     out.push("Company: " + (field("bk-company") || "(not given)"));
     out.push("Service: " + field("bk-service"));
   }
@@ -416,7 +445,7 @@
     out.push(field("bk-note") || "(none)");
     out.push("");
     out.push("Thanks");
-    openMail("Booking request: " + field("bk-service") + ", " + sel.date + " " + sel.time + " Dubai time", out.join("\n"));
+    send("Booking request: " + field("bk-service") + ", " + sel.date + " " + sel.time + " Dubai time", out.join("\n"));
   });
 
   elPriority.addEventListener("click", function () {
@@ -432,7 +461,7 @@
     out.push(field("bk-note") || "(please fill this in)");
     out.push("");
     out.push("Thanks");
-    openMail("Priority request: " + field("bk-service"), out.join("\n"));
+    send("Priority request: " + field("bk-service"), out.join("\n"));
   });
 
   function boot() {
