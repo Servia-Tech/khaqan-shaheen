@@ -8,7 +8,7 @@ Source: https://khaqanshaheen.com/faq.html
 
 ### What is Khaqan Shaheen's speciality?
 
-Moving a business from manual, spreadsheet and paper operations to one ERP with AI doing the repetitive work. He has done it for a manufacturing group across six sites in five countries on Odoo, and put five AI systems into daily production on top of it: document OCR, document verification, a WhatsApp and web sales agent, a voice agent on the telephony and a multi-channel chat platform.
+Leading technology, security and AI. He is Head of IT for a manufacturing group across six sites in five countries, reports directly to the owner, and has five AI systems in daily production: document OCR, document verification, a WhatsApp and web sales agent, a voice agent on the telephony and a multi-channel chat platform. Underneath them is the move from manual, spreadsheet and paper operations to one operating platform, the Odoo ERP every site closes its month on, with AI doing the repetitive work.
 
 ### Does Khaqan Shaheen offer ERP consultation?
 
@@ -20,15 +20,15 @@ Four from CXO DX, the UAE technology leadership publication and events organiser
 
 ### Who is Khaqan Shaheen?
 
-Khaqan Shaheen is Head of IT for a plastics manufacturing group in the UAE and a technology leader in AI, automation and connected devices. He owns the entire technology function for six sites in five countries and around 150 users, runs one Odoo ERP for the whole group, and has five AI systems in daily production use, including document OCR, a WhatsApp sales agent and a voice agent on the phone system. He has worked in web and business systems since 2008 and lives in Dubai.
+Khaqan Shaheen is Head of IT for a plastics manufacturing group in the UAE, where he leads technology, security and AI across six sites in five countries, reports directly to the owner and has five AI systems in daily production, including document OCR, a WhatsApp sales agent and a voice agent on the phone system. He also moved the group onto one operating platform, the Odoo ERP every site now works from. He has worked in web and business systems since 2008 and lives in Dubai.
 
 ### Is this the same Khaqan Shaheen as the journalist, the actor or the cricketer?
 
-No. This Khaqan Shaheen is the technology leader in Dubai: Head of IT of a plastics manufacturing group in the United Arab Emirates since December 2015, running one Odoo ERP and five AI systems across six sites in five countries. He is not a Pakistani journalist or television presenter, not the actor Khaqan Shahnawaz, and not the cricketer Shaheen Shah Afridi. His public profiles include linkedin.com/in/webshaheen, github.com/Servia-Tech, sessionize.com/khaqan-shaheen/ and this site.
+No. This Khaqan Shaheen is the technology leader in Dubai: Head of IT of a plastics manufacturing group in the United Arab Emirates since December 2015, leading technology, security and AI across six sites in five countries, with five AI systems in daily production. He is not a Pakistani journalist or television presenter, not the actor Khaqan Shahnawaz, and not the cricketer Shaheen Shah Afridi. His public profiles include linkedin.com/in/webshaheen, github.com/Servia-Tech, sessionize.com/khaqan-shaheen/ and this site.
 
 ### What does Khaqan Shaheen specialise in?
 
-Four things: ERP for multi-site manufacturing (Odoo, from implementation to directing custom development), AI systems that run in production (document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, a multi-channel chat platform), the infrastructure and identity underneath (PostgreSQL, Linux, cloud, single sign-on, two factor authentication), and running an IT function that reports to the owner.
+Four things: running an IT function that reports to the owner, AI systems that run in production (document OCR into the ERP, document verification, a WhatsApp and web sales agent, a voice agent on the telephony, a multi-channel chat platform), the infrastructure, identity and security underneath (PostgreSQL, Linux, cloud, single sign-on, two factor authentication), and ERP for multi-site manufacturing (Odoo, from implementation to directing custom development).
 
 ### Is Khaqan Shaheen available for consulting?
 
@@ -530,7 +530,7 @@ Fractional Head of IT in Dubai and the UAE: the judgement and ownership of an IT
 ## Deployments
 
 - The whole IT function of a manufacturing group since December 2015: six sites, five countries, around 150 users, a team of six plus outsourced developers, the IT budget and every vendor contract.
-- One Odoo ERP for the group, implemented and its custom development directed: 256 models, 1,187 custom fields and 686 access rules, kept upgradable.
+- One operating platform for the group, kept upgradable.
 - PostgreSQL 9.5 to 16 with no unplanned downtime at any site, with automated backups, point in time recovery, off-site replication and monitoring built around it.
 - Five AI systems in daily production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.
 - Google Workspace single sign-on, two factor authentication and role based access across the group, and one security standard across five countries.
@@ -550,7 +550,7 @@ Vendors, contracts and IT purchasing. Budget and priorities. Security, identity 
 
 ## What I bring
 
-Since December 2015 I have owned the IT function of a plastics manufacturing group: six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. One Odoo ERP for the group, five AI systems in production, a PostgreSQL migration across eight major versions with no unplanned downtime, Google Workspace single sign-on across the group, and the IT for each new factory built from nothing.
+Since December 2015 I have owned the IT function of a plastics manufacturing group: six sites, five countries, around 150 users, a team of six plus outsourced developers, reporting directly to the owner. Five AI systems in production, one Odoo ERP for the group, a PostgreSQL migration across eight major versions with no unplanned downtime, Google Workspace single sign-on across the group, and the IT for each new factory built from nothing.
 
 ## How it runs
 
@@ -596,7 +596,7 @@ AI search visibility audit for a website in Dubai, the UAE or anywhere else. It 
 
 - ai-visibility-audit: one Python file with no dependencies that scores a site across SEO, AEO, GEO, AIO and SXO, lists the fixes by points lost, and runs as a GitHub Action. Open source on GitHub.
 - The same five-layer audit runs every morning on the websites I own, and this site is built on its findings: llms.txt, llms-full.txt, Person, Service and FAQ schema, and answer-first pages.
-- The day job behind the advice: Head of IT of a UAE plastics manufacturing group, one Odoo ERP across six sites in five countries, PostgreSQL 9.5 to 16 with no unplanned downtime, and five AI systems in daily production (document OCR, document verification, a WhatsApp and web sales agent, a voice agent on Grandstream telephony, one multi-channel chat platform).
+- The day job behind the advice: Head of IT of a UAE plastics manufacturing group, leading technology, security and AI across six sites in five countries, with five AI systems in daily production (document OCR, document verification, a WhatsApp and web sales agent, a voice agent on Grandstream telephony, one multi-channel chat platform), one Odoo ERP and PostgreSQL 9.5 to 16 with no unplanned downtime.
 - Four brand websites for that group, with their search and paid campaigns, owned since 2015.
 
 ## What gets checked
@@ -685,12 +685,12 @@ Manufacturing first, across six sites. The pattern applies to distribution, trad
 
 Source: https://khaqanshaheen.com/senior-it-leadership-roles.html
 
-Senior IT roles I am open to, with the evidence behind each: Head of IT, IT Manager, Group IT Manager, IT Director, Head of Information Technology, CIO, ERP Manager, Odoo Manager, Digital Transformation Manager, Head of AI, IT Operations Manager, Infrastructure Manager and Network Manager. Since December 2015 I have owned the entire IT function of a plastics manufacturing group across six sites in five countries, around 150 users, reporting directly to the owner: the Odoo ERP, the servers and the network behind it, identity and security, telephony, connected devices, the group websites and the marketing. Based in Dubai, available across the GCC, and open to relocation to Australia and New Zealand.
+The senior roles I am looking for are Head of IT, IT Director and Head of Digital and AI Transformation, with the evidence behind each below; Group IT Manager, Head of Information Technology, CIO, Head of AI, IT Manager, ERP Manager, Digital Transformation Manager, IT Operations Manager, Infrastructure Manager and Network Manager fit the same work. The title I hold is Head of IT. Since December 2015 I have led technology, security and AI for a plastics manufacturing group across six sites in five countries, around 150 users, reporting directly to the owner: five AI systems in daily production, the servers and the network, identity and security, telephony, connected devices, the group websites and the marketing, and the Odoo ERP every site runs on. Based in Dubai, available across the GCC, and open to relocation to Australia and New Zealand.
 
 ## Deployments
 
 - The whole IT function of a manufacturing group since December 2015: six sites, five countries, around 150 users, a team of six plus outsourced developers, the IT budget and every vendor contract, reporting directly to the owner.
-- One Odoo ERP for the group, implemented and its custom development directed: 256 models, 1,187 custom fields and 686 access rules, kept upgradable.
+- One operating platform for the group, kept upgradable.
 - PostgreSQL 9.5 to 16 across eight major versions with no unplanned downtime at any site, with automated backups, point in time recovery, off-site replication and monitoring.
 - Networks, firewalls, site to site VPNs and endpoint protection across five countries, plus IP CCTV and access control integrated with the site setup.
 - Five AI systems in daily production: document OCR into the ERP, automated document verification, a WhatsApp and web sales agent, an AI voice agent on Grandstream telephony, and one multi-channel chat platform.
@@ -830,51 +830,55 @@ It depends on the role and is discussed at offer stage. For fractional or projec
 
 ## Case studies
 
-# Machine scheduling and order-overlap prevention in a manufacturing ERP
+# Five AI systems in daily production at a UAE plastics manufacturer
 
-Source: https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html
+Source: https://khaqanshaheen.com/work/five-ai-systems-in-daily-production-at-a-uae-plastics-manufacturer.html
 
 ## Situation
 
-A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct. Machines are the constraint. Every promise to a customer is really a promise about a machine being free.
+A plastics manufacturing group in the UAE with six sites in five countries, four brands and four websites, around 150 users, and one Odoo ERP that every site works from. I am Head of IT, reporting directly to the owner. AI was not a project the business asked for. It came out of watching where people's hours went.
 
 ## Business problem
 
-Scheduling happened outside the system, in planners' own working notes. Nothing stopped two work orders being committed to the same machine for the same window, and nobody found out at the point of booking. They found out on the shop floor, with material staged and an operator waiting, after sales had already given the customer a date.
+Finance typed every supplier bill and expense claim into the ERP by hand. Certificates and supporting documents were checked by whoever had time. Enquiries on WhatsApp landed on personal phones with no record that they had existed. Out-of-hours callers reached a ring tone and called the next supplier. None of it justified a new hire, and all of it together was a lot of hours a month that nobody owned.
 
 ## My responsibility
 
-I own the ERP function and I own and direct its custom development. This was mine end to end as the owner: I specified the data model, the Python and the views, reviewed the build, ran the testing and the rollout to planners on shifts.
+I designed all five systems, I built them, and I own them in production: monitored, fixed when they break, and switched off if they misbehave, like the ERP and the network.
 
 ## Solution
 
-I modelled the machines first. Each carries a capacity type and a capacity figure, and work orders are assigned to a named machine rather than a vague work centre. Shifts are records, so a long order splits across shifts on the real shift length. Duration and end date are then calculated rather than typed, from quantity, machine capacity, machine start and stop time and the shift boundaries.
+Five systems, each doing one job, all writing into the ERP the group already runs on.
 
-On top sits the guard. Three points in the booking flow check whether the machine is already committed for that window. If it is, the save is refused, with an error naming the conflicting work order and its manufacturing order. For clashes already sitting in live data I added a computed conflict count with a drill-through that opens them, so a planner sees a number and clicks it. Machine change and order split are controlled wizards, so a re-plan recalculates the dependent dates instead of moving a label.
+1. Document OCR into the ERP. Supplier bills and expense claims are read by vision-capable models and created as records in Odoo with the original attached. A person approves each one. The pipeline never posts to the ledger.
+2. Automated certificate and document verification. It checks whether a document is what it claims to be and whether its details match what we expect, then flags exceptions for a person. It refuses to guess.
+3. A 24 hour AI sales agent on WhatsApp and the group websites. It answers, works out what the enquiry actually is, and creates a qualified lead in the Odoo CRM pipeline. Anything about price or delivery goes to a person.
+4. An AI voice agent on our Grandstream telephony, answering inbound calls on a phone platform inside my own estate rather than a third-party cloud.
+5. One AI chat platform running several WhatsApp numbers and the websites from a single place, so each brand answers in its own voice from one set of rules.
 
 ## Technology
 
-Python, the Odoo ORM, computed fields and server-side constraints, XML views and wizards, QWeb, JavaScript, PostgreSQL, Linux.
+Vision-capable and language model APIs (Gemini and Claude among them), Python, Odoo and its API, PostgreSQL, WhatsApp, Grandstream telephony, Linux and Nginx.
 
 ## Implementation
 
-Built incrementally against real planning data. The conflict count shipped before the hard block, so planners could clear the existing clashes before the system began refusing saves.
+The order was deliberate. OCR first, because a paper trail makes accuracy measurable. Verification second, on the same pattern. Then the sales agent, the chat platform behind it, and voice last, once chat had proved where the boundaries sit. Each went live with a review queue, an audit log, idempotency so the same document cannot post twice, and a switch-off rule agreed before go-live.
 
 ## Challenges
 
-Retrofitting a rule into a live plant is the hard part. A blocking constraint that is slightly wrong stops production, so the guard had to be right about split orders, machine changes mid-run and orders that legitimately share a window. An error saying only "machine busy" also gets worked around, which is why the message names the other order.
+The model is the least of it. A supplier changes an invoice template and the OCR quietly starts picking a different number, which is why review is not optional. WhatsApp sessions drop, so anything running unattended for months has to be built for reconnection. An agent that invents an answer is worse than no agent, so deciding what each system must escalate took longer than making it work.
 
 ## Result
 
-Double-booking is refused at save time rather than discovered on the floor. End dates are calculated. A plan change recalculates the dates that depend on it.
+Finance checks values instead of typing them. Documents are checked every time and leave a record. An enquiry at two in the morning gets a proper answer and arrives in the ERP as a qualified lead. Callers reach something that can act. All five run every day inside a working manufacturing group, owned like any other production system.
 
 ## Verified evidence
 
-`gt_order_mgnt/models/mrp_machine.py`, 2,990 lines, in a custom Odoo module tree I hold. Three separate machine-busy guards raise a user-facing error naming the conflicting work order and manufacturing order. A computed conflict-count field with its compute method, and an action that opens the conflicting orders. Machine change and order split exist as wizards. The code is my employer's and is not published here.
+All five systems are in production at the group. The OCR, the sales agent and the voice agent each have their own case study on this site. I hold the logs and can produce processing counts, exception rates and after-hours shares on request. I do not quote figures I have not measured.
 
 ## Skills demonstrated
 
-Manufacturing process modelling, capacity planning and machine scheduling, Odoo module engineering, server-side constraint design, working with shop-floor users.
+Applied AI in production, pipeline and validation design, ERP integration, conversational and voice agent design, telephony, unattended service reliability, AI governance inside a business.
 
 # One ERP across six sites in five countries
 
@@ -912,7 +916,7 @@ Customisation is what kills ERP platforms. Heavily modified systems become impos
 
 ## Result
 
-All sites run on a single supported platform and close the month from the same records, instead of six systems and a reconciliation exercise.
+All sites run on a single supported platform and close the month from the same records, instead of six systems and a reconciliation exercise. The custom development built on it is kept upgradable: 256 models, 1,187 custom fields and 686 access rules.
 
 ## Verified evidence
 
@@ -1325,55 +1329,51 @@ This is a repeated delivery rather than a code artefact, and the evidence is the
 
 Greenfield IT delivery, project sequencing, multi-country vendor and contract management, network and infrastructure design, budget ownership.
 
-# Five AI systems in daily production at a UAE plastics manufacturer
+# Machine scheduling and order-overlap prevention in a manufacturing ERP
 
-Source: https://khaqanshaheen.com/work/five-ai-systems-in-daily-production-at-a-uae-plastics-manufacturer.html
+Source: https://khaqanshaheen.com/work/machine-scheduling-and-overlap-prevention.html
 
 ## Situation
 
-A plastics manufacturing group in the UAE with six sites in five countries, four brands and four websites, around 150 users, and one Odoo ERP that every site works from. I am Head of IT, reporting directly to the owner. AI was not a project the business asked for. It came out of watching where people's hours went.
+A plastics manufacturing group running six sites across five countries on one Odoo ERP that I implemented and whose custom development I own and direct. Machines are the constraint. Every promise to a customer is really a promise about a machine being free.
 
 ## Business problem
 
-Finance typed every supplier bill and expense claim into the ERP by hand. Certificates and supporting documents were checked by whoever had time. Enquiries on WhatsApp landed on personal phones with no record that they had existed. Out-of-hours callers reached a ring tone and called the next supplier. None of it justified a new hire, and all of it together was a lot of hours a month that nobody owned.
+Scheduling happened outside the system, in planners' own working notes. Nothing stopped two work orders being committed to the same machine for the same window, and nobody found out at the point of booking. They found out on the shop floor, with material staged and an operator waiting, after sales had already given the customer a date.
 
 ## My responsibility
 
-I designed all five systems, I built them, and I own them in production: monitored, fixed when they break, and switched off if they misbehave, like the ERP and the network.
+I own the ERP function and I own and direct its custom development. This was mine end to end as the owner: I specified the data model, the Python and the views, reviewed the build, ran the testing and the rollout to planners on shifts.
 
 ## Solution
 
-Five systems, each doing one job, all writing into the ERP the group already runs on.
+I modelled the machines first. Each carries a capacity type and a capacity figure, and work orders are assigned to a named machine rather than a vague work centre. Shifts are records, so a long order splits across shifts on the real shift length. Duration and end date are then calculated rather than typed, from quantity, machine capacity, machine start and stop time and the shift boundaries.
 
-1. Document OCR into the ERP. Supplier bills and expense claims are read by vision-capable models and created as records in Odoo with the original attached. A person approves each one. The pipeline never posts to the ledger.
-2. Automated certificate and document verification. It checks whether a document is what it claims to be and whether its details match what we expect, then flags exceptions for a person. It refuses to guess.
-3. A 24 hour AI sales agent on WhatsApp and the group websites. It answers, works out what the enquiry actually is, and creates a qualified lead in the Odoo CRM pipeline. Anything about price or delivery goes to a person.
-4. An AI voice agent on our Grandstream telephony, answering inbound calls on a phone platform inside my own estate rather than a third-party cloud.
-5. One AI chat platform running several WhatsApp numbers and the websites from a single place, so each brand answers in its own voice from one set of rules.
+On top sits the guard. Three points in the booking flow check whether the machine is already committed for that window. If it is, the save is refused, with an error naming the conflicting work order and its manufacturing order. For clashes already sitting in live data I added a computed conflict count with a drill-through that opens them, so a planner sees a number and clicks it. Machine change and order split are controlled wizards, so a re-plan recalculates the dependent dates instead of moving a label.
 
 ## Technology
 
-Vision-capable and language model APIs (Gemini and Claude among them), Python, Odoo and its API, PostgreSQL, WhatsApp, Grandstream telephony, Linux and Nginx.
+Python, the Odoo ORM, computed fields and server-side constraints, XML views and wizards, QWeb, JavaScript, PostgreSQL, Linux.
 
 ## Implementation
 
-The order was deliberate. OCR first, because a paper trail makes accuracy measurable. Verification second, on the same pattern. Then the sales agent, the chat platform behind it, and voice last, once chat had proved where the boundaries sit. Each went live with a review queue, an audit log, idempotency so the same document cannot post twice, and a switch-off rule agreed before go-live.
+Built incrementally against real planning data. The conflict count shipped before the hard block, so planners could clear the existing clashes before the system began refusing saves.
 
 ## Challenges
 
-The model is the least of it. A supplier changes an invoice template and the OCR quietly starts picking a different number, which is why review is not optional. WhatsApp sessions drop, so anything running unattended for months has to be built for reconnection. An agent that invents an answer is worse than no agent, so deciding what each system must escalate took longer than making it work.
+Retrofitting a rule into a live plant is the hard part. A blocking constraint that is slightly wrong stops production, so the guard had to be right about split orders, machine changes mid-run and orders that legitimately share a window. An error saying only "machine busy" also gets worked around, which is why the message names the other order.
 
 ## Result
 
-Finance checks values instead of typing them. Documents are checked every time and leave a record. An enquiry at two in the morning gets a proper answer and arrives in the ERP as a qualified lead. Callers reach something that can act. All five run every day inside a working manufacturing group, owned like any other production system.
+Double-booking is refused at save time rather than discovered on the floor. End dates are calculated. A plan change recalculates the dates that depend on it.
 
 ## Verified evidence
 
-All five systems are in production at the group. The OCR, the sales agent and the voice agent each have their own case study on this site. I hold the logs and can produce processing counts, exception rates and after-hours shares on request. I do not quote figures I have not measured.
+`gt_order_mgnt/models/mrp_machine.py`, 2,990 lines, in a custom Odoo module tree I hold. Three separate machine-busy guards raise a user-facing error naming the conflicting work order and manufacturing order. A computed conflict-count field with its compute method, and an action that opens the conflicting orders. Machine change and order split exist as wizards. The code is my employer's and is not published here.
 
 ## Skills demonstrated
 
-Applied AI in production, pipeline and validation design, ERP integration, conversational and voice agent design, telephony, unattended service reliability, AI governance inside a business.
+Manufacturing process modelling, capacity planning and machine scheduling, Odoo module engineering, server-side constraint design, working with shop-floor users.
 
 ## Articles
 

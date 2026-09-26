@@ -12,8 +12,8 @@
   map.addEventListener('pointerleave',function(){map.style.removeProperty('--rx');map.style.removeProperty('--ry');});
  }
  var topics={
-  erp:{title:'One ERP. Every site.',text:'Production, sales, inventory, procurement, accounting, HR and maintenance connected through one Odoo instance. Explore the decisions behind running it across six sites in five countries.',href:'work/one-erp-six-sites-five-countries.html',label:'Explore the ERP case study'},
-  ai:{title:'AI inside the workflow.',text:'Five systems in daily use: document OCR, certificate verification, a sales agent, voice automation and centralised chat. Start with the sales agent and its connection to the ERP.',href:'work/ai-sales-agent-whatsapp-and-web.html',label:'Explore the AI sales agent'},
+  ai:{title:'AI inside the workflow.',text:'Five systems in daily use: document OCR, certificate verification, a sales agent, voice automation and centralised chat. See what each one does, who approves its output and who owns it in production.',href:'work/five-ai-systems-in-daily-production-at-a-uae-plastics-manufacturer.html',label:'Explore the AI case study'},
+  erp:{title:'One set of records for every site.',text:'Production, sales, inventory, procurement, accounting, HR and maintenance on one Odoo instance, so all six sites close the month from the same records. Explore the decisions behind it.',href:'work/one-erp-six-sites-five-countries.html',label:'Explore the operations platform case study'},
   data:{title:'Change the foundation. Keep the business running.',text:'A production PostgreSQL migration from 9.5 to 16, supported by backup, recovery, replication and monitoring. Read the migration story and its operational constraints.',href:'work/postgresql-9-5-to-16-migration.html',label:'Explore the database migration'},
   security:{title:'One identity. Clear access.',text:'Google Workspace single sign-on, two-factor authentication and role-based access across a multi-site operation. See the approach to replacing locally held passwords.',href:'work/identity-and-access-rebuild.html',label:'Explore identity and access'}
  };

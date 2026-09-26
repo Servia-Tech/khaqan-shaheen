@@ -24,7 +24,7 @@ Site by site and function by function rather than one switch-over. Where a local
 Customisation is what kills ERP platforms. Heavily modified systems become impossible to upgrade and the group is stranded on an unsupported release, so keeping the extensions upgradable was a constant design constraint. The other challenge was people. Sites that had chosen their own tools had to be persuaded that a group standard was worth what they gave up.
 
 ## Result
-All sites run on a single supported platform and close the month from the same records, instead of six systems and a reconciliation exercise.
+All sites run on a single supported platform and close the month from the same records, instead of six systems and a reconciliation exercise. The custom development built on it is kept upgradable: 256 models, 1,187 custom fields and 686 access rules.
 
 ## Verified evidence
 A custom Odoo module tree I hold and maintain: 28 module directories, 25 carrying the company as author, four being third-party or community modules I maintain rather than claim. The largest module alone holds 22 model files, more than 30 views and eight wizards, with its own JavaScript and QWeb assets. That snapshot documents an earlier generation of the platform, migrated forward since. The code is my employer's and is not published.
