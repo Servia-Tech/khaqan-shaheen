@@ -45,7 +45,7 @@ EMAIL = "contact@khaqanshaheen.com"  # every enquiry route on the site
 PRIVACY_EMAIL = "support@khaqanshaheen.com"  # published data-protection contact on privacy.html
 # Google Apps Script web app that emails booking requests to EMAIL. Empty: the booking buttons
 # fall back to opening the visitor's own email client, as before.
-BOOKING_ENDPOINT = ""
+BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbxmj4U83-iA7WA0eRmtZY3m1koPRyWHhL_E0sP0Hkkbi6gNjrqmbmwgRXvUTWbNRCTVfA/exec"
 AED_PER_USD = 3.67
 
 LANDING_URLS = []

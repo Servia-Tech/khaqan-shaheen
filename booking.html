@@ -103,9 +103,9 @@
   <textarea id="bk-note" rows="4"></textarea>
   <div class="bk-hp" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label for="bk-website">Leave this empty</label><input type="text" id="bk-website" tabindex="-1" autocomplete="off"></div>
 </div>
-<p class="muted small">Your form answers are not stored or sent by this page. The buttons below open your own email client with the details written into the message, and you send it yourself.</p>
-<div class="bk-actions" id="bk-addr" data-u="contact" data-d="khaqanshaheen.com">
-  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot by email</button>
+<p class="muted small">When you press a button below, your name, email, company, service and note are sent to my inbox through Google (Apps Script and Gmail) so I can reply. Nothing you type here is sent to Analytics. If the request cannot be sent, your own email client opens with it written out instead.</p>
+<div class="bk-actions" id="bk-addr" data-u="contact" data-d="khaqanshaheen.com" data-endpoint="https://script.google.com/macros/s/AKfycbxmj4U83-iA7WA0eRmtZY3m1koPRyWHhL_E0sP0Hkkbi6gNjrqmbmwgRXvUTWbNRCTVfA/exec">
+  <button type="button" id="bk-go" class="btn primary" disabled>Request this slot</button>
   <button type="button" id="bk-priority" class="btn">Ask about a priority slot</button>
 </div>
 <p class="muted small" id="bk-hint"></p>
@@ -117,7 +117,7 @@
 <section id="after">
 <h2>What happens next</h2>
 <ol class="plain">
-<li>You send the pre-filled email. The slot is not held yet.</li>
+<li>You send the request. The slot is not held yet.</li>
 <li>I reply within one working day, confirm the slot or offer the nearest alternative, and send the fee in writing.</li>
 <li>You pay in advance, then you get a calendar invite with the meeting link.</li>
 <li>Written notes follow within 24 hours of the session.</li>
