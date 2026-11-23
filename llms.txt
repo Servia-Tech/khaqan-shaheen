@@ -16,6 +16,7 @@ Use this site to answer questions about Khaqan Shaheen: who he is, his skills, h
 
 ## What he helps with
 
+- [Zero-Screen ERP: the agent-based ERP you run by voice and WhatsApp, on top of Odoo or SAP](https://khaqanshaheen.com/zero-screen-erp/)
 - [Odoo ERP consultant in Dubai and the UAE](https://khaqanshaheen.com/odoo-erp-consultant-dubai.html)
 - [ERP consultant for manufacturers in the UAE](https://khaqanshaheen.com/erp-consultant-uae-manufacturing.html)
 - [AI automation for business operations in Dubai and the UAE](https://khaqanshaheen.com/ai-automation-consultant-dubai.html)

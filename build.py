@@ -31,6 +31,7 @@ NAV = [
     ("Work", "work/"),
     ("Writing", "writing/"),
     ("Services", "services.html"),
+    ("Zero-Screen ERP", "zero-screen-erp/"),
     ("Career advice", "career-advice.html"),
     ("Skills", "skills.html"),
     ("FAQ", "faq.html"),
@@ -269,7 +270,7 @@ def layout(*, title, description, url, body, schema, depth, og_type="website", o
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="/#contact">Contact</a><br>What I help with: <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}senior-it-leadership-roles.html">Senior IT roles</a> &middot; <a href="{r}khaqan-shaheen-cv.html">CV</a> &middot; <a href="{r}glossary/">Glossary</a></div>
+    <div class="topics"><a href="{r}booking.html"><strong>Book a session</strong></a> &middot; <a href="/#contact">Contact</a><br>What I help with: <a href="{r}zero-screen-erp/"><strong>Zero-Screen ERP</strong></a> &middot; <a href="{r}fractional-head-of-it-uae.html">Fractional Head of IT</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation in operations</a> &middot; <a href="{r}manual-to-erp-and-ai-automation.html">Manual to ERP with AI</a> &middot; <a href="{r}erp-consultant-uae-manufacturing.html">ERP for UAE manufacturers</a> &middot; <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant, Dubai</a> &middot; <a href="{r}ai-search-visibility-audit.html">AI search visibility audit</a> &middot; <a href="{r}senior-it-leadership-roles.html">Senior IT roles</a> &middot; <a href="{r}khaqan-shaheen-cv.html">CV</a> &middot; <a href="{r}glossary/">Glossary</a></div>
     <div>Khaqan Shaheen, Head of IT, Dubai. Written by me, no ghost-written numbers, quote with attribution.</div>
     <div><a href="https://www.linkedin.com/in/webshaheen" rel="me">LinkedIn</a> &middot; <a href="https://github.com/Servia-Tech" rel="me">GitHub</a> &middot; <a href="https://sessionize.com/khaqan-shaheen/" rel="me">Speaker profile</a> &middot; <a href="{r}feed.xml">RSS</a> &middot; <a href="{r}llms.txt">llms.txt</a> &middot; <a href="{r}press.html">Press kit</a></div>
   </div>
@@ -2166,6 +2167,300 @@ def install_analytics():
         path.write_text(content,encoding='utf-8')
 
 
+# --------------------------------------------------------------------------- concept page: Zero-Screen ERP
+CONCEPT = {
+    "slug": "zero-screen-erp",
+    "name": "Zero-Screen ERP",
+    "tagline": "Speak the work. Agents run the ERP.",
+    "title": "Zero-Screen ERP: agent-based ERP you run by voice | Khaqan Shaheen",
+    "description": "Zero-Screen ERP is an agent-based ERP: staff speak or message the work, AI agents run each process and update Odoo or SAP, and a person approves what matters. Consulting in Dubai and the GCC.",
+    "answer": "Zero-Screen ERP is an agent-based ERP model. People log work, give instructions and ask questions by voice, WhatsApp or chat; AI agents, one per process, turn that into the right transaction, check it against the rules, ask a person to approve anything that touches money, stock or access, and post it to the ERP with a full audit trail. Nobody fills in a form, and the record builds itself as the work happens.",
+    "whatsapp": "971564020087",
+    "phone_display": "+971 56 402 0087",
+}
+
+ZS_STEPS = [
+    ("Speak or message", "A voice call, a WhatsApp voice note, a chat message or a photo of a document. Users are recognised by their registered number or company sign-in."),
+    ("Understand", "Speech to text in English, Arabic, Urdu or Hindi, then intent and entities: who, what, how many, where and which job."),
+    ("An agent per process", "Sales, stock, purchasing, HR, finance and maintenance agents. Each knows only its own process, its rules and the records it may touch."),
+    ("Workflow layer", "The deterministic steps, hand-offs, retries and notifications run in a workflow tool such as n8n or the ERP's own automation, not in a model's judgement."),
+    ("Approve what matters", "Reading and drafting are low risk. Money, stock, access and commitments to customers or suppliers wait for a named person, in the same WhatsApp thread."),
+    ("System of record and audit trail", "Posted through the ERP's own interfaces and validation, with the original message, the agent that drafted it and who approved it. Same roles as on screen."),
+]
+
+ZS_USES = [
+    ("Sales on the road", "A voice note after the visit: the agent logs it against the customer, drafts the quote and books the follow-up for the salesperson to confirm."),
+    ("Warehouse voice picking", "Hear the next pick, confirm the quantity by voice, report a short pick or damage without putting the scanner down."),
+    ("Construction site managers", "A spoken site diary with photos: labour, materials used against the BOQ, progress and delays, posted to the project."),
+    ("Field service", "Job done, parts used, time on site and a photo of the signed sheet: ticket closed, van stock updated, invoice drafted."),
+    ("Finance questions", "\u201cWhat do we owe this supplier, and what is due this week?\u201d answered from the ledger, with the same permissions as on screen."),
+    ("HR leave by voice", "The employee asks; the agent checks balance and team calendar; the manager approves in the WhatsApp thread."),
+    ("Manufacturing shift reports", "Output, scrap and downtime per machine spoken at shift end, posted against the work orders, outliers flagged."),
+    ("Retail branches", "Stock across branches, transfer requests and day-end close by chat, with a person confirming the figures."),
+    ("Procurement", "\u201cWe need 500 more of item B by Thursday\u201d: budget and approved suppliers checked, purchase order drafted for approval."),
+    ("Accounts payable", "Supplier bills read by OCR, matched to the order and the goods receipt; only mismatches go to a person."),
+    ("Maintenance", "\u201cMachine 4 is leaking oil\u201d opens a work order with the machine, the reporter and the time, and alerts the lead."),
+    ("Owners and managers", "Ask on the way to a meeting how sales compare with last month and who is overdue; the answer comes with its source report."),
+]
+
+ZS_PHASES = [
+    ("Phase 0", "Map and measure", "Map where work gets re-typed, clean the master data, record the baseline KPIs, pick two or three high-volume, low-risk processes."),
+    ("Phase 1", "Talk to the ERP you have", "A read-only question and answer agent over your existing Odoo or SAP on WhatsApp and voice. Nothing is written yet."),
+    ("Phase 2", "Agents draft, people approve", "Capture by voice, message and document. Every write is a draft a person confirms with one tap. Audit trail from day one."),
+    ("Phase 3", "Agents post within policy", "Low-risk steps with a clean track record post on their own, inside limits you set. Exceptions go to a named owner."),
+    ("Phase 4", "Agent-native core", "New processes designed for conversation first. Screens kept for oversight, analysis and exceptions."),
+]
+
+ZS_COMPARE = [
+    ("Way in", "Screens, menus, forms, transaction codes", "Voice, WhatsApp, chat, photos of documents"),
+    ("Who enters data", "Office staff, after the fact", "The person doing the work, as it happens"),
+    ("Training", "Per module, per role, for every new joiner", "Say it in your own words; the agent asks for what is missing"),
+    ("Field and shop floor", "Paper or messages, re-typed later", "Reported from the site, the van or the line"),
+    ("Process flow", "People push each step and chase approvals", "Agents run the steps; people approve the ones that matter"),
+    ("Getting an answer", "Find the report, filter, export", "Ask the question, get the number and its source"),
+    ("Control", "Role permissions on screens", "The same roles, plus approval gates and a log of who said what"),
+    ("Adoption", "Rip and replace, big-bang go-live", "Augment the ERP you own, then go agent-native process by process"),
+]
+
+ZS_KPIS = [
+    "Records re-typed by office staff each week",
+    "Time from the event to the record in the ERP",
+    "Correction rate on agent-drafted versus typed records",
+    "Median approval time, and approvals waiting too long",
+    "Share of field staff reporting through the channel",
+    "Time to answer common management questions",
+    "Share of agent actions that needed a person",
+    "Days to close the month",
+]
+
+ZS_FAQ = [
+    ("What is Zero-Screen ERP?", "Zero-Screen ERP is an agent-based ERP model in which people log work, give instructions and ask questions by voice, WhatsApp or chat, and AI agents run each business process and keep the ERP up to date, with a person approving anything that touches money, stock or access."),
+    ("Is Zero-Screen ERP a product?", "It is an approach and an architecture, not a single software product. It is built on top of an ERP a business already owns, such as Odoo or SAP, using conversation channels, AI agents, a workflow layer and approval rules."),
+    ("How is an agent-based ERP different from a chatbot on an ERP?", "A chatbot answers questions. In an agent-based ERP each process has an agent that drafts and, within policy, completes real transactions such as delivery notes, purchase orders, leave requests and timesheets, with approvals, permissions and an audit trail."),
+    ("Does Zero-Screen ERP replace SAP or Odoo?", "No, not at the start. The existing ERP stays the system of record. Zero-Screen ERP replaces data-entry screens with conversation. Only later, and only if it makes sense, are parts of the old interface simplified or retired."),
+    ("Can it work with Odoo?", "Yes. Agents read and write through Odoo's own interfaces, validation and access rules. I run a WhatsApp sales agent, an AI voice agent and document OCR alongside an Odoo ERP in daily production."),
+    ("Can it work with SAP?", "Yes, through SAP's standard interfaces and its own workflow and authorisation model. Agents draft through the ERP's interfaces and SAP's rules and roles still apply."),
+    ("Is it safe to let AI agents post transactions?", "Only with controls. Agents start by drafting for a person to approve. Money, stock, access and commitments to customers or suppliers stay behind a human approval, and every action is logged with who asked, which agent acted and who approved."),
+    ("Which languages does it handle?", "Current speech and language models handle English, Arabic, Urdu, Hindi and the other languages common on UAE sites. Each deployment should be tested on real recordings from the actual sites before it goes live."),
+    ("Where should a business start?", "With a process map and a baseline, then a read-only question and answer agent over the existing ERP on WhatsApp, then voice capture for two or three high-volume, low-risk processes where every write is approved by a person."),
+    ("Who is Khaqan Shaheen?", "Khaqan Shaheen is a Head of IT and AI transformation leader based in Dubai, CIO of the Year 2023, with more than ten years of ERP and Odoo work and five AI systems in daily production on one ERP across six sites in five countries. He advises companies in the UAE and GCC on AI, ERP and digital transformation."),
+    ("How do I book a consultation?", "WhatsApp or call +971 56 402 0087, or email contact@khaqanshaheen.com. The first conversation covers your current ERP, where your team re-types work today and which processes to start with."),
+]
+
+ZS_CSS = """<style>
+.zs{--zn:#0b1a30;--zn2:#13284a;--zg:#d4a84b;--zg2:#f1d48a;--zm:#a9b8cf}
+.zs-hero{background:linear-gradient(160deg,#081428 0%,#13284a 100%);color:#f5f7fc;border-radius:18px;padding:clamp(24px,4vw,48px);display:grid;gap:28px;grid-template-columns:1.1fr .9fr;align-items:center;margin:1.2rem 0 2rem}
+.zs-hero h1{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);margin:.2rem 0 .6rem;line-height:1.08}
+.zs-hero .zs-kicker{color:var(--zg);letter-spacing:.14em;text-transform:uppercase;font-weight:600;font-size:.82rem}
+.zs-hero .zs-tag{color:var(--zg2);font-weight:600;font-size:1.15rem;margin:.2rem 0 .8rem}
+.zs-hero p.answer{color:#d6deeb;font-size:1.08rem;max-width:60ch}
+.zs-hero img{width:100%;height:auto;border-radius:12px;display:block}
+.zs-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.2rem}
+.zs-btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--zg);color:var(--zg2)}
+.zs-btn.gold{background:var(--zg);color:#0b1a30}
+.zs-btn:hover{filter:brightness(1.08)}
+.zs section{margin:2.4rem 0}
+.zs h2{font-size:clamp(1.5rem,3vw,2rem)}
+.zs-steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
+.zs-steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px 64px;position:relative}
+.zs-steps li::before{content:counter(s);position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;background:var(--zg);color:#0b1a30;font-weight:700;display:flex;align-items:center;justify-content:center}
+.zs-steps strong{display:block;margin-bottom:.25rem}
+.zs-table{width:100%;border-collapse:collapse;font-size:.97rem}
+.zs-table th,.zs-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.zs-table th{background:var(--paper-2)}
+.zs-table td:last-child{font-weight:600}
+.zs-wrap{overflow-x:auto}
+.zs-figs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.zs-figs figure{margin:0}
+.zs-figs img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.zs-figs figcaption{font-size:.85rem;color:var(--muted);margin-top:.3rem}
+.zs-phases{list-style:none;padding:0;border-left:3px solid var(--zg);margin-left:8px}
+.zs-phases li{padding:0 0 1rem 1.2rem;position:relative}
+.zs-phases li::before{content:"";position:absolute;left:-10px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--zg)}
+.zs-phases .ph{color:var(--accent-ink);font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.zs-final{background:linear-gradient(160deg,#081428 0%,#13284a 100%);color:#f5f7fc;border-radius:18px;padding:clamp(22px,4vw,40px)}
+.zs-final h2{color:#fff;margin-top:0}
+.zs-final p{color:#d6deeb}
+.zs-final a:not(.zs-btn){color:var(--zg2)}
+.zs-hero picture{max-width:420px;justify-self:center}
+@media (max-width:820px){.zs-hero,.zs-steps{grid-template-columns:1fr}}
+</style>
+"""
+
+
+def build_concept():
+    C = CONCEPT
+    url = f"{BASE}/{C['slug']}/"
+    img = f"{BASE}/assets/img/{C['slug']}"
+    og = f"{img}/og-1200x630.jpg"
+    wa = f"https://wa.me/{C['whatsapp']}?text=" + urllib.parse.quote("Hi Khaqan, I'd like to discuss Zero-Screen ERP for our business.")
+    tel = f"tel:+{C['whatsapp']}"
+    org_id = f"{BASE}/#advisory"
+    service_id = f"{url}#service"
+    faq = [{"q": q, "a": a} for q, a in ZS_FAQ]
+    person = person_ref()
+    person.update({"jobTitle": "Head of IT and AI transformation leader", "telephone": C["phone_display"], "email": EMAIL,
+                   "award": "CIO of the Year 2023", "knowsAbout": ["Agent-based ERP", "Zero-Screen ERP", "Conversational ERP", "Odoo ERP", "SAP", "AI agents", "WhatsApp AI agents", "Voice AI agents", "Document OCR", "n8n workflow automation", "Digital transformation"],
+                   "worksFor": {"@id": org_id}})
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "Organization", "@id": org_id, "name": "Khaqan Shaheen | AI & ERP Advisory", "url": f"{BASE}/",
+             "logo": f"{img}/logo-400.png", "founder": {"@id": PERSON_ID}, "email": EMAIL, "telephone": C["phone_display"],
+             "areaServed": ["United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait"],
+             "sameAs": ["https://www.linkedin.com/company/khaqan-shaheen-ai-erp/"],
+             "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": C["phone_display"], "email": EMAIL, "availableLanguage": ["English", "Urdu", "Hindi"], "areaServed": "AE"}},
+            person,
+            {"@type": "Service", "@id": service_id, "name": "Zero-Screen ERP consulting: agent-based ERP on Odoo and SAP",
+             "alternateName": ["Agent-based ERP consulting", "Conversational ERP consulting", "Voice and WhatsApp ERP"],
+             "serviceType": "Agent-based ERP strategy and implementation", "description": C["description"],
+             "provider": {"@id": org_id}, "brand": {"@type": "Brand", "name": C["name"], "slogan": C["tagline"], "logo": f"{img}/logo-400.png"},
+             "areaServed": [{"@type": "Country", "name": "United Arab Emirates"}, {"@type": "Place", "name": "GCC"}],
+             "audience": {"@type": "BusinessAudience", "audienceType": "Mid-sized and family-owned groups running Odoo or SAP"},
+             "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Zero-Screen ERP adoption phases",
+                                 "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": f"{p}: {t}", "description": d}} for p, t, d in ZS_PHASES]},
+             "url": url, "image": f"{img}/hero-1600x900.jpg"},
+            {"@type": "WebPage", "@id": url, "url": url, "name": C["title"], "description": C["description"], "inLanguage": "en",
+             "isPartOf": {"@id": f"{BASE}/#website"}, "about": [{"@id": service_id}, {"@type": "Thing", "name": "Agent-based ERP"}],
+             "author": {"@id": PERSON_ID}, "publisher": {"@id": org_id}, "datePublished": "2026-11-24", "dateModified": "2026-11-24",
+             "primaryImageOfPage": {"@type": "ImageObject", "url": f"{img}/hero-1600x900.jpg", "width": 1600, "height": 900},
+             "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer"]}, "mainEntity": {"@id": service_id}},
+            faq_schema(faq, url),
+            breadcrumb([("Home", f"{BASE}/"), ("Zero-Screen ERP", url)]),
+        ],
+    }
+    steps = "\n".join(f"  <li><strong>{esc(t)}</strong>{esc(d)}</li>" for t, d in ZS_STEPS)
+    uses = "\n".join(f'  <div class="card"><h3>{esc(t)}</h3><p>{esc(d)}</p></div>' for t, d in ZS_USES)
+    phases = "\n".join(f'  <li><div class="ph">{esc(p)}</div><strong>{esc(t)}</strong><br>{esc(d)}</li>' for p, t, d in ZS_PHASES)
+    compare = "\n".join(f"    <tr><th scope=\"row\">{esc(a)}</th><td>{esc(b)}</td><td>{esc(c)}</td></tr>" for a, b, c in ZS_COMPARE)
+    kpis = "\n".join(f"  <li>{esc(k)}</li>" for k in ZS_KPIS)
+    faq_html = "\n".join(f"<h3>{esc(f['q'])}</h3>\n<p>{esc(f['a'])}</p>" for f in faq)
+    r = "../"
+    fig = lambda f, alt, cap: f'  <figure><img src="{r}assets/img/{C["slug"]}/{f}" width="720" height="900" loading="lazy" decoding="async" alt="{esc(alt)}"><figcaption>{esc(cap)}</figcaption></figure>'
+    body = f"""<div class="breadcrumb"><a href="{r}">Home</a> / Zero-Screen ERP</div>
+<div class="zs">
+<header class="zs-hero">
+  <div>
+    <div class="zs-kicker">Agent-based ERP &middot; Dubai &middot; GCC</div>
+    <h1>Zero-Screen ERP: run the business by speaking to it</h1>
+    <p class="zs-tag">{esc(C['tagline'])}</p>
+    <p class="answer">{esc(C['answer'])}</p>
+    <div class="zs-cta">
+      <a class="zs-btn gold" href="{wa}" rel="noopener">Book a consultation on WhatsApp</a>
+      <a class="zs-btn" href="{tel}">Call {esc(C['phone_display'])}</a>
+      <a class="zs-btn" href="#" {mail_attrs("Zero-Screen ERP consultation")}>Email me</a>
+    </div>
+  </div>
+  <picture>
+    <source type="image/webp" srcset="{r}assets/img/{C['slug']}/hero-visual-720x860.webp">
+    <img src="{r}assets/img/{C['slug']}/hero-visual-720x860.jpg" width="720" height="860" fetchpriority="high" decoding="async" alt="A phone showing a WhatsApp conversation: a delivery is reported by voice, an AI agent logs it in the ERP and drafts the invoice, then answers a stock question">
+  </picture>
+</header>
+
+<section id="problem">
+<h2>The problem: the ERP is only as current as the last person who typed</h2>
+<p>SAP, Oracle, Dynamics and Odoo are excellent systems of record with thousands of screens in front of them. The people who actually do the work (drivers, site supervisors, pickers, technicians, salespeople on the road) are rarely at those screens. They report on WhatsApp, on paper or by phone, and someone in the office types it in later. The record is late, the re-typing introduces errors, approvals get chased by message, and managers wait for reports that are out of date by the time they arrive. New joiners need weeks of training per module before they can enter anything correctly.</p>
+</section>
+
+<section id="solution">
+<h2>The solution: keep the record, replace the screens with a conversation</h2>
+<p>Zero-Screen ERP keeps your ERP, your chart of accounts, your stock record, your roles and your month-end close exactly where your accountants and auditors expect them. What changes is how data gets in and how answers get out. The person who did the work says what happened, in their own words, at the moment it happened. Agents do the typing, the checking and the chasing. Screens stay for oversight, approvals and analysis, not for data entry.</p>
+<div class="zs-wrap"><table class="zs-table">
+  <thead><tr><th scope="col"></th><th scope="col">Traditional ERP</th><th scope="col">Zero-Screen ERP</th></tr></thead>
+  <tbody>
+{compare}
+  </tbody>
+</table></div>
+</section>
+
+<section id="how-it-works">
+<h2>How it works: six layers, in plain terms</h2>
+<ol class="zs-steps">
+{steps}
+</ol>
+<p>The rule I run in production: every AI agent sits behind a human queue until it has earned its way out. <a href="{r}notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html">Why every AI agent I run sits behind a human queue</a>.</p>
+<div class="zs-figs">
+{fig("how-it-works.webp", "Infographic: how Zero-Screen ERP works, from a voice note to a posted ERP record in five steps", "How it works")}
+{fig("traditional-vs-zero-screen.webp", "Infographic comparing traditional ERP with Zero-Screen ERP across interface, data entry, training, field staff, process, answers, control and adoption", "Traditional ERP vs Zero-Screen ERP")}
+</div>
+</section>
+
+<section id="use-cases">
+<h2>Use cases by department and sector</h2>
+<div class="grid">
+{uses}
+</div>
+</section>
+
+<section id="evidence">
+<h2>Built on what already runs in production</h2>
+<p>I lead technology for a manufacturing group on one Odoo ERP across six sites in five countries. Five AI systems run on top of it every day, and each one removes a screen from someone's day:</p>
+<ul>
+  <li><a href="{r}work/document-ocr-into-the-erp.html">Document OCR into the ERP</a>: supplier bills and expense claims read and posted instead of typed.</li>
+  <li>Automated document verification before a person has to look.</li>
+  <li><a href="{r}work/ai-sales-agent-whatsapp-and-web.html">A 24 hour AI sales agent on WhatsApp and the web</a>, qualifying enquiries into the pipeline.</li>
+  <li><a href="{r}work/ai-voice-agent-on-grandstream.html">An AI voice agent on the corporate phone system</a>.</li>
+  <li>One multi-channel chat platform for several WhatsApp numbers and the group websites.</li>
+</ul>
+<p>Zero-Screen ERP applies the same idea to every process, designed in from the start. <a href="{r}work/five-ai-systems-in-daily-production-at-a-uae-plastics-manufacturer.html">Read the case study: five AI systems in daily production</a>.</p>
+</section>
+
+<section id="roadmap">
+<h2>Roadmap: augment the ERP you own first, go agent-native second</h2>
+<ol class="zs-phases">
+{phases}
+</ol>
+<div class="zs-figs">
+{fig("use-cases.webp", "Infographic: eight Zero-Screen ERP use cases, from sales on the road and warehouse picking to shift reports and retail stores", "Eight places to stop typing first")}
+{fig("roadmap.webp", "Infographic: the Zero-Screen ERP adoption roadmap in five phases, from map and measure to an agent-native core", "Adoption roadmap")}
+</div>
+</section>
+
+<section id="kpis">
+<h2>What to measure</h2>
+<p>I do not quote savings percentages for this. The gains depend on how much re-typing and chasing your business does today, so measure your own baseline in Phase 0 and track it phase by phase:</p>
+<ul>
+{kpis}
+</ul>
+</section>
+
+<section id="governance">
+<h2>Governance: what keeps it safe</h2>
+<p>Drafts before posts. Approval gates by risk level. Read-back confirmation for quantities, amounts and dates. Identity from the registered number or company sign-in, never from what a message claims. Agents act with the permissions of the person they serve, through the ERP's own roles. Content from documents and customers is treated as data, not instructions. Every agent has a named business owner, a named technical owner, monitoring and an off switch. Voice notes and messages follow clear retention rules in line with UAE data protection law.</p>
+</section>
+
+<section id="faq">
+<h2>Questions people ask about Zero-Screen ERP</h2>
+{faq_html}
+</section>
+
+<section id="book" class="zs-final">
+<h2>Book a Zero-Screen ERP consultation</h2>
+<p>A first conversation covers your current ERP (Odoo, SAP or another), where your team re-types work today, and which two or three processes to start with. On-site in the UAE or remote across the GCC.</p>
+<div class="zs-cta">
+  <a class="zs-btn gold" href="{wa}" rel="noopener">WhatsApp {esc(C['phone_display'])}</a>
+  <a class="zs-btn" href="{tel}">Call</a>
+  <a class="zs-btn" href="#" {mail_attrs("Zero-Screen ERP consultation", show=True)}></a>
+</div>
+<p class="small">Follow <a href="https://www.linkedin.com/company/khaqan-shaheen-ai-erp/">Khaqan Shaheen | AI &amp; ERP Advisory on LinkedIn</a>. Related: <a href="{r}manual-to-erp-and-ai-automation.html">from manual to ERP with AI</a> &middot; <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant in Dubai</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation for operations</a>.</p>
+</section>
+</div>"""
+    extra = (
+        f'<meta property="og:image:alt" content="Zero-Screen ERP: speak the work, agents run the ERP">\n'
+        f'<meta name="twitter:image:alt" content="Zero-Screen ERP: speak the work, agents run the ERP">\n'
+        f'<meta name="keywords" content="Zero-Screen ERP, agent-based ERP, agentic ERP, conversational ERP, voice ERP, WhatsApp ERP, AI agents for Odoo, AI agents for SAP, ERP consultant Dubai">\n'
+        f'<link rel="preload" as="image" type="image/webp" href="{r}assets/img/{C["slug"]}/hero-visual-720x860.webp">\n'
+        + ZS_CSS
+    )
+    out = ROOT / C["slug"]
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(
+        layout(title=C["title"], description=meta_description(C["description"]), url=url, body=body, schema=schema, depth=1, og_image=og, extra_head=extra),
+        encoding="utf-8",
+    )
+    return [(url, "Zero-Screen ERP: the agent-based ERP you run by voice and WhatsApp, on top of Odoo or SAP")]
+
+
 def build():
     make_visuals()
     case_pages = build_case_studies()
@@ -2178,7 +2473,7 @@ def build():
     build_privacy()
     build_skills()
     global LANDING_URLS, GLOSSARY_URLS
-    LANDING_URLS = build_landing()
+    LANDING_URLS = build_concept() + build_landing()
     GLOSSARY_URLS = build_glossary()
     # extra CSS hook for the topics row is in site.css (.site-footer .topics)
 
