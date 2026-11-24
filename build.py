@@ -2175,8 +2175,6 @@ CONCEPT = {
     "title": "Zero-Screen ERP: agent-based ERP you run by voice | Khaqan Shaheen",
     "description": "Zero-Screen ERP is an agent-based ERP: staff speak or message the work, AI agents run each process and update Odoo or SAP, and a person approves what matters. Consulting in Dubai and the GCC.",
     "answer": "Zero-Screen ERP is an agent-based ERP model. People log work, give instructions and ask questions by voice, WhatsApp or chat; AI agents, one per process, turn that into the right transaction, check it against the rules, ask a person to approve anything that touches money, stock or access, and post it to the ERP with a full audit trail. Nobody fills in a form, and the record builds itself as the work happens.",
-    "whatsapp": "971564020087",
-    "phone_display": "+971 56 402 0087",
 }
 
 ZS_STEPS = [
@@ -2244,7 +2242,7 @@ ZS_FAQ = [
     ("Which languages does it handle?", "Current speech and language models handle English, Arabic, Urdu, Hindi and the other languages common on UAE sites. Each deployment should be tested on real recordings from the actual sites before it goes live."),
     ("Where should a business start?", "With a process map and a baseline, then a read-only question and answer agent over the existing ERP on WhatsApp, then voice capture for two or three high-volume, low-risk processes where every write is approved by a person."),
     ("Who is Khaqan Shaheen?", "Khaqan Shaheen is a Head of IT and AI transformation leader based in Dubai, CIO of the Year 2023, with more than ten years of ERP and Odoo work and five AI systems in daily production on one ERP across six sites in five countries. He advises companies in the UAE and GCC on AI, ERP and digital transformation."),
-    ("How do I book a consultation?", "WhatsApp or call +971 56 402 0087, or email contact@khaqanshaheen.com. The first conversation covers your current ERP, where your team re-types work today and which processes to start with."),
+    ("How do I book a consultation?", "Use the booking page to pick a time. The first conversation covers your current ERP, where your team re-types work today and which processes to start with."),
 ]
 
 ZS_CSS = """<style>
@@ -2293,23 +2291,20 @@ def build_concept():
     url = f"{BASE}/{C['slug']}/"
     img = f"{BASE}/assets/img/{C['slug']}"
     og = f"{img}/og-1200x630.jpg"
-    wa = f"https://wa.me/{C['whatsapp']}?text=" + urllib.parse.quote("Hi Khaqan, I'd like to discuss Zero-Screen ERP for our business.")
-    tel = f"tel:+{C['whatsapp']}"
     org_id = f"{BASE}/#advisory"
     service_id = f"{url}#service"
     faq = [{"q": q, "a": a} for q, a in ZS_FAQ]
     person = person_ref()
-    person.update({"jobTitle": "Head of IT and AI transformation leader", "telephone": C["phone_display"], "email": EMAIL,
+    person.update({"jobTitle": "Head of IT and AI transformation leader",
                    "award": "CIO of the Year 2023", "knowsAbout": ["Agent-based ERP", "Zero-Screen ERP", "Conversational ERP", "Odoo ERP", "SAP", "AI agents", "WhatsApp AI agents", "Voice AI agents", "Document OCR", "n8n workflow automation", "Digital transformation"],
                    "worksFor": {"@id": org_id}})
     schema = {
         "@context": "https://schema.org",
         "@graph": [
             {"@type": "Organization", "@id": org_id, "name": "Khaqan Shaheen | AI & ERP Advisory", "url": f"{BASE}/",
-             "logo": f"{img}/logo-400.png", "founder": {"@id": PERSON_ID}, "email": EMAIL, "telephone": C["phone_display"],
+             "logo": f"{img}/logo-400.png", "founder": {"@id": PERSON_ID},
              "areaServed": ["United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait"],
-             "sameAs": ["https://www.linkedin.com/company/khaqan-shaheen-ai-erp/"],
-             "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": C["phone_display"], "email": EMAIL, "availableLanguage": ["English", "Urdu", "Hindi"], "areaServed": "AE"}},
+             "sameAs": ["https://www.linkedin.com/company/khaqan-shaheen-ai-erp/"]},
             person,
             {"@type": "Service", "@id": service_id, "name": "Zero-Screen ERP consulting: agent-based ERP on Odoo and SAP",
              "alternateName": ["Agent-based ERP consulting", "Conversational ERP consulting", "Voice and WhatsApp ERP"],
@@ -2346,9 +2341,7 @@ def build_concept():
     <p class="zs-tag">{esc(C['tagline'])}</p>
     <p class="answer">{esc(C['answer'])}</p>
     <div class="zs-cta">
-      <a class="zs-btn gold" href="{wa}" rel="noopener">Book a consultation on WhatsApp</a>
-      <a class="zs-btn" href="{tel}">Call {esc(C['phone_display'])}</a>
-      <a class="zs-btn" href="#" {mail_attrs("Zero-Screen ERP consultation")}>Email me</a>
+      <a class="zs-btn gold" href="{r}booking.html">Book a consultation</a>
     </div>
   </div>
   <picture>
@@ -2438,9 +2431,7 @@ def build_concept():
 <h2>Book a Zero-Screen ERP consultation</h2>
 <p>A first conversation covers your current ERP (Odoo, SAP or another), where your team re-types work today, and which two or three processes to start with. On-site in the UAE or remote across the GCC.</p>
 <div class="zs-cta">
-  <a class="zs-btn gold" href="{wa}" rel="noopener">WhatsApp {esc(C['phone_display'])}</a>
-  <a class="zs-btn" href="{tel}">Call</a>
-  <a class="zs-btn" href="#" {mail_attrs("Zero-Screen ERP consultation", show=True)}></a>
+  <a class="zs-btn gold" href="{r}booking.html">Book a consultation</a>
 </div>
 <p class="small">Follow <a href="https://www.linkedin.com/company/khaqan-shaheen-ai-erp/">Khaqan Shaheen | AI &amp; ERP Advisory on LinkedIn</a>. Related: <a href="{r}manual-to-erp-and-ai-automation.html">from manual to ERP with AI</a> &middot; <a href="{r}odoo-erp-consultant-dubai.html">Odoo ERP consultant in Dubai</a> &middot; <a href="{r}ai-automation-consultant-dubai.html">AI automation for operations</a>.</p>
 </section>
