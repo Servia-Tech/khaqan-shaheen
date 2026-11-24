@@ -1377,6 +1377,425 @@ Manufacturing process modelling, capacity planning and machine scheduling, Odoo 
 
 ## Articles
 
+# The AEO and GEO pipeline I use so AI engines can cite a business accurately
+
+Source: https://khaqanshaheen.com/articles/the-aeo-geo-pipeline-i-use-so-ai-engines-can-cite-accurately.html
+Published: 2026-11-24
+
+Search used to mean ten blue links. It still does, and that work has not gone away. Alongside it, buyers now ask ChatGPT, Perplexity, Gemini, Claude and Google AI Overviews to name a supplier, a price, a coverage area or a process. The engines retrieve sources and then write a sentence. If your facts are not retrievable, or they disagree with each other, you are not in that sentence, or you are in it wrongly. I have applied the same pipeline to a precision mould-making company, a diversified UAE plastics manufacturer, and a Dubai home-services platform. The industries differ. The layers do not. This is the method, with generalised snippets rather than client names.
+
+![The AEO / GEO pipeline](../assets/img/aeo/aeo-geo-pipeline.png)
+
+## Context
+
+AEO, answer engine optimisation, is the work of making a business easy to retrieve and safe to quote inside an answer. GEO, generative engine optimisation, is the same idea with a slightly wider lens: the content and structure that large language models use when they generate a recommendation. I use both terms because buyers and teams already do. In practice it is one pipeline.
+
+The pipeline has five layers: crawl access, a machine-readable brief, entity pages, structured data, and only then the citation. I will not start at layer five. I have never seen a durable "AI ranking" that was not sitting on the first four.
+
+## The problem the pipeline is built to solve
+
+Most sites I audit fail in the same places.
+
+Crawlers that matter are unnamed, or they have been blocked by a copied rule. There is no `llms.txt`, or the path returns the HTML homepage with a 200 status. The business has one page and a PDF. Schema, if it exists, says `WebPage` and little else. Prices, hours and coverage sit in a sales deck. Two language versions are planned; `hreflang` is not. A founder then tells me the company "ranks in all the AI engines", and nobody has a screenshot.
+
+The pipeline is a way to do the work in order, and to be honest about what has been verified.
+
+## Layer 1: crawl access
+
+Write `robots.txt` on purpose. Allow public content to Googlebot, Bingbot, GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Google-Extended, PerplexityBot, and the other retrieval agents you actually want. Disallow administration, account, payment and tokenised paths. If you need to block a crawler, name it. Add a `Sitemap:` line that points at a live XML sitemap, and keep that sitemap limited to indexable URLs.
+
+A `User-agent: *` allow is not enough to relax about. It can be overridden later by a plugin, and it does not document intent. I still use a default allow for humans and ordinary search, then I add the named AI agents so the policy is visible in a review.
+
+## Layer 2: the machine-readable brief
+
+Publish `/llms.txt` as `text/plain`, following the llmstxt.org shape: an H1, a blockquote summary, then curated H2 sections with linked pages. Optional companion: `llms-full.txt` for full Markdown, once the short file is right.
+
+![Anatomy of a useful llms.txt](../assets/img/aeo/llms-txt-anatomy.png)
+
+The test I use is simple. If I cannot read the file aloud to a new colleague in two minutes and have them understand the business, it is too long or too vague. If a fact in the file cannot be clicked through to a page that says the same thing, it does not belong.
+
+Plugin-generated files are drafts. They often include duplicates, archives and policy pages. Curate them. And never accept a soft 200: if `/llms.txt` returns HTML, fix the server until the content type is `text/plain`.
+
+## Layer 3: entity pages
+
+Decide the grain of the entity. For a tooling company, that is a process (two-shot moulds, closure tools, medical tools) and a market (US buyers, GCC buyers). For a plastics manufacturer, it is a process, a product family and an industry. For a home-services platform, it is a service, a city, and, where the content can be unique, a service-in-a-city page.
+
+Each entity gets a URL, a title, a meta description, an H1, a short definition a model can quote, and internal links to parent and sibling entities. This is the layer that does most of the work. Schema cannot rescue a site that has nothing to point at.
+
+![Service and place entity graph](../assets/img/aeo/service-area-entity-graph.png)
+
+## Layer 4: structured data
+
+Mark up what the page is, in JSON-LD, with the same words as the visible copy.
+
+- The company: `Organization`, and `LocalBusiness` when a physical or local service presence is real.
+- The offer: `Service` or `Product`, with `Offer` only for prices you will stand behind.
+- The questions: `FAQPage` on the page that answers them.
+- The path: `BreadcrumbList`, `WebSite`, and `HowTo` when there is a genuine sequence such as a booking flow.
+- Voice: `SpeakableSpecification` only on selectors that exist in the HTML.
+
+![Organization schema card](../assets/img/aeo/schema-organization-card.png)
+
+![FAQ and LocalBusiness schema card](../assets/img/aeo/schema-faq-localbusiness-card.png)
+
+I do not add types for decoration. An `Offer` for a price that is only agreed after a site visit is a false statement. A `knowsAbout` list that does not match real pages is a keyword dump. Broken `logo` URLs are worse than omitted fields.
+
+## Layer 5: citation, checked rather than assumed
+
+Once the first four layers agree, an engine has something it can quote. Whether it does, for which queries, and how often, is an empirical question. I check conventional web search, I read server and Search Console logs when I have them, and I ask the business for screenshots from the assistants they care about. I do not complete a crawl and then announce a ranking.
+
+The same discipline applies to datasets and custom models. If you fine-tune or retrieve over your own catalogue, the training or index store must be built from the same public facts. A private dataset that contradicts the website will eventually surface as a hallucination with your name on it.
+
+## Results I can actually verify, across the three sites
+
+The tooling company has a plain-text `llms.txt`, capability and market pages, `Organization`, `Service` and `FAQPage` markup, and a compact sitemap, and its pages appear in ordinary web search for brand and specialist queries. The plastics manufacturer has a deep catalogue and organisation-level schema, and it appears for brand and category queries; at the time I checked it did not yet serve a real `llms.txt`, and the leaf pages did not yet carry `Service` or `Product` markup. The home-services platform has the fullest stack: named AI-crawler allows, a substantial brief, service and area URLs at scale, and rich schema including `LocalBusiness`, `FAQPage`, `HowTo` and `Speakable`. Its pages appear in ordinary web search for relevant local queries. I have not independently confirmed citations inside ChatGPT, Perplexity or AI Overviews. The standard is implementation you can inspect, and claims you can evidence.
+
+![Before and after AEO checklist](../assets/img/aeo/before-after-aeo-checklist.png)
+
+## Lessons
+
+Do the layers in order. A citation strategy without crawl access is a wish.
+
+Make the four public surfaces say the same thing: the page, the brief, the sitemap and the schema.
+
+Prefer a smaller set of true entity pages to a large set of thin ones.
+
+Name AI crawlers explicitly. Implicit allow is fragile.
+
+Do not report AI rankings you have not opened with your own eyes.
+
+## Common questions
+
+### Is llms.txt officially supported by every major model?
+
+It is a public convention, not a guarantee. Some assistants and some crawlers look for it; others rely on HTML and sitemaps. That uncertainty is why the HTML and the schema have to be complete even if you never write the file. I still write the file, because the cost is low and the briefing value is high.
+
+### How is this different from classic SEO?
+
+Most of the floor is classic SEO: crawl, titles, internal links, sitemap, page quality. AEO and GEO add the brief, the entity grain, the answer-shaped FAQ, and a willingness to publish the facts a model will otherwise invent.
+
+### Where do datasets and fine-tuning fit?
+
+After the public facts are clean. I will use a site, an `llms.txt` and a structured catalogue as the source for retrieval or for a small customised model. I will not fine-tune on a messy CMS and hope the model becomes more accurate than its data.
+
+#AEO #GEO #SEO #AISearch #LLM #GenerativeAI #ChatGPT #Perplexity #AIOverviews #StructuredData #llms.txt #DigitalMarketing #UAE
+
+# Teaching AI engines the catalogue of a UAE plastics manufacturer
+
+Source: https://khaqanshaheen.com/articles/teaching-ai-engines-the-catalogue-of-a-uae-plastics-manufacturer.html
+Published: 2026-11-24
+
+A diversified plastics manufacturer in the UAE can do many things well and still be invisible in an AI answer. Injection moulding, blown and cast film, in-mould labelling, assembly and product development are different businesses to a buyer. To a language model looking at a single homepage, they can collapse into one vague sentence: a company in Dubai that makes plastic. The work I did was to make the catalogue explicit — as pages, as a sitemap, and as organisation-level structured data — so a model asked about a specific process had a place to land. Where the stack is still incomplete, I say so. I will not attribute AI-engine rankings I have not measured.
+
+![Before and after AEO work](../assets/img/aeo/before-after-aeo-checklist.png)
+
+## Context
+
+The manufacturer has been in the region for decades. It runs more than one processing method under one group: technical and high-volume injection moulding, film and bag extrusion, assembly and automation, and a product-development path that includes material selection and design. It sells into packaging, construction, aviation, food, retail and industrial buyers. The site already had a deep tree of service and product URLs. The job was not to invent a catalogue. It was to make that catalogue usable to crawlers and to answer engines.
+
+## The problem
+
+Industrial sites often fail AI search in three predictable ways. They hide the work behind a single capabilities page, or behind PDFs a model may not fetch. They mark up the organisation once on the homepage and leave product and service URLs as bare `WebPage` nodes, so the engine knows only that the URL is on the same host. And they assume a long sitemap is the same thing as a machine-readable brief. A sitemap tells a crawler what exists. An `llms.txt` tells a model what to prefer, in a few dozen lines.
+
+A related brand site in the same group showed the opposite shape: a much smaller product set, thinner metadata, and almost no organisation markup. A method that stops at the largest website leaves the group only half-described.
+
+## What I did, technically
+
+### Honour the entity tree
+
+The public sitemap already listed on the order of a hundred page URLs, organised the way a sales engineer thinks: injection-moulding methods (insert, gas-assist, clean-room, high-volume, in-mould labelling), extrusion methods (blown film, cast sheet, profile, printing and coating), assembly and tooling support, a staged product-development path, industry pages, and product families such as bags and films.
+
+I treated that tree as the source of truth. Each node needed a unique URL, a title that names the process or product, a meta description, a visible H1, and internal links up to the parent capability and across to related methods. Breadcrumb markup was already present and was worth keeping: it tells an engine the position of a page in the catalogue.
+
+This is ordinary information architecture, and it is the most important AEO work a manufacturer can do. If insert moulding is only a heading halfway down a long services page, it is a heading. If it has a URL, a title and a short definition, it is an entity.
+
+### Organisation-level schema
+
+On the homepage and on the inner pages I used `Organization`, `WebSite`, `WebPage` and `BreadcrumbList` markup, with a short description of the processing methods the group is actually known for. That is the minimum a knowledge graph needs to attach the catalogue to a single company in the UAE.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "UAE plastics manufacturer",
+  "description": "Injection moulding, film extrusion and product development for packaging, construction and industrial buyers, based in the UAE.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dubai",
+    "addressCountry": "AE"
+  }
+}
+```
+
+I did not add `knowsAbout`, `Service` or `Product` markup where it was not yet on the page. At the time of this audit, the service and product URLs still expose only organisation and webpage schema, not a node for the thing the page is about. That is a real gap, and the next technical step, not a result I will pretend is already shipped.
+
+![Organization markup card](../assets/img/aeo/schema-organization-card.png)
+
+### Crawl policy and the sitemap
+
+Public pages are reachable to crawlers. A `User-agent: *` rule with only a few form and comment-path disallows leaves GPTBot and its peers allowed by default. I would still rather name those bots explicitly, and I would rather see a `Sitemap:` line in `robots.txt` pointing at the XML index that already exists. Implicit allow is not the same as a policy you can defend when a plugin later adds a block. The sitemap index already splits posts, pages and other types; for a manufacturer, the page sitemap is the one that matters.
+
+### The missing brief
+
+`/llms.txt` is the layer this site did not yet serve as a real file. Requests to that path, and to the common alternate paths, returned the HTML homepage with a 200 status. That soft success is worse than a clean 404, because a model asking for a brief receives a full marketing document and may think it has the file. The right fix is a short `text/plain` brief that summarises the group and links the top process, product, industry and contact pages, with no facts that are not already on those pages.
+
+### A note on the smaller brand site
+
+A second, smaller public site in the same group had a short product list, a sitemap, and almost no entity markup: no organisation node on the pages I checked, and no meta description on the homepage. If both brands are meant to be findable, the same stack has to be applied twice.
+
+## How AI engines pick this up
+
+The winning pattern is "process plus place plus industry". A model asked for a clean-room moulder in the UAE needs a page that says exactly that. The deep URL tree gives it those landing points, and organisation markup attaches them to one company. What the engine cannot yet get, until the gaps close, is a short briefing, or a `Service`/`Product` graph that distinguishes a product family from a process without reading the whole HTML. That is why I will not claim the work is finished.
+
+## Results I can actually verify
+
+I can verify that the manufacturer's official pages appear in conventional web search for its brand and for category queries around plastic injection moulding and custom plastics in the UAE. I can verify a large, organised page sitemap, organisation-level JSON-LD, canonical tags, and crawl access to public URLs. I cannot verify a live `llms.txt`, named AI-crawler rules, or `Product`/`Service`/`FAQPage` markup on the leaf pages, and I cannot independently query ChatGPT, Perplexity or AI Overviews, so I will not report citation ranks or lead numbers.
+
+## Lessons
+
+A deep catalogue is an advantage only if every node is a real page with a real title. Do not confuse a 200 response with a correct file: an `llms.txt` that is actually your homepage is a bug. Apply `Service` and `Product` markup at the leaf, not only `Organization` at the root. And if the group has more than one public brand, describe each one. Silence on the smaller site is a missing entity, not discretion.
+
+## Common questions
+
+### Is a large sitemap enough for AEO?
+
+No. A sitemap is a list of URLs. AEO also needs a clear entity on each URL, consistent facts, and preferably a short brief. Thousands of thin pages would hurt more than they help.
+
+### Should every bag SKU be its own entity?
+
+No. Family pages are the right grain for most manufacturers. Create a deeper URL only when buyers search for that variant and you have something distinct to say.
+
+### Why not just add FAQ schema to the homepage?
+
+Because the questions are different at each leaf. Write the FAQ on the page that can answer it, then mark that page up.
+
+#AEO #GEO #SEO #AISearch #LLM #StructuredData #SchemaOrg #GenerativeAI #Manufacturing #UAE #Dubai #DigitalMarketing
+
+# How a Dubai home-services platform became citation-ready for AI engines
+
+Source: https://khaqanshaheen.com/articles/how-a-dubai-home-services-platform-became-citation-ready.html
+Published: 2026-11-24
+
+A home-services platform is asked different questions from a manufacturer, and it is asked them more often inside chat. How much is a deep clean in Dubai? Can someone service an AC in Sharjah today? What is included, and when do you pay? If those answers live only in an app or a call centre, an answer engine will guess, or recommend a competitor whose prices are public. The work I did for the platform was to put the facts a model needs — services, places, starting prices, booking rules and languages — on crawlable pages, in a machine-readable brief, and in structured data that matches the visible copy.
+
+![Service and place pages engines can cite](../assets/img/aeo/service-area-entity-graph.png)
+
+## Context
+
+The platform books household and commercial services across the UAE: cleaning, AC work, handyman jobs, pest control, maid hours, and a longer tail of related services. Customers book on the web or through messaging, in more than one language. The promise is a clear indicative price, a confirmed quote, and a vetted professional. That is a good fit for AEO, because the questions are factual and local. It is also a dangerous fit, because a wrong price, confidently cited, is worse than no citation at all.
+
+## The problem
+
+Local service platforms usually fail generative search in four ways. They have a homepage and a blog, but no stable URL for "AC service in Dubai". They hide prices until after a lead form, so the engine cites a competitor or invents a number. They block AI crawlers, sometimes accidentally, with a generic "block bots" rule. And they publish marketing claims in schema that do not appear on the page, or that conflict with later terms. The citation then looks authoritative and is wrong.
+
+## What I did, technically
+
+### An explicit crawler policy
+
+`robots.txt` names the crawlers that matter and allows them on public content: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Google-Extended, PerplexityBot, Applebot-Extended, Amazonbot, Googlebot, Bingbot, and their peers. Administrative, payment and tokenised paths stay disallowed. At least one aggressive commercial crawler is blocked on purpose. The file ends with a sitemap directive. This is boring infrastructure, and it is the difference between being eligible for a citation and being invisible to the retrieval layer.
+
+### A brief that a model can actually use
+
+`/llms.txt` is served as `text/plain` and written as an operations briefing, not a tagline sheet. It states what the platform is, how to contact it, what it offers (with starting prices where those prices are public), where it operates, how booking and payment work, the usual questions, the languages supported, and the boundaries — for example a service arranged on request rather than sold as a fixed online product.
+
+```markdown
+# Home services platform
+
+> Booking and coordination platform for home and commercial
+> services across the United Arab Emirates. Indicative AED
+> prices, confirmed before payment.
+
+## Services
+
+- [Deep cleaning](https://example.com/services/deep-cleaning): top-to-bottom clean; starting price on the page.
+- [AC service](https://example.com/services/ac): coil, filter and related maintenance; starting price on the page.
+
+## Areas served
+
+- [Dubai](https://example.com/area/dubai)
+- [Sharjah](https://example.com/area/sharjah)
+
+## Frequently asked questions
+
+- Q: Do you offer same-day visits?
+  A: Same-day slots are listed on each city page when they are open.
+```
+
+Every price and every limitation in the file has to match the service page. When a seasonal service is enquiry-first, the brief says so, instead of inventing a starting rate.
+
+![Anatomy of a useful llms.txt](../assets/img/aeo/llms-txt-anatomy.png)
+
+### Service pages, area pages, and the combinations
+
+The information architecture is a graph, not a homepage. There is a URL for each service, a URL for each city or area, and combination URLs where a service is offered in a place. Sitemaps are split by type — pages, services, areas, editorial, media, and the combination sets — and together they run into the thousands of URLs. That scale only works if the pages are not clones. Each service page states what is included, the indicative price, constraints and a short FAQ. Each area page states coverage. A combination page still needs a unique title, an H1, and a clear sentence that this service is available in this city on the published terms.
+
+### Structured data that matches the funnel
+
+The homepage carries several schema types at once, because it has several jobs: `LocalBusiness` (with a more specific subtype), including area served, coordinates and opening hours; `Organization` and contact points; `WebSite` with a `SearchAction`; an `OfferCatalog` of `Service` and `Offer` nodes; `HowTo` for the booking steps, with a time estimate and a cost range in AED; `WebPage` with `SpeakableSpecification` on the headings a voice assistant should read; `FAQPage` for booking, payment and cancellation, with answers that also appear on the page; and `MobileApplication` where an app is genuinely offered.
+
+![FAQPage and LocalBusiness markup](../assets/img/aeo/schema-faq-localbusiness-card.png)
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How do I book a visit?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose a service and a time, enter a UAE mobile number and address, then pay to confirm the slot. You can also book by messaging."
+    }
+  }]
+}
+```
+
+Service and city pages repeat the FAQ pattern only for the questions that belong there.
+
+### Languages and channels
+
+The public brief and the on-page copy state support for English, Arabic, Hindi and Filipino, with a wider set of languages handled in the conversational assistant. That is a real operating fact. In this audit I did not find a distinct `/ar` HTML version or `hreflang` annotations, so I will not claim a fully localised web stack I could not observe. Messaging can be multilingual even when the HTML is primarily English. The brief also documents how a customer can ask about the service inside an AI assistant, and it points at public API routes. Those methods make the business callable; they are not proof of ranking.
+
+## How AI engines pick this up
+
+A query like "AC service in Dubai, how much, can they come today" has three keys: service, city, and a constraint. The combination URL, the `Offer` and `FAQPage` markup, and the matching lines in `llms.txt` should all point at the same answer. `SpeakableSpecification` and `HowTo` help voice and step-wise interfaces; `LocalBusiness` and `areaServed` stop the model placing the company in the wrong emirate. The failure mode I design against is a confident wrong price. If same-day availability is conditional, the page, the schema and the brief must all say so. If a service is quote-only, it must not carry a fake `Offer`.
+
+## Results I can actually verify
+
+I can verify a thorough technical stack: named allows for the major AI crawlers, a substantial `text/plain` `llms.txt`, a large but typed sitemap, rich JSON-LD, public starting prices on service pages, and conventional web-search visibility for queries around home services, cleaning and AC work in Dubai, where the platform's own pages appear. I cannot independently confirm that ChatGPT, Perplexity, Gemini or Google AI Overviews currently cite the platform, or how often. Those claims need fresh screenshots and logs. What I can say is that the site is built so a citation, when it happens, has a factual source to point at.
+
+## Lessons
+
+Publish the facts you are willing to be quoted on: starting prices, coverage and booking rules belong on the page. Build the graph of service and place, then mark it up. Keep the brief, the schema and the visible copy in lockstep; a mismatch is a reputation risk once models start quoting you. And be honest about languages and quote-only services. Answer engines amplify whatever you write down.
+
+## Common questions
+
+### Does a page for every neighbourhood help or hurt?
+
+It helps when the page is genuinely about that place, and it hurts when it is a synonym swapped into a template. I would rather have strong city pages and a smaller set of well-made combinations than thousands of near-duplicates.
+
+### Should prices go in llms.txt?
+
+Yes, if they are already public and kept current. A brief that disagrees with the page will be quoted, and then challenged. If a price changes often, point at the page and say the page is the source.
+
+### Is blocking some AI crawlers a contradiction?
+
+No. Allow the retrieval agents you want citations from. Block crawlers you do not intend to serve. Write that policy down so it is not reversed by accident.
+
+#AEO #GEO #SEO #AISearch #LLM #GenerativeAI #ChatGPT #Perplexity #AIOverviews #StructuredData #LocalSEO #UAE #Dubai
+
+# How I made a mould-making company citable in AI search
+
+Source: https://khaqanshaheen.com/articles/how-i-made-a-mould-making-company-citable-in-ai-search.html
+Published: 2026-11-24
+
+A precision mould-making company in Dubai had a familiar problem for specialist manufacturers. The work was technical — high-cavitation closures, two-shot tools, medical and packaging moulds — but the public site still behaved like a brochure. A sales engineer could explain the difference in a minute. A search engine, and now an answer engine, could not.
+
+Buyers now ask ChatGPT, Perplexity, Gemini and Google AI Overviews who can build a particular tool, in which country, to what standard, and whether there is support in their time zone. If the site does not say those things in a form a model can retrieve, the model invents a neighbour or stays vague. This article is about the methods I used so a mould maker could be cited accurately. It does not invent rankings I have not measured.
+
+![The AEO / GEO pipeline](../assets/img/aeo/aeo-geo-pipeline.png)
+
+## Context
+
+The company builds injection moulds rather than the plastic parts themselves. Its buyers are OEMs and moulders in the UAE, the wider GCC, and export markets, including the United States. Their questions are specific: who makes two-shot tools, who can validate a medical mould, who supports a North American buyer after shipment. Those questions only get a useful answer if the site has a stable identity, one page per capability, and a short machine-readable brief that agrees with those pages. That is AEO and GEO in practice. It sits on top of ordinary technical SEO; it does not replace it.
+
+## The problem
+
+Three gaps kept showing up.
+
+The first was crawl policy. A default `robots.txt` that only blocks `/wp-admin/` does not forbid GPTBot, PerplexityBot, ClaudeBot or Google-Extended, but it also does not name them. Some teams later add blanket `Disallow` rules for AI bots without noticing. I wanted the policy to be explicit: public pages may be fetched; administration paths may not.
+
+The second was the absence of a briefing a language model could read in one request. HTML homepages are full of navigation, scripts and repeated chrome. An `llms.txt` file, as specified at llmstxt.org, is a short Markdown map: a name, a summary, and the links that matter.
+
+The third was entity structure. Capabilities lived in conversation and in sales decks. They needed their own URLs, titles, meta descriptions, and schema, so a model retrieving "bi-injection moulds" landed on a page about that process, not a generic factory hero image.
+
+## What I did, technically
+
+### Crawl access
+
+I left public URLs open to standard and AI crawlers, kept administration paths closed, and pointed `robots.txt` at the XML sitemap. Named allows for the major AI user-agents belong in the same file so a later plugin change cannot silently close the door. A sitemap of a few dozen indexable URLs is enough for a specialist manufacturer. Completeness matters more than volume.
+
+### A machine-readable brief
+
+I published `/llms.txt` as `text/plain`. The shape follows the public specification: an H1, a blockquote summary, then curated sections for capability pages, market pages, and a short optional list.
+
+```markdown
+# Precision tooling manufacturer
+
+> Dubai-based maker of injection moulds for medical, packaging
+> and industrial buyers in the UAE, GCC and export markets.
+
+## Capabilities
+
+- [Two-shot and bi-injection moulds](https://example.com/2k): overmoulding, core-back and rotating-core tools.
+- [High-cavitation closure moulds](https://example.com/closures): hot-runner closure and cap tools for high-volume production.
+
+## Markets
+
+- [United States buyers](https://example.com/us): validation, support and commercial terms written for US moulders.
+```
+
+A plugin can generate a first draft of this file. That is useful, and it is not finished work. Generated files often repeat the same post, include privacy policy pages a model does not need, and treat the sitemap as a substitute for curation. I treat the file as a briefing I would give a new engineer on day one, and I keep it consistent with the live pages.
+
+![Anatomy of a useful llms.txt](../assets/img/aeo/llms-txt-anatomy.png)
+
+### Entity pages, not a single brochure
+
+Each important capability got its own page: two-shot tools, high-cavitation closures, thin-wall and family moulds, unscrewing and collapsible-core tools, medical and packaging applications, maintenance, metrology and validation. Export buyers got market pages, including an English page for US moulders and a Spanish-language page for a Latin American market. Each page has a descriptive title, a meta description that states the offer, and an H1 that matches the query a buyer would actually use. Internal links run from the homepage and about page to these URLs, and between related processes, so a model that retrieves one page can reach the neighbouring entities without guessing.
+
+### Structured data
+
+On the organisation itself I used `Organization` markup with a legal name, an alternate trading name, a Dubai postal address, contact points for the regions actually served, `sameAs` links to official profiles, and a `knowsAbout` list that matches the capability pages. If there is no page for a process, it does not belong in `knowsAbout`.
+
+![Generalised Organization JSON-LD](../assets/img/aeo/schema-organization-card.png)
+
+On capability pages I added `Service` markup that names the service in the same language as the visible copy, points at the organisation as `provider`, and states the audience and markets served. A US-facing landing page carries `FAQPage` markup for the questions American buyers actually ask — lead times, validation, support, commercial terms — with answers that also appear as visible text.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "High-cavitation closure mould manufacturing",
+  "serviceType": "High-cavitation closure mould manufacturing",
+  "provider": { "@id": "https://example.com/#organization" },
+  "areaServed": { "@type": "Country", "name": "United States" },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "OEM manufacturers and product companies"
+  }
+}
+```
+
+The logo field needs a real file URL; I would rather omit it than point at a page fragment.
+
+## How AI engines pick this up
+
+Answer engines retrieve sources, then generate a sentence. They prefer pages that state a clear entity, a capability, a place, and a constraint. `llms.txt` is a hint, not a contract. Whether every major model fetches it on every query is still an open question, which is why the HTML pages and the schema have to stand on their own. The practical path is simple. A crawler is allowed in, finds a sitemap and a brief, and fetches a capability page whose title, H1, body and `Service` markup all describe the same process. If two of those layers disagree, the model has a reason to distrust both.
+
+## Results I can actually verify
+
+I can verify the technical layer. Public pages are crawlable. `/llms.txt` is served as plain text and lists the capability and market pages. The sitemap contains on the order of thirty indexable URLs, each a real page. Organisation, Service and FAQPage markup is present where it is needed, with meta descriptions and canonicals. The site is served over HTTPS through a CDN, and cached HTML in this audit came back quickly. In conventional web search, the company's own pages appear for its brand and for specialist queries such as injection-mould manufacturing in Dubai, alongside other regional toolmakers. I cannot, from this audit, query ChatGPT, Perplexity or Google AI Overviews and report a citation rank or a lead count. Those numbers need the company's screenshots and logs.
+
+## Lessons
+
+Specialist manufacturers win in AI search by being specific. A page called "two-shot bi-injection moulds", written for the engineer who will issue the RFQ, can be retrieved and cited. Curate the machine brief: a generated `llms.txt` is a start, but duplicates and policy pages waste the context window. Keep every public fact in one place of truth. And do not confuse a single Spanish landing page with a multilingual system; it is useful, but it is not a substitute for `hreflang` if you later publish full language versions.
+
+## Common questions
+
+### Does publishing llms.txt guarantee a citation in ChatGPT or Perplexity?
+
+No. It makes the site easier to interpret when a model fetches it. The HTML, the sitemap and the structured data still have to be correct, and the company still has to be a reasonable answer to the question.
+
+### Should every product variant get its own URL?
+
+Only when it is a real capability a buyer would search for, with enough distinct content to stand alone. Thin copies, with one noun swapped, dilute the entity.
+
+### Is ordinary SEO still required?
+
+Yes. Canonicals, crawl access, readable titles, internal links and a clean sitemap are the floor. AEO and GEO make the same facts usable inside a generated answer.
+
+#AEO #GEO #SEO #AISearch #LLM #StructuredData #llms.txt #ChatGPT #Perplexity #AIOverviews #Manufacturing #UAE #Dubai
+
 # Why I extended one ERP instead of buying a second system for manufacturing
 
 Source: https://khaqanshaheen.com/articles/why-i-extended-one-erp-instead-of-buying-a-second-system.html

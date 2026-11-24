@@ -7,6 +7,38 @@
   <language>en</language>
   <atom:link href="https://khaqanshaheen.com/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>The AEO and GEO pipeline I use so AI engines can cite a business accurately</title>
+    <link>https://khaqanshaheen.com/articles/the-aeo-geo-pipeline-i-use-so-ai-engines-can-cite-accurately.html</link>
+    <guid>https://khaqanshaheen.com/articles/the-aeo-geo-pipeline-i-use-so-ai-engines-can-cite-accurately.html</guid>
+    <pubDate>Tue, 24 Nov 2026 06:00:00 +0400</pubDate>
+    <description>Answer engines cite sources, they do not just rank pages. This is the five-layer pipeline I use across manufacturing and local-service sites in the UAE, and the checks I will not skip.</description>
+    <category>Article</category>
+  </item>
+  <item>
+    <title>Teaching AI engines the catalogue of a UAE plastics manufacturer</title>
+    <link>https://khaqanshaheen.com/articles/teaching-ai-engines-the-catalogue-of-a-uae-plastics-manufacturer.html</link>
+    <guid>https://khaqanshaheen.com/articles/teaching-ai-engines-the-catalogue-of-a-uae-plastics-manufacturer.html</guid>
+    <pubDate>Tue, 24 Nov 2026 06:00:00 +0400</pubDate>
+    <description>A diversified UAE plastics manufacturer already had a deep service and product tree. This is how I turned that catalogue into something answer engines can parse, and what still needs to be finished.</description>
+    <category>Article</category>
+  </item>
+  <item>
+    <title>How a Dubai home-services platform became citation-ready for AI engines</title>
+    <link>https://khaqanshaheen.com/articles/how-a-dubai-home-services-platform-became-citation-ready.html</link>
+    <guid>https://khaqanshaheen.com/articles/how-a-dubai-home-services-platform-became-citation-ready.html</guid>
+    <pubDate>Tue, 24 Nov 2026 06:00:00 +0400</pubDate>
+    <description>Booking platforms are asked for prices, coverage and same-day slots. Here is the AEO and GEO stack I used so a UAE home-services platform could be quoted accurately, without inventing rankings.</description>
+    <category>Article</category>
+  </item>
+  <item>
+    <title>How I made a mould-making company citable in AI search</title>
+    <link>https://khaqanshaheen.com/articles/how-i-made-a-mould-making-company-citable-in-ai-search.html</link>
+    <guid>https://khaqanshaheen.com/articles/how-i-made-a-mould-making-company-citable-in-ai-search.html</guid>
+    <pubDate>Tue, 24 Nov 2026 06:00:00 +0400</pubDate>
+    <description>A Dubai precision-tooling business needed buyers, and AI engines, to find the right capability page. Here is the AEO and GEO stack I put in place, and what I can actually verify.</description>
+    <category>Article</category>
+  </item>
+  <item>
     <title>Why every AI agent I run sits behind a human queue</title>
     <link>https://khaqanshaheen.com/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html</link>
     <guid>https://khaqanshaheen.com/notes/why-every-ai-agent-i-run-sits-behind-a-human-queue.html</guid>
